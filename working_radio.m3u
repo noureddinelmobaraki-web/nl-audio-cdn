@@ -1,0 +1,35 @@
+#EXTM3U
+
+#EXTINF:-1 group-title="Radio | GB" tvg-name="BBC World Service",BBC World Service
+http://stream.live.vc.bbcmedia.co.uk/bbc_world_service
+
+#EXTINF:-1 group-title="Radio | GB" tvg-name="BBC Radio 4",BBC Radio 4
+http://as-hls-ww-live.akamaized.net/pool_55057080/live/ww/bbc_radio_fourfm/bbc_radio_fourfm.isml/bbc_radio_fourfm-audio%3d128000.norewind.m3u8
+
+#EXTINF:-1 group-title="Radio | GB" tvg-name="BBC Radio 2",BBC Radio 2
+http://as-hls-ww-live.akamaized.net/pool_74208725/live/ww/bbc_radio_two/bbc_radio_two.isml/bbc_radio_two-audio%3d128000.norewind.m3u8
+
+#EXTINF:-1 group-title="Radio | GB" tvg-name="BBC Radio 1",BBC Radio 1
+http://a.files.bbci.co.uk/ms6/live/3441A116-B12E-4D2F-ACA8-C1984642FA4B/audio/simulcast/hls/nonuk/pc_hd_abr_v2/ak/bbc_radio_one.m3u8
+
+#EXTINF:-1 group-title="Radio | GB" tvg-name="LBC UK",LBC UK
+http://media-ice.musicradio.com/LBCUK
+
+#EXTINF:-1 group-title="Radio | GB" tvg-name="Classic FM UK",Classic FM UK
+http://ice-the.musicradio.com/ClassicFMMP3
+
+#EXTINF:-1 group-title="Radio | GB" tvg-name="Capital FM London",Capital FM London
+http://media-ice.musicradio.com/CapitalMP3
+
+#EXTINF:-1 group-title="Radio | GB" tvg-name="Heart 80s",Heart 80s
+https://media-ssl.musicradio.com/Heart80sMP3
+
+#EXTINF:-1 group-title="Radio | DE" tvg-name="Deutschlandfunk",Deutschlandfunk
+https://st01.sslstream.dlf.de/dlf/01/128/mp3/stream.mp3?aggregator=web
+
+#EXTINF:-1 group-title="Radio | JP" tvg-name="BOX Japan City Pop",BOX Japan City Pop
+https://play.streamafrica.net/japancitypop
+
+#EXTINF:-1 group-title="Radio | JP" tvg-name="Free FM 80 Tokyo",Free FM 80 Tokyo
+https://freefm80.radioca.st/
+
