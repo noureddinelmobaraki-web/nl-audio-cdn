@@ -1,0 +1,52 @@
+#EXTM3U
+# Reorganized radio playlist
+# Grouped by country with a Popular section at the top.
+
+# ========== 📻 Popular Radio Stations (4) ==========
+#EXTINF:-1 tvg-country="United Kingdom" tvg-name="BBC Radio 1" group-title="📻 Popular Radio Stations",BBC Radio 1
+http://a.files.bbci.co.uk/ms6/live/3441A116-B12E-4D2F-ACA8-C1984642FA4B/audio/simulcast/hls/nonuk/pc_hd_abr_v2/ak/bbc_radio_one.m3u8
+
+#EXTINF:-1 tvg-country="United Kingdom" tvg-name="BBC Radio 2" group-title="📻 Popular Radio Stations",BBC Radio 2
+http://as-hls-ww-live.akamaized.net/pool_74208725/live/ww/bbc_radio_two/bbc_radio_two.isml/bbc_radio_two-audio%3d128000.norewind.m3u8
+
+#EXTINF:-1 tvg-country="United Kingdom" tvg-name="BBC Radio 4" group-title="📻 Popular Radio Stations",BBC Radio 4
+http://as-hls-ww-live.akamaized.net/pool_55057080/live/ww/bbc_radio_fourfm/bbc_radio_fourfm.isml/bbc_radio_fourfm-audio%3d128000.norewind.m3u8
+
+#EXTINF:-1 tvg-country="United Kingdom" tvg-name="BBC World Service" group-title="📻 Popular Radio Stations",BBC World Service
+http://stream.live.vc.bbcmedia.co.uk/bbc_world_service
+
+# ========== 🇬🇧 Radio — United Kingdom (8) ==========
+#EXTINF:-1 tvg-country="United Kingdom" tvg-name="BBC Radio 1" group-title="🇬🇧 Radio — United Kingdom",BBC Radio 1
+http://a.files.bbci.co.uk/ms6/live/3441A116-B12E-4D2F-ACA8-C1984642FA4B/audio/simulcast/hls/nonuk/pc_hd_abr_v2/ak/bbc_radio_one.m3u8
+
+#EXTINF:-1 tvg-country="United Kingdom" tvg-name="BBC Radio 2" group-title="🇬🇧 Radio — United Kingdom",BBC Radio 2
+http://as-hls-ww-live.akamaized.net/pool_74208725/live/ww/bbc_radio_two/bbc_radio_two.isml/bbc_radio_two-audio%3d128000.norewind.m3u8
+
+#EXTINF:-1 tvg-country="United Kingdom" tvg-name="BBC Radio 4" group-title="🇬🇧 Radio — United Kingdom",BBC Radio 4
+http://as-hls-ww-live.akamaized.net/pool_55057080/live/ww/bbc_radio_fourfm/bbc_radio_fourfm.isml/bbc_radio_fourfm-audio%3d128000.norewind.m3u8
+
+#EXTINF:-1 tvg-country="United Kingdom" tvg-name="BBC World Service" group-title="🇬🇧 Radio — United Kingdom",BBC World Service
+http://stream.live.vc.bbcmedia.co.uk/bbc_world_service
+
+#EXTINF:-1 tvg-country="United Kingdom" tvg-name="Capital FM London" group-title="🇬🇧 Radio — United Kingdom",Capital FM London
+http://media-ice.musicradio.com/CapitalMP3
+
+#EXTINF:-1 tvg-country="United Kingdom" tvg-name="Classic FM UK" group-title="🇬🇧 Radio — United Kingdom",Classic FM UK
+http://ice-the.musicradio.com/ClassicFMMP3
+
+#EXTINF:-1 tvg-country="United Kingdom" tvg-name="Heart 80s" group-title="🇬🇧 Radio — United Kingdom",Heart 80s
+https://media-ssl.musicradio.com/Heart80sMP3
+
+#EXTINF:-1 tvg-country="United Kingdom" tvg-name="LBC UK" group-title="🇬🇧 Radio — United Kingdom",LBC UK
+http://media-ice.musicradio.com/LBCUK
+
+# ========== 🇯🇵 Radio — Japan (2) ==========
+#EXTINF:-1 tvg-country="Japan" tvg-name="BOX Japan City Pop" group-title="🇯🇵 Radio — Japan",BOX Japan City Pop
+https://play.streamafrica.net/japancitypop
+
+#EXTINF:-1 tvg-country="Japan" tvg-name="Free FM 80 Tokyo" group-title="🇯🇵 Radio — Japan",Free FM 80 Tokyo
+https://freefm80.radioca.st/
+
+# ========== 🇩🇪 Radio — Germany (1) ==========
+#EXTINF:-1 tvg-country="Germany" tvg-name="Deutschlandfunk" group-title="🇩🇪 Radio — Germany",Deutschlandfunk
+https://st01.sslstream.dlf.de/dlf/01/128/mp3/stream.mp3?aggregator=web

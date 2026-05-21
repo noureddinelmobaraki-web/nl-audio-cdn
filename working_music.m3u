@@ -1,0 +1,328 @@
+#EXTM3U
+# Reorganized music playlist
+# Grouped by genre, with bonus country-based sections for regional music.
+
+# ========== 🎵 Jazz & Blues (3) ==========
+#EXTINF:-1 tvg-name="101 Smooth Jazz" group-title="🎵 Jazz & Blues",101 Smooth Jazz
+http://jking.cdnstream1.com/b22139_128mp3
+
+#EXTINF:-1 tvg-country="Portugal" tvg-name="Classic Vinyl HD" group-title="🎵 Jazz & Blues",Classic Vinyl HD
+https://icecast.walmradio.com:8443/classic
+
+#EXTINF:-1 tvg-name="Jazz Radio Blues" group-title="🎵 Jazz & Blues",Jazz Radio Blues
+http://jazzblues.ice.infomaniak.ch/jazzblues-high.mp3
+
+# ========== 🎵 Classical (2) ==========
+#EXTINF:-1 tvg-country="India" tvg-name="Vividh Bharti (AIR India)" group-title="🎵 Classical",Vividh Bharti (AIR India)
+https://air.pc.cdn.bitgravity.com/air/live/pbaudio001/playlist.m3u8
+
+#EXTINF:-1 tvg-name="YourClassical Relax (MPR)" group-title="🎵 Classical",YourClassical Relax (MPR)
+http://relax.stream.publicradio.org/relax.mp3
+
+# ========== 🎵 Pop & Hits (11) ==========
+#EXTINF:-1 tvg-name="La Top 107.7" group-title="🎵 Pop & Hits",La Top 107.7
+https://59d39900ebfb8.streamlock.net/top107/top107/playlist.m3u8
+
+#EXTINF:-1 tvg-name="Memorias FM Pop Latino" group-title="🎵 Pop & Hits",Memorias FM Pop Latino
+https://video.xtrematv.com:3891/live/memoriaspoplatinolive.m3u8
+
+#EXTINF:-1 tvg-name="Memorias TV Classic" group-title="🎵 Pop & Hits",Memorias TV Classic
+https://video.xtrematv.com:3576/live/memoriasclassiclive.m3u8
+
+#EXTINF:-1 tvg-name="Memorias TV Tropical" group-title="🎵 Pop & Hits",Memorias TV Tropical
+https://video.xtrematv.com:3361/live/memoriastropicallive.m3u8
+
+#EXTINF:-1 tvg-country="Turkey" tvg-name="Number 1 TV" group-title="🎵 Pop & Hits",Number 1 TV
+https://b01c02nl.mediatriple.net/videoonlylive/mtkgeuihrlfwlive/broadcast_5c9e17cd59e8b.smil/playlist.m3u8
+
+#EXTINF:-1 tvg-country="Turkey" tvg-name="Power Love" group-title="🎵 Pop & Hits",Power Love
+https://livetv.powerapp.com.tr/plove/love.smil/playlist.m3u8
+
+#EXTINF:-1 tvg-name="Stingray Greatest Hits" group-title="🎵 Pop & Hits",Stingray Greatest Hits
+https://lotus.stingray.com/manifest/ose-155ads-montreal/samsungtvplus/master.m3u8
+
+#EXTINF:-1 tvg-name="Stingray Hit List" group-title="🎵 Pop & Hits",Stingray Hit List
+https://lotus.stingray.com/manifest/ose-107ads-montreal/samsungtvplus/master.m3u8
+
+#EXTINF:-1 tvg-name="Stingray Hitlist" group-title="🎵 Pop & Hits",Stingray Hitlist
+https://d39g1vxj2ef6in.cloudfront.net/v1/master/3fec3e5cac39a52b2132f9c66c83dae043dc17d4/prod-rakuten-stitched/master.m3u8?ads.xumo_channelId=88883054
+
+#EXTINF:-1 tvg-name="Stingray Pop Adult" group-title="🎵 Pop & Hits",Stingray Pop Adult
+https://lotus.stingray.com/manifest/ose-104ads-montreal/samsungtvplus/master.m3u8
+
+#EXTINF:-1 tvg-name="Stingray Today's Latin Pop" group-title="🎵 Pop & Hits",Stingray Today's Latin Pop
+https://lotus.stingray.com/manifest/ose-190ads-montreal/samsungtvplus/master.m3u8
+
+# ========== 🎵 Rock (2) ==========
+#EXTINF:-1 tvg-name="Rock TV" group-title="🎵 Rock",Rock TV
+https://tv.broadcasting.ro/rocktv/85c83a80-4f71-4f2d-a8d6-43f676896bcb.m3u8
+
+#EXTINF:-1 tvg-name="Stingray Flashback 70s" group-title="🎵 Rock",Stingray Flashback 70s
+https://lotus.stingray.com/manifest/ose-115ads-montreal/samsungtvplus/master.m3u8
+
+# ========== 🎵 Electronic & Dance (4) ==========
+#EXTINF:-1 tvg-country="Estonia" tvg-name="DanceTV Minimal Tech" group-title="🎵 Electronic & Dance",DanceTV Minimal Tech
+https://mbit1.worldcast.tv/dancetelevisionsix/multibit.m3u8
+
+#EXTINF:-1 tvg-country="Portugal" tvg-name="Euro Indie Music Chart TV" group-title="🎵 Electronic & Dance",Euro Indie Music Chart TV
+http://178.33.224.197:1935/euroindiemusic/euroindiemusic/playlist.m3u8
+
+#EXTINF:-1 tvg-country="Turkey" tvg-name="Number 1 Dance" group-title="🎵 Electronic & Dance",Number 1 Dance
+https://b01c02nl.mediatriple.net/videoonlylive/mtkgeuihrlfwlive/u_stream_5c9e2aa8acf44_1/playlist.m3u8
+
+#EXTINF:-1 tvg-country="Portugal" tvg-name="Totalmusic Dance" group-title="🎵 Electronic & Dance",Totalmusic Dance
+https://cdn.global.elektamedia.com/live/c7eds/Totalmusic_Dance/SA_LIVE_hls_enc/master.m3u8
+
+# ========== 🎵 80s/90s/70s Throwbacks (3) ==========
+#EXTINF:-1 tvg-name="Stingray Nothin' But 90s" group-title="🎵 80s/90s/70s Throwbacks",Stingray Nothin' But 90s
+https://lotus.stingray.com/manifest/ose-142ads-montreal/samsungtvplus/master.m3u8
+
+#EXTINF:-1 tvg-name="Stingray Remember the 80s" group-title="🎵 80s/90s/70s Throwbacks",Stingray Remember the 80s
+https://lotus.stingray.com/manifest/ose-128ads-montreal/samsungtvplus/master.m3u8
+
+#EXTINF:-1 tvg-name="Stingray Remember the 80s" group-title="🎵 80s/90s/70s Throwbacks",Stingray Remember the 80s
+https://d39g1vxj2ef6in.cloudfront.net/v1/master/3fec3e5cac39a52b2132f9c66c83dae043dc17d4/prod-rakuten-stitched/master.m3u8?ads.xumo_channelId=88883071
+
+# ========== 🎵 Latin (6) ==========
+#EXTINF:-1 tvg-name="La Perla Radio TV" group-title="🎵 Latin",La Perla Radio TV
+https://eu1.servers10.com:8081/8068/index.m3u8
+
+#EXTINF:-1 tvg-name="La Voz del Tropico" group-title="🎵 Latin",La Voz del Tropico
+https://ss2.tvrdomi.com:1936/lavozdeltropico/lavozdeltropico/playlist.m3u8
+
+#EXTINF:-1 tvg-name="MasMusica FM" group-title="🎵 Latin",MasMusica FM
+https://movil.ejeserver.com/live/masmusica.m3u8
+
+#EXTINF:-1 tvg-country="Ecuador" tvg-name="Metropoli Medios TV" group-title="🎵 Latin",Metropoli Medios TV
+https://eu1.servers10.com:8081/8214/index.m3u8
+
+#EXTINF:-1 tvg-country="South Africa" tvg-name="Radio Cuenca Estéreo" group-title="🎵 Latin",Radio Cuenca Estéreo
+https://eu1.servers10.com:8081/8074/index.m3u8
+
+#EXTINF:-1 tvg-name="Radio Lola" group-title="🎵 Latin",Radio Lola
+https://peer2.tdiradio.com/static/streaming-playlists/hls/7c3ea8d3-49dc-4e1b-8b1e-dc6fab71f5cf/0.m3u8
+
+# ========== 🎵 Arabic & Oriental (9) ==========
+#EXTINF:-1 tvg-country="Egypt" tvg-name="Aghani Aghani TV" group-title="🎵 Arabic & Oriental",Aghani Aghani TV
+https://cdn.streamlane.tv/hls/aghanitv/index.m3u8
+
+#EXTINF:-1 tvg-country="Egypt" tvg-name="El Radio 9090 FM" group-title="🎵 Arabic & Oriental",El Radio 9090 FM
+https://9090video.mobtada.com/hls/stream.m3u8
+
+#EXTINF:-1 tvg-country="Palestine" tvg-name="Falastini TV" group-title="🎵 Arabic & Oriental",Falastini TV
+https://rp.tactivemedia.com/palestiniantv_source/live/playlist.m3u8
+
+#EXTINF:-1 tvg-country="Tunisia" tvg-name="Jawhara TV" group-title="🎵 Arabic & Oriental",Jawhara TV
+http://streaming.toutech.net:1935/live/mp4:jawharafm.sdp/playlist.m3u8
+
+#EXTINF:-1 tvg-country="Saudi Arabia" tvg-name="Jeddah Radio" group-title="🎵 Arabic & Oriental",Jeddah Radio
+https://live.kwikmotion.com/sbrksajeddahradiolive/srpksajeddahradio/chunks.m3u8
+
+#EXTINF:-1 tvg-name="Marina TV" group-title="🎵 Arabic & Oriental",Marina TV
+https://ffs.gulfsat.com/Marina-TV-HD/index.m3u8
+
+#EXTINF:-1 tvg-country="Tunisia" tvg-name="Mosaique FM" group-title="🎵 Arabic & Oriental",Mosaique FM
+https://webcam.mosaiquefm.net/mosatv/_definst_/studio/playlist.m3u8?DVR
+
+#EXTINF:-1 tvg-country="Spain" tvg-name="Onda 15 TV" group-title="🎵 Arabic & Oriental",Onda 15 TV
+https://cloudvideo.servers10.com:8081/8034/index.m3u8
+
+#EXTINF:-1 tvg-country="Spain" tvg-name="Onda Valencia" group-title="🎵 Arabic & Oriental",Onda Valencia
+https://cloudvideo.servers10.com:8081/8116/index.m3u8
+
+# ========== 🎵 Turkish & Folk (4) ==========
+#EXTINF:-1 tvg-name="Impact TV Manele" group-title="🎵 Turkish & Folk",Impact TV Manele
+https://online.tvimpact.live/hls/impact_tv.m3u8
+
+#EXTINF:-1 tvg-country="Turkey" tvg-name="Number 1 Damar" group-title="🎵 Turkish & Folk",Number 1 Damar
+https://b01c02nl.mediatriple.net/videoonlylive/mtkgeuihrlfwlive/u_stream_5c9e198784bdc_1/playlist.m3u8
+
+#EXTINF:-1 tvg-country="Turkey" tvg-name="Power Türk Slow" group-title="🎵 Turkish & Folk",Power Türk Slow
+https://livetv.powerapp.com.tr/pturkslow/slow.smil/playlist.m3u8
+
+#EXTINF:-1 tvg-country="Turkey" tvg-name="Power Türk Taptaze" group-title="🎵 Turkish & Folk",Power Türk Taptaze
+https://livetv.powerapp.com.tr/pturktaptaze/taptaze.smil/playlist.m3u8
+
+# ========== 🎵 Asian (5) ==========
+#EXTINF:-1 tvg-country="China" tvg-name="CCTV-11" group-title="🎵 Asian",CCTV-11
+http://74.91.26.218:82/live/cctv11hd.m3u8
+
+#EXTINF:-1 tvg-country="China" tvg-name="CCTV-15" group-title="🎵 Asian",CCTV-15
+http://74.91.26.218:82/live/cctv15hd.m3u8
+
+#EXTINF:-1 tvg-country="Iran" tvg-name="GEM Mifa" group-title="🎵 Asian",GEM Mifa
+https://ca-rt.onetv.app/gemmifa/index-0.m3u8?token=onetv202
+
+#EXTINF:-1 tvg-country="Iran" tvg-name="GEM Mifa Plus" group-title="🎵 Asian",GEM Mifa Plus
+https://ca-rt.onetv.app/gemmifaplus/index-0.m3u8?token=onetv202
+
+#EXTINF:-1 tvg-country="Japan" tvg-name="Music Japan TV" group-title="🎵 Asian",Music Japan TV
+http://cdns.jp-primehome.com:8000/zhongying/live/playlist.m3u8?cid=cs06
+
+# ========== 🎵 Russian / Slavic (2) ==========
+#EXTINF:-1 tvg-name="Страна FM" group-title="🎵 Russian / Slavic",Страна FM
+http://live.stranafm.cdnvideo.ru/stranafm/stranafm_hd.sdp/playlist.m3u8
+
+#EXTINF:-1 tvg-country="Russia" tvg-name="Шансон ТВ" group-title="🎵 Russian / Slavic",Шансон ТВ
+https://uiptv.do.am/1ufc/602079679/playlist.m3u8
+
+# ========== 🎵 Easy Listening / Relax (3) ==========
+#EXTINF:-1 tvg-name="Radio Paradise Main Mix 320k AAC" group-title="🎵 Easy Listening / Relax",Radio Paradise Main Mix 320k AAC
+http://stream-uk1.radioparadise.com/aac-320
+
+#EXTINF:-1 tvg-name="Stingray Easy Listening" group-title="🎵 Easy Listening / Relax",Stingray Easy Listening
+https://lotus.stingray.com/manifest/ose-137ads-montreal/samsungtvplus/master.m3u8
+
+#EXTINF:-1 tvg-name="Traditional TV" group-title="🎵 Easy Listening / Relax",Traditional TV
+http://83.103.149.75:8085/udp/239.30.0.9:4000
+
+# ========== 🎵 Urban / Hip Hop / R&B (1) ==========
+#EXTINF:-1 tvg-name="Stingray Urban Beat" group-title="🎵 Urban / Hip Hop / R&B",Stingray Urban Beat
+https://lotus.stingray.com/manifest/ose-133ads-montreal/samsungtvplus/master.m3u8
+
+# ========== 🎵 Holiday/Seasonal (1) ==========
+#EXTINF:-1 tvg-name="Stingray Greatest Holiday Hits" group-title="🎵 Holiday/Seasonal",Stingray Greatest Holiday Hits
+https://d39g1vxj2ef6in.cloudfront.net/v1/manifest/3fec3e5cac39a52b2132f9c66c83dae043dc17d4/prod-rakuten-stitched/54947915-6504-4548-aaef-eabd451f8607/1.m3u8
+
+# ========== 🎵 Other Music (13) ==========
+#EXTINF:-1 tvg-name="7 YOU & ME" group-title="🎵 Other Music",7 YOU & ME
+https://stream10.xdevel.com/video0s977798-2239/stream/playlist.m3u8
+
+#EXTINF:-1 tvg-name="Atomic TV" group-title="🎵 Other Music",Atomic TV
+https://atomic.streamnet.ro/atomictv.m3u8
+
+#EXTINF:-1 tvg-name="DSTV" group-title="🎵 Other Music",DSTV
+http://46.249.95.140:8081/hls/data.m3u8
+
+#EXTINF:-1 tvg-country="Iran" tvg-name="Farra Play" group-title="🎵 Other Music",Farra Play
+http://159.203.148.226/live/farra.m3u8
+
+#EXTINF:-1 tvg-name="Infinita TV" group-title="🎵 Other Music",Infinita TV
+https://s2.tvdatta.com:3753/hybrid/play.m3u8
+
+#EXTINF:-1 tvg-name="Isango TV" group-title="🎵 Other Music",Isango TV
+http://80.241.215.175:1935/isangostar/isangostar/playlist.m3u8
+
+#EXTINF:-1 tvg-name="Kuriakos Music" group-title="🎵 Other Music",Kuriakos Music
+http://195.23.211.179:1935/kmusic/smil:kmusic.smil/playlist.m3u8
+
+#EXTINF:-1 tvg-country="Lithuania" tvg-name="LRT Opus" group-title="🎵 Other Music",LRT Opus
+https://stream-live.lrt.lt/opus/master.m3u8
+
+#EXTINF:-1 tvg-name="Magic TV" group-title="🎵 Other Music",Magic TV
+https://tv.broadcasting.ro/magictv/925f90db-5c88-4190-a53d-5163cdffe6f4.m3u8
+
+#EXTINF:-1 tvg-name="Med Muzik" group-title="🎵 Other Music",Med Muzik
+http://54.36.110.140/live3/live3.m3u8
+
+#EXTINF:-1 tvg-name="Nuta TV" group-title="🎵 Other Music",Nuta TV
+http://78.130.250.2:8023/play/a03r/index.m3u8
+
+#EXTINF:-1 tvg-name="RTI La 3" group-title="🎵 Other Music",RTI La 3
+http://69.64.57.208/la3/index.m3u8
+
+#EXTINF:-1 tvg-name="Radio Karolina TV" group-title="🎵 Other Music",Radio Karolina TV
+https://peer2.tdiradio.com/static/streaming-playlists/hls/4207de1d-52e8-4591-ad9e-218069b864d1/0.m3u8
+
+# ========== 🇹🇷 Music — Turkey (6) ==========
+#EXTINF:-1 tvg-country="Turkey" tvg-name="Number 1 Damar" group-title="🇹🇷 Music — Turkey",Number 1 Damar
+https://b01c02nl.mediatriple.net/videoonlylive/mtkgeuihrlfwlive/u_stream_5c9e198784bdc_1/playlist.m3u8
+
+#EXTINF:-1 tvg-country="Turkey" tvg-name="Number 1 Dance" group-title="🇹🇷 Music — Turkey",Number 1 Dance
+https://b01c02nl.mediatriple.net/videoonlylive/mtkgeuihrlfwlive/u_stream_5c9e2aa8acf44_1/playlist.m3u8
+
+#EXTINF:-1 tvg-country="Turkey" tvg-name="Number 1 TV" group-title="🇹🇷 Music — Turkey",Number 1 TV
+https://b01c02nl.mediatriple.net/videoonlylive/mtkgeuihrlfwlive/broadcast_5c9e17cd59e8b.smil/playlist.m3u8
+
+#EXTINF:-1 tvg-country="Turkey" tvg-name="Power Love" group-title="🇹🇷 Music — Turkey",Power Love
+https://livetv.powerapp.com.tr/plove/love.smil/playlist.m3u8
+
+#EXTINF:-1 tvg-country="Turkey" tvg-name="Power Türk Slow" group-title="🇹🇷 Music — Turkey",Power Türk Slow
+https://livetv.powerapp.com.tr/pturkslow/slow.smil/playlist.m3u8
+
+#EXTINF:-1 tvg-country="Turkey" tvg-name="Power Türk Taptaze" group-title="🇹🇷 Music — Turkey",Power Türk Taptaze
+https://livetv.powerapp.com.tr/pturktaptaze/taptaze.smil/playlist.m3u8
+
+# ========== 🇮🇷 Music — Iran (3) ==========
+#EXTINF:-1 tvg-country="Iran" tvg-name="Farra Play" group-title="🇮🇷 Music — Iran",Farra Play
+http://159.203.148.226/live/farra.m3u8
+
+#EXTINF:-1 tvg-country="Iran" tvg-name="GEM Mifa" group-title="🇮🇷 Music — Iran",GEM Mifa
+https://ca-rt.onetv.app/gemmifa/index-0.m3u8?token=onetv202
+
+#EXTINF:-1 tvg-country="Iran" tvg-name="GEM Mifa Plus" group-title="🇮🇷 Music — Iran",GEM Mifa Plus
+https://ca-rt.onetv.app/gemmifaplus/index-0.m3u8?token=onetv202
+
+# ========== 🇵🇹 Music — Portugal (3) ==========
+#EXTINF:-1 tvg-country="Portugal" tvg-name="Classic Vinyl HD" group-title="🇵🇹 Music — Portugal",Classic Vinyl HD
+https://icecast.walmradio.com:8443/classic
+
+#EXTINF:-1 tvg-country="Portugal" tvg-name="Euro Indie Music Chart TV" group-title="🇵🇹 Music — Portugal",Euro Indie Music Chart TV
+http://178.33.224.197:1935/euroindiemusic/euroindiemusic/playlist.m3u8
+
+#EXTINF:-1 tvg-country="Portugal" tvg-name="Totalmusic Dance" group-title="🇵🇹 Music — Portugal",Totalmusic Dance
+https://cdn.global.elektamedia.com/live/c7eds/Totalmusic_Dance/SA_LIVE_hls_enc/master.m3u8
+
+# ========== 🇨🇳 Music — China (2) ==========
+#EXTINF:-1 tvg-country="China" tvg-name="CCTV-11" group-title="🇨🇳 Music — China",CCTV-11
+http://74.91.26.218:82/live/cctv11hd.m3u8
+
+#EXTINF:-1 tvg-country="China" tvg-name="CCTV-15" group-title="🇨🇳 Music — China",CCTV-15
+http://74.91.26.218:82/live/cctv15hd.m3u8
+
+# ========== 🇪🇬 Music — Egypt (2) ==========
+#EXTINF:-1 tvg-country="Egypt" tvg-name="Aghani Aghani TV" group-title="🇪🇬 Music — Egypt",Aghani Aghani TV
+https://cdn.streamlane.tv/hls/aghanitv/index.m3u8
+
+#EXTINF:-1 tvg-country="Egypt" tvg-name="El Radio 9090 FM" group-title="🇪🇬 Music — Egypt",El Radio 9090 FM
+https://9090video.mobtada.com/hls/stream.m3u8
+
+# ========== 🇪🇸 Music — Spain (2) ==========
+#EXTINF:-1 tvg-country="Spain" tvg-name="Onda 15 TV" group-title="🇪🇸 Music — Spain",Onda 15 TV
+https://cloudvideo.servers10.com:8081/8034/index.m3u8
+
+#EXTINF:-1 tvg-country="Spain" tvg-name="Onda Valencia" group-title="🇪🇸 Music — Spain",Onda Valencia
+https://cloudvideo.servers10.com:8081/8116/index.m3u8
+
+# ========== 🇹🇳 Music — Tunisia (2) ==========
+#EXTINF:-1 tvg-country="Tunisia" tvg-name="Jawhara TV" group-title="🇹🇳 Music — Tunisia",Jawhara TV
+http://streaming.toutech.net:1935/live/mp4:jawharafm.sdp/playlist.m3u8
+
+#EXTINF:-1 tvg-country="Tunisia" tvg-name="Mosaique FM" group-title="🇹🇳 Music — Tunisia",Mosaique FM
+https://webcam.mosaiquefm.net/mosatv/_definst_/studio/playlist.m3u8?DVR
+
+# ========== 🇪🇨 Music — Ecuador (1) ==========
+#EXTINF:-1 tvg-country="Ecuador" tvg-name="Metropoli Medios TV" group-title="🇪🇨 Music — Ecuador",Metropoli Medios TV
+https://eu1.servers10.com:8081/8214/index.m3u8
+
+# ========== 🇪🇪 Music — Estonia (1) ==========
+#EXTINF:-1 tvg-country="Estonia" tvg-name="DanceTV Minimal Tech" group-title="🇪🇪 Music — Estonia",DanceTV Minimal Tech
+https://mbit1.worldcast.tv/dancetelevisionsix/multibit.m3u8
+
+# ========== 🇮🇳 Music — India (1) ==========
+#EXTINF:-1 tvg-country="India" tvg-name="Vividh Bharti (AIR India)" group-title="🇮🇳 Music — India",Vividh Bharti (AIR India)
+https://air.pc.cdn.bitgravity.com/air/live/pbaudio001/playlist.m3u8
+
+# ========== 🇯🇵 Music — Japan (1) ==========
+#EXTINF:-1 tvg-country="Japan" tvg-name="Music Japan TV" group-title="🇯🇵 Music — Japan",Music Japan TV
+http://cdns.jp-primehome.com:8000/zhongying/live/playlist.m3u8?cid=cs06
+
+# ========== 🇱🇹 Music — Lithuania (1) ==========
+#EXTINF:-1 tvg-country="Lithuania" tvg-name="LRT Opus" group-title="🇱🇹 Music — Lithuania",LRT Opus
+https://stream-live.lrt.lt/opus/master.m3u8
+
+# ========== 🇵🇸 Music — Palestine (1) ==========
+#EXTINF:-1 tvg-country="Palestine" tvg-name="Falastini TV" group-title="🇵🇸 Music — Palestine",Falastini TV
+https://rp.tactivemedia.com/palestiniantv_source/live/playlist.m3u8
+
+# ========== 🇷🇺 Music — Russia (1) ==========
+#EXTINF:-1 tvg-country="Russia" tvg-name="Шансон ТВ" group-title="🇷🇺 Music — Russia",Шансон ТВ
+https://uiptv.do.am/1ufc/602079679/playlist.m3u8
+
+# ========== 🇸🇦 Music — Saudi Arabia (1) ==========
+#EXTINF:-1 tvg-country="Saudi Arabia" tvg-name="Jeddah Radio" group-title="🇸🇦 Music — Saudi Arabia",Jeddah Radio
+https://live.kwikmotion.com/sbrksajeddahradiolive/srpksajeddahradio/chunks.m3u8
+
+# ========== 🇿🇦 Music — South Africa (1) ==========
+#EXTINF:-1 tvg-country="South Africa" tvg-name="Radio Cuenca Estéreo" group-title="🇿🇦 Music — South Africa",Radio Cuenca Estéreo
+https://eu1.servers10.com:8081/8074/index.m3u8
