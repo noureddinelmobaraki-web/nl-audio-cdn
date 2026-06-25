@@ -38,6 +38,7 @@ import { initFlashPlayer } from "./flashPlayer.js";
 import { initStickFigures, spawnStickFigure, clearStickFigures } from "./stickFigures.js";
 import { toggleHorrorMode } from "./horror.js";
 import { initWannaCry } from "./wannacry.js";
+import { loadNlContent } from "./nlContent.js";
 
 // Make all the necessary functions and objects available globally
 window.fileSystem = fileSystem;
@@ -126,6 +127,9 @@ document.addEventListener('DOMContentLoaded', async () => {
   startupSound.play().catch(err => {
     console.warn('Could not play startup sound:', err);
   });
+
+  // Pull real NL website content (games, etc.) into the virtual filesystem.
+  try { await loadNlContent(fileSystem); } catch (e) { console.warn('[NL] content load failed:', e); }
 
   updateDesktopIcons();
 
