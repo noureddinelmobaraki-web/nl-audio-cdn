@@ -34,6 +34,7 @@ export const fileSystem = {
           'VirtualBox': { type: "shortcut", target: "C:/Apps/VirtualBox" },
           'Stick Figures': { type: "shortcut", target: "C:/Apps/Stick Figures" },
           'NL TV': { type: "shortcut", target: "C:/Apps/NL TV" },
+          'Movies': { type: "shortcut", target: "C:/Apps/Movies" },
           'DANGER!!!': {
             type: "folder",
             children: {
@@ -100,7 +101,8 @@ export const fileSystem = {
           'BSOD Creator': { type: "app", program: "BSOD Creator" },
           'Flash Player': { type: "app", program: "Flash Player" },
           'Stick Figures': { type: "app", program: "Stick Figures" },
-          'NL TV': { type: "app", program: "NL TV" }
+          'NL TV': { type: "app", program: "NL TV" },
+          'Movies': { type: "app", program: "Movies" }
         }
       },
       'Program Files': {

@@ -13,4 +13,7 @@ import "./flashPlayer.js";
 import "./stickFigures.js";
 import "./memz.js";
 import "./wannacry.js";
+import "./nlConfig.js";
 import "./nlTv.js";
+import "./nlPlayer.js";
+import "./movies.js";

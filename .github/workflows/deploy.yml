@@ -1,0 +1,67 @@
+# GitHub Actions workflow for the nl-audio-cdn repository.
+# Purpose: inject the TMDB / OMDB API keys (stored as repo secrets) into
+# xp/js/nlConfig.js at DEPLOY time, then publish the whole repo to GitHub Pages.
+#
+# SETUP (one time):
+# 1. Put this file at: .github/workflows/deploy.yml  (inside nl-audio-cdn)
+# 2. In the nl-audio-cdn repo: Settings > Secrets and variables > Actions > New repository secret
+#      Name: TMDB_API_KEY   Value: <your TMDB key>
+#      Name: OMDB_API_KEY   Value: <your OMDB key>   (optional, for IMDb ratings)
+# 3. In the nl-audio-cdn repo: Settings > Pages > Build and deployment >
+#      Source: "GitHub Actions"
+# After that, every push to main injects the keys and redeploys automatically.
+
+name: Deploy nl-audio-cdn (inject keys)
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: $ steps.deployment.outputs.page_url 
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Inject API keys into xp/js/nlConfig.js
+        env:
+          TMDB_API_KEY: $ secrets.TMDB_API_KEY 
+          OMDB_API_KEY: $ secrets.OMDB_API_KEY 
+        run: |
+          python3 - <<'PY'
+          import os
+          path = "xp/js/nlConfig.js"
+          with open(path, "r", encoding="utf-8") as f:
+              s = f.read()
+          s = s.replace("__NL_TMDB_KEY__", os.environ.get("TMDB_API_KEY", ""))
+          s = s.replace("__NL_OMDB_KEY__", os.environ.get("OMDB_API_KEY", ""))
+          with open(path, "w", encoding="utf-8") as f:
+              f.write(s)
+          print("Keys injected (values hidden).")
+          PY
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+
+      - name: Upload artifact (whole repo)
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: "."
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
