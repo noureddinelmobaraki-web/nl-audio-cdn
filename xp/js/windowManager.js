@@ -326,6 +326,24 @@ export function createWindow(title, customCode) {
       win.style.width = '850px'; // Made wider to match screenshot layout
       win.style.height = '600px';
       break;
+    case 'NL TV':
+      bodyHTML = `<div class="window-body" style="overflow: hidden; padding: 0;">`;
+      content = customCode ? customCode : `<div class="window-content" style="flex:1; overflow:hidden; padding:0;"></div>`;
+      win.style.width = '860px';
+      win.style.height = '600px';
+      break;
+    case 'Movies':
+      bodyHTML = `<div class="window-body" style="overflow: hidden; padding: 0;">`;
+      content = customCode ? customCode : `<div class="window-content" style="flex:1; overflow:hidden; padding:0;"></div>`;
+      win.style.width = '960px';
+      win.style.height = '640px';
+      break;
+    case 'NL PLAYER':
+      bodyHTML = `<div class="window-body" style="overflow: hidden; padding: 0;">`;
+      content = customCode ? customCode : `<div class="window-content" style="flex:1; overflow:hidden; padding:0;"></div>`;
+      win.style.width = '900px';
+      win.style.height = '620px';
+      break;
     default:
       bodyHTML = `<div class="window-content">`;
       content = customCode ? customCode : `<p>This is the ${title} window.</p>`;
@@ -643,8 +661,6 @@ export function createWindow(title, customCode) {
   setTimeout(() => {
     if (title === 'Internet Explorer') window.initInternetExplorer(win, window.showNotification);
     if (title === 'Snake') window.initSnake(win, window.showNotification);
-    if (title === 'Solitaire') window.initSolitaire(win, window.showNotification);
-    if (title === '3D Pipes') window.initPipes(win, window.showNotification);
     if (title === 'Minesweeper') window.initMinesweeper(win, window.showNotification);
     if (title === 'Notepad') window.initNotepad(win, window.showNotification); 
     if (title === 'Paint') window.initPaint(win, window.showNotification); 
@@ -664,6 +680,9 @@ export function createWindow(title, customCode) {
     if (title.startsWith('Antivirus 2003')) window.initAntivirus(win, window.showNotification);
     if (title === 'Flash Player') window.initFlashPlayer(win, window.showNotification, win.dataset.filePath);
     if (title === 'Stick Figures') window.initStickFigures(win, window.showNotification);
+    if (title === 'NL TV') window.initNlTv(win, window.showNotification);
+    if (title === 'Movies') window.initMovies(win, window.showNotification);
+    if (title === 'NL PLAYER') window.initNlPlayer(win, window.showNotification);
     if (originalTitle === '@WanaDecryptor@') window.initWannaCry(win);
   }, 0);
 

@@ -28,12 +28,13 @@ export const fileSystem = {
           'Progressbar': { type: "shortcut", target: "C:/Games/Progressbar" },
           'Pinball': { type: "shortcut", target: "C:/Games/Pinball" },
           'Solitaire': { type: "shortcut", target: "C:/Games/Solitaire" },
-          '3D Pipes': { type: "shortcut", target: "C:/Games/3D Pipes" },
           'AOL Instant Messenger': { type: "shortcut", target: "C:/Apps/AOL Instant Messenger" },
           'Command Prompt': { type: "shortcut", target: "C:/Apps/Command Prompt" },
           'BonziBuddy': { type: "shortcut", target: "C:/Apps/BonziBuddy" },
           'VirtualBox': { type: "shortcut", target: "C:/Apps/VirtualBox" },
           'Stick Figures': { type: "shortcut", target: "C:/Apps/Stick Figures" },
+          'NL TV': { type: "shortcut", target: "C:/Apps/NL TV" },
+          'Movies': { type: "shortcut", target: "C:/Apps/Movies" },
           'DANGER!!!': {
             type: "folder",
             children: {
@@ -62,20 +63,19 @@ export const fileSystem = {
           'Progressbar': { type: "app", program: "Progressbar" },
           'Pinball': { type: "app", program: "Pinball" },
           'Solitaire': { type: "app", program: "Solitaire" },
-          '3D Pipes': { type: "app", program: "3D Pipes" },
           'Flash Games': {
             type: "folder",
             children: {
-              'mario-starcatcher-2.swf': { type: "file", content: "/flash_mario-starcatcher-2.swf" },
-              'Use-Boxmen.swf': { type: "file", content: "/flash_Use-Boxmen.swf" },
-              'this-is-the-only-level.swf': { type: "file", content: "/flash_this-is-the-only-level.swf" },
-              'ball-revamped.swf': { type: "file", content: "/flash_ball-revamped.swf" },
-              'happy-wheels.swf': { type: "file", content: "/flash_happy-wheels.swf" },
-              'worlds-hardest-game.swf': { type: "file", content: "/flash_worlds-hardest-game.swf" },
-              'mario-flash.swf': { type: "file", content: "/flash_mario-flash.swf" },
-              'papasburgeria.swf': { type: "file", content: "/papasburgeria.swf" },
-              'raft-wars-2.swf': { type: "file", content: "/raft-wars-2.swf" },
-              'bloonstd3.swf': { type: "file", content: "/bloonstd3.swf" }
+              'mario-starcatcher-2.swf': { type: "file", content: "flash_mario-starcatcher-2.swf" },
+              'Use-Boxmen.swf': { type: "file", content: "flash_Use-Boxmen.swf" },
+              'this-is-the-only-level.swf': { type: "file", content: "flash_this-is-the-only-level.swf" },
+              'ball-revamped.swf': { type: "file", content: "flash_ball-revamped.swf" },
+              'happy-wheels.swf': { type: "file", content: "flash_happy-wheels.swf" },
+              'worlds-hardest-game.swf': { type: "file", content: "flash_worlds-hardest-game.swf" },
+              'mario-flash.swf': { type: "file", content: "flash_mario-flash.swf" },
+              'papasburgeria.swf': { type: "file", content: "papasburgeria.swf" },
+              'raft-wars-2.swf': { type: "file", content: "raft-wars-2.swf" },
+              'bloonstd3.swf': { type: "file", content: "bloonstd3.swf" }
             }
           }
         }
@@ -100,7 +100,9 @@ export const fileSystem = {
           'Task Manager': { type: "app", program: "Task Manager" },
           'BSOD Creator': { type: "app", program: "BSOD Creator" },
           'Flash Player': { type: "app", program: "Flash Player" },
-          'Stick Figures': { type: "app", program: "Stick Figures" }
+          'Stick Figures': { type: "app", program: "Stick Figures" },
+          'NL TV': { type: "app", program: "NL TV" },
+          'Movies': { type: "app", program: "Movies" }
         }
       },
       'Program Files': {
@@ -124,10 +126,10 @@ export const fileSystem = {
               'Pictures': {
                 type: "folder",
                 children: {
-                  'Sunset.jpg': { type: 'file', content: '/image_Sunset.jpg' },
-                  'Winter.jpg': { type: 'file', content: '/image_Winter.jpg' },
-                  'Blue hills.jpg': { type: 'file', content: '/image_Blue hills.jpg' },
-                  'Water lilies.jpg': { type: 'file', content: '/image_Water lilies.jpg' }
+                  'Sunset.jpg': { type: 'file', content: 'image_Sunset.jpg' },
+                  'Winter.jpg': { type: 'file', content: 'image_Winter.jpg' },
+                  'Blue hills.jpg': { type: 'file', content: 'image_Blue hills.jpg' },
+                  'Water lilies.jpg': { type: 'file', content: 'image_Water lilies.jpg' }
                 }
               },
               'Music': { 

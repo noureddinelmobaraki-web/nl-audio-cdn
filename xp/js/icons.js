@@ -20,7 +20,6 @@ const iconMapping = {
   "roblox": "Roblox_icon_2006.svg",
   "mario": "LUMMM_icon_512px.png",
   "solitaire": "Solitaire.png",
-  "3d pipes": "Default.png",
   "aol instant messenger": "aim.webp",
   "folder": "folder.png",
   "error takeover": "error.png",
@@ -35,6 +34,9 @@ const iconMapping = {
   "antivirus 2003": "antivirus_icon.png",
   "flash player": "Flash_icon.png",
   "stick figures": "icon_stickfigure.webp",
+  "movies": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCIgdmlld0JveD0iMCAwIDY0IDY0Ij48cmVjdCB4PSI2IiB5PSIxMiIgd2lkdGg9IjUyIiBoZWlnaHQ9IjQwIiByeD0iNCIgZmlsbD0iIzFiMWIxYiIgc3Ryb2tlPSIjMDAwIiBzdHJva2Utd2lkdGg9IjEuNSIvPjxyZWN0IHg9IjYiIHk9IjEyIiB3aWR0aD0iNiIgaGVpZ2h0PSI0MCIgZmlsbD0iIzExMSIvPjxyZWN0IHg9IjUyIiB5PSIxMiIgd2lkdGg9IjYiIGhlaWdodD0iNDAiIGZpbGw9IiMxMTEiLz48ZyBmaWxsPSIjZjVjNTE4Ij48cmVjdCB4PSI3LjUiIHk9IjE1IiB3aWR0aD0iMyIgaGVpZ2h0PSI0IiByeD0iMSIvPjxyZWN0IHg9IjcuNSIgeT0iMjMiIHdpZHRoPSIzIiBoZWlnaHQ9IjQiIHJ4PSIxIi8+PHJlY3QgeD0iNy41IiB5PSIzMSIgd2lkdGg9IjMiIGhlaWdodD0iNCIgcng9IjEiLz48cmVjdCB4PSI3LjUiIHk9IjM5IiB3aWR0aD0iMyIgaGVpZ2h0PSI0IiByeD0iMSIvPjxyZWN0IHg9IjcuNSIgeT0iNDUiIHdpZHRoPSIzIiBoZWlnaHQ9IjQiIHJ4PSIxIi8+PHJlY3QgeD0iNTMuNSIgeT0iMTUiIHdpZHRoPSIzIiBoZWlnaHQ9IjQiIHJ4PSIxIi8+PHJlY3QgeD0iNTMuNSIgeT0iMjMiIHdpZHRoPSIzIiBoZWlnaHQ9IjQiIHJ4PSIxIi8+PHJlY3QgeD0iNTMuNSIgeT0iMzEiIHdpZHRoPSIzIiBoZWlnaHQ9IjQiIHJ4PSIxIi8+PHJlY3QgeD0iNTMuNSIgeT0iMzkiIHdpZHRoPSIzIiBoZWlnaHQ9IjQiIHJ4PSIxIi8+PHJlY3QgeD0iNTMuNSIgeT0iNDUiIHdpZHRoPSIzIiBoZWlnaHQ9IjQiIHJ4PSIxIi8+PC9nPjxyZWN0IHg9IjE1IiB5PSIxNiIgd2lkdGg9IjM0IiBoZWlnaHQ9IjMyIiBmaWxsPSIjMGQwZDBkIi8+PGNpcmNsZSBjeD0iMzIiIGN5PSIzMiIgcj0iMTEiIGZpbGw9IiNlNTA5MTQiLz48cGF0aCBkPSJNMjkgMjYgTDQwIDMyIEwyOSAzOCBaIiBmaWxsPSIjZmZmIi8+PC9zdmc+",
+  "nl player": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCIgdmlld0JveD0iMCAwIDY0IDY0Ij48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9ImIiIHgxPSIwIiB5MT0iMCIgeDI9IjAiIHkyPSIxIj48c3RvcCBvZmZzZXQ9IjAiIHN0b3AtY29sb3I9IiMzYThlZTYiLz48c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiMxYzVmYjAiLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48cmVjdCB4PSI1IiB5PSI5IiB3aWR0aD0iNTQiIGhlaWdodD0iNDYiIHJ4PSI2IiBmaWxsPSJ1cmwoI2IpIiBzdHJva2U9IiMwZTNkNzgiIHN0cm9rZS13aWR0aD0iMS41Ii8+PHJlY3QgeD0iOSIgeT0iMTkiIHdpZHRoPSI0NiIgaGVpZ2h0PSIyOCIgcng9IjIiIGZpbGw9IiMwYTBhMGEiLz48Y2lyY2xlIGN4PSIzMiIgY3k9IjMzIiByPSIxMCIgZmlsbD0iI2U1MDkxNCIvPjxwYXRoIGQ9Ik0yOSAyOCBMMzggMzMgTDI5IDM4IFoiIGZpbGw9IiNmZmYiLz48Y2lyY2xlIGN4PSIxMS41IiBjeT0iMTMuNSIgcj0iMS42IiBmaWxsPSIjZmY1ZjU2Ii8+PGNpcmNsZSBjeD0iMTciIGN5PSIxMy41IiByPSIxLjYiIGZpbGw9IiNmZmJkMmUiLz48Y2lyY2xlIGN4PSIyMi41IiBjeT0iMTMuNSIgcj0iMS42IiBmaWxsPSIjMjdjOTNmIi8+PHJlY3QgeD0iMzAiIHk9IjExIiB3aWR0aD0iMjQiIGhlaWdodD0iNSIgcng9IjIuNSIgZmlsbD0iI2ZmZmZmZiIgb3BhY2l0eT0iMC44NSIvPjwvc3ZnPg==",
+  "nl tv": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCIgdmlld0JveD0iMCAwIDY0IDY0Ij48bGluZSB4MT0iMjQiIHkxPSIxOCIgeDI9IjE1IiB5Mj0iNyIgc3Ryb2tlPSIjNDQ0IiBzdHJva2Utd2lkdGg9IjIuNSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+PGxpbmUgeDE9IjQwIiB5MT0iMTgiIHgyPSI0OSIgeTI9IjciIHN0cm9rZT0iIzQ0NCIgc3Ryb2tlLXdpZHRoPSIyLjUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPjxyZWN0IHg9IjUiIHk9IjE3IiB3aWR0aD0iNTQiIGhlaWdodD0iMzgiIHJ4PSI1IiBmaWxsPSIjM2EzYTNhIiBzdHJva2U9IiMxYTFhMWEiIHN0cm9rZS13aWR0aD0iMiIvPjxyZWN0IHg9IjkiIHk9IjIxIiB3aWR0aD0iMzgiIGhlaWdodD0iMzAiIHJ4PSIyIiBmaWxsPSIjNWRiNGYwIi8+PHJlY3QgeD0iOSIgeT0iMjEiIHdpZHRoPSIzOCIgaGVpZ2h0PSIzMCIgcng9IjIiIGZpbGw9InVybCgjZykiLz48Y2lyY2xlIGN4PSI1MyIgY3k9IjI3IiByPSIyLjQiIGZpbGw9IiM3Q0ZDMDAiLz48Y2lyY2xlIGN4PSI1MyIgY3k9IjM1IiByPSIyLjQiIGZpbGw9IiNjY2MiLz48cmVjdCB4PSI1MC41IiB5PSI0MiIgd2lkdGg9IjUiIGhlaWdodD0iNyIgcng9IjEiIGZpbGw9IiNjY2MiLz48cmVjdCB4PSIxNyIgeT0iNTUiIHdpZHRoPSI3IiBoZWlnaHQ9IjUiIGZpbGw9IiMyYTJhMmEiLz48cmVjdCB4PSI0MCIgeT0iNTUiIHdpZHRoPSI3IiBoZWlnaHQ9IjUiIGZpbGw9IiMyYTJhMmEiLz48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9ImciIHgxPSIwIiB5MT0iMCIgeDI9IjAiIHkyPSIxIj48c3RvcCBvZmZzZXQ9IjAiIHN0b3AtY29sb3I9IiNmZmZmZmYiIHN0b3Atb3BhY2l0eT0iMC4zNSIvPjxzdG9wIG9mZnNldD0iMC41IiBzdG9wLWNvbG9yPSIjZmZmZmZmIiBzdG9wLW9wYWNpdHk9IjAiLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48L3N2Zz4K",
   "memz": "exe-icon.png", // NEW: MEMZ icon mapping
   "wannacrypt0r": "exe-icon.png",
   "@wanadecryptor@": "wannacry_icon.png",
@@ -104,6 +106,11 @@ export function getIcon(pathOrName, depth = 0) {
     const name = pathOrName.split(/[\\/]/).pop();
 
     if (item) {
+      // Per-file custom icon (e.g. NL songs use a music-note gif; NL pictures
+      // use a thumbnail of the image itself). Takes priority over extension.
+      if (typeof item.icon === 'string' && item.icon) {
+        return item.icon;
+      }
       if (item.type === 'shortcut' && item.target) {
         // For shortcuts, get the icon of the target
         return getIcon(item.target, depth + 1);
