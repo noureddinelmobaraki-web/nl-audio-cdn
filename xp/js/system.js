@@ -33,6 +33,7 @@ export const fileSystem = {
           'BonziBuddy': { type: "shortcut", target: "C:/Apps/BonziBuddy" },
           'VirtualBox': { type: "shortcut", target: "C:/Apps/VirtualBox" },
           'Stick Figures': { type: "shortcut", target: "C:/Apps/Stick Figures" },
+          'NL TV': { type: "shortcut", target: "C:/Apps/NL TV" },
           'DANGER!!!': {
             type: "folder",
             children: {
@@ -98,7 +99,8 @@ export const fileSystem = {
           'Task Manager': { type: "app", program: "Task Manager" },
           'BSOD Creator': { type: "app", program: "BSOD Creator" },
           'Flash Player': { type: "app", program: "Flash Player" },
-          'Stick Figures': { type: "app", program: "Stick Figures" }
+          'Stick Figures': { type: "app", program: "Stick Figures" },
+          'NL TV': { type: "app", program: "NL TV" }
         }
       },
       'Program Files': {

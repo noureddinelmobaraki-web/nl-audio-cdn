@@ -326,6 +326,12 @@ export function createWindow(title, customCode) {
       win.style.width = '850px'; // Made wider to match screenshot layout
       win.style.height = '600px';
       break;
+    case 'NL TV':
+      bodyHTML = `<div class="window-body" style="overflow: hidden; padding: 0;">`;
+      content = customCode ? customCode : `<div class="window-content" style="flex:1; overflow:hidden; padding:0;"></div>`;
+      win.style.width = '860px';
+      win.style.height = '600px';
+      break;
     default:
       bodyHTML = `<div class="window-content">`;
       content = customCode ? customCode : `<p>This is the ${title} window.</p>`;
@@ -662,6 +668,7 @@ export function createWindow(title, customCode) {
     if (title.startsWith('Antivirus 2003')) window.initAntivirus(win, window.showNotification);
     if (title === 'Flash Player') window.initFlashPlayer(win, window.showNotification, win.dataset.filePath);
     if (title === 'Stick Figures') window.initStickFigures(win, window.showNotification);
+    if (title === 'NL TV') window.initNlTv(win, window.showNotification);
     if (originalTitle === '@WanaDecryptor@') window.initWannaCry(win);
   }, 0);
 
