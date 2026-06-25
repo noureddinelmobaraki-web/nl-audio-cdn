@@ -103,6 +103,11 @@ export function getIcon(pathOrName, depth = 0) {
     const name = pathOrName.split(/[\\/]/).pop();
 
     if (item) {
+      // Per-file custom icon (e.g. NL songs use a music-note gif; NL pictures
+      // use a thumbnail of the image itself). Takes priority over extension.
+      if (typeof item.icon === 'string' && item.icon) {
+        return item.icon;
+      }
       if (item.type === 'shortcut' && item.target) {
         // For shortcuts, get the icon of the target
         return getIcon(item.target, depth + 1);

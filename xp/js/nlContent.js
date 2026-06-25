@@ -22,6 +22,9 @@ const GAMES_BASE = `${CDN_BASE}/games`;
 const ME_BITS = Array.from({ length: 9 }, (_, i) => `${CDN_BASE}/me_bit_${i + 1}.webp`);
 const LENS = Array.from({ length: 9 }, (_, i) => `${CDN_BASE}/${i + 1}.webp`);
 
+// Music-note icon shipped in your own CDN repo (used as the icon for every song).
+const SONG_ICON = `${CDN_BASE}/cameronsworld/img/content/19/54.gif`;
+
 // Build a SWF url exactly like the main site does (GamesPage.tsx buildUrl).
 function buildGameUrl(dir, file) {
   return `${GAMES_BASE}/${encodeURIComponent(dir)}/${encodeURIComponent(file)}`;
@@ -102,8 +105,10 @@ async function loadNlSongs(fileSystem) {
       const url = /^https?:\/\//i.test(s.url)
         ? s.url
         : `${CDN_BASE}/${String(s.url).replace(/^\/+/, '')}`;
-      const key = `${safeFileName(s.title)}.m3u8`;
-      myMusic[key] = { type: 'file', content: url };
+      // Display name uses the familiar .mp3 extension; the real content stays an
+      // HLS .m3u8 URL (hls.js plays it). The music-note gif is the file icon.
+      const key = `${safeFileName(s.title)}.mp3`;
+      myMusic[key] = { type: 'file', content: url, icon: SONG_ICON };
       added++;
     });
     console.log(`[NL] Injected ${added} songs into Desktop/My Music folder.`);
@@ -124,12 +129,14 @@ async function loadNlPictures(fileSystem) {
     }
 
     let added = 0;
+    // Display name uses .jpg (familiar); content stays the real .webp URL, and
+    // each picture's icon is a thumbnail of the image itself.
     ME_BITS.forEach((url, i) => {
-      myPictures[`Me Bit ${i + 1}.webp`] = { type: 'file', content: url };
+      myPictures[`Me Bit ${i + 1}.jpg`] = { type: 'file', content: url, icon: url };
       added++;
     });
     LENS.forEach((url, i) => {
-      myPictures[`Lens ${i + 1}.webp`] = { type: 'file', content: url };
+      myPictures[`Lens ${i + 1}.jpg`] = { type: 'file', content: url, icon: url };
       added++;
     });
     console.log(`[NL] Injected ${added} pictures into Desktop/My Pictures folder.`);
