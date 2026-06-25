@@ -8,6 +8,12 @@
 // fullscreen) and a viewport that tries to embed the stream, but its guaranteed
 // action opens the link in a real new browser tab (the proven method).
 
+// Pending payload bridge: openNlPlayer() fills this BEFORE createWindow() runs, so
+// initNlPlayer() always resolves the correct URL even if the window manager runs
+// init synchronously (before win.dataset is assigned). This fixes the "empty/wrong
+// URL in the browser button" bug caused by dataset timing.
+var _nlpPending = null;
+
 function nlpEsc(s) {
   return String(s == null ? "" : s).replace(/[&<>\"']/g, function (c) {
     return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c];
@@ -18,8 +24,12 @@ function initNlPlayer(win, showNotification) {
   var content = win.querySelector(".window-content");
   if (!content) return;
 
-  var startUrl = win.dataset.playUrl || "";
-  var mediaTitle = win.dataset.movieTitle || "NL PLAYER";
+  // Resolve URL/title from dataset first, then from the pending bridge (timing-safe).
+  var startUrl = win.dataset.playUrl || (_nlpPending && _nlpPending.url) || "";
+  var mediaTitle = win.dataset.movieTitle || (_nlpPending && _nlpPending.title) || "NL PLAYER";
+  // Keep dataset in sync so reloads/re-inits stay correct.
+  if (startUrl) win.dataset.playUrl = startUrl;
+  if (mediaTitle) win.dataset.movieTitle = mediaTitle;
 
   var history = startUrl ? [startUrl] : [];
   var histIndex = history.length - 1;
@@ -48,7 +58,7 @@ function initNlPlayer(win, showNotification) {
           '<button class="nlp-ov-ext" style="background:#c0392b;color:#fff;border:0;padding:11px 20px;border-radius:6px;font-weight:bold;cursor:pointer;font-size:13px;">\u25B6 \u062a\u0634\u063a\u064a\u0644 \u0641\u064a \u0627\u0644\u0645\u062a\u0635\u0641\u062d (\u062a\u0628\u0648\u064a\u0628 \u062c\u062f\u064a\u062f)</button>' +
           '<button class="nlp-ov-frame" style="background:#2c3e50;color:#fff;border:0;padding:11px 20px;border-radius:6px;font-weight:bold;cursor:pointer;font-size:13px;">\uD83D\uDDD6 \u0645\u062d\u0627\u0648\u0644\u0629 \u062f\u0627\u062e\u0644 \u0627\u0644\u0646\u0627\u0641\u0630\u0629</button>' +
         '</div>' +
-        '<div style="font-size:11px;color:#7f8c8d;word-break:break-all;max-width:520px;">' + nlpEsc(startUrl) + '</div>' +
+        '<div class="nlp-ov-url" style="font-size:11px;color:#7f8c8d;word-break:break-all;max-width:520px;">' + nlpEsc(startUrl) + '</div>' +
       '</div>' +
     '</div>';
 
@@ -57,7 +67,13 @@ function initNlPlayer(win, showNotification) {
   var overlay = content.querySelector(".nlp-overlay");
   var viewport = content.querySelector(".nlp-viewport");
 
-  function currentUrl() { return (urlInput.value || startUrl || "").trim(); }
+  // Always prefer an explicit, valid URL. Fall back to the address bar, then the
+  // resolved startUrl — never an empty string (which would open about:blank).
+  function currentUrl() {
+    var u = (urlInput && urlInput.value ? urlInput.value : "").trim();
+    if (!u) u = (startUrl || "").trim();
+    return u;
+  }
 
   function openExternal() {
     var u = currentUrl();
@@ -66,6 +82,8 @@ function initNlPlayer(win, showNotification) {
   }
 
   function loadInFrame(u) {
+    u = (u || "").trim();
+    if (!u) return;
     overlay.style.display = "none";
     frame.src = u;
   }
@@ -102,10 +120,13 @@ function initNlPlayer(win, showNotification) {
 window.initNlPlayer = initNlPlayer;
 
 // Open NL PLAYER programmatically (used by the Movies app \"Watch Now\" button).
+// We set _nlpPending BEFORE createWindow so initNlPlayer can read the URL even if
+// the window manager initializes the window synchronously.
 window.openNlPlayer = function (opts) {
   opts = opts || {};
+  _nlpPending = { url: opts.url || "", title: opts.title || "NL PLAYER" };
   var win = window.createWindow("NL PLAYER");
-  win.dataset.playUrl = opts.url || "";
-  win.dataset.movieTitle = opts.title || "NL PLAYER";
+  win.dataset.playUrl = _nlpPending.url;
+  win.dataset.movieTitle = _nlpPending.title;
   return win;
 };
