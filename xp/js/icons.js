@@ -1,5 +1,6 @@
 // Consolidated icon mapping for all apps and folders.
 const iconMapping = {
+  "vlc media player": "VLC.png",
   "my computer": "My Computer.ico",
   "recycle bin": "recycle-bin-683244_960_720.webp",
   "internet explorer": "Internet Explorer 6.png", 

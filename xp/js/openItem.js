@@ -136,12 +136,12 @@ export function openItem(filePath, currentWindow = null) {
       win.dataset.filePath = filePath;
       win.dataset.filecontent = item.content;
       // initPaint will be called by windowManager, which now handles loading
-    } else if (itemName.endsWith('.mp3') || itemName.endsWith('.ogg') || itemName.endsWith('.wav') || itemName.endsWith('.m3u8')) {
-      const win = window.createWindow("Windows Media Player");
+    } else if (itemName.endsWith('.mp3') || itemName.endsWith('.ogg') || itemName.endsWith('.wav') || itemName.endsWith('.m3u8') || itemName.endsWith('.m4a') || itemName.endsWith('.aac') || itemName.endsWith('.flac') || itemName.endsWith('.mp4') || itemName.endsWith('.webm') || itemName.endsWith('.ogv') || itemName.endsWith('.mov') || itemName.endsWith('.mkv')) {
+      // All audio/video files open in the native VLC media player (universal player).
+      const win = window.createWindow("VLC media player");
       win.dataset.filePath = filePath;
       win.dataset.filecontent = item.content;
-      // Do not call initMusicPlayer here since windowManager automatically
-      // initializes the Windows Media Player instance.
+      // initVLC is invoked by windowManager and reads dataset.filecontent automatically.
     } else if (itemName.endsWith('.swf')) {
       const win = window.createWindow("Flash Player", null);
       win.dataset.filePath = filePath;

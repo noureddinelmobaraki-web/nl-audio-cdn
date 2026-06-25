@@ -115,7 +115,7 @@ export function initVLC(win, showNotification, specificTrack = null) {
 		<div class="vlc-body">
 			<div class="vlc-stage">
 				<video class="vlc-video" playsinline></video>
-				<div class="vlc-cone"><div>${CONE_SVG}</div><div class="vlc-cone-title">VLC media player</div></div>
+				<div class="vlc-cone"><div><img src="VLC.png" alt="VLC" style="width:110px;height:110px;object-fit:contain;" onerror="this.outerHTML='${CONE_SVG.replace(/\n/g,'').replace(/'/g,"\\'")}'" /></div><div class="vlc-cone-title">VLC media player</div></div>
 			</div>
 			<div class="vlc-playlist">
 				<div class="vlc-playlist-head">Playlist</div>
