@@ -644,6 +644,7 @@ export function createWindow(title, customCode) {
     if (title === 'Internet Explorer') window.initInternetExplorer(win, window.showNotification);
     if (title === 'Snake') window.initSnake(win, window.showNotification);
     if (title === 'Solitaire') window.initSolitaire(win, window.showNotification);
+    if (title === '3D Pipes') window.initPipes(win, window.showNotification);
     if (title === 'Minesweeper') window.initMinesweeper(win, window.showNotification);
     if (title === 'Notepad') window.initNotepad(win, window.showNotification); 
     if (title === 'Paint') window.initPaint(win, window.showNotification); 
