@@ -111,20 +111,83 @@
     var hasKey = !!tmdbKey();
     var tab = "movie";
 
-    root.style.cssText = "display:flex;flex-direction:column;height:100%;width:100%;background:#101010;color:#eee;overflow:hidden;font-family:Tahoma,Arial,sans-serif;";
+    var NLC_CSS = [
+      ".nlc-root{display:flex;flex-direction:column;height:100%;width:100%;background:#ECE9D8;color:#000;overflow:hidden;font-family:Tahoma,'Segoe UI',Arial,sans-serif;font-size:11px;}",
+      ".nlc-toolbar{flex:0 0 auto;display:flex;align-items:center;gap:8px;padding:5px 8px;background:linear-gradient(#FDFDFC,#ECE9D8);border-bottom:1px solid #ACA899;}",
+      ".nlc-brand{display:flex;align-items:center;gap:5px;font-weight:900;font-size:14px;color:#0A246A;letter-spacing:.5px;white-space:nowrap;}",
+      ".nlc-tabs{display:flex;gap:3px;margin-inline-start:6px;}",
+      ".nlc-tab{font:11px Tahoma;padding:4px 16px;background:linear-gradient(#F6F4EC,#D8D4C4);border:1px solid;border-color:#fff #808080 #808080 #fff;border-radius:5px 5px 0 0;cursor:pointer;color:#333;}",
+      ".nlc-tab.on{background:#fff;font-weight:bold;color:#0A246A;}",
+      ".nlc-search{margin-inline-start:auto;width:190px;max-width:38%;height:22px;padding:0 8px;border:1px solid;border-color:#808080 #fff #fff #808080;background:#fff;font:11px Tahoma;outline:none;color:#000;}",
+      ".nlc-note{flex:0 0 auto;padding:6px 12px;background:#FFFFCE;color:#5b4b00;font-size:11px;border-bottom:1px solid #C9C295;}",
+      ".nlc-scroll{flex:1 1 auto;overflow-y:auto;overflow-x:hidden;min-height:0;background:#F1EFE3;}",
+      ".nlc-sec{padding:2px 12px 12px;}",
+      ".nlc-sec-h{display:flex;align-items:center;gap:6px;font-weight:bold;font-size:12px;color:#0A246A;padding:10px 2px 6px;border-bottom:1px solid #C9C295;margin-bottom:9px;}",
+      ".nlc-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(104px,1fr));gap:10px;}",
+      ".nlc-card{cursor:pointer;background:#fff;border:1px solid;border-color:#808080 #fff #fff #808080;padding:4px;}",
+      ".nlc-card:hover{background:#C1D8F2;border-color:#316AC5;}",
+      ".nlc-pwrap{position:relative;width:100%;aspect-ratio:2/3;background:#1a1a1a;overflow:hidden;}",
+      ".nlc-poster{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;}",
+      ".nlc-rate{position:absolute;top:3px;inset-inline-end:3px;background:rgba(0,0,0,.78);color:#f5c518;font-size:10px;font-weight:bold;padding:1px 5px;border-radius:3px;z-index:1;}",
+      ".nlc-ctitle{font-size:11px;color:#000;margin-top:4px;font-weight:bold;line-height:1.3;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}",
+      ".nlc-cyear{font-size:10px;color:#5a5a5a;}",
+      ".nlc-btn{font:bold 11px Tahoma;padding:5px 16px;background:linear-gradient(#FCFBFA,#E3E0D2);border:1px solid;border-color:#fff #808080 #808080 #fff;cursor:pointer;color:#000;border-radius:3px;}",
+      ".nlc-btn:active{border-color:#808080 #fff #fff #808080;}",
+      ".nlc-hero{position:relative;min-height:172px;display:flex;align-items:flex-end;padding:16px;background:#1a1a1a;background-size:cover;background-position:center;border-bottom:1px solid #ACA899;color:#fff;}",
+      ".nlc-hero-veil{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.9),rgba(0,0,0,.1));}",
+      ".nlc-hero-box{position:relative;z-index:1;max-width:65%;}",
+      ".nlc-hero-title{font-size:22px;font-weight:900;text-shadow:0 2px 6px #000;}",
+      ".nlc-hero-meta{display:flex;gap:10px;font-size:11px;color:#eee;margin:6px 0;}",
+      ".nlc-hero-ov{font-size:11.5px;color:#eee;line-height:1.7;max-height:56px;overflow:hidden;text-shadow:0 1px 3px #000;}",
+      ".nlc-hero-watch{margin-top:10px;}",
+      ".nlc-star{color:#f5c518;font-weight:bold;}",
+      ".nlc-spin{display:flex;flex-direction:column;align-items:center;gap:12px;padding:50px;color:#555;}",
+      ".nlc-sp{width:30px;height:30px;border:4px solid #cfc9b0;border-top-color:#0A246A;border-radius:50%;animation:nlcspin 1s linear infinite;}",
+      "@keyframes nlcspin{to{transform:rotate(360deg)}}",
+      ".nlc-modal{position:absolute;inset:0;z-index:50;background:rgba(0,0,0,.45);display:flex;align-items:center;justify-content:center;padding:14px;}",
+      ".nlc-win{display:flex;flex-direction:column;width:100%;max-width:640px;max-height:100%;background:#ECE9D8;border:2px solid #0A246A;border-radius:8px 8px 0 0;box-shadow:0 8px 30px rgba(0,0,0,.55);overflow:hidden;}",
+      ".nlc-titlebar{flex:0 0 auto;display:flex;align-items:center;gap:7px;padding:5px 7px;background:linear-gradient(#0A56C8,#0A246A);color:#fff;font-weight:bold;font-size:12px;}",
+      ".nlc-tb-text{flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}",
+      ".nlc-close{width:21px;height:21px;border:1px solid #fff;border-radius:3px;background:linear-gradient(#E88,#C0392B);color:#fff;cursor:pointer;font-size:12px;line-height:1;}",
+      ".nlc-body{flex:1 1 auto;overflow-y:auto;padding:0 0 16px;}",
+      ".nlc-det-hero{height:170px;background:#222;background-size:cover;background-position:center;}",
+      ".nlc-det-head{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 16px 4px;}",
+      ".nlc-det-meta{display:flex;gap:12px;font-size:11px;color:#444;flex-wrap:wrap;}",
+      ".nlc-det-ov{font-size:12px;color:#222;line-height:1.8;padding:6px 16px;max-height:140px;overflow-y:auto;margin:0;}",
+      ".nlc-chips{display:flex;flex-wrap:wrap;gap:6px;padding:6px 16px;}",
+      ".nlc-chips span{font-size:10px;background:#fff;border:1px solid;border-color:#808080 #fff #fff #808080;padding:2px 8px;}",
+      ".nlc-trailer{margin:10px 16px;aspect-ratio:16/9;background:#000;border:1px solid #808080;}",
+      ".nlc-trailer iframe{width:100%;height:100%;border:0;}",
+      ".nlc-cast-h{font-size:11px;color:#0A246A;font-weight:bold;padding:8px 16px 4px;}",
+      ".nlc-cast{display:flex;gap:10px;overflow-x:auto;padding:0 16px 6px;}",
+      ".nlc-cast-item{min-width:62px;max-width:62px;text-align:center;}",
+      ".nlc-cast-img{width:46px;height:46px;border-radius:50%;overflow:hidden;background:#ccc;margin:0 auto 4px;border:1px solid #808080;}",
+      ".nlc-cast-img img{width:100%;height:100%;object-fit:cover;}",
+      ".nlc-cast-name{font-size:9px;color:#333;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}"
+    ].join("");
+
+    if (!document.getElementById("nlc-xp-style")) {
+      var st = document.createElement("style");
+      st.id = "nlc-xp-style";
+      st.textContent = NLC_CSS;
+      document.head.appendChild(st);
+    }
+
+    root.className = "nlc-root";
+    root.style.cssText = "";
     root.setAttribute("dir", "rtl");
     root.innerHTML =
-      '<div style="flex:0 0 auto;display:flex;align-items:center;gap:12px;padding:8px 14px;background:linear-gradient(#1f1f1f,#141414);border-bottom:1px solid #c0392b;">' +
-        '<span style="font-weight:900;font-size:18px;color:#e50914;letter-spacing:1px;">NL CINEMA</span>' +
-        '<div class="nlc-tabs" style="display:flex;gap:6px;">' +
-          '<button class="nlc-tab" data-tab="movie" style="padding:5px 14px;border:0;border-radius:14px;background:#e50914;color:#fff;font-weight:bold;cursor:pointer;font-size:12px;">\u0623\u0641\u0644\u0627\u0645</button>' +
-          '<button class="nlc-tab" data-tab="tv" style="padding:5px 14px;border:0;border-radius:14px;background:#2a2a2a;color:#ccc;font-weight:bold;cursor:pointer;font-size:12px;">\u0645\u0633\u0644\u0633\u0644\u0627\u062a</button>' +
+      '<div class="nlc-toolbar">' +
+        '<span class="nlc-brand">\uD83C\uDFAC NL CINEMA</span>' +
+        '<div class="nlc-tabs">' +
+          '<button class="nlc-tab on" data-tab="movie">\u0623\u0641\u0644\u0627\u0645</button>' +
+          '<button class="nlc-tab" data-tab="tv">\u0645\u0633\u0644\u0633\u0644\u0627\u062a</button>' +
         '</div>' +
-        '<input class="nlc-search" type="text" placeholder="\u0628\u062d\u062b..." style="margin-inline-start:auto;width:200px;height:26px;padding:0 10px;border:1px solid #444;border-radius:13px;background:#222;color:#fff;outline:none;font-size:12px;"/>' +
+        '<input class="nlc-search" type="text" placeholder="\u0628\u062d\u062b..." />' +
       '</div>' +
       (hasKey ? "" :
-        '<div style="flex:0 0 auto;padding:7px 14px;background:#3a2d00;color:#ffcf66;font-size:11.5px;border-bottom:1px solid #6b5300;">\u26A0 \u0645\u0641\u062a\u0627\u062d TMDB \u063a\u064a\u0631 \u0645\u0636\u0628\u0648\u0637 \u0628\u0639\u062f \u2014 \u064a\u064f\u0639\u0631\u0636 \u0643\u062a\u0627\u0644\u0648\u062c \u062a\u062c\u0631\u064a\u0628\u064a. \u0623\u0636\u0650\u0641 \u0633\u0631 TMDB_API_KEY \u0641\u064a GitHub Actions \u0644\u062a\u0641\u0639\u064a\u0644 \u0627\u0644\u0643\u062a\u0627\u0644\u0648\u062c \u0627\u0644\u0643\u0627\u0645\u0644.</div>') +
-      '<div class="nlc-scroll" style="flex:1 1 auto;overflow-y:auto;overflow-x:hidden;min-height:0;"></div>';
+        '<div class="nlc-note">\u26A0 \u0645\u0641\u062a\u0627\u062d TMDB \u063a\u064a\u0631 \u0645\u0636\u0628\u0648\u0637 \u0628\u0639\u062f \u2014 \u064a\u064f\u0639\u0631\u0636 \u0643\u062a\u0627\u0644\u0648\u062c \u062a\u062c\u0631\u064a\u0628\u064a.</div>') +
+      '<div class="nlc-scroll"></div>';
 
     var scroll = root.querySelector(".nlc-scroll");
     var searchInput = root.querySelector(".nlc-search");
@@ -132,11 +195,7 @@
 
     function setTab(t) {
       tab = t;
-      tabBtns.forEach(function (b) {
-        var on = b.dataset.tab === t;
-        b.style.background = on ? "#e50914" : "#2a2a2a";
-        b.style.color = on ? "#fff" : "#ccc";
-      });
+      tabBtns.forEach(function (b) { b.classList.toggle("on", b.dataset.tab === t); });
       searchInput.value = "";
       loadTab();
     }
@@ -151,41 +210,36 @@
     });
 
     function spinner(msg) {
-      scroll.innerHTML = '<div style="display:flex;flex-direction:column;align-items:center;gap:12px;padding:60px;color:#888;">' +
-        '<div style="width:34px;height:34px;border:4px solid #333;border-top-color:#e50914;border-radius:50%;animation:nlcspin 1s linear infinite;"></div>' +
-        '<div style="font-size:12px;">' + esc(msg || "\u062c\u0627\u0631\u064d \u0627\u0644\u062a\u062d\u0645\u064a\u0644...") + '</div></div>' +
-        '<style>@keyframes nlcspin{to{transform:rotate(360deg)}}</style>';
+      scroll.innerHTML = '<div class="nlc-spin"><div class="nlc-sp"></div><div>' + esc(msg || "\u062c\u0627\u0631\u064d \u0627\u0644\u062a\u062d\u0645\u064a\u0644...") + '</div></div>';
     }
 
     function card(item) {
       var p = posterSrc(item);
       var d = document.createElement("div");
-      d.style.cssText = "flex:0 0 auto;width:130px;cursor:pointer;transition:transform .15s;";
+      d.className = "nlc-card";
       d.innerHTML =
-        '<div style="width:130px;height:195px;border-radius:8px;overflow:hidden;background:#222;border:1px solid #333;position:relative;">' +
-          (p ? '<img src="' + esc(p) + '" loading="lazy" style="width:100%;height:100%;object-fit:cover;" onerror="this.style.display=\'none\'"/>' : "") +
-          '<div style="position:absolute;top:4px;inset-inline-end:4px;background:rgba(0,0,0,.75);color:#f5c518;font-size:10px;font-weight:bold;padding:1px 5px;border-radius:4px;">\u2605 ' + (item.rating ? item.rating.toFixed(1) : "\u2014") + '</div>' +
+        '<div class="nlc-pwrap">' +
+          (p ? '<img class="nlc-poster" src="' + esc(p) + '" loading="lazy" onerror="this.style.display=\'none\'"/>' : "") +
+          '<span class="nlc-rate">\u2605 ' + (item.rating ? item.rating.toFixed(1) : "\u2014") + '</span>' +
         '</div>' +
-        '<div style="font-size:11px;color:#ddd;margin-top:5px;font-weight:bold;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">' + esc(item.title) + '</div>' +
-        '<div style="font-size:10px;color:#888;">' + esc(item.year || "") + '</div>';
-      d.addEventListener("mouseenter", function () { d.style.transform = "scale(1.06)"; });
-      d.addEventListener("mouseleave", function () { d.style.transform = "scale(1)"; });
+        '<div class="nlc-ctitle">' + esc(item.title) + '</div>' +
+        '<div class="nlc-cyear">' + esc(item.year || "") + '</div>';
       d.addEventListener("click", function () { openDetail(item); });
       return d;
     }
 
-    function rowEl(title, items) {
+    function sectionEl(title, items) {
       if (!items || !items.length) return null;
       var wrap = document.createElement("div");
-      wrap.style.cssText = "padding:10px 14px;";
+      wrap.className = "nlc-sec";
       var h = document.createElement("div");
-      h.textContent = title;
-      h.style.cssText = "font-size:14px;font-weight:bold;color:#eee;margin-bottom:8px;";
-      var strip = document.createElement("div");
-      strip.style.cssText = "display:flex;gap:12px;overflow-x:auto;padding-bottom:6px;";
-      items.forEach(function (it) { strip.appendChild(card(it)); });
+      h.className = "nlc-sec-h";
+      h.innerHTML = '<span>\uD83D\uDCC1</span><span>' + esc(title) + '</span>';
+      var grid = document.createElement("div");
+      grid.className = "nlc-grid";
+      items.slice(0, 18).forEach(function (it) { grid.appendChild(card(it)); });
       wrap.appendChild(h);
-      wrap.appendChild(strip);
+      wrap.appendChild(grid);
       return wrap;
     }
 
@@ -193,14 +247,15 @@
       if (!item) return null;
       var bd = backdropSrc(item);
       var h = document.createElement("div");
-      h.style.cssText = "position:relative;height:230px;display:flex;align-items:flex-end;padding:18px;" +
-        (bd ? "background:linear-gradient(to top,#101010 5%,rgba(16,16,16,.2)),url('" + bd.replace(/'/g, "%27") + "') center/cover;" : "background:#1a1a1a;");
+      h.className = "nlc-hero";
+      if (bd) h.style.backgroundImage = "url('" + bd.replace(/'/g, "%27") + "')";
       h.innerHTML =
-        '<div style="max-width:60%;">' +
-          '<div style="font-size:24px;font-weight:900;color:#fff;text-shadow:0 2px 8px #000;">' + esc(item.title) + '</div>' +
-          '<div style="font-size:11px;color:#ccc;margin:6px 0;display:flex;gap:10px;"><span style="color:#f5c518;font-weight:bold;">\u2605 ' + (item.rating ? item.rating.toFixed(1) : "\u2014") + '</span><span>' + esc(item.year || "") + '</span></div>' +
-          '<div style="font-size:11.5px;color:#ddd;line-height:1.7;max-height:60px;overflow:hidden;">' + esc(item.overview || "") + '</div>' +
-          '<button class="nlc-hero-watch" style="margin-top:10px;background:#e50914;color:#fff;border:0;padding:8px 22px;border-radius:5px;font-weight:bold;cursor:pointer;font-size:13px;">\u25B6 \u0634\u0627\u0647\u062f \u0627\u0644\u0622\u0646</button>' +
+        '<div class="nlc-hero-veil"></div>' +
+        '<div class="nlc-hero-box">' +
+          '<div class="nlc-hero-title">' + esc(item.title) + '</div>' +
+          '<div class="nlc-hero-meta"><span class="nlc-star">\u2605 ' + (item.rating ? item.rating.toFixed(1) : "\u2014") + '</span><span>' + esc(item.year || "") + '</span></div>' +
+          '<div class="nlc-hero-ov">' + esc(item.overview || "") + '</div>' +
+          '<button class="nlc-btn nlc-hero-watch">\u25B6 \u0634\u0627\u0647\u062f \u0627\u0644\u0622\u0646</button>' +
         '</div>';
       h.querySelector(".nlc-hero-watch").addEventListener("click", function () { openDetail(item); });
       return h;
@@ -211,7 +266,7 @@
       var hr = hero(heroItem);
       if (hr) scroll.appendChild(hr);
       lists.forEach(function (l) {
-        var r = rowEl(l.title, l.items);
+        var r = sectionEl(l.title, l.items);
         if (r) scroll.appendChild(r);
       });
     }
@@ -257,7 +312,6 @@
         grows.forEach(function (g, gi) { lists.push({ title: g.label, items: items(3 + gi) }); });
         var heroItem = trending[0] || items(2)[0] || FALLBACK[t][0];
         if (!trending.length && !items(1).length) {
-          // total failure -> fallback
           hasKey = false; loadTab(); return;
         }
         renderLists(lists, heroItem);
@@ -279,46 +333,61 @@
       });
     }
 
-    // ---------- detail overlay ----------
+    // Build embeddable in-window sources (providers that allow iframe embedding,
+    // unlike playimdb). Movies use the IMDb/TMDB id; TV passes through too. The
+    // user can switch sources inside NL PLAYER if one provider is down.
+    function buildSources(item) {
+      var imdb = item.imdbId || "";
+      var tmdb = item.id || "";
+      var t = item.type === "tv" ? "tv" : "movie";
+      var primary = imdb || tmdb;
+      var srcs = [];
+      if (primary) {
+        srcs.push({ label: "\u0645\u0635\u062f\u0631 1", url: "https://vidsrc.cc/v2/embed/" + t + "/" + primary });
+        srcs.push({ label: "\u0645\u0635\u062f\u0631 2", url: "https://vidsrc.to/embed/" + t + "/" + primary });
+      }
+      if (tmdb) {
+        srcs.push({ label: "\u0645\u0635\u062f\u0631 3", url: t === "tv" ? ("https://www.2embed.cc/embedtv/" + tmdb + "&s=1&e=1") : ("https://www.2embed.cc/embed/" + tmdb) });
+        srcs.push({ label: "\u0645\u0635\u062f\u0631 4", url: "https://player.vidify.top/embed/" + t + "/" + tmdb });
+      }
+      return srcs;
+    }
+
     function watch(item) {
       var imdb = item.imdbId || "";
-      if (!imdb) { if (showNotification) showNotification("NL CINEMA", "\u0644\u0627 \u064a\u0648\u062c\u062f \u0645\u0639\u0631\u0651\u0641 IMDb \u0644\u0647\u0630\u0627 \u0627\u0644\u0639\u0646\u0648\u0627\u0646"); return; }
-      var url = "https://www.playimdb.com/title/" + imdb + "/";
-      if (window.openNlPlayer) window.openNlPlayer({ url: url, title: item.title });
-      else window.open(url, "_blank", "noopener,noreferrer");
+      // External (browser) URL = the exact method the live site uses.
+      var ext = imdb ? ("https://www.playimdb.com/title/" + imdb + "/") : "";
+      var sources = buildSources(item);
+      if (!sources.length && !ext) { if (showNotification) showNotification("NL CINEMA", "\u0644\u0627 \u064a\u0648\u062c\u062f \u0645\u0635\u062f\u0631 \u0644\u0647\u0630\u0627 \u0627\u0644\u0639\u0646\u0648\u0627\u0646"); return; }
+      if (window.openNlPlayer) window.openNlPlayer({ url: ext, title: item.title, sources: sources });
+      else if (ext) window.open(ext, "_blank", "noopener,noreferrer");
     }
 
     function renderDetail(item) {
       var ov = document.createElement("div");
-      ov.style.cssText = "position:absolute;inset:0;z-index:50;background:rgba(0,0,0,.88);display:flex;align-items:center;justify-content:center;padding:18px;overflow-y:auto;";
+      ov.className = "nlc-modal";
       var bd = backdropSrc(item);
       var castHtml = (item.cast || []).map(function (c) {
         var img = c.profile ? (IMG + "/w185" + c.profile) : "";
-        return '<div style="min-width:62px;max-width:62px;text-align:center;">' +
-          '<div style="width:46px;height:46px;border-radius:50%;overflow:hidden;background:#333;margin:0 auto 4px;">' + (img ? '<img src="' + esc(img) + '" style="width:100%;height:100%;object-fit:cover;"/>' : '<div style="line-height:46px;font-size:18px;">\uD83D\uDC64</div>') + '</div>' +
-          '<div style="font-size:9px;color:#bbb;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">' + esc(c.name) + '</div></div>';
+        return '<div class="nlc-cast-item"><div class="nlc-cast-img">' + (img ? '<img src="' + esc(img) + '"/>' : '<div style="line-height:46px;font-size:18px;">\uD83D\uDC64</div>') + '</div><div class="nlc-cast-name">' + esc(c.name) + '</div></div>';
       }).join("");
-      var genreHtml = (item.genreNames || []).map(function (g) { return '<span style="font-size:10px;background:#222;border:1px solid #333;border-radius:4px;padding:2px 8px;">' + esc(g) + '</span>'; }).join("");
+      var genreHtml = (item.genreNames || []).map(function (g) { return '<span>' + esc(g) + '</span>'; }).join("");
       var meta = item.type === "movie"
         ? (item.runtime ? item.runtime + " \u062f\u0642\u064a\u0642\u0629" : "")
         : (item.seasons ? item.seasons + " \u0645\u0648\u0633\u0645" + (item.episodes ? " \u00b7 " + item.episodes + " \u062d\u0644\u0642\u0629" : "") : "");
       ov.innerHTML =
-        '<div style="width:100%;max-width:680px;background:#161616;border:1px solid #333;border-radius:14px;overflow:hidden;">' +
-          '<div style="position:relative;height:230px;" >' +
-            (bd ? '<img src="' + esc(bd) + '" style="width:100%;height:100%;object-fit:cover;opacity:.85;"/>' : '<div style="width:100%;height:100%;background:#222;"></div>') +
-            '<div style="position:absolute;inset:0;background:linear-gradient(to top,#161616,transparent);"></div>' +
-            '<button class="nlc-close" style="position:absolute;top:10px;inset-inline-end:10px;width:30px;height:30px;border:0;border-radius:50%;background:rgba(0,0,0,.7);color:#fff;cursor:pointer;font-size:16px;">\u2715</button>' +
-          '</div>' +
-          '<div style="padding:16px 20px 22px;">' +
-            '<div style="display:flex;align-items:center;justify-content:space-between;gap:12px;">' +
-              '<h3 style="margin:0;font-size:20px;font-weight:900;color:#fff;">' + esc(item.title) + '</h3>' +
-              '<button class="nlc-watch" style="background:#e50914;color:#fff;border:0;padding:9px 22px;border-radius:6px;font-weight:bold;cursor:pointer;font-size:13px;white-space:nowrap;">\u25B6 \u0634\u0627\u0647\u062f \u0627\u0644\u0622\u0646</button>' +
+        '<div class="nlc-win">' +
+          '<div class="nlc-titlebar"><span>\uD83C\uDFAC</span><span class="nlc-tb-text">' + esc(item.title) + '</span><button class="nlc-close" title="\u0625\u063a\u0644\u0627\u0642">\u2715</button></div>' +
+          '<div class="nlc-body">' +
+            (bd ? '<div class="nlc-det-hero" style="background-image:url(\'' + bd.replace(/'/g, "%27") + '\')"></div>' : "") +
+            '<div class="nlc-det-head">' +
+              '<div class="nlc-det-meta"><span class="nlc-star">\u2605 ' + (item.rating ? item.rating.toFixed(1) : "\u2014") + '</span><span>' + esc(item.year || "") + '</span><span>' + esc(meta) + '</span></div>' +
+              '<button class="nlc-btn nlc-watch">\u25B6 \u0634\u0627\u0647\u062f \u0627\u0644\u0622\u0646</button>' +
             '</div>' +
-            '<div style="display:flex;gap:12px;font-size:11px;color:#aaa;margin:8px 0;"><span style="color:#f5c518;font-weight:bold;">\u2605 ' + (item.rating ? item.rating.toFixed(1) : "\u2014") + '</span><span>' + esc(item.year || "") + '</span><span>' + esc(meta) + '</span></div>' +
-            '<p style="font-size:12.5px;color:#ddd;line-height:1.8;max-height:120px;overflow-y:auto;">' + esc(item.overview || "\u0627\u0644\u0642\u0635\u0629 \u063a\u064a\u0631 \u0645\u062a\u0648\u0641\u0631\u0629.") + '</p>' +
-            (genreHtml ? '<div style="display:flex;flex-wrap:wrap;gap:6px;margin:10px 0;">' + genreHtml + '</div>' : "") +
-            (item.trailerKey ? '<div style="margin-top:10px;border-radius:8px;overflow:hidden;aspect-ratio:16/9;background:#000;"><iframe width="100%" height="100%" src="https://www.youtube.com/embed/' + esc(item.trailerKey) + '" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>' : "") +
-            (castHtml ? '<div style="margin-top:14px;"><div style="font-size:11px;color:#888;margin-bottom:6px;">\u0627\u0644\u0623\u0628\u0637\u0627\u0644</div><div style="display:flex;gap:8px;overflow-x:auto;">' + castHtml + '</div></div>' : "") +
+            '<p class="nlc-det-ov">' + esc(item.overview || "\u0627\u0644\u0642\u0635\u0629 \u063a\u064a\u0631 \u0645\u062a\u0648\u0641\u0631\u0629.") + '</p>' +
+            (genreHtml ? '<div class="nlc-chips">' + genreHtml + '</div>' : "") +
+            (item.trailerKey ? '<div class="nlc-trailer"><iframe src="https://www.youtube.com/embed/' + esc(item.trailerKey) + '" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>' : "") +
+            (castHtml ? '<div class="nlc-cast-h">\u0627\u0644\u0623\u0628\u0637\u0627\u0644</div><div class="nlc-cast">' + castHtml + '</div>' : "") +
           '</div>' +
         '</div>';
       root.appendChild(ov);
