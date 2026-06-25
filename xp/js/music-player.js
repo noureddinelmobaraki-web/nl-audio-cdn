@@ -1,3 +1,7 @@
+// Windows Media Player — plays audio from C:/Users/User/Music and its
+// subfolders (e.g. "My Songs"). Supports local files (.mp3/.ogg/.wav) and HLS
+// streams (.m3u8) via hls.js (global window.Hls, loaded in index.html). On
+// Safari, HLS plays natively even without hls.js.
 export function initMusicPlayer(win, showNotification, specificTrack = null) {
   const contentArea = win.querySelector('.window-content');
   const instanceId = Math.random().toString(36).substr(2, 9);
@@ -19,26 +23,57 @@ export function initMusicPlayer(win, showNotification, specificTrack = null) {
     </div>
   `;
 
-  // Fetch music files from file system instead of hardcoded list
+  // ── Gather songs from the Music folder AND its subfolders (e.g. "My Songs") ──
+  const AUDIO_RE = /\.(mp3|wav|ogg|m3u8)$/i;
   const songs = [];
   const musicFolder = window.fileSystem['C:']?.children['Users']?.children['User']?.children['Music']?.children;
 
-  // Convert file system entries to song objects
-  if (musicFolder) {
-    Object.entries(musicFolder).forEach(([filename, fileData]) => {
-      if (fileData.type === "file") {
-        songs.push({
-          title: filename.replace(/\.(mp3|wav|ogg)$/i, ''), // Remove extension for title
-          src: fileData.content
-        });
+  function collectSongs(folderChildren) {
+    if (!folderChildren) return;
+    Object.entries(folderChildren).forEach(([filename, fileData]) => {
+      if (!fileData) return;
+      if (fileData.type === "file" && AUDIO_RE.test(filename)) {
+        songs.push({ title: filename.replace(AUDIO_RE, ''), src: fileData.content });
+      } else if (fileData.type === "folder" && fileData.children) {
+        collectSongs(fileData.children);
       }
     });
-  } else {
-    console.warn("Music folder not found in filesystem.");
   }
+  if (musicFolder) collectSongs(musicFolder);
+  else console.warn("Music folder not found in filesystem.");
 
   const audio = new Audio();
   audio.preload = 'auto';
+
+  // ── HLS (.m3u8) support via hls.js ─────────────────────────────────
+  let hls = null;
+  let currentLoadedSrc = "";
+  const isHlsUrl = (src) => /\.m3u8(\?|#|$)/i.test(src || "");
+
+  function detachHls() {
+    if (hls) {
+      try { hls.destroy(); } catch (e) { /* ignore */ }
+      hls = null;
+    }
+  }
+
+  function loadSource(src) {
+    detachHls();
+    if (isHlsUrl(src) && window.Hls && window.Hls.isSupported()) {
+      hls = new window.Hls({ enableWorker: true, lowLatencyMode: false });
+      hls.on(window.Hls.Events.ERROR, (_evt, data) => {
+        if (data && data.fatal) {
+          console.warn('[HLS] fatal error:', data.type, data.details);
+        }
+      });
+      hls.loadSource(src);
+      hls.attachMedia(audio);
+    } else {
+      // Local files, or native HLS playback on Safari.
+      audio.src = src;
+    }
+    currentLoadedSrc = src;
+  }
 
   const container = win.querySelector(`#mp-container-${instanceId}`);
   const songInfo = container.querySelector(`#mp-song-info-${instanceId}`);
@@ -51,23 +86,16 @@ export function initMusicPlayer(win, showNotification, specificTrack = null) {
 
   let currentSongIndex = 0;
 
-  // If a specific track was passed, handle it
+  // If a specific track was passed (double-click on a file), handle it.
   if (specificTrack) {
     const existingIndex = songs.findIndex(song => song.src === specificTrack);
-
     if (existingIndex !== -1) {
-      // The song is already in the default playlist
       currentSongIndex = existingIndex;
     } else {
-      // The song is not in the default playlist, add it temporarily
-      const filePath = win.dataset.filePath || "Unknown Track"; // Get filepath from window dataset
-      const filename = filePath.split('/').pop().replace(/\.(mp3|wav|ogg)$/i, ''); // Extract filename for title
-      
-      songs.unshift({ // Add to the beginning of the list
-        title: filename,
-        src: specificTrack
-      });
-      currentSongIndex = 0; // Play the added song first
+      const filePath = win.dataset.filePath || "Unknown Track";
+      const filename = filePath.split('/').pop().replace(AUDIO_RE, '');
+      songs.unshift({ title: filename, src: specificTrack });
+      currentSongIndex = 0;
     }
   }
 
@@ -78,8 +106,7 @@ export function initMusicPlayer(win, showNotification, specificTrack = null) {
       li.textContent = song.title;
       li.style.padding = '5px';
       li.style.cursor = 'pointer';
-      // Highlight based on the *actual* current song playing, not just the index
-      li.style.backgroundColor = (audio.src === song.src && !audio.paused) ? '#ccc' : index === currentSongIndex ? '#ddd' : 'transparent';
+      li.style.backgroundColor = (currentLoadedSrc === song.src && !audio.paused) ? '#ccc' : index === currentSongIndex ? '#ddd' : 'transparent';
       li.addEventListener('click', () => {
         currentSongIndex = index;
         playSong();
@@ -90,55 +117,48 @@ export function initMusicPlayer(win, showNotification, specificTrack = null) {
 
   function updateSongInfo() {
     if (songs.length > 0 && currentSongIndex >= 0 && currentSongIndex < songs.length) {
-       songInfo.textContent = "Now Playing: " + songs[currentSongIndex].title;
+      songInfo.textContent = "Now Playing: " + songs[currentSongIndex].title;
     } else {
-       songInfo.textContent = "No song selected";
+      songInfo.textContent = "No song selected";
     }
-    renderPlaylist(); // Update playlist highlighting
+    renderPlaylist();
   }
 
   function playSong() {
     const song = songs[currentSongIndex];
-    const currentSrc = audio.currentSrc || audio.src || "";
-    // If same song and already playing, do nothing
-    if (currentSrc.endsWith(song.src) && !audio.paused) {
-        updateSongInfo();
-        return;
+    if (!song) return;
+    // If same song is already loaded and playing, do nothing.
+    if (currentLoadedSrc === song.src && !audio.paused) {
+      updateSongInfo();
+      return;
     }
-    // Load new song if needed
-    if (!currentSrc.endsWith(song.src)) {
-        audio.src = song.src;
+    if (currentLoadedSrc !== song.src) {
+      loadSource(song.src);
     }
-
-    // Attempt to play (resumes if paused)
     audio.play().then(() => {
-        updateSongInfo();
-        showNotification(`Playing: ${song.title}`);
+      updateSongInfo();
+      showNotification(`Playing: ${song.title}`);
     }).catch(err => {
-        console.warn(`Audio play prevented: ${err.message}`);
-        showNotification(`Error playing song: ${err.message}`);
-        updateSongInfo();
+      console.warn(`Audio play prevented: ${err.message}`);
+      showNotification(`Error playing song: ${err.message}`);
+      updateSongInfo();
     });
   }
-  
-  // Update playlist highlighting when play/pause state changes
+
   audio.addEventListener('play', renderPlaylist);
   audio.addEventListener('pause', renderPlaylist);
 
   audio.addEventListener('timeupdate', () => {
-    if (audio.duration && !isNaN(audio.duration)) { // Check if duration is valid
-      const progressPercent = (audio.currentTime / audio.duration) * 100;
-      progressBar.value = progressPercent;
+    if (audio.duration && !isNaN(audio.duration) && isFinite(audio.duration)) {
+      progressBar.value = (audio.currentTime / audio.duration) * 100;
     } else {
-      progressBar.value = 0; // Reset progress if duration is not available
+      progressBar.value = 0;
     }
   });
 
   playBtn.addEventListener('click', () => {
-    // If already playing, do nothing
     if (!audio.paused) return;
-    // If a source is loaded, resume; otherwise start playback
-    if (audio.src) {
+    if (currentLoadedSrc) {
       audio.play().catch(err => {
         console.warn(`Audio play prevented: ${err.message}`);
         showNotification(`Error playing song: ${err.message}`);
@@ -150,83 +170,72 @@ export function initMusicPlayer(win, showNotification, specificTrack = null) {
 
   pauseBtn.addEventListener('click', () => {
     if (!audio.paused) {
-        audio.pause();
-        if (songs.length > 0) {
-           showNotification(`Paused: ${songs[currentSongIndex]?.title || 'Unknown Track'}`);
-        }
+      audio.pause();
+      if (songs.length > 0) {
+        showNotification(`Paused: ${songs[currentSongIndex]?.title || 'Unknown Track'}`);
+      }
     }
   });
 
   nextBtn.addEventListener('click', () => {
     if (songs.length > 0) {
-        currentSongIndex = (currentSongIndex + 1) % songs.length;
-        playSong();
+      currentSongIndex = (currentSongIndex + 1) % songs.length;
+      playSong();
     }
   });
 
   prevBtn.addEventListener('click', () => {
     if (songs.length > 0) {
-        currentSongIndex = (currentSongIndex - 1 + songs.length) % songs.length;
-        playSong();
+      currentSongIndex = (currentSongIndex - 1 + songs.length) % songs.length;
+      playSong();
     }
   });
 
   audio.addEventListener('ended', () => {
-    // Only auto-play next if there are multiple songs
     if (songs.length > 1) {
       currentSongIndex = (currentSongIndex + 1) % songs.length;
       playSong();
     } else {
-      // If only one song, just reset UI
       progressBar.value = 0;
-      updateSongInfo(); // Update highlighting
+      updateSongInfo();
     }
   });
 
-  // Fix: Ensure the audio stops when the music app is closed.
+  // Stop audio + release the HLS instance when the player window closes.
   const closeBtn = win.querySelector('button[aria-label="Close"]');
   if (closeBtn) {
-    // Need to store the original handler to call it after our cleanup
     const originalCloseHandler = closeBtn.onclick;
-    closeBtn.onclick = null; // Remove existing handler first
-    
+    closeBtn.onclick = null;
     closeBtn.addEventListener('click', (e) => {
-      console.log("Music player close clicked");
       audio.pause();
-      audio.removeAttribute('src'); // Release the audio source
-      audio.load(); // Abort potential pending loads
-      
-      // Call the original handler if it exists, otherwise just close
+      detachHls();
+      audio.removeAttribute('src');
+      audio.load();
       if (typeof originalCloseHandler === 'function') {
-          originalCloseHandler(e);
+        originalCloseHandler(e);
       } else {
-          // Default close behavior if no original handler was found
-          win.remove();
-          const taskbarButtons = document.querySelector('.taskbar-buttons');
-          const btnToRemove = taskbarButtons.querySelector(`.taskbar-button[data-id="${win.dataset.id}"]`);
-          if(btnToRemove) btnToRemove.remove();
-          if (window.currentActiveWindowId === win.dataset.id) {
-              window.currentActiveWindowId = null;
-          }
+        win.remove();
+        const taskbarButtons = document.querySelector('.taskbar-buttons');
+        const btnToRemove = taskbarButtons.querySelector(`.taskbar-button[data-id="${win.dataset.id}"]`);
+        if (btnToRemove) btnToRemove.remove();
+        if (window.currentActiveWindowId === win.dataset.id) {
+          window.currentActiveWindowId = null;
+        }
       }
     });
   }
 
   renderPlaylist();
 
-  // If a specific track was provided, play it immediately
   if (specificTrack && songs.length > 0) {
-    // Ensure the index is correct after potential unshift
     currentSongIndex = songs.findIndex(song => song.src === specificTrack);
     if (currentSongIndex !== -1) {
       playSong();
     } else {
-      // Fallback if somehow the specific track wasn't added or found
       currentSongIndex = 0;
-      updateSongInfo(); // Update UI to show the default first song
+      updateSongInfo();
     }
   } else if (songs.length > 0) {
-    // If no specific track, update UI to show the first song but don't auto-play
     updateSongInfo();
   } else {
     songInfo.textContent = "No music found in My Music";

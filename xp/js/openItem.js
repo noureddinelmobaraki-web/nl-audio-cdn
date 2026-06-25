@@ -136,7 +136,7 @@ export function openItem(filePath, currentWindow = null) {
       win.dataset.filePath = filePath;
       win.dataset.filecontent = item.content;
       // initPaint will be called by windowManager, which now handles loading
-    } else if (itemName.endsWith('.mp3') || itemName.endsWith('.ogg') || itemName.endsWith('.wav')) {
+    } else if (itemName.endsWith('.mp3') || itemName.endsWith('.ogg') || itemName.endsWith('.wav') || itemName.endsWith('.m3u8')) {
       const win = window.createWindow("Windows Media Player");
       win.dataset.filePath = filePath;
       win.dataset.filecontent = item.content;
