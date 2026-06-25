@@ -23,24 +23,32 @@ export function initMusicPlayer(win, showNotification, specificTrack = null) {
     </div>
   `;
 
-  // ── Gather songs from the Music folder AND its subfolders (e.g. "My Songs") ──
+  // ── Gather songs from the Music folder AND Desktop/My Music (both recursive),
+  //    de-duplicated by source URL so a song never appears twice. ─────────────
   const AUDIO_RE = /\.(mp3|wav|ogg|m3u8)$/i;
   const songs = [];
-  const musicFolder = window.fileSystem['C:']?.children['Users']?.children['User']?.children['Music']?.children;
+  const seenSrc = new Set();
 
   function collectSongs(folderChildren) {
     if (!folderChildren) return;
     Object.entries(folderChildren).forEach(([filename, fileData]) => {
       if (!fileData) return;
       if (fileData.type === "file" && AUDIO_RE.test(filename)) {
+        if (seenSrc.has(fileData.content)) return;
+        seenSrc.add(fileData.content);
         songs.push({ title: filename.replace(AUDIO_RE, ''), src: fileData.content });
       } else if (fileData.type === "folder" && fileData.children) {
         collectSongs(fileData.children);
       }
     });
   }
+
+  const rootChildren = window.fileSystem['C:']?.children;
+  const musicFolder = rootChildren?.['Users']?.children['User']?.children['Music']?.children;
+  const desktopMyMusic = rootChildren?.['Desktop']?.children['My Music']?.children;
   if (musicFolder) collectSongs(musicFolder);
-  else console.warn("Music folder not found in filesystem.");
+  if (desktopMyMusic) collectSongs(desktopMyMusic);
+  if (!musicFolder && !desktopMyMusic) console.warn("Music folder not found in filesystem.");
 
   const audio = new Audio();
   audio.preload = 'auto';

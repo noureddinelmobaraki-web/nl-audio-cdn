@@ -1,17 +1,26 @@
 // ============================================================================
 //  NL Content Integration
 //  Pulls real content from the NL website (same origin = no CORS) and injects
-//  it into the XP virtual filesystem so it appears as native files/apps.
-//  Phase 1: Games (Flash/Ruffle).  Phase 2: Songs (HLS).  Pictures: later.
+//  it into the XP virtual filesystem so it appears as native files/folders.
 //
-//  Adding future content is automatic: this fetches the SAME data files the
-//  live site uses (games.json / songs.json), so anything you add there shows
-//  up here on next load — no code changes needed.
+//  Desktop layout (next to DANGER!!!):
+//    • "My Music"    → every song from songs.json (HLS .m3u8, via hls.js)
+//    • "My Pictures" → the me_bit + lens gallery images (open in Paint)
+//  Games stay in C:/Games/Flash Games/ (played via Ruffle).
+//
+//  Adding future content is easy: songs/games come from the SAME data files
+//  the live site uses (games.json / songs.json), so anything you add there
+//  shows up here automatically on next load. For pictures, add a URL to the
+//  ME_BITS / LENS arrays below (or upload me_bit_N.webp / N.webp to the CDN).
 // ============================================================================
 
 const SITE_BASE = 'https://noureddinelmobaraki-web.github.io/NL';
 const CDN_BASE = 'https://noureddinelmobaraki-web.github.io/nl-audio-cdn';
 const GAMES_BASE = `${CDN_BASE}/games`;
+
+// Gallery image URLs (mirror src/constants/assets.ts -> ASSETS.profile).
+const ME_BITS = Array.from({ length: 9 }, (_, i) => `${CDN_BASE}/me_bit_${i + 1}.webp`);
+const LENS = Array.from({ length: 9 }, (_, i) => `${CDN_BASE}/${i + 1}.webp`);
 
 // Build a SWF url exactly like the main site does (GamesPage.tsx buildUrl).
 function buildGameUrl(dir, file) {
@@ -23,7 +32,18 @@ function safeFileName(title) {
   return String(title).replace(/[\\/]/g, '-').trim();
 }
 
-// ── Phase 1: Games → C:/Games/Flash Games/ (played via Ruffle) ────────────
+// Ensure a top-level folder exists on the Desktop, then return its children map.
+function ensureDesktopFolder(fileSystem, name) {
+  const desktop =
+    fileSystem && fileSystem['C:'] && fileSystem['C:'].children.Desktop;
+  if (!desktop || !desktop.children) return null;
+  if (!desktop.children[name] || desktop.children[name].type !== 'folder') {
+    desktop.children[name] = { type: 'folder', children: {} };
+  }
+  return desktop.children[name].children;
+}
+
+// ── Games → C:/Games/Flash Games/ (played via Ruffle) ─────────────────────
 async function loadNlGames(fileSystem) {
   try {
     const res = await fetch(`${SITE_BASE}/data/games.json`, { cache: 'no-cache' });
@@ -57,10 +77,10 @@ async function loadNlGames(fileSystem) {
   }
 }
 
-// ── Phase 2: Songs → C:/Users/User/Music/My Songs/ (played via hls.js) ──────
+// ── Songs → Desktop/My Music (played via hls.js) ───────────────────────
 // songs.json is a bare array: [{ id, title, url, hasLrc, lrcFile, bgIndex }].
-// `url` is a full HLS (.m3u8) URL on the CDN. Windows Media Player reads the
-// Music folder recursively and plays .m3u8 through hls.js (window.Hls).
+// `url` is a full HLS (.m3u8) URL on the CDN. The Windows Media Player app reads
+// both the Music folder and Desktop/My Music, and plays .m3u8 through hls.js.
 async function loadNlSongs(fileSystem) {
   try {
     const res = await fetch(`${SITE_BASE}/data/songs.json`, { cache: 'no-cache' });
@@ -70,22 +90,11 @@ async function loadNlSongs(fileSystem) {
       ? data
       : (Array.isArray(data && data.songs) ? data.songs : []);
 
-    const music =
-      fileSystem &&
-      fileSystem['C:'] &&
-      fileSystem['C:'].children.Users &&
-      fileSystem['C:'].children.Users.children.User &&
-      fileSystem['C:'].children.Users.children.User.children.Music;
-    if (!music || !music.children) {
-      console.warn('[NL] Music folder not found; skipping songs injection.');
+    const myMusic = ensureDesktopFolder(fileSystem, 'My Music');
+    if (!myMusic) {
+      console.warn('[NL] Desktop folder not found; skipping songs injection.');
       return 0;
     }
-
-    // Create (or reuse) the "My Songs" subfolder.
-    if (!music.children['My Songs'] || music.children['My Songs'].type !== 'folder') {
-      music.children['My Songs'] = { type: 'folder', children: {} };
-    }
-    const mySongs = music.children['My Songs'].children;
 
     let added = 0;
     songs.forEach((s) => {
@@ -94,13 +103,39 @@ async function loadNlSongs(fileSystem) {
         ? s.url
         : `${CDN_BASE}/${String(s.url).replace(/^\/+/, '')}`;
       const key = `${safeFileName(s.title)}.m3u8`;
-      mySongs[key] = { type: 'file', content: url };
+      myMusic[key] = { type: 'file', content: url };
       added++;
     });
-    console.log(`[NL] Injected ${added} songs into Music/My Songs folder.`);
+    console.log(`[NL] Injected ${added} songs into Desktop/My Music folder.`);
     return added;
   } catch (e) {
     console.warn('[NL] Could not load songs.json:', e);
+    return 0;
+  }
+}
+
+// ── Pictures → Desktop/My Pictures (open in Paint) ─────────────────────
+async function loadNlPictures(fileSystem) {
+  try {
+    const myPictures = ensureDesktopFolder(fileSystem, 'My Pictures');
+    if (!myPictures) {
+      console.warn('[NL] Desktop folder not found; skipping pictures injection.');
+      return 0;
+    }
+
+    let added = 0;
+    ME_BITS.forEach((url, i) => {
+      myPictures[`Me Bit ${i + 1}.webp`] = { type: 'file', content: url };
+      added++;
+    });
+    LENS.forEach((url, i) => {
+      myPictures[`Lens ${i + 1}.webp`] = { type: 'file', content: url };
+      added++;
+    });
+    console.log(`[NL] Injected ${added} pictures into Desktop/My Pictures folder.`);
+    return added;
+  } catch (e) {
+    console.warn('[NL] Could not inject pictures:', e);
     return 0;
   }
 }
@@ -109,6 +144,5 @@ async function loadNlSongs(fileSystem) {
 export async function loadNlContent(fileSystem) {
   await loadNlGames(fileSystem);
   await loadNlSongs(fileSystem);
-  // Future phase (incremental):
-  //   await loadNlPictures(fileSystem);  // images into C:/Users/User/Pictures/
+  await loadNlPictures(fileSystem);
 }
