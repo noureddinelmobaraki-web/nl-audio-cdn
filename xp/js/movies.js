@@ -333,34 +333,67 @@
       });
     }
 
-    // Build embeddable in-window sources (providers that allow iframe embedding,
-    // unlike playimdb). Movies use the IMDb/TMDB id; TV passes through too. The
-    // user can switch sources inside NL PLAYER if one provider is down.
+    // Build the THREE external (browser) sources for a title, each from its
+    // correct origin host. None of these providers allow iframe embedding, so
+    // every one of them is opened in a new browser tab. "imdb" is the IMDb id
+    // (e.g. tt37287335) extracted from an imdb.com/title/<id>/ link; movie vs
+    // tv is handled via the embed path segment.
     function buildSources(item) {
       var imdb = item.imdbId || "";
-      var tmdb = item.id || "";
       var t = item.type === "tv" ? "tv" : "movie";
-      var primary = imdb || tmdb;
-      var srcs = [];
-      if (primary) {
-        srcs.push({ label: "\u0645\u0635\u062f\u0631 1", url: "https://vidsrc.cc/v2/embed/" + t + "/" + primary });
-        srcs.push({ label: "\u0645\u0635\u062f\u0631 2", url: "https://vidsrc.to/embed/" + t + "/" + primary });
-      }
-      if (tmdb) {
-        srcs.push({ label: "\u0645\u0635\u062f\u0631 3", url: t === "tv" ? ("https://www.2embed.cc/embedtv/" + tmdb + "&s=1&e=1") : ("https://www.2embed.cc/embed/" + tmdb) });
-        srcs.push({ label: "\u0645\u0635\u062f\u0631 4", url: "https://player.vidify.top/embed/" + t + "/" + tmdb });
-      }
-      return srcs;
+      if (!imdb) return [];
+      return [
+        { name: "PlayIMDb",   host: "playimdb.com",   url: "https://www.playimdb.com/title/" + imdb + "/" },
+        { name: "StreamIMDb", host: "streamimdb.ru",  url: "https://streamimdb.ru/embed/" + t + "/" + imdb },
+        { name: "IMDb.su",    host: "player.imdb.su", url: "https://player.imdb.su/embed/" + t + "/" + imdb }
+      ];
+    }
+
+    // A clear chooser: one button per source, each showing the provider name,
+    // its origin host, and the full built URL. Every button opens its link in a
+    // new browser tab (these sites refuse to load inside an iframe).
+    function openSourcePicker(item, sources) {
+      var ov = document.createElement("div");
+      ov.className = "nlc-modal";
+      var btnsHtml = sources.map(function (s) {
+        return '<button class="nlc-srcbtn" data-url="' + esc(s.url) + '" ' +
+          'style="display:flex;flex-direction:column;align-items:flex-start;gap:3px;width:100%;text-align:start;margin:7px 0;padding:11px 13px;border:1px solid #5a5a5a;border-radius:6px;background:linear-gradient(#3a3a3a,#272727);color:#fff;cursor:pointer;">' +
+            '<span style="font-weight:bold;font-size:14px;">\u25B6 ' + esc(s.name) +
+              ' <span style="opacity:.6;font-weight:normal;font-size:11px;">(' + esc(s.host) + ')</span></span>' +
+            '<span style="font-size:10px;opacity:.55;direction:ltr;word-break:break-all;">' + esc(s.url) + '</span>' +
+          '</button>';
+      }).join("");
+      var card = document.createElement("div");
+      card.setAttribute("dir", "rtl");
+      card.style.cssText = "background:#1c1c1c;color:#eee;border:1px solid #444;border-radius:8px;width:390px;max-width:92%;padding:18px;font-family:Tahoma,'Segoe UI',sans-serif;box-shadow:0 12px 44px rgba(0,0,0,.6);";
+      card.innerHTML =
+        '<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;">' +
+          '<span style="font-weight:bold;font-size:15px;">\uD83C\uDFAC ' + esc(item.title) + '</span>' +
+          '<button class="nlc-sp-close" title="إغلاق" style="background:none;border:none;color:#bbb;font-size:18px;cursor:pointer;line-height:1;">\u2715</button>' +
+        '</div>' +
+        '<p style="margin:0 0 12px;font-size:12px;opacity:.8;line-height:1.7;">اختر أحد المصادر الثلاثة لفتح الفيلم في المتصفح (هذه المواقع لا تعمل داخل النافذة). كل زر يفتح رابطه الأصلي الصحيح:</p>' +
+        btnsHtml +
+        '<p style="margin:12px 0 0;font-size:10px;opacity:.45;">يُفتح في تبويب جديد (noopener, noreferrer).</p>';
+      ov.appendChild(card);
+      root.appendChild(ov);
+      ov.addEventListener("click", function (e) { if (e.target === ov) root.removeChild(ov); });
+      card.querySelector(".nlc-sp-close").addEventListener("click", function () { root.removeChild(ov); });
+      Array.prototype.forEach.call(card.querySelectorAll(".nlc-srcbtn"), function (b) {
+        b.addEventListener("click", function () {
+          var u = b.getAttribute("data-url");
+          if (u) window.open(u, "_blank", "noopener,noreferrer");
+          if (showNotification) showNotification("NL CINEMA", "جارٍ فتح المصدر في المتصفح…");
+        });
+      });
     }
 
     function watch(item) {
-      var imdb = item.imdbId || "";
-      // External (browser) URL = the exact method the live site uses.
-      var ext = imdb ? ("https://www.playimdb.com/title/" + imdb + "/") : "";
       var sources = buildSources(item);
-      if (!sources.length && !ext) { if (showNotification) showNotification("NL CINEMA", "\u0644\u0627 \u064a\u0648\u062c\u062f \u0645\u0635\u062f\u0631 \u0644\u0647\u0630\u0627 \u0627\u0644\u0639\u0646\u0648\u0627\u0646"); return; }
-      if (window.openNlPlayer) window.openNlPlayer({ url: ext, title: item.title, sources: sources });
-      else if (ext) window.open(ext, "_blank", "noopener,noreferrer");
+      if (!sources.length) {
+        if (showNotification) showNotification("NL CINEMA", "لا يوجد معرّف IMDb لهذا العنوان");
+        return;
+      }
+      openSourcePicker(item, sources);
     }
 
     function renderDetail(item) {
