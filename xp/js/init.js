@@ -10,6 +10,7 @@ import { createWindow, createTaskbarButton, openProperties } from "./windowManag
 import { getIcon } from "./icons.js"; 
 import { initNotepad } from "./notepad.js";
 import { initSnake } from "./snake.js";
+import { initSolitaire } from "./solitaire.js";
 import { initCalendar } from "./calendar.js";
 import { initHydra } from "./hydra.js";
 import { initCalculator } from "./calculator.js";
@@ -38,7 +39,6 @@ import { initFlashPlayer } from "./flashPlayer.js";
 import { initStickFigures, spawnStickFigure, clearStickFigures } from "./stickFigures.js";
 import { toggleHorrorMode } from "./horror.js";
 import { initWannaCry } from "./wannacry.js";
-import { loadNlContent } from "./nlContent.js";
 
 // Make all the necessary functions and objects available globally
 window.fileSystem = fileSystem;
@@ -50,6 +50,7 @@ window.openProperties = openProperties;
 window.getIcon = getIcon;
 window.initNotepad = initNotepad;
 window.initSnake = initSnake;
+window.initSolitaire = initSolitaire;
 window.initCalendar = initCalendar;
 window.initHydra = initHydra;
 window.initCalculator = initCalculator;
@@ -114,7 +115,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   if (ranMemz) {
     const overlay = document.createElement('div'); overlay.id='memz-lock-screen';
     overlay.style.cssText='position:fixed;inset:0;background:#000;display:flex;align-items:center;justify-content:center;z-index:10000;';
-    const img=document.createElement('img'); img.src='poptart1redrainbowfix_1.webp'; img.style.maxWidth='90%'; img.style.maxHeight='90%'; overlay.appendChild(img);
+    const img=document.createElement('img'); img.src='/poptart1redrainbowfix_1.webp'; img.style.maxWidth='90%'; img.style.maxHeight='90%'; overlay.appendChild(img);
     const btn=document.createElement('button'); btn.textContent='Escape'; btn.style.cssText='position:absolute;bottom:40px;padding:8px 16px;display:none;';
     overlay.appendChild(btn); document.body.appendChild(overlay);
     setTimeout(()=>{btn.style.display='inline-block';},3000);
@@ -128,14 +129,11 @@ document.addEventListener('DOMContentLoaded', async () => {
     console.warn('Could not play startup sound:', err);
   });
 
-  // Pull real NL website content (games, etc.) into the virtual filesystem.
-  try { await loadNlContent(fileSystem); } catch (e) { console.warn('[NL] content load failed:', e); }
-
   updateDesktopIcons();
 
   // Get the currently logged in user's username and avatar if available
   let username = "Administrator";
-  let avatarUrl = "Profile_Chess.webp"; // Default avatar
+  let avatarUrl = "/Profile_Chess.webp"; // Default avatar
   try {
     if (window.websim && window.websim.getUser) {
       const user = await window.websim.getUser();
@@ -156,7 +154,7 @@ document.addEventListener('DOMContentLoaded', async () => {
       avatarImg.src = avatarUrl;
       // Add error handler to fall back to default avatar if user avatar fails to load
       avatarImg.onerror = () => {
-        avatarImg.src = "Profile_Chess.webp";
+        avatarImg.src = "/Profile_Chess.webp";
       };
     }
     const usernameSpan = startMenuHeader.querySelector('span');
