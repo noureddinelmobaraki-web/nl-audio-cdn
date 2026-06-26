@@ -40,6 +40,7 @@ import { toggleHorrorMode } from "./horror.js";
 import { initWannaCry } from "./wannacry.js";
 import { loadNlContent } from "./nlContent.js";
 import { initVLC } from "./vlc.js";
+import { initNLSpotify } from "./nlSpotify.js";
 
 // Make all the necessary functions and objects available globally
 window.fileSystem = fileSystem;
@@ -60,6 +61,7 @@ window.initInternetExplorer = initInternetExplorer;
 window.initMinesweeper = initMinesweeper;
 window.initMusicPlayer = initMusicPlayer;
 window.initVLC = initVLC;
+window.initNLSpotify = initNLSpotify;
 window.initMinecraft = initMinecraft;
 window.initErrorTester = initErrorTester;
 window.initIdiot = initIdiot;

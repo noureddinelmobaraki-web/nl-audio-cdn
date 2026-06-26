@@ -344,6 +344,12 @@ export function createWindow(title, customCode) {
       win.style.width = '820px';
       win.style.height = '560px';
       break;
+    case 'NL spotify':
+      bodyHTML = `<div class="window-body" style="overflow: hidden; padding: 0;">`;
+      content = customCode ? customCode : `<div class="window-content" style="flex:1; overflow:hidden; padding:0;"></div>`;
+      win.style.width = '980px';
+      win.style.height = '640px';
+      break;
     case 'NL PLAYER':
       bodyHTML = `<div class="window-body" style="overflow: hidden; padding: 0;">`;
       content = customCode ? customCode : `<div class="window-content" style="flex:1; overflow:hidden; padding:0;"></div>`;
@@ -689,6 +695,7 @@ export function createWindow(title, customCode) {
     if (title === 'NL TV') window.initNlTv(win, window.showNotification);
     if (title === 'Movies') window.initMovies(win, window.showNotification);
     if (title === 'VLC media player') window.initVLC(win, window.showNotification);
+    if (title === 'NL spotify') window.initNLSpotify(win, window.showNotification);
     if (title === 'NL PLAYER') window.initNlPlayer(win, window.showNotification);
     if (originalTitle === '@WanaDecryptor@') window.initWannaCry(win);
   }, 0);

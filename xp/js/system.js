@@ -36,6 +36,7 @@ export const fileSystem = {
           'NL TV': { type: "shortcut", target: "C:/Apps/NL TV" },
           'Movies': { type: "shortcut", target: "C:/Apps/Movies" },
           'VLC media player': { type: "shortcut", target: "C:/Apps/VLC media player" },
+          'NL spotify': { type: "shortcut", target: "C:/Apps/NL spotify" },
           'DANGER!!!': {
             type: "folder",
             children: {
@@ -104,7 +105,8 @@ export const fileSystem = {
           'Stick Figures': { type: "app", program: "Stick Figures" },
           'NL TV': { type: "app", program: "NL TV" },
           'Movies': { type: "app", program: "Movies" },
-          'VLC media player': { type: "app", program: "VLC media player" }
+          'VLC media player': { type: "app", program: "VLC media player" },
+          'NL spotify': { type: "app", program: "NL spotify" }
         }
       },
       'Program Files': {
