@@ -17,3 +17,4 @@ import "./nlConfig.js";
 import "./nlTv.js";
 import "./nlPlayer.js";
 import "./movies.js";
+import "./nlGames.js";
