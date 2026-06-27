@@ -133,6 +133,9 @@ const NL_FV_TRACKS = /*116 built-in fv tracks*/[
 // ---- New songs (id>=117) are loaded at runtime from this manifest (absolute URLs). ----
 const MANIFEST_URL = (typeof window!=='undefined' && window.NL_SPOTIFY_MANIFEST_URL) || 'media/nl-fv-songs/songs.manifest.json';
 const LRCLIB_API = 'https://lrclib.net/api';
+const PROFILE_IMG = 'https://noureddinelmobaraki-web.github.io/nl-audio-cdn/profile_img.webp';
+const DL_SVG = ic('<path d="M12 3v12"/><path d="M7 11l5 5 5-5"/><path d="M5 20h14"/>',{size:14});
+const DL_SVG16 = ic('<path d="M12 3v12"/><path d="M7 11l5 5 5-5"/><path d="M5 20h14"/>',{size:16});
 
 const EQ_FREQS = [32, 64, 125, 250, 500, 1000, 2000, 4000, 8000, 16000];
 const EQ_PRESETS = {
@@ -226,6 +229,11 @@ function injectStyles(){
   .nls-li .fav{flex:0 0 auto;color:#ff5d8f;opacity:0;display:flex}
   .nls-li.isfav .fav{opacity:1}
   .nls-li:hover .fav{opacity:.55}
+  .nls-li .dl{flex:0 0 auto;color:#9fb2d8;opacity:0;display:flex;cursor:pointer;padding:2px}
+  .nls-li:hover .dl{opacity:.7}
+  .nls-li .dl:hover{color:#fff;transform:translateY(-1px)}
+  .nls-li .dl.busy{opacity:1;color:var(--accent2);animation:nlspin 1s linear infinite}
+  @keyframes nlspin{to{transform:rotate(360deg)}}
   .nls-center{flex:1 1 auto;min-width:0;border-radius:14px;display:flex;flex-direction:column;overflow:hidden}
   .nls-view{flex:1 1 auto;min-height:0;display:none;overflow:auto}
   .nls-view.show{display:flex}
@@ -277,9 +285,17 @@ function injectStyles(){
   .nls-info .v{text-align:right;overflow:hidden;text-overflow:ellipsis}
   /* controls */
   .nls-bar{flex:0 0 auto;border-radius:14px;margin:0 10px 10px;padding:8px 12px;display:flex;flex-direction:column;gap:8px}
-  .nls-seekwrap{position:relative;height:14px;display:flex;align-items:center}
-  .nls-buffered{position:absolute;left:0;top:5px;height:4px;background:rgba(255,255,255,.22);border-radius:3px;width:0}
-  .nls-seek{position:relative;width:100%;accent-color:var(--accent);margin:0}
+  .nls-seekwrap{position:relative;height:24px;display:flex;align-items:center;padding:0 2px}
+  .nls-seekwrap::before{content:'';position:absolute;left:2px;right:2px;top:50%;transform:translateY(-50%);height:7px;border-radius:999px;background:rgba(255,255,255,.10);box-shadow:inset 0 1px 2px rgba(0,0,0,.45),inset 0 -1px 0 rgba(255,255,255,.06);backdrop-filter:blur(6px);pointer-events:none}
+  .nls-buffered{position:absolute;left:2px;top:50%;transform:translateY(-50%);height:7px;background:rgba(255,255,255,.18);border-radius:999px;width:0;pointer-events:none}
+  .nls-seekfill{position:absolute;left:2px;top:50%;transform:translateY(-50%);height:7px;border-radius:999px;background:linear-gradient(90deg,var(--accent),var(--accent2));width:0;pointer-events:none;box-shadow:0 0 10px rgba(52,232,158,.45)}
+  .nls-seek{position:relative;width:100%;height:24px;margin:0;background:transparent;-webkit-appearance:none;appearance:none;cursor:pointer;z-index:2}
+  .nls-seek:focus{outline:none}
+  .nls-seek::-webkit-slider-runnable-track{height:24px;background:transparent}
+  .nls-seek::-moz-range-track{height:24px;background:transparent}
+  .nls-seek::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:17px;height:17px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#fff,#dfe8ff);border:0;box-shadow:0 2px 7px rgba(0,0,0,.55),0 0 0 4px rgba(255,255,255,.16);margin-top:3.5px;transition:transform .12s}
+  .nls-seekwrap:hover .nls-seek::-webkit-slider-thumb{transform:scale(1.22)}
+  .nls-seek::-moz-range-thumb{width:17px;height:17px;border-radius:50%;background:#fff;border:0;box-shadow:0 2px 7px rgba(0,0,0,.55),0 0 0 4px rgba(255,255,255,.16)}
   .nls-ctlrow{display:flex;align-items:center;gap:7px}
   .nls-time{font-variant-numeric:tabular-nums;color:#bcd0f5;min-width:40px;text-align:center}
   .nls-btn{min-width:32px;height:32px;padding:0 8px;border-radius:9px;border:1px solid rgba(255,255,255,.16);background:rgba(255,255,255,.06);color:#eaf2ff;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .14s}
@@ -371,7 +387,7 @@ export function initNLSpotify(win, showNotification){
       </div>
     </div>
     <div class="nls-bar nls-glass">
-      <div class="nls-seekwrap"><div class="nls-buffered"></div><input class="nls-seek" type="range" min="0" max="100" value="0" step="0.1"></div>
+      <div class="nls-seekwrap"><div class="nls-buffered"></div><div class="nls-seekfill"></div><input class="nls-seek" type="range" min="0" max="100" value="0" step="0.1"></div>
       <div class="nls-ctlrow">
         <span class="nls-time nls-cur">0:00</span>
         <button class="nls-btn nls-prev" title="Previous">${ICONS.prev({size:16})}</button>
@@ -380,6 +396,7 @@ export function initNLSpotify(win, showNotification){
         <button class="nls-btn nls-next" title="Next">${ICONS.next({size:16})}</button>
         <span class="nls-time nls-dur">0:00</span>
         <span class="nls-spacer"></span>
+        <button class="nls-btn nls-dl" title="Download (NL)">${DL_SVG16}</button>
         <button class="nls-btn nls-shuffle" title="Shuffle">${ICONS.shuffle({size:16})}</button>
         <button class="nls-btn nls-repeat" title="Repeat">${ICONS.repeat({size:16})}</button>
         <select class="nls-sel nls-speed" title="Speed"></select>
@@ -416,7 +433,7 @@ export function initNLSpotify(win, showNotification){
   // ---- playback ----
   let current=-1; // index into LIB
   function trackArtCss(t){ const h=hashHue((t.artist||'')+(t.title||'')); return `linear-gradient(135deg,hsl(${h},58%,46%),hsl(${(h+38)%360},52%,26%))`; }
-  function coverStyle(t){ return t && t.cover ? `background-image:url("${esc(t.cover)}")` : `background:${trackArtCss(t||{})}`; }
+  function coverStyle(t){ return t && t.cover ? `background-image:url('${esc(t.cover)}')` : `background:${trackArtCss(t||{})}`; }
 
   function play(idx){
     if (idx<0||idx>=LIB.length) return;
@@ -458,7 +475,7 @@ export function initNLSpotify(win, showNotification){
     if(t.artist){ LIB.forEach((o,i)=>{ if(rel.length<6&&o.artist===t.artist&&i!==current&&!seen[i]){ seen[i]=1; rel.push(i); } }); }
     if(t.album){ LIB.forEach((o,i)=>{ if(rel.length<8&&o.album&&o.album===t.album&&i!==current&&!seen[i]){ seen[i]=1; rel.push(i); } }); }
     if(!rel.length){ relatedEl.innerHTML=''; return; }
-    relatedEl.innerHTML=rel.map(i=>{ const o=LIB[i]; const cs=o.cover?`background-image:url("${esc(o.cover)}")`:`background:${trackArtCss(o)}`; return `<span class="nls-chip" data-i="${i}"><span class="cc" style="${cs}"></span><span dir="${isRTL(o.title)?'rtl':'ltr'}">${esc(o.title)}</span></span>`; }).join('');
+    relatedEl.innerHTML=rel.map(i=>{ const o=LIB[i]; const cs=o.cover?`background-image:url('${esc(o.cover)}')`:`background:${trackArtCss(o)}`; return `<span class="nls-chip" data-i="${i}"><span class="cc" style="${cs}"></span><span dir="${isRTL(o.title)?'rtl':'ltr'}">${esc(o.title)}</span></span>`; }).join('');
   }
   relatedEl.addEventListener('click',(e)=>{ const c=e.target.closest('.nls-chip'); if(!c) return; const i=parseInt(c.dataset.i,10); if(view.indexOf(i)<0){ view=displayOrder.slice(); } play(i); });
 
@@ -484,12 +501,13 @@ export function initNLSpotify(win, showNotification){
     let html='';
     for(let p=start;p<end;p++){
       const i=view[p]; const t=LIB[i];
-      const cs=t.cover?`background-image:url("${esc(t.cover)}")`:`background:${trackArtCss(t)}`;
+      const cs=t.cover?`background-image:url('${esc(t.cover)}')`:`background:${trackArtCss(t)}`;
       const covInner=t.cover?'':esc(initials(t.title));
       html+=`<div class="nls-li${i===current?' active':''}${favorites[t.key]?' isfav':''}" data-i="${i}" style="top:${p*ROW_H}px">`+
         `<span class="cov" style="${cs}">${covInner}</span>`+
         `<span class="meta"><span class="t" dir="${isRTL(t.title)?'rtl':'ltr'}">${esc(t.title)}</span><span class="a" dir="${isRTL(t.artist)?'rtl':'ltr'}">${esc(t.artist)}</span></span>`+
         `<span class="dur">${t.duration?fmtTime(t.duration):''}</span>`+
+        `<span class="dl" title="Download">${DL_SVG}</span>`+
         `<span class="fav">${ICONS.heartFill({size:13})}</span>`+
       `</div>`;
     }
@@ -499,8 +517,9 @@ export function initNLSpotify(win, showNotification){
   let _scrollRAF=null;
   vp.addEventListener('scroll',()=>{ if(_scrollRAF) return; _scrollRAF=requestAnimationFrame(()=>{ _scrollRAF=null; renderRows(); }); });
   sizer.addEventListener('click',(e)=>{
-    const fav=e.target.closest('.fav'); const li=e.target.closest('.nls-li'); if(!li) return;
+    const fav=e.target.closest('.fav'); const dl=e.target.closest('.dl'); const li=e.target.closest('.nls-li'); if(!li) return;
     const i=parseInt(li.dataset.i,10);
+    if(dl){ downloadTrack(LIB[i]); return; }
     if(fav){ const k=LIB[i].key; if(favorites[k]) delete favorites[k]; else favorites[k]=1; saveState({favorites}); if(favOnly) rebuildView(); else renderRows(); if(i===current) updateNow(); return; }
     if(view.indexOf(i)<0){ view=displayOrder.slice(); } play(i);
   });
@@ -522,7 +541,8 @@ export function initNLSpotify(win, showNotification){
   });
 
   // ---- controls ----
-  const playBtn=$('.nls-play'), seek=$('.nls-seek'), buffered=$('.nls-buffered');
+  const playBtn=$('.nls-play'), seek=$('.nls-seek'), buffered=$('.nls-buffered'), seekFill=$('.nls-seekfill');
+  function setSeekFill(pct){ if(seekFill) seekFill.style.width=Math.max(0,Math.min(100,pct))+'%'; }
   const curEl=$('.nls-cur'), durEl=$('.nls-dur'), volEl=$('.nls-vol'), muteBtn=$('.nls-mute');
   const shuffleBtn=$('.nls-shuffle'), repeatBtn=$('.nls-repeat'), speedSel=$('.nls-speed');
   SPEEDS.forEach(s=>{ const o=document.createElement('option'); o.value=s; o.textContent=s+'\u00D7'; if(s===speed)o.selected=true; speedSel.appendChild(o); });
@@ -543,9 +563,9 @@ export function initNLSpotify(win, showNotification){
   volEl.addEventListener('input',()=>{ vol=parseFloat(volEl.value); muted=false; audio.volume=vol; muteGlyph(); saveState({volume:vol,muted:false}); });
 
   let seeking=false;
-  seek.addEventListener('input',()=>{ seeking=true; if(audio.duration){ curEl.textContent=fmtTime(audio.duration*(seek.value/100)); } });
+  seek.addEventListener('input',()=>{ seeking=true; setSeekFill(parseFloat(seek.value)); if(audio.duration){ curEl.textContent=fmtTime(audio.duration*(seek.value/100)); } });
   seek.addEventListener('change',()=>{ if(audio.duration){ audio.currentTime=audio.duration*(seek.value/100); } seeking=false; });
-  audio.addEventListener('timeupdate',()=>{ if(!seeking&&audio.duration){ seek.value=(audio.currentTime/audio.duration)*100; } curEl.textContent=fmtTime(audio.currentTime); syncLyrics(); saveTimeThrottled(); });
+  audio.addEventListener('timeupdate',()=>{ if(!seeking&&audio.duration){ const pct=(audio.currentTime/audio.duration)*100; seek.value=pct; setSeekFill(pct); } curEl.textContent=fmtTime(audio.currentTime); syncLyrics(); saveTimeThrottled(); });
   audio.addEventListener('loadedmetadata',()=>{ durEl.textContent=fmtTime(audio.duration); });
   audio.addEventListener('progress',()=>{ try{ if(audio.buffered.length&&audio.duration){ buffered.style.width=(audio.buffered.end(audio.buffered.length-1)/audio.duration*100)+'%'; } }catch(e){} });
   audio.addEventListener('play',()=>{ playBtn.innerHTML=ICONS.pause({size:20}); startViz(); updateMediaSession(); });
@@ -651,6 +671,50 @@ export function initNLSpotify(win, showNotification){
       case 'r': case 'R': repeatBtn.click(); break;
     }
   });
+
+  $('.nls-dl').addEventListener('click',()=>{ if(current>=0) downloadTrack(LIB[current]); });
+
+  // ---- download (NL-named, site cover embedded when possible) ----
+  let _ffmpeg=null, _ffmpegLoading=null, _dlBusy=false;
+  function dlName(t){ return ('NL '+((t&&t.title)||'track')).replace(/[\\/:*?"<>|]+/g,'_').trim()+'.m4a'; }
+  function saveBlob(blob,name){ const u=URL.createObjectURL(blob); const a=document.createElement('a'); a.href=u; a.download=name; document.body.appendChild(a); a.click(); a.remove(); setTimeout(()=>URL.revokeObjectURL(u),5000); }
+  async function siteCoverJpeg(){
+    const img=await new Promise((res,rej)=>{ const im=new Image(); im.crossOrigin='anonymous'; im.onload=()=>res(im); im.onerror=rej; im.src=PROFILE_IMG; });
+    const S=600, c=document.createElement('canvas'); c.width=S; c.height=S; const ctx=c.getContext('2d');
+    ctx.fillStyle='#0c0e18'; ctx.fillRect(0,0,S,S);
+    const r=Math.max(S/img.width,S/img.height), w=img.width*r, h=img.height*r; ctx.drawImage(img,(S-w)/2,(S-h)/2,w,h);
+    const blob=await new Promise(res=>c.toBlob(res,'image/jpeg',0.9)); return new Uint8Array(await blob.arrayBuffer());
+  }
+  async function ensureFfmpeg(){
+    if(_ffmpeg) return _ffmpeg;
+    if(_ffmpegLoading) return _ffmpegLoading;
+    _ffmpegLoading=(async()=>{
+      const ffMod=await import('https://cdn.jsdelivr.net/npm/@ffmpeg/ffmpeg@0.12.10/dist/esm/index.js');
+      const util=await import('https://cdn.jsdelivr.net/npm/@ffmpeg/util@0.12.1/dist/esm/index.js');
+      const ff=new ffMod.FFmpeg(); const base='https://cdn.jsdelivr.net/npm/@ffmpeg/core@0.12.6/dist/esm';
+      await ff.load({ coreURL: await util.toBlobURL(base+'/ffmpeg-core.js','text/javascript'), wasmURL: await util.toBlobURL(base+'/ffmpeg-core.wasm','application/wasm') });
+      ff._util=util; _ffmpeg=ff; return ff;
+    })();
+    return _ffmpegLoading;
+  }
+  async function embedAndDownload(t){
+    const ff=await ensureFfmpeg(); const util=ff._util;
+    await ff.writeFile('in.m4a', await util.fetchFile(t.url));
+    let args=['-i','in.m4a','-c','copy','out.m4a'];
+    try{ await ff.writeFile('c.jpg', await siteCoverJpeg()); args=['-i','in.m4a','-i','c.jpg','-map','0:a','-map','1:v','-c','copy','-disposition:v:0','attached_pic','out.m4a']; }catch(e){}
+    await ff.exec(args);
+    const data=await ff.readFile('out.m4a');
+    saveBlob(new Blob([data.buffer],{type:'audio/mp4'}), dlName(t));
+    try{ ff.deleteFile('in.m4a'); ff.deleteFile('out.m4a'); ff.deleteFile('c.jpg'); }catch(e){}
+  }
+  async function downloadTrack(t){
+    if(!t||!t.url||_dlBusy) return; _dlBusy=true;
+    const btns=root.querySelectorAll('.nls-li[data-i="'+LIB.indexOf(t)+'"] .dl'); btns.forEach(b=>b.classList.add('busy'));
+    notify('Preparing download\u2026');
+    try{ await embedAndDownload(t); notify('Downloaded: '+t.title); }
+    catch(e){ try{ const r=await fetch(t.url); saveBlob(await r.blob(), dlName(t)); notify('Downloaded: '+t.title); }catch(e2){ notify('Download failed'); } }
+    finally{ _dlBusy=false; btns.forEach(b=>b.classList.remove('busy')); }
+  }
 
   // ---- cleanup ----
   const closeBtn=win.querySelector('.title-bar-controls button[aria-label="Close"]');
