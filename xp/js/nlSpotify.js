@@ -1,327 +1,389 @@
-// nlSpotify.js — "NL spotify": a full-featured, XP-glass music player for the NL XP system.
-// Self-contained vanilla JS (no external deps). Streams the 116-track
-// "NL fv songs of all time" library directly from the CDN (media/nl-fv-songs/*.m4a).
+// nlSpotify.js v2 — "NL spotify": redesigned XP-glass music player for the NL XP system.
+// Self-contained vanilla JS (ES module). Icon-based UI (no emoji), virtualized
+// library (1800+ tracks), LRClib runtime lyrics with smart prefetch + cache,
+// and a professional cover-backed lyrics viewer.
 //
 // Public surface:
 //   export function initNLSpotify(win, showNotification)   // wired by init.js
-//   window.openNLSpotify({ url, title, artist })            // optional external open
+//   window.openNLSpotify()                                  // optional external open
 //
 // Audio graph: <audio> -> MediaElementSource -> 10x BiquadFilter (EQ)
 //              -> StereoPanner -> Gain -> Analyser -> destination
-// Features: play/pause/next/prev, seek + buffered, volume + mute, shuffle,
-//   repeat (off/all/one), playback speed, 10-band EQ + presets + bypass,
-//   spectrum visualizer, LRC lyrics (auto-fetch + manual), search/library,
-//   generated artwork, calm reactions + favorites, MediaSession, localStorage state.
 
-const FV_RAW = [{"file": "song_001.m4a", "url": "media/nl-fv-songs/song_001.m4a", "title": "Mi Amore (V2)", "artist": "7liwa"}, {"file": "song_002.m4a", "url": "media/nl-fv-songs/song_002.m4a", "title": "Fataat Al Khair", "artist": "Abbu Alli"}, {"file": "song_003.m4a", "url": "media/nl-fv-songs/song_003.m4a", "title": "U.Z.I", "artist": "A.L.A"}, {"file": "song_004.m4a", "url": "media/nl-fv-songs/song_004.m4a", "title": "A Horse with No Name", "artist": "America"}, {"file": "song_005.m4a", "url": "media/nl-fv-songs/song_005.m4a", "title": "Rhyme Serve Me", "artist": "Art-Smoke"}, {"file": "song_006.m4a", "url": "media/nl-fv-songs/song_006.m4a", "title": "Blessings (Extended Version)", "artist": "Big Sean"}, {"file": "song_007.m4a", "url": "media/nl-fv-songs/song_007.m4a", "title": "Duvet", "artist": "bôa"}, {"file": "song_008.m4a", "url": "media/nl-fv-songs/song_008.m4a", "title": "Rak chayaa bel khlayaa", "artist": "Cheb Bilal"}, {"file": "song_009.m4a", "url": "media/nl-fv-songs/song_009.m4a", "title": "Bullet and a Target", "artist": "Citizen Cope"}, {"file": "song_010.m4a", "url": "media/nl-fv-songs/song_010.m4a", "title": "Back Up (feat. Big Sean)", "artist": "Dej Loaf"}, {"file": "song_011.m4a", "url": "media/nl-fv-songs/song_011.m4a", "title": "Back To Back", "artist": "Drake"}, {"file": "song_012.m4a", "url": "media/nl-fv-songs/song_012.m4a", "title": "Pop Style", "artist": "Drake"}, {"file": "song_013.m4a", "url": "media/nl-fv-songs/song_013.m4a", "title": "Trust Nobody", "artist": "Hippie Sabotage"}, {"file": "song_014.m4a", "url": "media/nl-fv-songs/song_014.m4a", "title": "Vienen A Verme (Theme from El Chapo)", "artist": "iLe"}, {"file": "song_015.m4a", "url": "media/nl-fv-songs/song_015.m4a", "title": "The Last Kingdom Blood Will Prevail", "artist": "John Lunn"}, {"file": "song_016.m4a", "url": "media/nl-fv-songs/song_016.m4a", "title": "All Time Low", "artist": "Jon Bellion"}, {"file": "song_017.m4a", "url": "media/nl-fv-songs/song_017.m4a", "title": "L'morphiniya 12", "artist": "L'morphine"}, {"file": "song_018.m4a", "url": "media/nl-fv-songs/song_018.m4a", "title": "Aniki", "artist": "Lquinze"}, {"file": "song_019.m4a", "url": "media/nl-fv-songs/song_019.m4a", "title": "Hashrab Hashish", "artist": "Luka Salam"}, {"file": "song_020.m4a", "url": "media/nl-fv-songs/song_020.m4a", "title": "غصن رمان", "artist": "maryam shehab"}, {"file": "song_021.m4a", "url": "media/nl-fv-songs/song_021.m4a", "title": "24", "artist": "Money Man"}, {"file": "song_022.m4a", "url": "media/nl-fv-songs/song_022.m4a", "title": "Eva (feat. Kira7)", "artist": "NAB FAKE"}, {"file": "song_023.m4a", "url": "media/nl-fv-songs/song_023.m4a", "title": "Too Late", "artist": "nixy"}, {"file": "song_024.m4a", "url": "media/nl-fv-songs/song_024.m4a", "title": "Man O To", "artist": "Nu"}, {"file": "song_025.m4a", "url": "media/nl-fv-songs/song_025.m4a", "title": "Dizeres", "artist": "Orgânico"}, {"file": "song_026.m4a", "url": "media/nl-fv-songs/song_026.m4a", "title": "Hal 2", "artist": "Oum, M-Carlos"}, {"file": "song_027.m4a", "url": "media/nl-fv-songs/song_027.m4a", "title": "Peter, Paul And Mary Early in the Morning 2004 Remaster", "artist": "Unknown"}, {"file": "song_028.m4a", "url": "media/nl-fv-songs/song_028.m4a", "title": "Show Must Go On", "artist": "Rilès"}, {"file": "song_029.m4a", "url": "media/nl-fv-songs/song_029.m4a", "title": "Smooth Operator", "artist": "Sade"}, {"file": "song_030.m4a", "url": "media/nl-fv-songs/song_030.m4a", "title": "Selena Gomez & The Scene Love You Like A Love Song", "artist": "Unknown"}, {"file": "song_031.m4a", "url": "media/nl-fv-songs/song_031.m4a", "title": "ميل على بلدي", "artist": "Shalby Younis"}, {"file": "song_032.m4a", "url": "media/nl-fv-songs/song_032.m4a", "title": "Bullet From A Gun", "artist": "Skepta"}, {"file": "song_033.m4a", "url": "media/nl-fv-songs/song_033.m4a", "title": "Dark Red", "artist": "Steve Lacy"}, {"file": "song_034.m4a", "url": "media/nl-fv-songs/song_034.m4a", "title": "No Mediocre (feat. Iggy Azalea)", "artist": "T.I."}, {"file": "song_035.m4a", "url": "media/nl-fv-songs/song_035.m4a", "title": "L'ITALIANO", "artist": "Toto Cutugno"}, {"file": "song_036.m4a", "url": "media/nl-fv-songs/song_036.m4a", "title": "دايس", "artist": "طارق العربي طرقان"}, {"file": "song_037.m4a", "url": "media/nl-fv-songs/song_037.m4a", "title": "هزتني", "artist": "محمد الوهيبي"}, {"file": "song_038.m4a", "url": "media/nl-fv-songs/song_038.m4a", "title": "Thank You", "artist": "Dido"}, {"file": "song_039.m4a", "url": "media/nl-fv-songs/song_039.m4a", "title": "'Bout It", "artist": "JMSN"}, {"file": "song_040.m4a", "url": "media/nl-fv-songs/song_040.m4a", "title": "Fade Away", "artist": "Logic"}, {"file": "song_041.m4a", "url": "media/nl-fv-songs/song_041.m4a", "title": "N.Y. State Of Mind (Explicit Album Version)", "artist": "Nas"}, {"file": "song_042.m4a", "url": "media/nl-fv-songs/song_042.m4a", "title": "Unwritten", "artist": "Natasha Bedingfield"}, {"file": "song_043.m4a", "url": "media/nl-fv-songs/song_043.m4a", "title": "500 Miles (2004 Remaster)", "artist": "Peter, Paul And Mary"}, {"file": "song_044.m4a", "url": "media/nl-fv-songs/song_044.m4a", "title": "Quatrehuit l'Mkhokha II La suite feat l'Morphine", "artist": "Unknown"}, {"file": "song_045.m4a", "url": "media/nl-fv-songs/song_045.m4a", "title": "Won't Forget You (Edit)", "artist": "Shouse"}, {"file": "song_046.m4a", "url": "media/nl-fv-songs/song_046.m4a", "title": "Maybe Tomorrow", "artist": "Stereophonics"}, {"file": "song_047.m4a", "url": "media/nl-fv-songs/song_047.m4a", "title": "Selfish", "artist": "TWENTY88"}, {"file": "song_048.m4a", "url": "media/nl-fv-songs/song_048.m4a", "title": "Thuggish Ruggish Bone", "artist": "Bone Thugs-N-Harmony"}, {"file": "song_049.m4a", "url": "media/nl-fv-songs/song_049.m4a", "title": "Bonfire", "artist": "Childish Gambino"}, {"file": "song_050.m4a", "url": "media/nl-fv-songs/song_050.m4a", "title": "10 Bands", "artist": "Drake"}, {"file": "song_051.m4a", "url": "media/nl-fv-songs/song_051.m4a", "title": "Only Time", "artist": "Enya"}, {"file": "song_052.m4a", "url": "media/nl-fv-songs/song_052.m4a", "title": "Ready or Not", "artist": "Fugees"}, {"file": "song_053.m4a", "url": "media/nl-fv-songs/song_053.m4a", "title": "Where Ya At (feat. Drake)", "artist": "Future"}, {"file": "song_054.m4a", "url": "media/nl-fv-songs/song_054.m4a", "title": "All Mine", "artist": "Kanye West"}, {"file": "song_055.m4a", "url": "media/nl-fv-songs/song_055.m4a", "title": "Couteau Suisse", "artist": "L'morphine"}, {"file": "song_056.m4a", "url": "media/nl-fv-songs/song_056.m4a", "title": "Breathe Me", "artist": "Sia"}, {"file": "song_057.m4a", "url": "media/nl-fv-songs/song_057.m4a", "title": "Byeb’a Nas", "artist": "Abeer Nehme"}, {"file": "song_058.m4a", "url": "media/nl-fv-songs/song_058.m4a", "title": "Let The Drummer Kick (Album Version)", "artist": "Citizen Cope"}, {"file": "song_059.m4a", "url": "media/nl-fv-songs/song_059.m4a", "title": "Snake Eater", "artist": "Cynthia Harrell"}, {"file": "song_060.m4a", "url": "media/nl-fv-songs/song_060.m4a", "title": "Cleanin' Out My Closet", "artist": "Eminem"}, {"file": "song_061.m4a", "url": "media/nl-fv-songs/song_061.m4a", "title": "My Immortal", "artist": "Evanescence"}, {"file": "song_062.m4a", "url": "media/nl-fv-songs/song_062.m4a", "title": "Rai Machi Punk", "artist": "ISSAM"}, {"file": "song_063.m4a", "url": "media/nl-fv-songs/song_063.m4a", "title": "By Design", "artist": "Kid Cudi"}, {"file": "song_064.m4a", "url": "media/nl-fv-songs/song_064.m4a", "title": "Gang Related", "artist": "Logic"}, {"file": "song_065.m4a", "url": "media/nl-fv-songs/song_065.m4a", "title": "See You Again (feat. Kali Uchis)", "artist": "Tyler, The Creator"}, {"file": "song_066.m4a", "url": "media/nl-fv-songs/song_066.m4a", "title": "Future Swag", "artist": "Young Thug"}, {"file": "song_067.m4a", "url": "media/nl-fv-songs/song_067.m4a", "title": "The Tide Is High (Remastered 2001)", "artist": "Blondie"}, {"file": "song_068.m4a", "url": "media/nl-fv-songs/song_068.m4a", "title": "Gotta Have It", "artist": "JAY-Z"}, {"file": "song_069.m4a", "url": "media/nl-fv-songs/song_069.m4a", "title": "No Mistakes", "artist": "Kanye West"}, {"file": "song_070.m4a", "url": "media/nl-fv-songs/song_070.m4a", "title": "Favor for a Favor (feat. Scarface)", "artist": "Nas"}, {"file": "song_071.m4a", "url": "media/nl-fv-songs/song_071.m4a", "title": "Galbi 3achakli fiha sif", "artist": "Cheb Akil"}, {"file": "song_072.m4a", "url": "media/nl-fv-songs/song_072.m4a", "title": "Eurythmics Sweet Dreams Are Made of This Remastered", "artist": "Unknown"}, {"file": "song_073.m4a", "url": "media/nl-fv-songs/song_073.m4a", "title": "fukumean", "artist": "Gunna"}, {"file": "song_074.m4a", "url": "media/nl-fv-songs/song_074.m4a", "title": "Fire Squad", "artist": "J. Cole"}, {"file": "song_075.m4a", "url": "media/nl-fv-songs/song_075.m4a", "title": "Maybe IDK", "artist": "Jon Bellion"}, {"file": "song_076.m4a", "url": "media/nl-fv-songs/song_076.m4a", "title": "L'exorciste", "artist": "L'morphine"}, {"file": "song_077.m4a", "url": "media/nl-fv-songs/song_077.m4a", "title": "Bounce", "artist": "Logic"}, {"file": "song_078.m4a", "url": "media/nl-fv-songs/song_078.m4a", "title": "El-Kaoui", "artist": "Nabyla Maan"}, {"file": "song_079.m4a", "url": "media/nl-fv-songs/song_079.m4a", "title": "Freed From Desire (prod. Molella, Phil Jay)", "artist": "Gala"}, {"file": "song_080.m4a", "url": "media/nl-fv-songs/song_080.m4a", "title": "St. Tropez", "artist": "J. Cole"}, {"file": "song_081.m4a", "url": "media/nl-fv-songs/song_081.m4a", "title": "Violent Crimes", "artist": "Kanye West"}, {"file": "song_082.m4a", "url": "media/nl-fv-songs/song_082.m4a", "title": "Alright", "artist": "Kendrick Lamar"}, {"file": "song_083.m4a", "url": "media/nl-fv-songs/song_083.m4a", "title": "Skit", "artist": "L'morphine"}, {"file": "song_084.m4a", "url": "media/nl-fv-songs/song_084.m4a", "title": "Nsak", "artist": "ONZY"}, {"file": "song_085.m4a", "url": "media/nl-fv-songs/song_085.m4a", "title": "Big Amount", "artist": "2 Chainz"}, {"file": "song_086.m4a", "url": "media/nl-fv-songs/song_086.m4a", "title": "Massive", "artist": "Drake"}, {"file": "song_087.m4a", "url": "media/nl-fv-songs/song_087.m4a", "title": "G.O.M.D", "artist": "J. Cole"}, {"file": "song_088.m4a", "url": "media/nl-fv-songs/song_088.m4a", "title": "I Am The Greatest", "artist": "Logic"}, {"file": "song_089.m4a", "url": "media/nl-fv-songs/song_089.m4a", "title": "Heart To Heart", "artist": "Mac DeMarco"}, {"file": "song_090.m4a", "url": "media/nl-fv-songs/song_090.m4a", "title": "Nothing Else Matters (Remastered 2021)", "artist": "Metallica"}, {"file": "song_091.m4a", "url": "media/nl-fv-songs/song_091.m4a", "title": "Purnamadah", "artist": "Shantala"}, {"file": "song_092.m4a", "url": "media/nl-fv-songs/song_092.m4a", "title": "Tech N9ne feat Kendrick Lamar, ¡Mayday!, Kendall Morgan Fragile", "artist": "Unknown"}, {"file": "song_093.m4a", "url": "media/nl-fv-songs/song_093.m4a", "title": "Halftime", "artist": "Young Thug"}, {"file": "song_094.m4a", "url": "media/nl-fv-songs/song_094.m4a", "title": "No Role Modelz", "artist": "J. Cole"}, {"file": "song_095.m4a", "url": "media/nl-fv-songs/song_095.m4a", "title": "Take What You Want", "artist": "Post Malone"}, {"file": "song_096.m4a", "url": "media/nl-fv-songs/song_096.m4a", "title": "Lord Willin'", "artist": "Logic"}, {"file": "song_097.m4a", "url": "media/nl-fv-songs/song_097.m4a", "title": "Already Home", "artist": "JAY-Z"}, {"file": "song_098.m4a", "url": "media/nl-fv-songs/song_098.m4a", "title": "The Glory", "artist": "Kanye West"}, {"file": "song_099.m4a", "url": "media/nl-fv-songs/song_099.m4a", "title": "Ceux qui rêvent", "artist": "Pomme"}, {"file": "song_100.m4a", "url": "media/nl-fv-songs/song_100.m4a", "title": "Outro", "artist": "Big Sean"}, {"file": "song_101.m4a", "url": "media/nl-fv-songs/song_101.m4a", "title": "6 Man", "artist": "Drake"}, {"file": "song_102.m4a", "url": "media/nl-fv-songs/song_102.m4a", "title": "Boadicea (2009 Remaster)", "artist": "Enya"}, {"file": "song_103.m4a", "url": "media/nl-fv-songs/song_103.m4a", "title": "I Will Survive", "artist": "Gloria Gaynor"}, {"file": "song_104.m4a", "url": "media/nl-fv-songs/song_104.m4a", "title": "Ain't That Some Shit (Interlude)", "artist": "J. Cole"}, {"file": "song_105.m4a", "url": "media/nl-fv-songs/song_105.m4a", "title": "Guillotine", "artist": "Jon Bellion, Travis Mendes"}, {"file": "song_106.m4a", "url": "media/nl-fv-songs/song_106.m4a", "title": "Trap Niggas", "artist": "Future"}, {"file": "song_107.m4a", "url": "media/nl-fv-songs/song_107.m4a", "title": "Captcha", "artist": "L'morphine"}, {"file": "song_108.m4a", "url": "media/nl-fv-songs/song_108.m4a", "title": "Botola", "artist": "Stormy"}, {"file": "song_109.m4a", "url": "media/nl-fv-songs/song_109.m4a", "title": "Bre Petrunko", "artist": "Baklava"}, {"file": "song_110.m4a", "url": "media/nl-fv-songs/song_110.m4a", "title": "What You Know Bout Love", "artist": "Pop Smoke"}, {"file": "song_111.m4a", "url": "media/nl-fv-songs/song_111.m4a", "title": "Switch Up", "artist": "Big Sean, Common"}, {"file": "song_112.m4a", "url": "media/nl-fv-songs/song_112.m4a", "title": "مولاى انى ببابك", "artist": "El Sheikh Al Naqshabandy"}, {"file": "song_113.m4a", "url": "media/nl-fv-songs/song_113.m4a", "title": "Fly Me To The Moon (In Other Words)", "artist": "Julie London"}, {"file": "song_114.m4a", "url": "media/nl-fv-songs/song_114.m4a", "title": "Saint Pablo", "artist": "Kanye West"}, {"file": "song_115.m4a", "url": "media/nl-fv-songs/song_115.m4a", "title": "True", "artist": "Akira Yamaoka"}, {"file": "song_116.m4a", "url": "media/nl-fv-songs/song_116.m4a", "title": "Shahdaroba", "artist": "Roy Orbison"}];
+// ---- The 116 built-in "NL fv songs of all time" (relative CDN paths). ----
+const NL_FV_TRACKS = /*116 built-in fv tracks*/[
+  {"id":1,"file":"song_001.m4a","title":"Mi Amore (V2)","artist":"7liwa","url":"media/nl-fv-songs/song_001.m4a","duration":223},
+  {"id":2,"file":"song_002.m4a","title":"Fataat Al Khair","artist":"Abbu Alli","url":"media/nl-fv-songs/song_002.m4a","duration":287},
+  {"id":3,"file":"song_003.m4a","title":"U.Z.I","artist":"A.L.A","url":"media/nl-fv-songs/song_003.m4a","duration":257},
+  {"id":4,"file":"song_004.m4a","title":"A Horse with No Name","artist":"America","url":"media/nl-fv-songs/song_004.m4a","duration":252},
+  {"id":5,"file":"song_005.m4a","title":"Rhyme Serve Me","artist":"Art-Smoke","url":"media/nl-fv-songs/song_005.m4a","duration":155},
+  {"id":6,"file":"song_006.m4a","title":"Blessings (Extended Version)","artist":"Big Sean","url":"media/nl-fv-songs/song_006.m4a","duration":302},
+  {"id":7,"file":"song_007.m4a","title":"Duvet","artist":"bôa","url":"media/nl-fv-songs/song_007.m4a","duration":204},
+  {"id":8,"file":"song_008.m4a","title":"Rak chayaa bel khlayaa","artist":"Cheb Bilal","url":"media/nl-fv-songs/song_008.m4a","duration":326},
+  {"id":9,"file":"song_009.m4a","title":"Bullet and a Target","artist":"Citizen Cope","url":"media/nl-fv-songs/song_009.m4a","duration":261},
+  {"id":10,"file":"song_010.m4a","title":"Back Up (feat. Big Sean)","artist":"Dej Loaf","url":"media/nl-fv-songs/song_010.m4a","duration":241},
+  {"id":11,"file":"song_011.m4a","title":"Back To Back","artist":"Drake","url":"media/nl-fv-songs/song_011.m4a","duration":171},
+  {"id":12,"file":"song_012.m4a","title":"Pop Style","artist":"Drake","url":"media/nl-fv-songs/song_012.m4a","duration":209},
+  {"id":13,"file":"song_013.m4a","title":"Trust Nobody","artist":"Hippie Sabotage","url":"media/nl-fv-songs/song_013.m4a","duration":225},
+  {"id":14,"file":"song_014.m4a","title":"Vienen A Verme (Theme from El Chapo)","artist":"iLe","url":"media/nl-fv-songs/song_014.m4a","duration":201},
+  {"id":15,"file":"song_015.m4a","title":"The Last Kingdom Blood Will Prevail","artist":"John Lunn","url":"media/nl-fv-songs/song_015.m4a","duration":173},
+  {"id":16,"file":"song_016.m4a","title":"All Time Low","artist":"Jon Bellion","url":"media/nl-fv-songs/song_016.m4a","duration":218},
+  {"id":17,"file":"song_017.m4a","title":"L'morphiniya 12","artist":"L'morphine","url":"media/nl-fv-songs/song_017.m4a","duration":121},
+  {"id":18,"file":"song_018.m4a","title":"Aniki","artist":"Lquinze","url":"media/nl-fv-songs/song_018.m4a","duration":168},
+  {"id":19,"file":"song_019.m4a","title":"Hashrab Hashish","artist":"Luka Salam","url":"media/nl-fv-songs/song_019.m4a","duration":184},
+  {"id":20,"file":"song_020.m4a","title":"غصن رمان","artist":"maryam shehab","url":"media/nl-fv-songs/song_020.m4a","duration":150},
+  {"id":21,"file":"song_021.m4a","title":"24","artist":"Money Man","url":"media/nl-fv-songs/song_021.m4a","duration":183},
+  {"id":22,"file":"song_022.m4a","title":"Eva (feat. Kira7)","artist":"NAB FAKE","url":"media/nl-fv-songs/song_022.m4a","duration":215},
+  {"id":23,"file":"song_023.m4a","title":"Too Late","artist":"nixy","url":"media/nl-fv-songs/song_023.m4a","duration":192},
+  {"id":24,"file":"song_024.m4a","title":"Man O To","artist":"Nu","url":"media/nl-fv-songs/song_024.m4a","duration":580},
+  {"id":25,"file":"song_025.m4a","title":"Dizeres","artist":"Orgânico","url":"media/nl-fv-songs/song_025.m4a","duration":258},
+  {"id":26,"file":"song_026.m4a","title":"Hal 2","artist":"Oum, M-Carlos","url":"media/nl-fv-songs/song_026.m4a","duration":367},
+  {"id":27,"file":"song_027.m4a","title":"Peter, Paul And Mary Early in the Morning 2004 Remaster","artist":"","url":"media/nl-fv-songs/song_027.m4a","duration":95},
+  {"id":28,"file":"song_028.m4a","title":"Show Must Go On","artist":"Rilès","url":"media/nl-fv-songs/song_028.m4a","duration":230},
+  {"id":29,"file":"song_029.m4a","title":"Smooth Operator","artist":"Sade","url":"media/nl-fv-songs/song_029.m4a","duration":298},
+  {"id":30,"file":"song_030.m4a","title":"Selena Gomez & The Scene Love You Like A Love Song","artist":"","url":"media/nl-fv-songs/song_030.m4a","duration":188},
+  {"id":31,"file":"song_031.m4a","title":"ميل على بلدي","artist":"Shalby Younis","url":"media/nl-fv-songs/song_031.m4a","duration":306},
+  {"id":32,"file":"song_032.m4a","title":"Bullet From A Gun","artist":"Skepta","url":"media/nl-fv-songs/song_032.m4a","duration":171},
+  {"id":33,"file":"song_033.m4a","title":"Dark Red","artist":"Steve Lacy","url":"media/nl-fv-songs/song_033.m4a","duration":173},
+  {"id":34,"file":"song_034.m4a","title":"No Mediocre (feat. Iggy Azalea)","artist":"T.I.","url":"media/nl-fv-songs/song_034.m4a","duration":202},
+  {"id":35,"file":"song_035.m4a","title":"L'ITALIANO","artist":"Toto Cutugno","url":"media/nl-fv-songs/song_035.m4a","duration":237},
+  {"id":36,"file":"song_036.m4a","title":"دايس","artist":"طارق العربي طرقان","url":"media/nl-fv-songs/song_036.m4a","duration":103},
+  {"id":37,"file":"song_037.m4a","title":"هزتني","artist":"محمد الوهيبي","url":"media/nl-fv-songs/song_037.m4a","duration":79},
+  {"id":38,"file":"song_038.m4a","title":"Thank You","artist":"Dido","url":"media/nl-fv-songs/song_038.m4a","duration":218},
+  {"id":39,"file":"song_039.m4a","title":"'Bout It","artist":"JMSN","url":"media/nl-fv-songs/song_039.m4a","duration":394},
+  {"id":40,"file":"song_040.m4a","title":"Fade Away","artist":"Logic","url":"media/nl-fv-songs/song_040.m4a","duration":287},
+  {"id":41,"file":"song_041.m4a","title":"N.Y. State Of Mind (Explicit Album Version)","artist":"Nas","url":"media/nl-fv-songs/song_041.m4a","duration":294},
+  {"id":42,"file":"song_042.m4a","title":"Unwritten","artist":"Natasha Bedingfield","url":"media/nl-fv-songs/song_042.m4a","duration":258},
+  {"id":43,"file":"song_043.m4a","title":"500 Miles (2004 Remaster)","artist":"Peter, Paul And Mary","url":"media/nl-fv-songs/song_043.m4a","duration":168},
+  {"id":44,"file":"song_044.m4a","title":"Quatrehuit l'Mkhokha II La suite feat l'Morphine","artist":"","url":"media/nl-fv-songs/song_044.m4a","duration":172},
+  {"id":45,"file":"song_045.m4a","title":"Won't Forget You (Edit)","artist":"Shouse","url":"media/nl-fv-songs/song_045.m4a","duration":231},
+  {"id":46,"file":"song_046.m4a","title":"Maybe Tomorrow","artist":"Stereophonics","url":"media/nl-fv-songs/song_046.m4a","duration":273},
+  {"id":47,"file":"song_047.m4a","title":"Selfish","artist":"TWENTY88","url":"media/nl-fv-songs/song_047.m4a","duration":191},
+  {"id":48,"file":"song_048.m4a","title":"Thuggish Ruggish Bone","artist":"Bone Thugs-N-Harmony","url":"media/nl-fv-songs/song_048.m4a","duration":282},
+  {"id":49,"file":"song_049.m4a","title":"Bonfire","artist":"Childish Gambino","url":"media/nl-fv-songs/song_049.m4a","duration":193},
+  {"id":50,"file":"song_050.m4a","title":"10 Bands","artist":"Drake","url":"media/nl-fv-songs/song_050.m4a","duration":178},
+  {"id":51,"file":"song_051.m4a","title":"Only Time","artist":"Enya","url":"media/nl-fv-songs/song_051.m4a","duration":219},
+  {"id":52,"file":"song_052.m4a","title":"Ready or Not","artist":"Fugees","url":"media/nl-fv-songs/song_052.m4a","duration":227},
+  {"id":53,"file":"song_053.m4a","title":"Where Ya At (feat. Drake)","artist":"Future","url":"media/nl-fv-songs/song_053.m4a","duration":208},
+  {"id":54,"file":"song_054.m4a","title":"All Mine","artist":"Kanye West","url":"media/nl-fv-songs/song_054.m4a","duration":146},
+  {"id":55,"file":"song_055.m4a","title":"Couteau Suisse","artist":"L'morphine","url":"media/nl-fv-songs/song_055.m4a","duration":152},
+  {"id":56,"file":"song_056.m4a","title":"Breathe Me","artist":"Sia","url":"media/nl-fv-songs/song_056.m4a","duration":273},
+  {"id":57,"file":"song_057.m4a","title":"Byeb’a Nas","artist":"Abeer Nehme","url":"media/nl-fv-songs/song_057.m4a","duration":235},
+  {"id":58,"file":"song_058.m4a","title":"Let The Drummer Kick (Album Version)","artist":"Citizen Cope","url":"media/nl-fv-songs/song_058.m4a","duration":257},
+  {"id":59,"file":"song_059.m4a","title":"Snake Eater","artist":"Cynthia Harrell","url":"media/nl-fv-songs/song_059.m4a","duration":180},
+  {"id":60,"file":"song_060.m4a","title":"Cleanin' Out My Closet","artist":"Eminem","url":"media/nl-fv-songs/song_060.m4a","duration":298},
+  {"id":61,"file":"song_061.m4a","title":"My Immortal","artist":"Evanescence","url":"media/nl-fv-songs/song_061.m4a","duration":263},
+  {"id":62,"file":"song_062.m4a","title":"Rai Machi Punk","artist":"ISSAM","url":"media/nl-fv-songs/song_062.m4a","duration":165},
+  {"id":63,"file":"song_063.m4a","title":"By Design","artist":"Kid Cudi","url":"media/nl-fv-songs/song_063.m4a","duration":257},
+  {"id":64,"file":"song_064.m4a","title":"Gang Related","artist":"Logic","url":"media/nl-fv-songs/song_064.m4a","duration":167},
+  {"id":65,"file":"song_065.m4a","title":"See You Again (feat. Kali Uchis)","artist":"Tyler, The Creator","url":"media/nl-fv-songs/song_065.m4a","duration":180},
+  {"id":66,"file":"song_066.m4a","title":"Future Swag","artist":"Young Thug","url":"media/nl-fv-songs/song_066.m4a","duration":166},
+  {"id":67,"file":"song_067.m4a","title":"The Tide Is High (Remastered 2001)","artist":"Blondie","url":"media/nl-fv-songs/song_067.m4a","duration":284},
+  {"id":68,"file":"song_068.m4a","title":"Gotta Have It","artist":"JAY-Z","url":"media/nl-fv-songs/song_068.m4a","duration":141},
+  {"id":69,"file":"song_069.m4a","title":"No Mistakes","artist":"Kanye West","url":"media/nl-fv-songs/song_069.m4a","duration":123},
+  {"id":70,"file":"song_070.m4a","title":"Favor for a Favor (feat. Scarface)","artist":"Nas","url":"media/nl-fv-songs/song_070.m4a","duration":247},
+  {"id":71,"file":"song_071.m4a","title":"Galbi 3achakli fiha sif","artist":"Cheb Akil","url":"media/nl-fv-songs/song_071.m4a","duration":350},
+  {"id":72,"file":"song_072.m4a","title":"Eurythmics Sweet Dreams Are Made of This Remastered","artist":"","url":"media/nl-fv-songs/song_072.m4a","duration":217},
+  {"id":73,"file":"song_073.m4a","title":"fukumean","artist":"Gunna","url":"media/nl-fv-songs/song_073.m4a","duration":125},
+  {"id":74,"file":"song_074.m4a","title":"Fire Squad","artist":"J. Cole","url":"media/nl-fv-songs/song_074.m4a","duration":288},
+  {"id":75,"file":"song_075.m4a","title":"Maybe IDK","artist":"Jon Bellion","url":"media/nl-fv-songs/song_075.m4a","duration":233},
+  {"id":76,"file":"song_076.m4a","title":"L'exorciste","artist":"L'morphine","url":"media/nl-fv-songs/song_076.m4a","duration":153},
+  {"id":77,"file":"song_077.m4a","title":"Bounce","artist":"Logic","url":"media/nl-fv-songs/song_077.m4a","duration":245},
+  {"id":78,"file":"song_078.m4a","title":"El-Kaoui","artist":"Nabyla Maan","url":"media/nl-fv-songs/song_078.m4a","duration":299},
+  {"id":79,"file":"song_079.m4a","title":"Freed From Desire (prod. Molella, Phil Jay)","artist":"Gala","url":"media/nl-fv-songs/song_079.m4a","duration":213},
+  {"id":80,"file":"song_080.m4a","title":"St. Tropez","artist":"J. Cole","url":"media/nl-fv-songs/song_080.m4a","duration":258},
+  {"id":81,"file":"song_081.m4a","title":"Violent Crimes","artist":"Kanye West","url":"media/nl-fv-songs/song_081.m4a","duration":215},
+  {"id":82,"file":"song_082.m4a","title":"Alright","artist":"Kendrick Lamar","url":"media/nl-fv-songs/song_082.m4a","duration":219},
+  {"id":83,"file":"song_083.m4a","title":"Skit","artist":"L'morphine","url":"media/nl-fv-songs/song_083.m4a","duration":93},
+  {"id":84,"file":"song_084.m4a","title":"Nsak","artist":"ONZY","url":"media/nl-fv-songs/song_084.m4a","duration":182},
+  {"id":85,"file":"song_085.m4a","title":"Big Amount","artist":"2 Chainz","url":"media/nl-fv-songs/song_085.m4a","duration":188},
+  {"id":86,"file":"song_086.m4a","title":"Massive","artist":"Drake","url":"media/nl-fv-songs/song_086.m4a","duration":337},
+  {"id":87,"file":"song_087.m4a","title":"G.O.M.D","artist":"J. Cole","url":"media/nl-fv-songs/song_087.m4a","duration":301},
+  {"id":88,"file":"song_088.m4a","title":"I Am The Greatest","artist":"Logic","url":"media/nl-fv-songs/song_088.m4a","duration":203},
+  {"id":89,"file":"song_089.m4a","title":"Heart To Heart","artist":"Mac DeMarco","url":"media/nl-fv-songs/song_089.m4a","duration":211},
+  {"id":90,"file":"song_090.m4a","title":"Nothing Else Matters (Remastered 2021)","artist":"Metallica","url":"media/nl-fv-songs/song_090.m4a","duration":389},
+  {"id":91,"file":"song_091.m4a","title":"Purnamadah","artist":"Shantala","url":"media/nl-fv-songs/song_091.m4a","duration":515},
+  {"id":92,"file":"song_092.m4a","title":"Tech N9ne feat Kendrick Lamar, ¡Mayday!, Kendall Morgan Fragile","artist":"","url":"media/nl-fv-songs/song_092.m4a","duration":236},
+  {"id":93,"file":"song_093.m4a","title":"Halftime","artist":"Young Thug","url":"media/nl-fv-songs/song_093.m4a","duration":227},
+  {"id":94,"file":"song_094.m4a","title":"No Role Modelz","artist":"J. Cole","url":"media/nl-fv-songs/song_094.m4a","duration":293},
+  {"id":95,"file":"song_095.m4a","title":"Take What You Want","artist":"Post Malone","url":"media/nl-fv-songs/song_095.m4a","duration":230},
+  {"id":96,"file":"song_096.m4a","title":"Lord Willin'","artist":"Logic","url":"media/nl-fv-songs/song_096.m4a","duration":209},
+  {"id":97,"file":"song_097.m4a","title":"Already Home","artist":"JAY-Z","url":"media/nl-fv-songs/song_097.m4a","duration":270},
+  {"id":98,"file":"song_098.m4a","title":"The Glory","artist":"Kanye West","url":"media/nl-fv-songs/song_098.m4a","duration":213},
+  {"id":99,"file":"song_099.m4a","title":"Ceux qui rêvent","artist":"Pomme","url":"media/nl-fv-songs/song_099.m4a","duration":118},
+  {"id":100,"file":"song_100.m4a","title":"Outro","artist":"Big Sean","url":"media/nl-fv-songs/song_100.m4a","duration":223},
+  {"id":101,"file":"song_101.m4a","title":"6 Man","artist":"Drake","url":"media/nl-fv-songs/song_101.m4a","duration":168},
+  {"id":102,"file":"song_102.m4a","title":"Boadicea (2009 Remaster)","artist":"Enya","url":"media/nl-fv-songs/song_102.m4a","duration":212},
+  {"id":103,"file":"song_103.m4a","title":"I Will Survive","artist":"Gloria Gaynor","url":"media/nl-fv-songs/song_103.m4a","duration":279},
+  {"id":104,"file":"song_104.m4a","title":"Ain't That Some Shit (Interlude)","artist":"J. Cole","url":"media/nl-fv-songs/song_104.m4a","duration":147},
+  {"id":105,"file":"song_105.m4a","title":"Guillotine","artist":"Jon Bellion, Travis Mendes","url":"media/nl-fv-songs/song_105.m4a","duration":208},
+  {"id":106,"file":"song_106.m4a","title":"Trap Niggas","artist":"Future","url":"media/nl-fv-songs/song_106.m4a","duration":184},
+  {"id":107,"file":"song_107.m4a","title":"Captcha","artist":"L'morphine","url":"media/nl-fv-songs/song_107.m4a","duration":132},
+  {"id":108,"file":"song_108.m4a","title":"Botola","artist":"Stormy","url":"media/nl-fv-songs/song_108.m4a","duration":186},
+  {"id":109,"file":"song_109.m4a","title":"Bre Petrunko","artist":"Baklava","url":"media/nl-fv-songs/song_109.m4a","duration":80},
+  {"id":110,"file":"song_110.m4a","title":"What You Know Bout Love","artist":"Pop Smoke","url":"media/nl-fv-songs/song_110.m4a","duration":160},
+  {"id":111,"file":"song_111.m4a","title":"Switch Up","artist":"Big Sean, Common","url":"media/nl-fv-songs/song_111.m4a","duration":308},
+  {"id":112,"file":"song_112.m4a","title":"مولاى انى ببابك","artist":"El Sheikh Al Naqshabandy","url":"media/nl-fv-songs/song_112.m4a","duration":373},
+  {"id":113,"file":"song_113.m4a","title":"Fly Me To The Moon (In Other Words)","artist":"Julie London","url":"media/nl-fv-songs/song_113.m4a","duration":162},
+  {"id":114,"file":"song_114.m4a","title":"Saint Pablo","artist":"Kanye West","url":"media/nl-fv-songs/song_114.m4a","duration":372},
+  {"id":115,"file":"song_115.m4a","title":"True","artist":"Akira Yamaoka","url":"media/nl-fv-songs/song_115.m4a","duration":187},
+  {"id":116,"file":"song_116.m4a","title":"Shahdaroba","artist":"Roy Orbison","url":"media/nl-fv-songs/song_116.m4a","duration":159}
+];
 
-const FV_DURATIONS = {1:223,2:287,3:257,4:252,5:155,6:302,7:204,8:326,9:261,10:241,11:171,12:209,13:225,14:201,15:173,16:218,17:121,18:168,19:184,20:150,21:183,22:215,23:192,24:580,25:258,26:367,27:95,28:230,29:298,30:188,31:306,32:171,33:173,34:202,35:237,36:103,37:79,38:218,39:394,40:287,41:294,42:258,43:168,44:172,45:231,46:273,47:191,48:282,49:193,50:178,51:219,52:227,53:208,54:146,55:152,56:273,57:235,58:257,59:180,60:298,61:263,62:165,63:257,64:167,65:180,66:166,67:284,68:141,69:123,70:247,71:350,72:217,73:125,74:288,75:233,76:153,77:245,78:299,79:213,80:258,81:215,82:219,83:93,84:182,85:188,86:337,87:301,88:203,89:211,90:389,91:515,92:236,93:227,94:293,95:230,96:209,97:270,98:213,99:118,100:223,101:168,102:212,103:279,104:147,105:208,106:184,107:132,108:186,109:80,110:160,111:308,112:373,113:162,114:372,115:187,116:159};
-const NLS_MANIFEST_URL = 'media/nl-fv-songs/songs.manifest.json';
-const NLS_DEFAULT_COVER = null;
+// ---- New songs (id>=117) are loaded at runtime from this manifest (absolute URLs). ----
+const MANIFEST_URL = (typeof window!=='undefined' && window.NL_SPOTIFY_MANIFEST_URL) || 'media/nl-fv-songs/songs.manifest.json';
+const LRCLIB_API = 'https://lrclib.net/api';
+
 const EQ_FREQS = [32, 64, 125, 250, 500, 1000, 2000, 4000, 8000, 16000];
 const EQ_PRESETS = {
-  Flat:           [0,0,0,0,0,0,0,0,0,0],
-  'Bass Boost':   [7,6,5,3,1,0,0,0,0,0],
-  'Treble Boost': [0,0,0,0,0,1,3,5,6,7],
-  Vocal:          [-2,-1,0,2,4,4,3,1,0,-1],
-  Rock:           [5,4,2,0,-1,-1,0,2,3,4],
-  Pop:            [-1,0,2,4,4,2,0,-1,-2,-2],
-  Jazz:           [3,2,1,2,-1,-1,0,1,2,3],
-  Classical:      [4,3,2,0,0,0,-1,-1,0,2],
-  'Hip-Hop':      [6,5,3,2,1,-1,0,1,2,3],
-  Electronic:     [5,4,1,0,-2,1,0,1,4,5]
+  Flat:[0,0,0,0,0,0,0,0,0,0],'Bass Boost':[7,6,5,3,1,0,0,0,0,0],'Treble Boost':[0,0,0,0,0,1,3,5,6,7],
+  Vocal:[-2,-1,0,2,4,4,3,1,0,-1],Rock:[5,4,2,0,-1,-1,0,2,3,4],Pop:[-1,0,2,4,4,2,0,-1,-2,-2],
+  Jazz:[3,2,1,2,-1,-1,0,1,2,3],Classical:[4,3,2,0,0,0,-1,-1,0,2],'Hip-Hop':[6,5,3,2,1,-1,0,1,2,3],Electronic:[5,4,1,0,-2,1,0,1,4,5]
 };
-const SPEEDS = [0.5, 0.75, 1, 1.25, 1.5, 2];
-const STORE_KEY = 'nlspotify_state_v1';
+const SPEEDS = [0.5,0.75,1,1.25,1.5,2];
+const STORE_KEY = 'nlspotify_state_v2';
+const ROW_H = 46;          // virtualized row height (px)
+const OVERSCAN = 8;        // rows rendered above/below viewport
+const LRC_CACHE_MAX = 400; // max cached lyrics entries
+const PREFETCH_MAX = 3;    // concurrent LRClib prefetches
 
+// ---- helpers ----
 function clamp(v,a,b){ return Math.max(a, Math.min(b, v)); }
 function fmtTime(s){ if(!isFinite(s)||s<0) s=0; const m=Math.floor(s/60), sec=Math.floor(s%60); return m+':'+String(sec).padStart(2,'0'); }
 function hashHue(str){ let h=0; for(let i=0;i<(str||'').length;i++){ h=(h*31+str.charCodeAt(i))>>>0; } return h%360; }
-function initials(t){ const p=(t||'?').trim().split(/\s+/); return (((p[0]||'')[0]||'?')+((p[1]||'')[0]||'')).toUpperCase(); }
+function initials(t){ const c=(t||'?').replace(/[^\p{L}\p{N}\s]/gu,'').trim().split(/\s+/).filter(Boolean); return (((c[0]||'?')[0]||'?')+((c[1]||'')[0]||'')).toUpperCase(); }
 function isRTL(s){ return /[\u0600-\u06FF]/.test(s||''); }
 function esc(s){ return String(s==null?'':s).replace(/[&<>"]/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c])); }
+function shuffleInPlace(a){ for(let i=a.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [a[i],a[j]]=[a[j],a[i]]; } return a; }
 
-function nlsLrcUrl(u){ return String(u||'').replace(/\.[^.]+$/,'.lrc'); }
-function buildLibrary(raw){
-  return raw.map((t,i)=>({
-    file:t.file, url:t.url, title:t.title, artist:t.artist||'Unknown',
-    id:i+1, fv:true,
-    album:(t.album!=null?t.album:null), genre:(t.genre!=null?t.genre:null), year:(t.year!=null?t.year:null),
-    durationSec:(FV_DURATIONS[i+1]!=null?FV_DURATIONS[i+1]:(t.durationSec!=null?t.durationSec:(t.duration!=null?t.duration:null))),
-    coverUrl:null,
-    lrcUrl:(t.lrcUrl||nlsLrcUrl(t.url))
-  }));
-}
-function mergeManifest(lib, manifest){
-  const arr=Array.isArray(manifest)?manifest:((manifest&&(manifest.songs||manifest.tracks))||[]);
-  let added=0;
-  arr.forEach(m=>{
-    const url=m.url||m.src||null;
-    let ex=null;
-    if(m.id!=null) ex=lib.find(x=>x.id===m.id)||null;
-    if(!ex&&url) ex=lib.find(x=>x.url===url)||null;
-    const dur=(m.durationSec!=null?m.durationSec:(m.duration!=null?m.duration:null));
-    const cover=(m.coverUrl!=null?m.coverUrl:(m.cover!=null?m.cover:null));
-    if(ex){
-      if(m.album!=null) ex.album=m.album;
-      if(m.genre!=null) ex.genre=m.genre;
-      if(m.year!=null) ex.year=m.year;
-      if(dur!=null) ex.durationSec=dur;
-      if(m.lrcUrl!=null) ex.lrcUrl=m.lrcUrl;
-      if(!ex.fv && cover!=null) ex.coverUrl=cover;
-    } else if(url){
-      lib.push({
-        file:m.file||url.split('/').pop(), url:url, title:m.title||'Unknown', artist:m.artist||'Unknown',
-        id:(m.id!=null?m.id:(lib.length+1)), fv:false,
-        album:(m.album!=null?m.album:null), genre:(m.genre!=null?m.genre:null), year:(m.year!=null?m.year:null),
-        durationSec:dur, coverUrl:cover, lrcUrl:(m.lrcUrl||nlsLrcUrl(url))
-      });
-      added++;
-    }
-  });
-  return added;
-}
-function nlsNorm(s){
-  s=String(s==null?'':s).toLowerCase();
-  try{ s=s.normalize('NFD').replace(/\p{M}/gu,''); }catch(e){ try{ s=s.normalize('NFD').replace(/[\u0300-\u036f\u064b-\u0652]/g,''); }catch(e2){} }
-  s=s.replace(/\u0640/g,'').replace(/[\u0622\u0623\u0625\u0671]/g,'\u0627').replace(/\u0649/g,'\u064a').replace(/\u0629/g,'\u0647').replace(/[\u2018\u2019\u02bc\u0027]/g,'');
-  try{ s=s.replace(/[^\p{L}\p{N}]+/gu,' '); }catch(e){ s=s.replace(/[^a-z0-9\u0600-\u06ff]+/g,' '); }
-  return s.trim();
-}
-function nlsLeven(a,b){
-  a=a||''; b=b||''; const m=a.length,n=b.length;
-  if(!m) return n; if(!n) return m;
-  let prev=new Array(n+1), cur=new Array(n+1);
-  for(let j=0;j<=n;j++) prev[j]=j;
-  for(let i=1;i<=m;i++){
-    cur[0]=i;
-    for(let j=1;j<=n;j++){
-      const cost=a.charCodeAt(i-1)===b.charCodeAt(j-1)?0:1;
-      cur[j]=Math.min(prev[j]+1, cur[j-1]+1, prev[j-1]+cost);
-    }
-    const tmp=prev; prev=cur; cur=tmp;
-  }
-  return prev[n];
-}
-function nlsFieldScore(field, q){
-  field=nlsNorm(field); if(!field||!q) return 0;
-  if(field===q) return 100;
-  if(field.startsWith(q)) return 85;
-  if(field.includes(q)) return 70;
-  const fw=field.split(' '), qw=q.split(' '); let best=0;
-  qw.forEach(qt=>{
-    if(!qt) return;
-    let sub=0;
-    fw.forEach(ft=>{
-      if(!ft) return;
-      if(ft===qt){ sub=Math.max(sub,60); return; }
-      if(ft.startsWith(qt)||qt.startsWith(ft)){ sub=Math.max(sub,48); return; }
-      if(ft.includes(qt)){ sub=Math.max(sub,40); return; }
-      const d=nlsLeven(ft,qt), L=Math.max(ft.length,qt.length);
-      if(L>0 && d<=Math.max(1,Math.floor(L*0.34))){ sub=Math.max(sub, 44-d*6); }
-    });
-    best+=sub;
-  });
-  return best;
-}
-function nlsScoreTrack(t, q){
-  if(!q) return 0;
-  const ti=nlsFieldScore(t.title,q)*1.0;
-  const ar=nlsFieldScore(t.artist,q)*0.9;
-  const al=nlsFieldScore(t.album,q)*0.6;
-  const ge=nlsFieldScore(t.genre,q)*0.5;
-  return Math.max(ti, ar, al, ge) + (ti+ar+al+ge)*0.05;
-}
-function nlsSearch(lib, query){
-  const q=nlsNorm(query); if(!q) return lib.map((_,i)=>i);
-  const scored=[];
-  lib.forEach((t,i)=>{ const s=nlsScoreTrack(t,q); if(s>=18) scored.push([i,s]); });
-  scored.sort((a,b)=> b[1]-a[1] || a[0]-b[0]);
-  return scored.map(x=>x[0]);
-}
-function nlsStripEnhanced(s){ return String(s==null?'':s).replace(/<\d{1,2}:\d{1,2}(?:[.:]\d{1,3})?>/g,'').replace(/\s{2,}/g,' ').trim(); }
-let LIBRARY = buildLibrary(FV_RAW);
+// ---- inline SVG icons (stroke=currentColor) ----
+function ic(d, o){ o=o||{}; const s=o.size||18; const f=o.fill||'none'; const sw=o.sw==null?2:o.sw; return `<svg viewBox="0 0 24 24" width="${s}" height="${s}" fill="${f}" stroke="currentColor" stroke-width="${sw}" stroke-linecap="round" stroke-linejoin="round">${d}</svg>`; }
+const ICONS = {
+  play:(o)=>ic('<path d="M6 4l14 8-14 8z"/>',Object.assign({fill:'currentColor',sw:0},o)),
+  pause:(o)=>ic('<rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/>',Object.assign({fill:'currentColor',sw:0},o)),
+  prev:(o)=>ic('<path d="M19 5v14l-9-7z"/><rect x="5" y="5" width="2.4" height="14" rx="1"/>',Object.assign({fill:'currentColor',sw:0},o)),
+  next:(o)=>ic('<path d="M5 5v14l9-7z"/><rect x="16.6" y="5" width="2.4" height="14" rx="1"/>',Object.assign({fill:'currentColor',sw:0},o)),
+  back10:(o)=>ic('<path d="M11 7L6 12l5 5"/><path d="M6 12h9a4 4 0 0 1 0 8h-3"/>',o),
+  fwd10:(o)=>ic('<path d="M13 7l5 5-5 5"/><path d="M18 12H9a4 4 0 0 0 0 8h3"/>',o),
+  shuffle:(o)=>ic('<path d="M16 3h5v5"/><path d="M4 20L21 3"/><path d="M21 16v5h-5"/><path d="M15 15l6 6"/><path d="M4 4l5 5"/>',o),
+  repeat:(o)=>ic('<path d="M17 2l4 4-4 4"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><path d="M7 22l-4-4 4-4"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/>',o),
+  repeatOne:(o)=>ic('<path d="M17 2l4 4-4 4"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><path d="M7 22l-4-4 4-4"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/><text x="12" y="15" font-size="8" fill="currentColor" stroke="none" text-anchor="middle">1</text>',o),
+  vol:(o)=>ic('<path d="M4 9v6h4l5 4V5L8 9z"/><path d="M16 8a5 5 0 0 1 0 8"/><path d="M19 5a9 9 0 0 1 0 14"/>',o),
+  mute:(o)=>ic('<path d="M4 9v6h4l5 4V5L8 9z"/><path d="M22 9l-6 6"/><path d="M16 9l6 6"/>',o),
+  search:(o)=>ic('<circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/>',o),
+  heart:(o)=>ic('<path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z"/>',o),
+  heartFill:(o)=>ic('<path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z"/>',Object.assign({fill:'currentColor',sw:0},o)),
+  eq:(o)=>ic('<path d="M4 21v-7"/><path d="M4 10V3"/><path d="M12 21v-9"/><path d="M12 8V3"/><path d="M20 21v-5"/><path d="M20 12V3"/><circle cx="4" cy="12" r="2"/><circle cx="12" cy="10" r="2"/><circle cx="20" cy="14" r="2"/>',o),
+  lyrics:(o)=>ic('<path d="M4 5h16"/><path d="M4 10h11"/><path d="M4 15h16"/><path d="M4 20h8"/>',o),
+  viz:(o)=>ic('<rect x="3" y="10" width="3" height="10" rx="1"/><rect x="8.5" y="5" width="3" height="15" rx="1"/><rect x="14" y="12" width="3" height="8" rx="1"/><rect x="19" y="7" width="2.5" height="13" rx="1"/>',o),
+  info:(o)=>ic('<circle cx="12" cy="12" r="9"/><path d="M12 11v5"/><circle cx="12" cy="7.5" r="0.6" fill="currentColor"/>',o),
+  now:(o)=>ic('<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="2.5" fill="currentColor" stroke="none"/>',o),
+  music:(o)=>ic('<path d="M9 18V5l10-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="16" cy="16" r="3"/>',o)
+};
 
 function loadState(){ try { return JSON.parse(localStorage.getItem(STORE_KEY)) || {}; } catch(e){ return {}; } }
 let _state = loadState();
 function saveState(patch){ _state = Object.assign({}, _state, patch||{}); try { localStorage.setItem(STORE_KEY, JSON.stringify(_state)); } catch(e){} }
 
+// ---------- styles ----------
 let stylesInjected = false;
 function injectStyles(){
   if (stylesInjected || document.getElementById('nls-style')) { stylesInjected = true; return; }
   const st = document.createElement('style');
   st.id = 'nls-style';
   st.textContent = `
-  .nls-root{--accent:#1DB954;--xpblue:#1B6AC9;display:flex;flex-direction:column;height:100%;width:100%;font-family:Tahoma,'Segoe UI',sans-serif;font-size:12px;color:#eaf2ff;position:relative;background:radial-gradient(120% 120% at 20% 0%,#22325b 0%,#161a2e 55%,#0d0f1c 100%);overflow:hidden}
+  .nls-root{--accent:#FF7A1A;--accent2:#34E89E;--xpblue:#1B6AC9;display:flex;flex-direction:column;height:100%;width:100%;font-family:'Segoe UI',Tahoma,sans-serif;font-size:12px;color:#eaf2ff;position:relative;background:radial-gradient(130% 130% at 15% 0%,#243049 0%,#161a2e 55%,#0c0e18 100%);overflow:hidden}
   .nls-root *{box-sizing:border-box}
-  .nls-glass{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.22);box-shadow:inset 0 1px 0 rgba(255,255,255,.35),0 6px 18px rgba(0,0,0,.35);-webkit-backdrop-filter:blur(20px) saturate(180%);backdrop-filter:blur(20px) saturate(180%);position:relative}
-  .nls-glass::before{content:'';position:absolute;left:0;right:0;top:0;height:38%;background:linear-gradient(rgba(255,255,255,.18),rgba(255,255,255,0));border-radius:inherit;pointer-events:none}
-  .nls-tabs{display:flex;gap:4px;padding:6px 8px;flex:0 0 auto}
-  .nls-tab{padding:4px 12px;border-radius:14px;cursor:pointer;border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.06);color:#cfe0ff;text-shadow:0 1px 1px rgba(0,0,0,.4);user-select:none}
-  .nls-tab:hover{background:rgba(255,255,255,.14)}
-  .nls-tab.active{background:linear-gradient(var(--xpblue),#0d3f86);color:#fff;border-color:rgba(255,255,255,.45)}
-  .nls-main{display:flex;flex:1 1 auto;min-height:0;gap:8px;padding:0 8px 8px}
-  .nls-side{flex:0 0 250px;border-radius:8px;display:flex;flex-direction:column;min-height:0;overflow:hidden}
-  .nls-search{margin:8px;padding:5px 8px;border-radius:14px;border:1px solid rgba(255,255,255,.25);background:rgba(0,0,0,.25);color:#fff;font-size:12px;outline:none}
-  .nls-search::placeholder{color:#9fb2d8}
-  .nls-listhead{display:flex;justify-content:space-between;align-items:center;padding:2px 12px 6px;color:#a9bbe0;font-size:11px}
-  .nls-list{list-style:none;margin:0;padding:0 4px 6px;overflow-y:auto;flex:1 1 auto}
-  .nls-li{display:flex;align-items:center;gap:8px;padding:6px 8px;border-radius:6px;cursor:pointer;white-space:nowrap}
-  .nls-li:hover{background:rgba(255,255,255,.1)}
-  .nls-li.active{background:linear-gradient(90deg,rgba(29,185,84,.35),rgba(29,185,84,.05));box-shadow:inset 2px 0 0 var(--accent)}
-  .nls-li .num{width:20px;text-align:right;color:#8fa3cc;font-variant-numeric:tabular-nums;flex:0 0 auto}
-  .nls-li .meta{overflow:hidden;flex:1 1 auto}
-  .nls-li .t{display:block;overflow:hidden;text-overflow:ellipsis}
+  .nls-glass{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.18);box-shadow:inset 0 1px 0 rgba(255,255,255,.28),0 8px 24px rgba(0,0,0,.32);-webkit-backdrop-filter:blur(22px) saturate(170%);backdrop-filter:blur(22px) saturate(170%);position:relative}
+  .nls-tabs{display:flex;gap:6px;padding:8px 10px;flex:0 0 auto}
+  .nls-tab{display:flex;align-items:center;gap:6px;padding:6px 12px;border-radius:12px;cursor:pointer;border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.05);color:#cfe0ff;user-select:none;transition:all .15s;font-weight:600}
+  .nls-tab svg{opacity:.9}
+  .nls-tab:hover{background:rgba(255,255,255,.12)}
+  .nls-tab.active{background:linear-gradient(135deg,var(--accent),var(--accent2));color:#10131f;border-color:transparent;box-shadow:0 4px 14px rgba(255,122,26,.35)}
+  .nls-tab.active svg{opacity:1}
+  .nls-main{display:flex;flex:1 1 auto;min-height:0;gap:10px;padding:0 10px 10px}
+  .nls-side{flex:0 0 264px;border-radius:14px;display:flex;flex-direction:column;min-height:0;overflow:hidden}
+  .nls-searchwrap{position:relative;margin:10px 10px 6px}
+  .nls-searchwrap svg{position:absolute;left:9px;top:50%;transform:translateY(-50%);color:#9fb2d8;pointer-events:none}
+  .nls-search{width:100%;padding:7px 10px 7px 30px;border-radius:12px;border:1px solid rgba(255,255,255,.2);background:rgba(0,0,0,.28);color:#fff;font-size:12px;outline:none}
+  .nls-search:focus{border-color:var(--accent);background:rgba(0,0,0,.4)}
+  .nls-search::placeholder{color:#8ea1c8}
+  .nls-listhead{display:flex;justify-content:space-between;align-items:center;padding:2px 12px 6px;color:#9fb2d8;font-size:11px}
+  .nls-favtoggle{display:flex;align-items:center;gap:5px;cursor:pointer;padding:3px 8px;border-radius:10px;border:1px solid transparent}
+  .nls-favtoggle:hover{background:rgba(255,255,255,.08)}
+  .nls-favtoggle.on{color:#ff5d8f;border-color:rgba(255,93,143,.4);background:rgba(255,93,143,.1)}
+  .nls-listvp{flex:1 1 auto;overflow-y:auto;position:relative;padding:0 6px 8px}
+  .nls-sizer{position:relative;width:100%}
+  .nls-li{position:absolute;left:6px;right:6px;height:${ROW_H-6}px;display:flex;align-items:center;gap:9px;padding:0 8px;border-radius:10px;cursor:pointer;white-space:nowrap;border:1px solid transparent}
+  .nls-li:hover{background:rgba(255,255,255,.09)}
+  .nls-li.active{background:linear-gradient(90deg,rgba(255,122,26,.28),rgba(52,232,158,.06));border-color:rgba(255,122,26,.4)}
+  .nls-li .cov{flex:0 0 auto;width:32px;height:32px;border-radius:8px;overflow:hidden;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:#fff;background-size:cover;background-position:center}
+  .nls-li .cov img{width:100%;height:100%;object-fit:cover;display:block}
+  .nls-li .meta{overflow:hidden;flex:1 1 auto;min-width:0}
+  .nls-li .t{display:block;overflow:hidden;text-overflow:ellipsis;font-weight:600}
   .nls-li .a{display:block;font-size:11px;color:#9fb2d8;overflow:hidden;text-overflow:ellipsis}
-  .nls-li .fav{flex:0 0 auto;color:#ff5d8f;opacity:0;font-size:13px}
+  .nls-li .dur{flex:0 0 auto;color:#8fa3cc;font-variant-numeric:tabular-nums;font-size:11px}
+  .nls-li .fav{flex:0 0 auto;color:#ff5d8f;opacity:0;display:flex}
   .nls-li.isfav .fav{opacity:1}
-  .nls-li:hover .fav{opacity:.6}
-  .nls-center{flex:1 1 auto;min-width:0;border-radius:8px;display:flex;flex-direction:column;overflow:hidden}
+  .nls-li:hover .fav{opacity:.55}
+  .nls-center{flex:1 1 auto;min-width:0;border-radius:14px;display:flex;flex-direction:column;overflow:hidden}
   .nls-view{flex:1 1 auto;min-height:0;display:none;overflow:auto}
   .nls-view.show{display:flex}
-  /* Now playing */
-  .nls-now{flex-direction:column;align-items:center;justify-content:center;gap:14px;padding:18px;text-align:center}
-  .nls-art{width:200px;height:200px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:64px;font-weight:bold;color:rgba(255,255,255,.92);text-shadow:0 2px 8px rgba(0,0,0,.5);box-shadow:0 10px 30px rgba(0,0,0,.5),inset 0 1px 0 rgba(255,255,255,.35);letter-spacing:1px}
-  .nls-title{font-size:20px;font-weight:bold;text-shadow:0 1px 2px rgba(0,0,0,.5);max-width:90%}
+  /* now playing */
+  .nls-now{flex-direction:column;align-items:center;justify-content:center;gap:14px;padding:22px;text-align:center;position:relative}
+  .nls-art{width:210px;height:210px;border-radius:18px;display:flex;align-items:center;justify-content:center;font-size:64px;font-weight:800;color:rgba(255,255,255,.95);text-shadow:0 2px 10px rgba(0,0,0,.5);box-shadow:0 16px 40px rgba(0,0,0,.5),inset 0 1px 0 rgba(255,255,255,.3);overflow:hidden;background-size:cover;background-position:center}
+  .nls-art img{width:100%;height:100%;object-fit:cover}
+  .nls-title{font-size:21px;font-weight:800;text-shadow:0 1px 2px rgba(0,0,0,.5);max-width:92%}
   .nls-artist{font-size:14px;color:#bcd0f5}
-  .nls-reactions{display:flex;gap:10px;margin-top:4px}
-  .nls-react{font-size:18px;cursor:pointer;opacity:.8;transition:transform .15s ease,opacity .15s}
-  .nls-react:hover{transform:scale(1.25);opacity:1}
-  .nls-react.fav.on{filter:drop-shadow(0 0 6px #ff5d8f)}
-  .nls-float{position:absolute;pointer-events:none;font-size:22px;animation:nlsfloat 1.4s ease-out forwards;z-index:5}
-  @keyframes nlsfloat{0%{opacity:.9;transform:translateY(0) scale(.8)}100%{opacity:0;transform:translateY(-90px) scale(1.4)}}
-  /* Visualizer */
-  .nls-viz{align-items:stretch;justify-content:center;padding:10px}
-  .nls-viz canvas{width:100%;height:100%;border-radius:8px;background:rgba(0,0,0,.25)}
-  /* EQ */
-  .nls-eq{flex-direction:column;padding:12px;gap:10px}
+  .nls-sub{font-size:12px;color:#8fa3cc}
+  .nls-related{display:flex;flex-wrap:wrap;gap:7px;justify-content:center;max-width:96%;margin-top:4px}
+  .nls-chip{display:flex;align-items:center;gap:6px;padding:4px 9px;border-radius:20px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.16);cursor:pointer;font-size:11px;color:#cfe0ff;max-width:180px}
+  .nls-chip:hover{background:rgba(255,255,255,.16)}
+  .nls-chip .cc{width:18px;height:18px;border-radius:5px;background-size:cover;background-position:center;flex:0 0 auto}
+  .nls-chip span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  /* lyrics viewer */
+  .nls-lyrics{position:relative;flex-direction:column;padding:0;overflow:hidden}
+  .nls-lyrbg{position:absolute;inset:0;background-size:cover;background-position:center;filter:blur(26px) brightness(.45) saturate(1.2);transform:scale(1.18);transition:background-image .6s}
+  .nls-lyrbg::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(12,14,24,.55),rgba(12,14,24,.82))}
+  .nls-lyrscroll{position:relative;z-index:1;flex:1 1 auto;overflow-y:auto;padding:40% 26px;text-align:center;scroll-behavior:smooth;-ms-overflow-style:none;scrollbar-width:none}
+  .nls-lyrscroll::-webkit-scrollbar{width:0;height:0}
+  .nls-lrc-line{padding:7px 0;font-size:18px;font-weight:700;line-height:1.5;color:rgba(255,255,255,.42);transition:color .25s,opacity .25s,transform .25s;cursor:pointer}
+  .nls-lrc-line:hover{color:rgba(255,255,255,.7)}
+  .nls-lrc-line.cur{color:#fff;text-shadow:0 0 18px rgba(52,232,158,.55);transform:scale(1.04)}
+  .nls-lrc-line.plain{cursor:default}
+  .nls-lyrempty{position:relative;z-index:1;flex:1 1 auto;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;color:rgba(255,255,255,.6)}
+  .nls-lyrfade{position:absolute;left:0;right:0;height:80px;z-index:2;pointer-events:none}
+  .nls-lyrfade.top{top:0;background:linear-gradient(rgba(12,14,24,.65),transparent)}
+  .nls-lyrfade.bot{bottom:64px;background:linear-gradient(transparent,rgba(12,14,24,.65))}
+  .nls-lyrhead{position:absolute;left:0;right:0;bottom:0;z-index:3;display:flex;align-items:center;gap:10px;padding:10px 16px;background:linear-gradient(transparent,rgba(0,0,0,.4))}
+  .nls-lyrhead .lc{width:40px;height:40px;border-radius:9px;background-size:cover;background-position:center;flex:0 0 auto;display:flex;align-items:center;justify-content:center;font-weight:700;color:#fff;overflow:hidden}
+  .nls-lyrhead .lt{overflow:hidden}.nls-lyrhead .lt b{display:block;font-size:13px;color:#fff;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .nls-lyrhead .lt span{font-size:11px;color:#b9c8ea}
+  /* visualizer */
+  .nls-viz{align-items:stretch;justify-content:center;padding:12px}
+  .nls-viz canvas{width:100%;height:100%;border-radius:10px;background:rgba(0,0,0,.25)}
+  /* eq */
+  .nls-eq{flex-direction:column;padding:14px;gap:12px}
   .nls-eqtop{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
   .nls-eqbands{display:flex;justify-content:space-around;align-items:flex-end;flex:1 1 auto;gap:6px;min-height:150px}
   .nls-eqband{display:flex;flex-direction:column;align-items:center;gap:6px;font-size:10px;color:#a9bbe0;height:100%}
   .nls-eqband input[type=range]{writing-mode:vertical-lr;direction:rtl;width:22px;height:120px;accent-color:var(--accent)}
-  .nls-eqcurve{height:60px;width:100%;border-radius:6px;background:rgba(0,0,0,.25)}
-  /* Lyrics */
-  .nls-lyrics{flex-direction:column;padding:14px;gap:8px}
-  .nls-lrcbox{flex:1 1 auto;overflow-y:auto;line-height:2;text-align:center;color:#9fb2d8;scroll-behavior:smooth}
-  .nls-lrc-line{padding:2px 0;transition:color .2s,opacity .2s;opacity:.5}
-  .nls-lrc-line.cur{color:#fff;opacity:1;font-weight:bold;text-shadow:0 0 8px rgba(29,185,84,.6)}
-  .nls-lyrics textarea{width:100%;height:80px;background:rgba(0,0,0,.3);color:#eaf2ff;border:1px solid rgba(255,255,255,.25);border-radius:6px;font-family:Tahoma;font-size:12px;padding:6px}
-  /* Info */
-  .nls-info{flex-direction:column;padding:18px;gap:8px;line-height:1.8}
-  .nls-info h3{margin:0 0 6px;color:#fff}
-  .nls-info .row{display:flex;justify-content:space-between;border-bottom:1px solid rgba(255,255,255,.1);padding:4px 0}
+  .nls-eqcurve{height:60px;width:100%;border-radius:8px;background:rgba(0,0,0,.25)}
+  /* info */
+  .nls-info{flex-direction:column;padding:20px;gap:6px;line-height:1.8;overflow:auto}
+  .nls-info h3{margin:10px 0 4px;color:#fff;font-size:14px}
+  .nls-info .row{display:flex;justify-content:space-between;gap:12px;border-bottom:1px solid rgba(255,255,255,.08);padding:5px 0}
   .nls-info .k{color:#9fb2d8}
-  /* Controls bar */
-  .nls-bar{flex:0 0 auto;border-radius:8px;margin:0 8px 8px;padding:6px 10px;display:flex;flex-direction:column;gap:6px}
+  .nls-info .v{text-align:right;overflow:hidden;text-overflow:ellipsis}
+  /* controls */
+  .nls-bar{flex:0 0 auto;border-radius:14px;margin:0 10px 10px;padding:8px 12px;display:flex;flex-direction:column;gap:8px}
   .nls-seekwrap{position:relative;height:14px;display:flex;align-items:center}
-  .nls-buffered{position:absolute;left:0;top:5px;height:4px;background:rgba(255,255,255,.25);border-radius:3px;width:0}
+  .nls-buffered{position:absolute;left:0;top:5px;height:4px;background:rgba(255,255,255,.22);border-radius:3px;width:0}
   .nls-seek{position:relative;width:100%;accent-color:var(--accent);margin:0}
-  .nls-ctlrow{display:flex;align-items:center;gap:8px}
-  .nls-time{font-variant-numeric:tabular-nums;color:#bcd0f5;min-width:42px;text-align:center}
-  .nls-btn{min-width:30px;height:28px;padding:0 7px;border-radius:6px;border:1px solid rgba(255,255,255,.22);background:linear-gradient(rgba(255,255,255,.18),rgba(255,255,255,.05));color:#eaf2ff;cursor:pointer;font-size:14px;display:flex;align-items:center;justify-content:center}
-  .nls-btn:hover{background:linear-gradient(rgba(255,255,255,.3),rgba(255,255,255,.1));border-color:rgba(255,255,255,.45)}
-  .nls-btn:active{box-shadow:inset 0 2px 4px rgba(0,0,0,.4)}
-  .nls-btn.on{color:#fff;background:linear-gradient(var(--accent),#0f7c37);border-color:rgba(255,255,255,.5)}
-  .nls-btn.play{min-width:44px;height:34px;font-size:18px;background:linear-gradient(var(--accent),#0f7c37);color:#fff}
-  .nls-vol{width:90px;accent-color:var(--accent)}
-  .nls-sel{height:26px;border-radius:6px;background:rgba(0,0,0,.35);color:#eaf2ff;border:1px solid rgba(255,255,255,.25);font-size:11px}
+  .nls-ctlrow{display:flex;align-items:center;gap:7px}
+  .nls-time{font-variant-numeric:tabular-nums;color:#bcd0f5;min-width:40px;text-align:center}
+  .nls-btn{min-width:32px;height:32px;padding:0 8px;border-radius:9px;border:1px solid rgba(255,255,255,.16);background:rgba(255,255,255,.06);color:#eaf2ff;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .14s}
+  .nls-btn:hover{background:rgba(255,255,255,.16);border-color:rgba(255,255,255,.3)}
+  .nls-btn:active{transform:translateY(1px)}
+  .nls-btn.on{color:#10131f;background:linear-gradient(135deg,var(--accent),var(--accent2));border-color:transparent}
+  .nls-btn.play{min-width:48px;height:40px;background:linear-gradient(135deg,var(--accent),var(--accent2));color:#10131f;border-color:transparent;box-shadow:0 6px 18px rgba(255,122,26,.4)}
+  .nls-vol{width:92px;accent-color:var(--accent)}
+  .nls-sel{height:30px;border-radius:9px;background:rgba(0,0,0,.32);color:#eaf2ff;border:1px solid rgba(255,255,255,.2);font-size:11px;padding:0 6px}
   .nls-spacer{flex:1 1 auto}
-  .nls-root ::-webkit-scrollbar{width:12px;height:12px}
-  .nls-root ::-webkit-scrollbar-thumb{background:linear-gradient(var(--xpblue),#0d3f86);border-radius:6px;border:2px solid transparent;background-clip:content-box}
-  .nls-root ::-webkit-scrollbar-track{background:rgba(0,0,0,.2)}
-  .nls-li .nls-dt{flex:0 0 auto;color:#8fa3cc;font-variant-numeric:tabular-nums;font-size:11px;margin-left:4px}
-  .nls-related{width:100%;max-width:420px;margin-top:6px}
-  .nls-rel-h{color:#9fb2d8;font-size:11px;margin:8px 0 4px}
-  .nls-rel-row{display:flex;flex-wrap:wrap;gap:6px;justify-content:center}
-  .nls-chip{padding:4px 10px;border-radius:12px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.2);cursor:pointer;max-width:160px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-  .nls-chip:hover{background:rgba(29,185,84,.3);border-color:var(--accent)}
+  .nls-root ::-webkit-scrollbar{width:11px;height:11px}
+  .nls-root ::-webkit-scrollbar-thumb{background:linear-gradient(var(--accent),var(--accent2));border-radius:6px;border:2px solid transparent;background-clip:content-box}
+  .nls-root ::-webkit-scrollbar-track{background:rgba(0,0,0,.18)}
+  @media (max-width:640px){ .nls-side{flex-basis:200px} .nls-art{width:150px;height:150px;font-size:46px} }
   `;
   document.head.appendChild(st);
   stylesInjected = true;
 }
 
+// ---------- main ----------
 export function initNLSpotify(win, showNotification){
   injectStyles();
   const notify = (m)=>{ try { showNotification && showNotification(m); } catch(e){} };
   const content = win.querySelector('.window-content');
   if (!content) return;
 
-  // ---- persistent state defaults ----
-  let vol = typeof _state.volume === 'number' ? _state.volume : 0.8;
-  let muted = !!_state.muted;
-  let shuffle = !!_state.shuffle;
-  let repeat = _state.repeat || 'off';       // off | all | one
-  let speed = _state.speed || 1;
-  let eqBands = Array.isArray(_state.eqBands) && _state.eqBands.length===10 ? _state.eqBands.slice() : EQ_PRESETS.Flat.slice();
-  let eqBypass = !!_state.eqBypass;
-  let favorites = _state.favorites || {};
-  let playCounts = _state.playCounts || {};
+  // ---- build library (116 built-in + manifest) ----
+  function normTrack(r, i){
+    return {
+      key: r.url, id: r.id!=null?r.id:(i+1), file: r.file||'',
+      title: r.title||'Unknown Track', artist: r.artist||'Unknown Artist',
+      album: r.album||'', genre: r.genre||'', year: r.year||'',
+      duration: r.duration||r.durationSec||0,
+      url: r.url, cover: r.cover||r.coverUrl||null
+    };
+  }
+  let LIB = NL_FV_TRACKS.map(normTrack);
+  let displayOrder = shuffleInPlace(LIB.map((_,i)=>i));   // random list order
+  let view = displayOrder.slice();                        // filtered indices (into LIB)
+
+  // ---- persistent state ----
+  let vol = typeof _state.volume==='number'?_state.volume:0.8;
+  let muted=!!_state.muted, shuffle=!!_state.shuffle, repeat=_state.repeat||'off', speed=_state.speed||1;
+  let eqBands = Array.isArray(_state.eqBands)&&_state.eqBands.length===10?_state.eqBands.slice():EQ_PRESETS.Flat.slice();
+  let eqBypass=!!_state.eqBypass, favorites=_state.favorites||{}, playCounts=_state.playCounts||{};
 
   // ---- DOM ----
   content.innerHTML = `
   <div class="nls-root" tabindex="-1">
     <div class="nls-tabs">
-      <span class="nls-tab active" data-view="now">\u266B Now Playing</span>
-      <span class="nls-tab" data-view="viz">\u2261 Visualizer</span>
-      <span class="nls-tab" data-view="eq">\uD83C\uDF9B EQ</span>
-      <span class="nls-tab" data-view="lyrics">\uD83D\uDCDD Lyrics</span>
-      <span class="nls-tab" data-view="info">\u2139 Info</span>
+      <span class="nls-tab active" data-view="now">${ICONS.now({size:15})}<span>Now Playing</span></span>
+      <span class="nls-tab" data-view="lyrics">${ICONS.lyrics({size:15})}<span>Lyrics</span></span>
+      <span class="nls-tab" data-view="viz">${ICONS.viz({size:15})}<span>Visualizer</span></span>
+      <span class="nls-tab" data-view="eq">${ICONS.eq({size:15})}<span>EQ</span></span>
+      <span class="nls-tab" data-view="info">${ICONS.info({size:15})}<span>Info</span></span>
     </div>
     <div class="nls-main">
       <div class="nls-side nls-glass">
-        <input class="nls-search" type="text" placeholder="Search title or artist...">
-        <div class="nls-listhead"><span class="nls-count"></span><span class="nls-favtoggle" style="cursor:pointer">\u2661 Favorites</span></div>
-        <ul class="nls-list"></ul>
+        <div class="nls-searchwrap">${ICONS.search({size:15})}<input class="nls-search" type="text" placeholder="Search title or artist..."></div>
+        <div class="nls-listhead"><span class="nls-count"></span><span class="nls-favtoggle">${ICONS.heart({size:13})}<span>Favorites</span></span></div>
+        <div class="nls-listvp"><div class="nls-sizer"></div></div>
       </div>
       <div class="nls-center nls-glass">
         <div class="nls-view nls-now show">
           <div class="nls-art"></div>
           <div class="nls-title">NL spotify</div>
-          <div class="nls-artist">116 songs of all time \u00B7 pick a track</div>
-          <div class="nls-reactions">
-            <span class="nls-react fav" data-r="\u2665" title="Favorite">\u2661</span>
-            <span class="nls-react" data-r="\uD83D\uDD25">\uD83D\uDD25</span>
-            <span class="nls-react" data-r="\uD83C\uDFA7">\uD83C\uDFA7</span>
-            <span class="nls-react" data-r="\u2728">\u2728</span>
-          </div>
+          <div class="nls-artist">pick a track to begin</div>
+          <div class="nls-sub"></div>
           <div class="nls-related"></div>
+        </div>
+        <div class="nls-view nls-lyrics">
+          <div class="nls-lyrbg"></div>
+          <div class="nls-lyrfade top"></div>
+          <div class="nls-lyrscroll"></div>
+          <div class="nls-lyrfade bot"></div>
+          <div class="nls-lyrhead"><div class="lc"></div><div class="lt"><b></b><span></span></div></div>
         </div>
         <div class="nls-view nls-viz"><canvas></canvas></div>
         <div class="nls-view nls-eq">
           <div class="nls-eqtop">
             <select class="nls-sel nls-eqpreset"></select>
-            <button class="nls-btn nls-eqbypass">Bypass</button>
+            <button class="nls-btn nls-eqbypass" style="width:auto;padding:0 12px">Bypass</button>
             <span style="color:#9fb2d8">10-band \u00B112dB</span>
           </div>
           <div class="nls-eqbands"></div>
           <canvas class="nls-eqcurve"></canvas>
         </div>
-        <div class="nls-view nls-lyrics">
-          <div class="nls-lrcbox">No lyrics loaded. Paste LRC or plain text below.</div>
-          <textarea placeholder="Paste .lrc ([mm:ss.xx] line) or plain lyrics here..."></textarea>
-          <button class="nls-btn nls-lrcapply" style="width:120px">Apply lyrics</button>
-        </div>
         <div class="nls-view nls-info"></div>
       </div>
     </div>
     <div class="nls-bar nls-glass">
-      <div class="nls-seekwrap">
-        <div class="nls-buffered"></div>
-        <input class="nls-seek" type="range" min="0" max="100" value="0" step="0.1">
-      </div>
+      <div class="nls-seekwrap"><div class="nls-buffered"></div><input class="nls-seek" type="range" min="0" max="100" value="0" step="0.1"></div>
       <div class="nls-ctlrow">
         <span class="nls-time nls-cur">0:00</span>
-        <button class="nls-btn nls-prev" title="Previous">\u23EE</button>
-        <button class="nls-btn nls-back" title="-10s">\u00AB</button>
-        <button class="nls-btn play nls-play" title="Play/Pause">\u25B6</button>
-        <button class="nls-btn nls-fwd" title="+10s">\u00BB</button>
-        <button class="nls-btn nls-next" title="Next">\u23ED</button>
+        <button class="nls-btn nls-prev" title="Previous">${ICONS.prev({size:16})}</button>
+        <button class="nls-btn nls-back" title="-10s">${ICONS.back10({size:16})}</button>
+        <button class="nls-btn play nls-play" title="Play/Pause">${ICONS.play({size:20})}</button>
+        <button class="nls-btn nls-next" title="Next">${ICONS.next({size:16})}</button>
         <span class="nls-time nls-dur">0:00</span>
         <span class="nls-spacer"></span>
-        <button class="nls-btn nls-shuffle" title="Shuffle">\uD83D\uDD00</button>
-        <button class="nls-btn nls-repeat" title="Repeat">\uD83D\uDD01</button>
+        <button class="nls-btn nls-shuffle" title="Shuffle">${ICONS.shuffle({size:16})}</button>
+        <button class="nls-btn nls-repeat" title="Repeat">${ICONS.repeat({size:16})}</button>
         <select class="nls-sel nls-speed" title="Speed"></select>
-        <button class="nls-btn nls-mute" title="Mute">\uD83D\uDD08</button>
+        <button class="nls-btn nls-mute" title="Mute">${ICONS.vol({size:16})}</button>
         <input class="nls-vol" type="range" min="0" max="1" step="0.01">
       </div>
     </div>
@@ -330,139 +392,120 @@ export function initNLSpotify(win, showNotification){
   const root = content.querySelector('.nls-root');
   const $ = (s)=>root.querySelector(s);
   const audio = new Audio();
-  audio.preload = 'metadata';
-  audio.crossOrigin = 'anonymous';
-  audio.volume = muted ? 0 : vol;
-  audio.playbackRate = speed;
+  audio.preload='metadata'; audio.crossOrigin='anonymous'; audio.volume=muted?0:vol; audio.playbackRate=speed;
 
-  // ---- Web Audio graph (lazy) ----
+  // ---- web audio graph (lazy) ----
   let actx, srcNode, eqNodes=[], panNode, gainNode, analyser, graphReady=false, vizRAF=null;
   function setupGraph(){
     if (graphReady) return;
     try {
-      const AC = window.AudioContext || window.webkitAudioContext;
-      if (!AC) return;
-      actx = new AC();
-      srcNode = actx.createMediaElementSource(audio);
-      eqNodes = EQ_FREQS.map((f,i)=>{ const n=actx.createBiquadFilter(); n.type = i===0?'lowshelf':(i===EQ_FREQS.length-1?'highshelf':'peaking'); n.frequency.value=f; n.Q.value=1; n.gain.value=0; return n; });
-      panNode = actx.createStereoPanner ? actx.createStereoPanner() : null;
-      gainNode = actx.createGain(); gainNode.gain.value = 1;
-      analyser = actx.createAnalyser(); analyser.fftSize = 256; analyser.smoothingTimeConstant = 0.85;
-      let node = srcNode;
-      eqNodes.forEach(n=>{ node.connect(n); node=n; });
-      if (panNode){ node.connect(panNode); node=panNode; }
+      const AC = window.AudioContext||window.webkitAudioContext; if(!AC) return;
+      actx=new AC(); srcNode=actx.createMediaElementSource(audio);
+      eqNodes=EQ_FREQS.map((f,i)=>{ const n=actx.createBiquadFilter(); n.type=i===0?'lowshelf':(i===EQ_FREQS.length-1?'highshelf':'peaking'); n.frequency.value=f; n.Q.value=1; n.gain.value=0; return n; });
+      panNode=actx.createStereoPanner?actx.createStereoPanner():null;
+      gainNode=actx.createGain(); gainNode.gain.value=1;
+      analyser=actx.createAnalyser(); analyser.fftSize=256; analyser.smoothingTimeConstant=0.85;
+      let node=srcNode; eqNodes.forEach(n=>{ node.connect(n); node=n; });
+      if(panNode){ node.connect(panNode); node=panNode; }
       node.connect(gainNode); gainNode.connect(analyser); analyser.connect(actx.destination);
-      graphReady = true;
-      applyEq();
-    } catch(e){ graphReady = false; }
+      graphReady=true; applyEq();
+    } catch(e){ graphReady=false; }
   }
-  function applyEq(){ if(!graphReady) return; const b = eqBypass ? new Array(10).fill(0) : eqBands; eqNodes.forEach((n,i)=> n.gain.value = clamp(b[i],-12,12)); drawEqCurve(); }
+  function applyEq(){ if(!graphReady) return; const b=eqBypass?new Array(10).fill(0):eqBands; eqNodes.forEach((n,i)=>n.gain.value=clamp(b[i],-12,12)); drawEqCurve(); }
 
-  let discoveredDur = {};
-  // ---- playback model ----
-  let order = LIBRARY.map((_,i)=>i);
-  let current = -1;
-  function reshuffle(keepCurrent){
-    order = LIBRARY.map((_,i)=>i);
-    if (shuffle){ for(let i=order.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [order[i],order[j]]=[order[j],order[i]]; } }
-    if (keepCurrent && current>=0){ const p=order.indexOf(current); if(p>0){ [order[0],order[p]]=[order[p],order[0]]; } }
-  }
-  reshuffle(false);
-
+  // ---- playback ----
+  let current=-1; // index into LIB
   function trackArtCss(t){ const h=hashHue((t.artist||'')+(t.title||'')); return `linear-gradient(135deg,hsl(${h},58%,46%),hsl(${(h+38)%360},52%,26%))`; }
-  function fillArt(elArt, t){
-    if(t && t.coverUrl){ elArt.style.background='center/cover no-repeat url("'+t.coverUrl+'")'; elArt.textContent=''; }
-    else { elArt.style.background=trackArtCss(t); elArt.textContent=initials(t.title); }
-  }
-  function renderRelated(t){
-    const box=root.querySelector('.nls-related'); if(!box) return;
-    if(!t){ box.innerHTML=''; return; }
-    const sameArtist=[], sameAlbum=[];
-    LIBRARY.forEach((x,i)=>{ if(i===current) return;
-      if(t.artist && t.artist!=='Unknown' && x.artist===t.artist) sameArtist.push(i);
-      else if(t.album && x.album && x.album===t.album) sameAlbum.push(i);
-    });
-    function chips(label,arr){ if(!arr.length) return ''; let s='<div class="nls-rel-h">'+esc(label)+'</div><div class="nls-rel-row">'; arr.slice(0,12).forEach(i=>{ const x=LIBRARY[i]; s+='<span class="nls-chip" data-i="'+i+'" dir="'+(isRTL(x.title)?'rtl':'ltr')+'">'+esc(x.title)+'</span>'; }); return s+'</div>'; }
-    box.innerHTML = chips('More from '+t.artist, sameArtist) + chips('Same album', sameAlbum);
-  }
+  function coverStyle(t){ return t && t.cover ? `background-image:url("${esc(t.cover)}")` : `background:${trackArtCss(t||{})}`; }
 
   function play(idx){
-    if (idx<0 || idx>=LIBRARY.length) return;
-    current = idx;
-    const t = LIBRARY[idx];
-    audio.src = t.url;
-    audio.playbackRate = speed;
-    setupGraph();
-    if (actx && actx.state==='suspended') actx.resume();
+    if (idx<0||idx>=LIB.length) return;
+    current=idx; const t=LIB[idx];
+    audio.src=t.url; audio.playbackRate=speed; setupGraph();
+    if(actx&&actx.state==='suspended') actx.resume();
     audio.play().catch(()=>{});
-    playCounts[t.url] = (playCounts[t.url]||0)+1;
-    saveState({ currentIndex: idx, playCounts });
-    updateNow(); renderList(); updateMediaSession(); loadLyricsFor(t);
+    playCounts[t.key]=(playCounts[t.key]||0)+1;
+    saveState({ currentKey:t.key, playCounts });
+    updateNow(); renderRows(); updateMediaSession();
+    loadLyricsFor(t); prefetchNext();
   }
-  function nextIndexInOrder(step){
-    const p = order.indexOf(current);
-    if (p<0) return order[0];
-    let np = p + step;
-    if (np >= order.length){ if(repeat==='all'){ np=0; } else { return -1; } }
-    if (np < 0){ np = order.length-1; }
-    return order[np];
+  function viewPos(){ return view.indexOf(current); }
+  function nextIndexInView(step){
+    if (shuffle){ if(view.length<=1) return view[0]!=null?view[0]:-1; let r; do { r=view[Math.floor(Math.random()*view.length)]; } while(r===current&&view.length>1); return r; }
+    const p=viewPos(); if(p<0) return view[0]!=null?view[0]:-1;
+    let np=p+step;
+    if(np>=view.length){ if(repeat==='all') np=0; else return -1; }
+    if(np<0){ np=view.length-1; }
+    return view[np];
   }
-  function next(auto){
-    if (auto && repeat==='one'){ audio.currentTime=0; audio.play().catch(()=>{}); return; }
-    const ni = nextIndexInOrder(1);
-    if (ni<0){ audio.pause(); return; }
-    play(ni);
-  }
-  function prev(){ if (audio.currentTime>3){ audio.currentTime=0; return; } const pi=nextIndexInOrder(-1); play(pi<0?current:pi); }
+  function next(auto){ if(auto&&repeat==='one'){ audio.currentTime=0; audio.play().catch(()=>{}); return; } const ni=nextIndexInView(1); if(ni<0){ audio.pause(); return; } play(ni); }
+  function prev(){ if(audio.currentTime>3){ audio.currentTime=0; return; } const pi=nextIndexInView(-1); play(pi<0?current:pi); }
 
-  // ---- now playing UI ----
-  const artEl=$('.nls-art'), titleEl=$('.nls-title'), artistEl=$('.nls-artist');
-  const favReact=$('.nls-react.fav');
+  // ---- now playing ----
+  const artEl=$('.nls-art'), titleEl=$('.nls-title'), artistEl=$('.nls-artist'), subEl=$('.nls-sub'), relatedEl=$('.nls-related');
+  function setArt(el,t){ if(t&&t.cover){ el.style.background=''; el.style.backgroundImage=`url("${t.cover}")`; el.textContent=''; } else { el.style.backgroundImage=''; el.style.background=trackArtCss(t||{}); el.textContent=initials(t?t.title:'NL'); } }
   function updateNow(){
-    if (current<0) return;
-    const t = LIBRARY[current];
-    fillArt(artEl, t);
-    titleEl.textContent = t.title; titleEl.dir = isRTL(t.title)?'rtl':'ltr';
-    const meta=[]; if(t.album)meta.push(t.album); if(t.genre)meta.push(t.genre); if(t.year)meta.push(t.year);
-    const extra = meta.length?('  \u00B7  '+meta.join('  \u00B7  ')):'';
-    artistEl.textContent = t.artist + '  \u00B7  played ' + (playCounts[t.url]||0) + '\u00D7' + extra;
-    artistEl.dir = isRTL(t.artist)?'rtl':'ltr';
-    favReact.textContent = favorites[t.url] ? '\u2665' : '\u2661';
-    favReact.classList.toggle('on', !!favorites[t.url]);
-    renderRelated(t);
-    buildInfo();
+    if(current<0) return; const t=LIB[current];
+    setArt(artEl,t);
+    titleEl.textContent=t.title; titleEl.dir=isRTL(t.title)?'rtl':'ltr';
+    artistEl.textContent=t.artist; artistEl.dir=isRTL(t.artist)?'rtl':'ltr';
+    const bits=[]; if(t.album) bits.push(t.album); if(t.year) bits.push(t.year); if(t.genre) bits.push(t.genre); bits.push('played '+(playCounts[t.key]||0)+'\u00D7');
+    subEl.textContent=bits.join('  \u00B7  ');
+    renderRelated(t); buildInfo();
   }
+  function renderRelated(t){
+    const rel=[]; const seen={};
+    if(t.artist){ LIB.forEach((o,i)=>{ if(rel.length<6&&o.artist===t.artist&&i!==current&&!seen[i]){ seen[i]=1; rel.push(i); } }); }
+    if(t.album){ LIB.forEach((o,i)=>{ if(rel.length<8&&o.album&&o.album===t.album&&i!==current&&!seen[i]){ seen[i]=1; rel.push(i); } }); }
+    if(!rel.length){ relatedEl.innerHTML=''; return; }
+    relatedEl.innerHTML=rel.map(i=>{ const o=LIB[i]; const cs=o.cover?`background-image:url("${esc(o.cover)}")`:`background:${trackArtCss(o)}`; return `<span class="nls-chip" data-i="${i}"><span class="cc" style="${cs}"></span><span dir="${isRTL(o.title)?'rtl':'ltr'}">${esc(o.title)}</span></span>`; }).join('');
+  }
+  relatedEl.addEventListener('click',(e)=>{ const c=e.target.closest('.nls-chip'); if(!c) return; const i=parseInt(c.dataset.i,10); if(view.indexOf(i)<0){ view=displayOrder.slice(); } play(i); });
 
-  // ---- list rendering ----
-  const listEl=$('.nls-list'), countEl=$('.nls-count'), searchEl=$('.nls-search'), favToggle=$('.nls-favtoggle');
+  // ---- virtualized list ----
+  const vp=$('.nls-listvp'), sizer=$('.nls-sizer'), countEl=$('.nls-count'), searchEl=$('.nls-search'), favToggle=$('.nls-favtoggle');
   let filter='', favOnly=false;
-  function nlsDurText(t){ const d=(t&&t.durationSec!=null)?t.durationSec:((t&&discoveredDur[t.url]!=null)?discoveredDur[t.url]:null); return d!=null?fmtTime(d):''; }
-  function renderList(){
-    const idxs = filter.trim() ? nlsSearch(LIBRARY, filter) : LIBRARY.map((_,i)=>i);
-    let shown=0; const frag=document.createDocumentFragment();
-    idxs.forEach((i)=>{
-      const t=LIBRARY[i];
-      if (favOnly && !favorites[t.url]) return;
-      shown++;
-      const li=document.createElement('li');
-      li.className='nls-li'+(i===current?' active':'')+(favorites[t.url]?' isfav':'');
-      li.dataset.i=i;
-      const dt=nlsDurText(t);
-      li.innerHTML = `<span class="num">${i+1}</span><span class="meta"><span class="t" dir="${isRTL(t.title)?'rtl':'ltr'}">${esc(t.title)}</span><span class="a" dir="${isRTL(t.artist)?'rtl':'ltr'}">${esc(t.artist)}${t.album?(' \u00B7 '+esc(t.album)):''}</span></span>${dt?('<span class="nls-dt">'+dt+'</span>'):''}<span class="fav">\u2665</span>`;
-      frag.appendChild(li);
+  function rebuildView(){
+    const q=filter.trim().toLowerCase();
+    view = displayOrder.filter(i=>{
+      const t=LIB[i];
+      if(favOnly && !favorites[t.key]) return false;
+      if(q && !((t.title||'').toLowerCase().includes(q) || (t.artist||'').toLowerCase().includes(q))) return false;
+      return true;
     });
-    listEl.innerHTML=''; listEl.appendChild(frag);
-    countEl.textContent = shown+' / '+LIBRARY.length+' songs';
+    sizer.style.height=(view.length*ROW_H)+'px';
+    countEl.textContent=view.length+' / '+LIB.length+' songs';
+    renderRows();
   }
-  listEl.addEventListener('click',(e)=>{
+  function renderRows(){
+    const scrollTop=vp.scrollTop, h=vp.clientHeight;
+    let start=Math.max(0,Math.floor(scrollTop/ROW_H)-OVERSCAN);
+    let end=Math.min(view.length,Math.ceil((scrollTop+h)/ROW_H)+OVERSCAN);
+    let html='';
+    for(let p=start;p<end;p++){
+      const i=view[p]; const t=LIB[i];
+      const cs=t.cover?`background-image:url("${esc(t.cover)}")`:`background:${trackArtCss(t)}`;
+      const covInner=t.cover?'':esc(initials(t.title));
+      html+=`<div class="nls-li${i===current?' active':''}${favorites[t.key]?' isfav':''}" data-i="${i}" style="top:${p*ROW_H}px">`+
+        `<span class="cov" style="${cs}">${covInner}</span>`+
+        `<span class="meta"><span class="t" dir="${isRTL(t.title)?'rtl':'ltr'}">${esc(t.title)}</span><span class="a" dir="${isRTL(t.artist)?'rtl':'ltr'}">${esc(t.artist)}</span></span>`+
+        `<span class="dur">${t.duration?fmtTime(t.duration):''}</span>`+
+        `<span class="fav">${ICONS.heartFill({size:13})}</span>`+
+      `</div>`;
+    }
+    sizer.innerHTML=html;
+    schedulePrefetchVisible(start,end);
+  }
+  let _scrollRAF=null;
+  vp.addEventListener('scroll',()=>{ if(_scrollRAF) return; _scrollRAF=requestAnimationFrame(()=>{ _scrollRAF=null; renderRows(); }); });
+  sizer.addEventListener('click',(e)=>{
     const fav=e.target.closest('.fav'); const li=e.target.closest('.nls-li'); if(!li) return;
     const i=parseInt(li.dataset.i,10);
-    if (fav){ const u=LIBRARY[i].url; if(favorites[u]) delete favorites[u]; else favorites[u]=1; saveState({favorites}); renderList(); if(i===current) updateNow(); return; }
-    play(i);
+    if(fav){ const k=LIB[i].key; if(favorites[k]) delete favorites[k]; else favorites[k]=1; saveState({favorites}); if(favOnly) rebuildView(); else renderRows(); if(i===current) updateNow(); return; }
+    if(view.indexOf(i)<0){ view=displayOrder.slice(); } play(i);
   });
-  searchEl.addEventListener('input',()=>{ filter=searchEl.value; clearTimeout(searchEl._t); searchEl._t=setTimeout(renderList,150); });
-  favToggle.addEventListener('click',()=>{ favOnly=!favOnly; favToggle.style.color=favOnly?'#ff5d8f':''; renderList(); });
-  const relBox=root.querySelector('.nls-related'); if(relBox) relBox.addEventListener('click',(e)=>{ const ch=e.target.closest('.nls-chip'); if(!ch) return; const i=parseInt(ch.dataset.i,10); if(!isNaN(i)) play(i); });
+  searchEl.addEventListener('input',()=>{ filter=searchEl.value; clearTimeout(searchEl._t); searchEl._t=setTimeout(rebuildView,140); });
+  favToggle.addEventListener('click',()=>{ favOnly=!favOnly; favToggle.classList.toggle('on',favOnly); vp.scrollTop=0; rebuildView(); });
 
   // ---- tabs ----
   root.querySelectorAll('.nls-tab').forEach(tab=>{
@@ -472,20 +515,10 @@ export function initNLSpotify(win, showNotification){
       const v=tab.dataset.view;
       root.querySelectorAll('.nls-view').forEach(el=>el.classList.remove('show'));
       $('.nls-'+v).classList.add('show');
-      if (v==='viz') startViz();
-      if (v==='eq') drawEqCurve();
+      if(v==='viz') startViz();
+      if(v==='eq') drawEqCurve();
+      if(v==='lyrics') scrollCurLyric(true);
     });
-  });
-
-  // ---- reactions ----
-  root.querySelector('.nls-reactions').addEventListener('click',(e)=>{
-    const r=e.target.closest('.nls-react'); if(!r) return;
-    if (r.classList.contains('fav') && current>=0){ const u=LIBRARY[current].url; if(favorites[u]) delete favorites[u]; else favorites[u]=1; saveState({favorites}); updateNow(); renderList(); }
-    // calm floating reaction
-    const f=document.createElement('div'); f.className='nls-float'; f.textContent=r.dataset.r;
-    const rect=r.getBoundingClientRect(), rr=root.getBoundingClientRect();
-    f.style.left=(rect.left-rr.left)+'px'; f.style.top=(rect.top-rr.top)+'px';
-    root.appendChild(f); setTimeout(()=>f.remove(),1400);
   });
 
   // ---- controls ----
@@ -493,42 +526,38 @@ export function initNLSpotify(win, showNotification){
   const curEl=$('.nls-cur'), durEl=$('.nls-dur'), volEl=$('.nls-vol'), muteBtn=$('.nls-mute');
   const shuffleBtn=$('.nls-shuffle'), repeatBtn=$('.nls-repeat'), speedSel=$('.nls-speed');
   SPEEDS.forEach(s=>{ const o=document.createElement('option'); o.value=s; o.textContent=s+'\u00D7'; if(s===speed)o.selected=true; speedSel.appendChild(o); });
-  volEl.value = muted?0:vol;
-  shuffleBtn.classList.toggle('on',shuffle);
-  function repeatGlyph(){ repeatBtn.textContent = repeat==='one'?'\uD83D\uDD02':'\uD83D\uDD01'; repeatBtn.classList.toggle('on',repeat!=='off'); }
+  volEl.value=muted?0:vol; shuffleBtn.classList.toggle('on',shuffle);
+  function repeatGlyph(){ repeatBtn.innerHTML = repeat==='one'?ICONS.repeatOne({size:16}):ICONS.repeat({size:16}); repeatBtn.classList.toggle('on',repeat!=='off'); }
   repeatGlyph();
-  function muteGlyph(){ muteBtn.textContent = (muted||vol===0)?'\uD83D\uDD07':'\uD83D\uDD08'; }
+  function muteGlyph(){ muteBtn.innerHTML=(muted||vol===0)?ICONS.mute({size:16}):ICONS.vol({size:16}); }
   muteGlyph();
-
-  playBtn.addEventListener('click',()=>{ if(current<0){ play(order[0]); return; } if(audio.paused){ if(actx&&actx.state==='suspended')actx.resume(); audio.play().catch(()=>{}); } else audio.pause(); });
+  playBtn.addEventListener('click',()=>{ if(current<0){ play(view[0]!=null?view[0]:0); return; } if(audio.paused){ if(actx&&actx.state==='suspended')actx.resume(); audio.play().catch(()=>{}); } else audio.pause(); });
   $('.nls-prev').addEventListener('click',prev);
   $('.nls-next').addEventListener('click',()=>next(false));
   $('.nls-back').addEventListener('click',()=>{ audio.currentTime=Math.max(0,audio.currentTime-10); });
-  $('.nls-fwd').addEventListener('click',()=>{ audio.currentTime=Math.min(audio.duration||0,audio.currentTime+10); });
-  shuffleBtn.addEventListener('click',()=>{ shuffle=!shuffle; shuffleBtn.classList.toggle('on',shuffle); reshuffle(true); saveState({shuffle}); });
-  repeatBtn.addEventListener('click',()=>{ repeat = repeat==='off'?'all':(repeat==='all'?'one':'off'); repeatGlyph(); saveState({repeat}); });
+  $('.nls-fwd')&&$('.nls-fwd').addEventListener('click',()=>{ audio.currentTime=Math.min(audio.duration||0,audio.currentTime+10); });
+  shuffleBtn.addEventListener('click',()=>{ shuffle=!shuffle; shuffleBtn.classList.toggle('on',shuffle); saveState({shuffle}); });
+  repeatBtn.addEventListener('click',()=>{ repeat=repeat==='off'?'all':(repeat==='all'?'one':'off'); repeatGlyph(); saveState({repeat}); });
   speedSel.addEventListener('change',()=>{ speed=parseFloat(speedSel.value); audio.playbackRate=speed; saveState({speed}); });
   muteBtn.addEventListener('click',()=>{ muted=!muted; audio.volume=muted?0:vol; muteGlyph(); saveState({muted}); });
   volEl.addEventListener('input',()=>{ vol=parseFloat(volEl.value); muted=false; audio.volume=vol; muteGlyph(); saveState({volume:vol,muted:false}); });
 
-  // seek
   let seeking=false;
   seek.addEventListener('input',()=>{ seeking=true; if(audio.duration){ curEl.textContent=fmtTime(audio.duration*(seek.value/100)); } });
   seek.addEventListener('change',()=>{ if(audio.duration){ audio.currentTime=audio.duration*(seek.value/100); } seeking=false; });
-  audio.addEventListener('timeupdate',()=>{ if(!seeking&&audio.duration){ seek.value=(audio.currentTime/audio.duration)*100; } curEl.textContent=fmtTime(audio.currentTime); syncLyrics(); saveTimeThrottled(); updateMediaSessionPositionThrottled(); });
-  audio.addEventListener('loadedmetadata',()=>{ durEl.textContent=fmtTime(audio.duration); if(current>=0 && isFinite(audio.duration)){ const u=LIBRARY[current].url; discoveredDur[u]=audio.duration; if(LIBRARY[current].durationSec==null) LIBRARY[current].durationSec=Math.round(audio.duration); const dtEl=listEl.querySelector('.nls-li[data-i="'+current+'"] .nls-dt'); if(dtEl) dtEl.textContent=fmtTime(audio.duration); updateMediaSessionPosition(); } });
+  audio.addEventListener('timeupdate',()=>{ if(!seeking&&audio.duration){ seek.value=(audio.currentTime/audio.duration)*100; } curEl.textContent=fmtTime(audio.currentTime); syncLyrics(); saveTimeThrottled(); });
+  audio.addEventListener('loadedmetadata',()=>{ durEl.textContent=fmtTime(audio.duration); });
   audio.addEventListener('progress',()=>{ try{ if(audio.buffered.length&&audio.duration){ buffered.style.width=(audio.buffered.end(audio.buffered.length-1)/audio.duration*100)+'%'; } }catch(e){} });
-  audio.addEventListener('play',()=>{ playBtn.textContent='\u23F8'; startViz(); updateMediaSession(); });
-  audio.addEventListener('pause',()=>{ playBtn.textContent='\u25B6'; });
+  audio.addEventListener('play',()=>{ playBtn.innerHTML=ICONS.pause({size:20}); startViz(); updateMediaSession(); });
+  audio.addEventListener('pause',()=>{ playBtn.innerHTML=ICONS.play({size:20}); });
   audio.addEventListener('ended',()=>next(true));
-  audio.addEventListener('error',()=>{ notify('Skipping unплayable track'); setTimeout(()=>next(true),300); });
-
-  let _saveT=0; function saveTimeThrottled(){ const n=Date.now(); if(n-_saveT>4000){ _saveT=n; saveState({currentIndex:current,currentTime:audio.currentTime}); } }
+  audio.addEventListener('error',()=>{ notify('Skipping unplayable track'); setTimeout(()=>next(true),300); });
+  let _saveT=0; function saveTimeThrottled(){ const n=Date.now(); if(n-_saveT>4000){ _saveT=n; saveState({currentKey:current>=0?LIB[current].key:null,currentTime:audio.currentTime}); } }
 
   // ---- visualizer ----
   const vizCanvas=$('.nls-viz canvas');
   function startViz(){ if(!analyser||vizRAF) return; const ctx=vizCanvas.getContext('2d'); const buf=new Uint8Array(analyser.frequencyBinCount);
-    function frame(){ if(audio.paused){ vizRAF=null; return; } const w=vizCanvas.width=vizCanvas.clientWidth, h=vizCanvas.height=vizCanvas.clientHeight; analyser.getByteFrequencyData(buf); ctx.clearRect(0,0,w,h); const n=buf.length, bw=w/n; for(let i=0;i<n;i++){ const v=buf[i]/255; const bh=v*h; const hue=200-(v*140); ctx.fillStyle='hsl('+hue+',80%,'+(40+v*30)+'%)'; ctx.fillRect(i*bw, h-bh, bw*0.8, bh); } vizRAF=requestAnimationFrame(frame); }
+    function frame(){ if(audio.paused){ vizRAF=null; return; } const w=vizCanvas.width=vizCanvas.clientWidth, h=vizCanvas.height=vizCanvas.clientHeight; analyser.getByteFrequencyData(buf); ctx.clearRect(0,0,w,h); const n=buf.length, bw=w/n; for(let i=0;i<n;i++){ const v=buf[i]/255; const bh=v*h; const g=ctx.createLinearGradient(0,h,0,h-bh); g.addColorStop(0,'#FF7A1A'); g.addColorStop(1,'#34E89E'); ctx.fillStyle=g; ctx.fillRect(i*bw,h-bh,bw*0.82,bh); } vizRAF=requestAnimationFrame(frame); }
     vizRAF=requestAnimationFrame(frame);
   }
 
@@ -540,75 +569,75 @@ export function initNLSpotify(win, showNotification){
   eqPresetSel.addEventListener('change',()=>{ const p=EQ_PRESETS[eqPresetSel.value]; if(!p) return; eqBands=p.slice(); eqBandsEl.querySelectorAll('input').forEach((inp,i)=>inp.value=eqBands[i]); applyEq(); saveState({eqBands}); });
   eqBypassBtn.addEventListener('click',()=>{ eqBypass=!eqBypass; eqBypassBtn.classList.toggle('on',eqBypass); applyEq(); saveState({eqBypass}); });
   eqBypassBtn.classList.toggle('on',eqBypass);
-  function drawEqCurve(){ if(!eqCurve.clientWidth) return; const ctx=eqCurve.getContext('2d'); const w=eqCurve.width=eqCurve.clientWidth, h=eqCurve.height=eqCurve.clientHeight; ctx.clearRect(0,0,w,h); ctx.beginPath(); ctx.strokeStyle='#1DB954'; ctx.lineWidth=2; const b=eqBypass?new Array(10).fill(0):eqBands; for(let i=0;i<b.length;i++){ const x=i/(b.length-1)*w; const y=h/2 - (b[i]/12)*(h/2-6); if(i===0)ctx.moveTo(x,y); else ctx.lineTo(x,y); } ctx.stroke(); ctx.strokeStyle='rgba(255,255,255,.2)'; ctx.lineWidth=1; ctx.beginPath(); ctx.moveTo(0,h/2); ctx.lineTo(w,h/2); ctx.stroke(); }
+  function drawEqCurve(){ if(!eqCurve.clientWidth) return; const ctx=eqCurve.getContext('2d'); const w=eqCurve.width=eqCurve.clientWidth, h=eqCurve.height=eqCurve.clientHeight; ctx.clearRect(0,0,w,h); const g=ctx.createLinearGradient(0,0,w,0); g.addColorStop(0,'#FF7A1A'); g.addColorStop(1,'#34E89E'); ctx.beginPath(); ctx.strokeStyle=g; ctx.lineWidth=2; const b=eqBypass?new Array(10).fill(0):eqBands; for(let i=0;i<b.length;i++){ const x=i/(b.length-1)*w; const y=h/2-(b[i]/12)*(h/2-6); if(i===0)ctx.moveTo(x,y); else ctx.lineTo(x,y); } ctx.stroke(); ctx.strokeStyle='rgba(255,255,255,.18)'; ctx.lineWidth=1; ctx.beginPath(); ctx.moveTo(0,h/2); ctx.lineTo(w,h/2); ctx.stroke(); }
 
-  // ---- lyrics ----
-  const lrcBox=$('.nls-lrcbox'), lrcArea=root.querySelector('.nls-lyrics textarea'), lrcApply=$('.nls-lrcapply');
-  let lrcLines=[]; // {t, text}
-  function parseLrc(text){ const out=[]; let offset=0; const om=/\[offset:\s*([+-]?\d+)\]/i.exec(text||''); if(om) offset=parseInt(om[1],10)/1000; const re=/\[(\d{1,2}):(\d{1,2})(?:[.:](\d{1,3}))?\]/g; (text||'').split(/\r?\n/).forEach(line=>{ let m; const tags=[]; re.lastIndex=0; while((m=re.exec(line))){ const t=parseInt(m[1])*60+parseInt(m[2])+(m[3]?parseInt(m[3].padEnd(3,'0'))/1000:0); tags.push(t+offset); } const txt=nlsStripEnhanced(line.replace(re,'')); if(tags.length){ tags.forEach(t=>out.push({t,text:txt})); } else if(txt){ out.push({t:-1,text:txt}); } }); out.sort((a,b)=>a.t-b.t); return out; }
-  function renderLrc(){ if(!lrcLines.length){ lrcBox.textContent='No lyrics. Paste LRC or plain text below.'; return; } lrcBox.innerHTML=lrcLines.map((l,i)=>`<div class="nls-lrc-line" data-i="${i}" dir="${isRTL(l.text)?'rtl':'ltr'}">${esc(l.text)||'\u00A0'}</div>`).join(''); }
-  let curLrc=-1;
-  function syncLyrics(){ if(!lrcLines.length||lrcLines[0].t<0) return; let idx=-1; for(let i=0;i<lrcLines.length;i++){ if(lrcLines[i].t<=audio.currentTime) idx=i; else break; } if(idx!==curLrc){ curLrc=idx; const lines=lrcBox.querySelectorAll('.nls-lrc-line'); lines.forEach(el=>el.classList.remove('cur')); if(idx>=0&&lines[idx]){ lines[idx].classList.add('cur'); lines[idx].scrollIntoView({block:'center'}); } } }
-  let _lrcTok=null;
-  function fetchLrclib(t){
-    const base='https://lrclib.net/api/';
-    const a=(t.artist&&t.artist!=='Unknown')?encodeURIComponent(t.artist):'';
-    const tr=encodeURIComponent(t.title||'');
-    if(!tr) return Promise.reject();
-    const dur=(t.durationSec!=null)?('&duration='+Math.round(t.durationSec)):'';
-    const getUrl=base+'get?track_name='+tr+(a?'&artist_name='+a:'')+dur;
-    const pick=j=>{ const lt=j&&(j.syncedLyrics||j.plainLyrics); return lt?lt:Promise.reject(); };
-    return fetch(getUrl).then(r=>r.ok?r.json():Promise.reject()).then(pick).catch(()=>{
-      const sUrl=base+'search?track_name='+tr+(a?'&artist_name='+a:'');
-      return fetch(sUrl).then(r=>r.ok?r.json():Promise.reject()).then(arr=>{
-        if(!Array.isArray(arr)||!arr.length) return Promise.reject();
-        const hit=arr.find(x=>x.syncedLyrics)||arr.find(x=>x.plainLyrics)||arr[0];
-        return pick(hit);
-      });
-    });
+  // ---- LYRICS (LRClib runtime + cache + prefetch) ----
+  const lyrScroll=$('.nls-lyrscroll'), lyrBg=$('.nls-lyrbg'), lyrHeadC=root.querySelector('.nls-lyrhead .lc'), lyrHeadB=root.querySelector('.nls-lyrhead .lt b'), lyrHeadS=root.querySelector('.nls-lyrhead .lt span');
+  const lrcCache=new Map();      // key -> {lines:[{t,text}], synced:bool} | null (null = none found)
+  const lrcInflight=new Map();   // key -> Promise
+  let lrcLines=[], curLrc=-1, lrcToken=0, lrcSynced=false;
+  const prefetchQueue=[]; let prefetchActive=0;
+
+  function parseLrc(text){ const out=[]; const re=/\[(\d{1,2}):(\d{1,2})(?:[.:](\d{1,3}))?\]/g; (text||'').split(/\r?\n/).forEach(line=>{ let m; const tags=[]; re.lastIndex=0; while((m=re.exec(line))){ const t=parseInt(m[1])*60+parseInt(m[2])+(m[3]?parseInt(m[3].padEnd(3,'0'))/1000:0); tags.push(t); } const txt=line.replace(re,'').replace(/<\d{1,2}:\d{2}(?:[.:]\d{1,3})?>/g,'').trim(); if(tags.length){ tags.forEach(t=>out.push({t,text:txt})); } else if(txt){ out.push({t:-1,text:txt}); } }); out.sort((a,b)=>a.t-b.t); return out; }
+  function lrcStore(key,val){ if(lrcCache.size>=LRC_CACHE_MAX){ const fk=lrcCache.keys().next().value; lrcCache.delete(fk); } lrcCache.set(key,val); }
+
+  function fetchLyrics(t){
+    if(!t) return Promise.resolve(null);
+    if(lrcCache.has(t.key)) return Promise.resolve(lrcCache.get(t.key));
+    if(lrcInflight.has(t.key)) return lrcInflight.get(t.key);
+    const params=new URLSearchParams(); params.set('track_name',t.title||''); if(t.artist&&t.artist!=='Unknown Artist') params.set('artist_name',t.artist); if(t.album) params.set('album_name',t.album); if(t.duration) params.set('duration',String(Math.round(t.duration)));
+    const getUrl=`${LRCLIB_API}/get?`+params.toString();
+    const searchParams=new URLSearchParams(); searchParams.set('track_name',t.title||''); if(t.artist&&t.artist!=='Unknown Artist') searchParams.set('artist_name',t.artist);
+    const searchUrl=`${LRCLIB_API}/search?`+searchParams.toString();
+    const p=fetch(getUrl).then(r=>r.ok?r.json():Promise.reject()).catch(()=>fetch(searchUrl).then(r=>r.ok?r.json():Promise.reject()).then(arr=>Array.isArray(arr)&&arr.length?(arr.find(x=>x.syncedLyrics)||arr[0]):Promise.reject()))
+      .then(d=>{ const syn=d&&d.syncedLyrics, pln=d&&d.plainLyrics; let val=null; if(syn){ val={lines:parseLrc(syn),synced:true}; } else if(pln){ val={lines:pln.split(/\r?\n/).filter(s=>s.trim()!=='').map(s=>({t:-1,text:s})),synced:false}; } if(val&&!val.lines.length) val=null; lrcStore(t.key,val); return val; })
+      .catch(()=>{ lrcStore(t.key,null); return null; })
+      .finally(()=>{ lrcInflight.delete(t.key); });
+    lrcInflight.set(t.key,p); return p;
   }
+  function pumpPrefetch(){ while(prefetchActive<PREFETCH_MAX && prefetchQueue.length){ const t=prefetchQueue.shift(); if(!t||lrcCache.has(t.key)||lrcInflight.has(t.key)) continue; prefetchActive++; fetchLyrics(t).finally(()=>{ prefetchActive--; pumpPrefetch(); }); } }
+  function queuePrefetch(t){ if(!t||lrcCache.has(t.key)||lrcInflight.has(t.key)) return; prefetchQueue.push(t); }
+  function schedulePrefetchVisible(start,end){ const idle=window.requestIdleCallback||function(f){return setTimeout(f,200);}; idle(()=>{ for(let p=start;p<end;p++){ const i=view[p]; if(i!=null) queuePrefetch(LIB[i]); } pumpPrefetch(); }); }
+  function prefetchNext(){ const ni=nextIndexInView(1); if(ni>=0) queuePrefetch(LIB[ni]); const p=viewPos(); if(p>=0&&view[p+1]!=null) queuePrefetch(LIB[view[p+1]]); pumpPrefetch(); }
+
+  function renderLrc(){
+    if(!lrcLines.length){ lyrScroll.innerHTML=`<div class="nls-lyrempty">${ICONS.music({size:30})}<div>No lyrics available</div></div>`; return; }
+    lyrScroll.innerHTML=lrcLines.map((l,i)=>`<div class="nls-lrc-line${lrcSynced?'':' plain'}" data-i="${i}" data-t="${l.t}" dir="${isRTL(l.text)?'rtl':'ltr'}">${esc(l.text)||'\u00A0'}</div>`).join('');
+  }
+  lyrScroll.addEventListener('click',(e)=>{ const ln=e.target.closest('.nls-lrc-line'); if(!ln||!lrcSynced) return; const tt=parseFloat(ln.dataset.t); if(isFinite(tt)&&tt>=0&&audio.duration){ audio.currentTime=tt; } });
+  function scrollCurLyric(force){ if(!lrcSynced||curLrc<0) return; const lines=lyrScroll.querySelectorAll('.nls-lrc-line'); if(lines[curLrc]){ const el=lines[curLrc]; lyrScroll.scrollTo({top:el.offsetTop-lyrScroll.clientHeight/2+el.clientHeight/2, behavior:force?'auto':'smooth'}); } }
+  function syncLyrics(){ if(!lrcLines.length||!lrcSynced) return; let idx=-1; for(let i=0;i<lrcLines.length;i++){ if(lrcLines[i].t<=audio.currentTime) idx=i; else break; } if(idx!==curLrc){ curLrc=idx; const lines=lyrScroll.querySelectorAll('.nls-lrc-line'); lines.forEach(el=>el.classList.remove('cur')); if(idx>=0&&lines[idx]){ lines[idx].classList.add('cur'); scrollCurLyric(false); } } }
   function loadLyricsFor(t){
-    lrcLines=[]; curLrc=-1; lrcBox.textContent='Loading lyrics...';
-    const tok=(t&&(t.id!=null?t.id:t.url))||{}; _lrcTok=tok;
-    const url=t.lrcUrl||t.url.replace(/\.[^.]+$/,'.lrc');
-    fetch(url).then(r=>r.ok?r.text():Promise.reject()).then(txt=>{
-      if(_lrcTok!==tok) return; const parsed=parseLrc(txt); if(!parsed.length) return Promise.reject();
-      lrcLines=parsed; renderLrc();
-    }).catch(()=>{
-      if(_lrcTok!==tok) return;
-      lrcBox.textContent='Fetching lyrics from LRClib\u2026';
-      fetchLrclib(t).then(lt=>{ if(_lrcTok!==tok) return; lrcLines=parseLrc(lt); renderLrc(); })
-      .catch(()=>{ if(_lrcTok!==tok) return; lrcLines=[]; lrcBox.textContent='No lyrics found. Paste lyrics below.'; });
-    });
+    const tok=++lrcToken; lrcLines=[]; curLrc=-1; lrcSynced=false;
+    // header + background reflect current cover
+    if(t.cover){ lyrBg.style.backgroundImage=`url("${t.cover}")`; lyrHeadC.style.backgroundImage=`url("${t.cover}")`; lyrHeadC.textContent=''; }
+    else { lyrBg.style.backgroundImage=''; lyrBg.style.background=trackArtCss(t); lyrHeadC.style.backgroundImage=''; lyrHeadC.style.background=trackArtCss(t); lyrHeadC.textContent=initials(t.title); }
+    lyrHeadB.textContent=t.title; lyrHeadB.dir=isRTL(t.title)?'rtl':'ltr'; lyrHeadS.textContent=t.artist;
+    lyrScroll.innerHTML=''; // clean, no fetching note
+    fetchLyrics(t).then(val=>{ if(tok!==lrcToken) return; if(val&&val.lines.length){ lrcLines=val.lines; lrcSynced=!!val.synced; renderLrc(); curLrc=-1; syncLyrics(); } else { lrcLines=[]; renderLrc(); } });
   }
-  lrcApply.addEventListener('click',()=>{ lrcLines=parseLrc(lrcArea.value); if(!lrcLines.length&&lrcArea.value.trim()){ lrcLines=lrcArea.value.split(/\r?\n/).filter(Boolean).map(t=>({t:-1,text:t})); } renderLrc(); });
 
   // ---- info ----
-  function buildInfo(){ const el=$('.nls-info'); const artists=new Set(LIBRARY.map(t=>t.artist)); const favCount=Object.keys(favorites).length; const t=current>=0?LIBRARY[current]:null; el.innerHTML = `<h3>NL spotify</h3><div class="row"><span class="k">Library</span><span>${LIBRARY.length} songs \u00B7 ${artists.size} artists</span></div><div class="row"><span class="k">Favorites</span><span>${favCount}</span></div><div class="row"><span class="k">Source</span><span>nl-audio-cdn / media/nl-fv-songs</span></div>`+ (t?`<h3 style="margin-top:14px">Now playing</h3><div class="row"><span class="k">Title</span><span dir="${isRTL(t.title)?'rtl':'ltr'}">${esc(t.title)}</span></div><div class="row"><span class="k">Artist</span><span dir="${isRTL(t.artist)?'rtl':'ltr'}">${esc(t.artist)}</span></div>${t.album?`<div class="row"><span class="k">Album</span><span dir="${isRTL(t.album)?'rtl':'ltr'}">${esc(t.album)}</span></div>`:''}${t.genre?`<div class="row"><span class="k">Genre</span><span>${esc(t.genre)}</span></div>`:''}${t.year?`<div class="row"><span class="k">Year</span><span>${esc(String(t.year))}</span></div>`:''}${(t.durationSec!=null||discoveredDur[t.url]!=null)?`<div class="row"><span class="k">Duration</span><span>${fmtTime(t.durationSec!=null?t.durationSec:discoveredDur[t.url])}</span></div>`:''}<div class="row"><span class="k">Plays</span><span>${playCounts[t.url]||0}</span></div><div class="row"><span class="k">File</span><span>${esc(t.file)}</span></div>`:''); }
+  function buildInfo(){ const el=$('.nls-info'); const artists=new Set(LIB.map(t=>t.artist)); const favCount=Object.keys(favorites).filter(k=>favorites[k]).length; const t=current>=0?LIB[current]:null;
+    el.innerHTML=`<h3>NL spotify</h3>`+
+      `<div class="row"><span class="k">Library</span><span class="v">${LIB.length} songs \u00B7 ${artists.size} artists</span></div>`+
+      `<div class="row"><span class="k">Favorites</span><span class="v">${favCount}</span></div>`+
+      `<div class="row"><span class="k">Lyrics</span><span class="v">LRClib (live)</span></div>`+
+      (t?`<h3>Now playing</h3>`+
+        `<div class="row"><span class="k">Title</span><span class="v" dir="${isRTL(t.title)?'rtl':'ltr'}">${esc(t.title)}</span></div>`+
+        `<div class="row"><span class="k">Artist</span><span class="v" dir="${isRTL(t.artist)?'rtl':'ltr'}">${esc(t.artist)}</span></div>`+
+        (t.album?`<div class="row"><span class="k">Album</span><span class="v">${esc(t.album)}</span></div>`:'')+
+        (t.genre?`<div class="row"><span class="k">Genre</span><span class="v">${esc(t.genre)}</span></div>`:'')+
+        (t.year?`<div class="row"><span class="k">Year</span><span class="v">${esc(t.year)}</span></div>`:'')+
+        (t.duration?`<div class="row"><span class="k">Duration</span><span class="v">${fmtTime(t.duration)}</span></div>`:'')+
+        `<div class="row"><span class="k">Plays</span><span class="v">${playCounts[t.key]||0}</span></div>`
+      :'');
+  }
 
   // ---- MediaSession ----
-  const _artCache={};
-  function genArtDataURL(t){
-    const key=(t.artist||'')+'|'+(t.title||''); if(_artCache[key]) return _artCache[key];
-    try{
-      const cv=document.createElement('canvas'); cv.width=cv.height=512; const ctx=cv.getContext('2d');
-      const h=hashHue((t.artist||'')+(t.title||'')); const g=ctx.createLinearGradient(0,0,512,512);
-      g.addColorStop(0,'hsl('+h+',58%,46%)'); g.addColorStop(1,'hsl('+((h+38)%360)+',52%,26%)');
-      ctx.fillStyle=g; ctx.fillRect(0,0,512,512);
-      ctx.fillStyle='rgba(255,255,255,.92)'; ctx.font='bold 220px Tahoma,sans-serif'; ctx.textAlign='center'; ctx.textBaseline='middle';
-      ctx.fillText(initials(t.title),256,276);
-      const u=cv.toDataURL('image/png'); _artCache[key]=u; return u;
-    }catch(e){ return null; }
-  }
-  function artworkList(t){
-    if(t && t.coverUrl) return [{src:t.coverUrl,sizes:'512x512',type:'image/jpeg'}];
-    const u=genArtDataURL(t); return u?[{src:u,sizes:'512x512',type:'image/png'}]:[];
-  }
-  function updateMediaSession(){ if(!('mediaSession'in navigator)||current<0) return; const t=LIBRARY[current]; try{ navigator.mediaSession.metadata=new MediaMetadata({title:t.title,artist:t.artist,album:(t.album||'NL fv songs of all time'),artwork:artworkList(t)}); navigator.mediaSession.setActionHandler('play',()=>{ if(actx&&actx.state==='suspended')actx.resume(); audio.play(); }); navigator.mediaSession.setActionHandler('pause',()=>audio.pause()); navigator.mediaSession.setActionHandler('previoustrack',prev); navigator.mediaSession.setActionHandler('nexttrack',()=>next(false)); try{ navigator.mediaSession.setActionHandler('seekto',(d)=>{ if(d&&d.seekTime!=null&&isFinite(audio.duration)) audio.currentTime=d.seekTime; }); }catch(e){} try{ navigator.mediaSession.setActionHandler('seekbackward',(d)=>{ audio.currentTime=Math.max(0,audio.currentTime-((d&&d.seekOffset)||10)); }); }catch(e){} try{ navigator.mediaSession.setActionHandler('seekforward',(d)=>{ audio.currentTime=Math.min(audio.duration||0,audio.currentTime+((d&&d.seekOffset)||10)); }); }catch(e){} try{ navigator.mediaSession.playbackState=audio.paused?'paused':'playing'; }catch(e){} updateMediaSessionPosition(); }catch(e){} }
-  function updateMediaSessionPosition(){ if(!('mediaSession'in navigator)||!navigator.mediaSession.setPositionState) return; try{ if(isFinite(audio.duration)&&audio.duration>0){ navigator.mediaSession.setPositionState({duration:audio.duration,playbackRate:audio.playbackRate||1,position:Math.min(audio.currentTime,audio.duration)}); } }catch(e){} }
-  let _mspT=0; function updateMediaSessionPositionThrottled(){ const n=Date.now(); if(n-_mspT>1000){ _mspT=n; updateMediaSessionPosition(); } }
+  function updateMediaSession(){ if(!('mediaSession'in navigator)||current<0) return; const t=LIB[current]; try{ const art=t.cover?[{src:t.cover,sizes:'512x512',type:'image/webp'}]:[]; navigator.mediaSession.metadata=new MediaMetadata({title:t.title,artist:t.artist,album:t.album||'NL spotify',artwork:art}); navigator.mediaSession.setActionHandler('play',()=>audio.play()); navigator.mediaSession.setActionHandler('pause',()=>audio.pause()); navigator.mediaSession.setActionHandler('previoustrack',prev); navigator.mediaSession.setActionHandler('nexttrack',()=>next(false)); }catch(e){} }
 
-  // ---- keyboard shortcuts (scoped to this window) ----
+  // ---- keyboard ----
   root.addEventListener('keydown',(e)=>{
     if(e.target.tagName==='INPUT'||e.target.tagName==='TEXTAREA'||e.target.tagName==='SELECT') return;
     switch(e.key){
@@ -623,39 +652,43 @@ export function initNLSpotify(win, showNotification){
     }
   });
 
-  // ---- cleanup on close ----
-  const closeBtn = win.querySelector('.title-bar-controls button[aria-label="Close"]');
+  // ---- cleanup ----
+  const closeBtn=win.querySelector('.title-bar-controls button[aria-label="Close"]');
   function cleanup(){ try{ audio.pause(); audio.src=''; }catch(e){} if(vizRAF){ cancelAnimationFrame(vizRAF); vizRAF=null; } try{ if(actx) actx.close(); }catch(e){} }
-  if (closeBtn) closeBtn.addEventListener('click', cleanup);
-  const mo = new MutationObserver(()=>{ if(!document.body.contains(win)){ cleanup(); mo.disconnect(); } });
-  try { mo.observe(win.parentNode||document.body,{childList:true}); } catch(e){}
+  if(closeBtn) closeBtn.addEventListener('click',cleanup);
+  const mo=new MutationObserver(()=>{ if(!document.body.contains(win)){ cleanup(); mo.disconnect(); } });
+  try{ mo.observe(win.parentNode||document.body,{childList:true}); }catch(e){}
 
-  // ---- initial render + resume ----
-  renderList(); buildInfo();
-  const ri = (typeof _state.currentIndex==='number' && _state.currentIndex>=0 && _state.currentIndex<LIBRARY.length) ? _state.currentIndex : 0;
-  current = ri; updateNow(); renderList();
-  const t0 = LIBRARY[ri];
-  if (t0){ audio.src = t0.url; if(typeof _state.currentTime==='number'){ audio.addEventListener('loadedmetadata',function once(){ try{ audio.currentTime=Math.min(_state.currentTime, (audio.duration||0)-1); }catch(e){} audio.removeEventListener('loadedmetadata',once); }); } loadLyricsFor(t0); }
-  notify('NL spotify ready \u00B7 '+LIBRARY.length+' songs');
-  (async function(){
-    try{
-      const murl = (typeof window!=='undefined' && window.NL_SPOTIFY_MANIFEST_URL) ? window.NL_SPOTIFY_MANIFEST_URL : NLS_MANIFEST_URL;
-      const res = await fetch(murl);
-      if(!res || !res.ok) return;
-      const data = await res.json();
-      const added = mergeManifest(LIBRARY, data);
-      order = LIBRARY.map((_,i)=>i); reshuffle(true);
-      renderList(); buildInfo(); if(current>=0) updateNow();
-      if(added>0) notify('NL spotify \u00B7 +'+added+' new songs loaded');
-    }catch(e){}
-  })();
+  // ---- initial render ----
+  rebuildView(); buildInfo();
+  function resumeOrFirst(){
+    let ri=0; if(_state.currentKey){ const f=LIB.findIndex(t=>t.key===_state.currentKey); if(f>=0) ri=f; }
+    current=ri; updateNow(); renderRows();
+    const t0=LIB[ri];
+    if(t0){ audio.src=t0.url; if(typeof _state.currentTime==='number'){ audio.addEventListener('loadedmetadata',function once(){ try{ audio.currentTime=Math.min(_state.currentTime,(audio.duration||0)-1); }catch(e){} audio.removeEventListener('loadedmetadata',once); }); } loadLyricsFor(t0); }
+  }
+  resumeOrFirst();
+  notify('NL spotify ready \u00B7 '+LIB.length+' songs');
+
+  // ---- load manifest (new songs) ----
+  fetch(MANIFEST_URL).then(r=>r.ok?r.json():Promise.reject()).then(data=>{
+    const arr=Array.isArray(data)?data:(data&&(data.songs||data.tracks)); if(!Array.isArray(arr)||!arr.length) return;
+    const existing={}; LIB.forEach(t=>existing[t.key]=1);
+    const add=[]; arr.forEach((r,i)=>{ const t=normTrack(r,LIB.length+i); if(t.url&&!existing[t.url]){ existing[t.url]=1; add.push(t); } });
+    if(!add.length) return;
+    const base=LIB.length; LIB=LIB.concat(add);
+    const newIdx=add.map((_,i)=>base+i); shuffleInPlace(newIdx);
+    // weave new tracks into the existing random order
+    displayOrder=shuffleInPlace(displayOrder.concat(newIdx));
+    const curKey=current>=0?LIB[current].key:null;
+    rebuildView();
+    if(curKey){ const f=LIB.findIndex(t=>t.key===curKey); if(f>=0) current=f; }
+    buildInfo();
+    notify('NL spotify \u00B7 '+LIB.length+' songs loaded');
+  }).catch(()=>{});
 }
 
 // optional external entry
 if (typeof window!=='undefined'){
   window.openNLSpotify = function(){ if(window.createWindow) window.createWindow('NL spotify'); };
 }
-
-
-// Test-only exports (browser entry only imports initNLSpotify)
-export { buildLibrary, mergeManifest, nlsNorm, nlsLeven, nlsFieldScore, nlsScoreTrack, nlsSearch, nlsStripEnhanced };
