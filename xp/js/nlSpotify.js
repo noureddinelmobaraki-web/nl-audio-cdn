@@ -549,7 +549,38 @@ export function initNLSpotify(win, showNotification){
   function renderLrc(){ if(!lrcLines.length){ lrcBox.textContent='No lyrics. Paste LRC or plain text below.'; return; } lrcBox.innerHTML=lrcLines.map((l,i)=>`<div class="nls-lrc-line" data-i="${i}" dir="${isRTL(l.text)?'rtl':'ltr'}">${esc(l.text)||'\u00A0'}</div>`).join(''); }
   let curLrc=-1;
   function syncLyrics(){ if(!lrcLines.length||lrcLines[0].t<0) return; let idx=-1; for(let i=0;i<lrcLines.length;i++){ if(lrcLines[i].t<=audio.currentTime) idx=i; else break; } if(idx!==curLrc){ curLrc=idx; const lines=lrcBox.querySelectorAll('.nls-lrc-line'); lines.forEach(el=>el.classList.remove('cur')); if(idx>=0&&lines[idx]){ lines[idx].classList.add('cur'); lines[idx].scrollIntoView({block:'center'}); } } }
-  function loadLyricsFor(t){ lrcLines=[]; curLrc=-1; lrcBox.textContent='Loading lyrics...'; const url=t.lrcUrl||t.url.replace(/\.[^.]+$/,'.lrc'); fetch(url).then(r=>r.ok?r.text():Promise.reject()).then(txt=>{ lrcLines=parseLrc(txt); renderLrc(); }).catch(()=>{ lrcLines=[]; lrcBox.textContent='No .lrc found for this track. Paste lyrics below.'; }); }
+  let _lrcTok=null;
+  function fetchLrclib(t){
+    const base='https://lrclib.net/api/';
+    const a=(t.artist&&t.artist!=='Unknown')?encodeURIComponent(t.artist):'';
+    const tr=encodeURIComponent(t.title||'');
+    if(!tr) return Promise.reject();
+    const dur=(t.durationSec!=null)?('&duration='+Math.round(t.durationSec)):'';
+    const getUrl=base+'get?track_name='+tr+(a?'&artist_name='+a:'')+dur;
+    const pick=j=>{ const lt=j&&(j.syncedLyrics||j.plainLyrics); return lt?lt:Promise.reject(); };
+    return fetch(getUrl).then(r=>r.ok?r.json():Promise.reject()).then(pick).catch(()=>{
+      const sUrl=base+'search?track_name='+tr+(a?'&artist_name='+a:'');
+      return fetch(sUrl).then(r=>r.ok?r.json():Promise.reject()).then(arr=>{
+        if(!Array.isArray(arr)||!arr.length) return Promise.reject();
+        const hit=arr.find(x=>x.syncedLyrics)||arr.find(x=>x.plainLyrics)||arr[0];
+        return pick(hit);
+      });
+    });
+  }
+  function loadLyricsFor(t){
+    lrcLines=[]; curLrc=-1; lrcBox.textContent='Loading lyrics...';
+    const tok=(t&&(t.id!=null?t.id:t.url))||{}; _lrcTok=tok;
+    const url=t.lrcUrl||t.url.replace(/\.[^.]+$/,'.lrc');
+    fetch(url).then(r=>r.ok?r.text():Promise.reject()).then(txt=>{
+      if(_lrcTok!==tok) return; const parsed=parseLrc(txt); if(!parsed.length) return Promise.reject();
+      lrcLines=parsed; renderLrc();
+    }).catch(()=>{
+      if(_lrcTok!==tok) return;
+      lrcBox.textContent='Fetching lyrics from LRClib\u2026';
+      fetchLrclib(t).then(lt=>{ if(_lrcTok!==tok) return; lrcLines=parseLrc(lt); renderLrc(); })
+      .catch(()=>{ if(_lrcTok!==tok) return; lrcLines=[]; lrcBox.textContent='No lyrics found. Paste lyrics below.'; });
+    });
+  }
   lrcApply.addEventListener('click',()=>{ lrcLines=parseLrc(lrcArea.value); if(!lrcLines.length&&lrcArea.value.trim()){ lrcLines=lrcArea.value.split(/\r?\n/).filter(Boolean).map(t=>({t:-1,text:t})); } renderLrc(); });
 
   // ---- info ----
