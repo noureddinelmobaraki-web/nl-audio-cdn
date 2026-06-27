@@ -676,7 +676,7 @@ export function initNLSpotify(win, showNotification){
 
   // ---- download (NL-named, site cover embedded when possible) ----
   let _ffmpeg=null, _ffmpegLoading=null, _dlBusy=false;
-  function dlName(t){ return ('NL '+((t&&t.title)||'track')).replace(/[\\/:*?"<>|]+/g,'_').trim()+'.m4a'; }
+  function dlName(t,ext){ return ('NL '+((t&&t.title)||'track')).replace(/[\\/:*?"<>|]+/g,'_').trim()+(ext||'.mp3'); }
   function saveBlob(blob,name){ const u=URL.createObjectURL(blob); const a=document.createElement('a'); a.href=u; a.download=name; document.body.appendChild(a); a.click(); a.remove(); setTimeout(()=>URL.revokeObjectURL(u),5000); }
   async function siteCoverJpeg(){
     const img=await new Promise((res,rej)=>{ const im=new Image(); im.crossOrigin='anonymous'; im.onload=()=>res(im); im.onerror=rej; im.src=PROFILE_IMG; });
@@ -700,19 +700,31 @@ export function initNLSpotify(win, showNotification){
   async function embedAndDownload(t){
     const ff=await ensureFfmpeg(); const util=ff._util;
     await ff.writeFile('in.m4a', await util.fetchFile(t.url));
-    let args=['-i','in.m4a','-c','copy','out.m4a'];
-    try{ await ff.writeFile('c.jpg', await siteCoverJpeg()); args=['-i','in.m4a','-i','c.jpg','-map','0:a','-map','1:v','-c','copy','-disposition:v:0','attached_pic','out.m4a']; }catch(e){}
-    await ff.exec(args);
-    const data=await ff.readFile('out.m4a');
-    saveBlob(new Blob([data.buffer],{type:'audio/mp4'}), dlName(t));
-    try{ ff.deleteFile('in.m4a'); ff.deleteFile('out.m4a'); ff.deleteFile('c.jpg'); }catch(e){}
+    let haveCover=false;
+    try{ await ff.writeFile('c.jpg', await siteCoverJpeg()); haveCover=true; }catch(e){}
+    try{
+      const a = haveCover
+        ? ['-i','in.m4a','-i','c.jpg','-map','0:a:0','-map','1:v:0','-c:a','libmp3lame','-b:a','192k','-id3v2_version','3','-metadata:s:v','title=Cover','-metadata:s:v','comment=Cover (front)','-disposition:v:0','attached_pic','out.mp3']
+        : ['-i','in.m4a','-c:a','libmp3lame','-b:a','192k','out.mp3'];
+      await ff.exec(a);
+      const data=await ff.readFile('out.mp3');
+      saveBlob(new Blob([data.buffer],{type:'audio/mpeg'}), dlName(t,'.mp3'));
+    }catch(e){
+      const a = haveCover
+        ? ['-i','in.m4a','-i','c.jpg','-map','0:a','-map','1:v','-c','copy','-disposition:v:0','attached_pic','out.m4a']
+        : ['-i','in.m4a','-c','copy','out.m4a'];
+      await ff.exec(a);
+      const data=await ff.readFile('out.m4a');
+      saveBlob(new Blob([data.buffer],{type:'audio/mp4'}), dlName(t,'.m4a'));
+    }
+    try{ ff.deleteFile('in.m4a'); ff.deleteFile('out.mp3'); ff.deleteFile('out.m4a'); ff.deleteFile('c.jpg'); }catch(e){}
   }
   async function downloadTrack(t){
     if(!t||!t.url||_dlBusy) return; _dlBusy=true;
     const btns=root.querySelectorAll('.nls-li[data-i="'+LIB.indexOf(t)+'"] .dl'); btns.forEach(b=>b.classList.add('busy'));
     notify('Preparing download\u2026');
     try{ await embedAndDownload(t); notify('Downloaded: '+t.title); }
-    catch(e){ try{ const r=await fetch(t.url); saveBlob(await r.blob(), dlName(t)); notify('Downloaded: '+t.title); }catch(e2){ notify('Download failed'); } }
+    catch(e){ try{ const r=await fetch(t.url); saveBlob(await r.blob(), dlName(t,'.m4a')); notify('Downloaded: '+t.title); }catch(e2){ notify('Download failed'); } }
     finally{ _dlBusy=false; btns.forEach(b=>b.classList.remove('busy')); }
   }
 
