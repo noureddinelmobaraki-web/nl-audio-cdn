@@ -1,0 +1,202 @@
+[
+  {
+    "id": "anm-one-piece-01",
+    "index": 1,
+    "category": "anime-manga",
+    "categoryLabel": "Anime & Manga",
+    "collection": "one-piece",
+    "collectionTitle": "One Piece",
+    "collectionType": "anime",
+    "sourceFile": "390054017751265312.jpeg",
+    "originalW": 736,
+    "originalH": 1472,
+    "width": 400,
+    "height": 800,
+    "aspect": 0.5,
+    "orientation": "portrait",
+    "sizes": [
+      400
+    ],
+    "urls": {
+      "400": "https://noureddinelmobaraki-web.github.io/nl-audio-cdn/art/anime-manga/one-piece/anm-one-piece-01-400.webp"
+    },
+    "imageUrl": "https://noureddinelmobaraki-web.github.io/nl-audio-cdn/art/anime-manga/one-piece/anm-one-piece-01-400.webp",
+    "srcset": "https://noureddinelmobaraki-web.github.io/nl-audio-cdn/art/anime-manga/one-piece/anm-one-piece-01-400.webp 400w",
+    "lqip": "data:image/webp;base64,UklGRvAAAABXRUJQVlA4IOQAAABwBwCdASoYADAAPuleq02pJSQiMBVdUSAdCWQAnTMkwLPOAGLDotl9+jER3EieXb8oixR4hRR/0UNnn0+9oaJVEo/v0AD+OpO6mnstoKsuO2NgQYKFELQFd8rbtCnXM9ZS/ik4Nt5WztGtuIc1cbuz6sOcEj5zAiSYf+Zw2kOV/5akNKGqh6ytbJuhW4Fb9V1XfKHTWTFobk0ndTd0k3n/WYRyXi07XoovOOLTlo9dzjft+grj91IdLg0ufI2TP0ed8t9KxFUYxBzJnM/bUhSyMjxdwklD9htrrWVvPFfqw5QAAAA="
+  },
+  {
+    "id": "anm-one-piece-02",
+    "index": 2,
+    "category": "anime-manga",
+    "categoryLabel": "Anime & Manga",
+    "collection": "one-piece",
+    "collectionTitle": "One Piece",
+    "collectionType": "anime",
+    "sourceFile": "587438345191374469.jpeg",
+    "originalW": 736,
+    "originalH": 1308,
+    "width": 400,
+    "height": 711,
+    "aspect": 0.563,
+    "orientation": "portrait",
+    "sizes": [
+      400
+    ],
+    "urls": {
+      "400": "https://noureddinelmobaraki-web.github.io/nl-audio-cdn/art/anime-manga/one-piece/anm-one-piece-02-400.webp"
+    },
+    "imageUrl": "https://noureddinelmobaraki-web.github.io/nl-audio-cdn/art/anime-manga/one-piece/anm-one-piece-02-400.webp",
+    "srcset": "https://noureddinelmobaraki-web.github.io/nl-audio-cdn/art/anime-manga/one-piece/anm-one-piece-02-400.webp 400w",
+    "lqip": "data:image/webp;base64,UklGRtYAAABXRUJQVlA4IMoAAADwBgCdASoYACsAPt1apE2opSOiOrZoARAbiWgAxQfUg7F0jCjzft9XuhUhlxxXsT8g/eKhG6eN6sri4m5F2VvgAP659K244h3hd9HVWvAHYR90xFVmvGL/8EF7UfOt1u3f+Hfxba7XsLUDYN53GZ9p2zQ6uYioVucofIxx9TIun2FefXt+OVWSJ6hjPfQ4iYizYSXaWpnekoP30h9iuSs31RS2weO0rp5OYxxirFGItQ1LTVazBCt1jP1wBsY6HvoJa2WKRVWmCEAA"
+  },
+  {
+    "id": "anm-one-piece-03",
+    "index": 3,
+    "category": "anime-manga",
+    "categoryLabel": "Anime & Manga",
+    "collection": "one-piece",
+    "collectionTitle": "One Piece",
+    "collectionType": "anime",
+    "sourceFile": "692428511494156328.jpeg",
+    "originalW": 736,
+    "originalH": 1472,
+    "width": 400,
+    "height": 800,
+    "aspect": 0.5,
+    "orientation": "portrait",
+    "sizes": [
+      400
+    ],
+    "urls": {
+      "400": "https://noureddinelmobaraki-web.github.io/nl-audio-cdn/art/anime-manga/one-piece/anm-one-piece-03-400.webp"
+    },
+    "imageUrl": "https://noureddinelmobaraki-web.github.io/nl-audio-cdn/art/anime-manga/one-piece/anm-one-piece-03-400.webp",
+    "srcset": "https://noureddinelmobaraki-web.github.io/nl-audio-cdn/art/anime-manga/one-piece/anm-one-piece-03-400.webp 400w",
+    "lqip": "data:image/webp;base64,UklGRooAAABXRUJQVlA4IH4AAACwBACdASoYADAAPulipU2pJaOiNVQMASAdCWgAsOxFn0vQDdidRE3WFdI1hNMAAP7rt6/+Ur/43f7suC37be/DzWQH0BovCXk0LSyQDTGOIXFVSGMQj6biX0Zo4A2AajCnJrNfxy8HecIvuJF1YrVSqlJNnpzCMynroa3RWAA="
+  },
+  {
+    "id": "anm-one-piece-04",
+    "index": 4,
+    "category": "anime-manga",
+    "categoryLabel": "Anime & Manga",
+    "collection": "one-piece",
+    "collectionTitle": "One Piece",
+    "collectionType": "anime",
+    "sourceFile": "Fire Fist Ace _ Wallpaper __ Onepiece.jpeg",
+    "originalW": 736,
+    "originalH": 1307,
+    "width": 400,
+    "height": 710,
+    "aspect": 0.563,
+    "orientation": "portrait",
+    "sizes": [
+      400
+    ],
+    "urls": {
+      "400": "https://noureddinelmobaraki-web.github.io/nl-audio-cdn/art/anime-manga/one-piece/anm-one-piece-04-400.webp"
+    },
+    "imageUrl": "https://noureddinelmobaraki-web.github.io/nl-audio-cdn/art/anime-manga/one-piece/anm-one-piece-04-400.webp",
+    "srcset": "https://noureddinelmobaraki-web.github.io/nl-audio-cdn/art/anime-manga/one-piece/anm-one-piece-04-400.webp 400w",
+    "lqip": "data:image/webp;base64,UklGRq4AAABXRUJQVlA4IKIAAADQBQCdASoYACsAPtFUoU2oJKMiOrzIAQAaCWoAqSPmBeLQvk/HfwhqPmFYWer3LaHQCYFd9SbgAP7sEzfDJlXOVAMb3/0Yf/un/nftn3S/zt1d7mSXYq1zi3Md3CVA0+0HWC0gRDhBzwWpZ+4vr7o4pd12xJVNgaJwWqFfCducVnCkq+IoNdurcoyYiCjAyW3jMoQTWIx6RIMq8H7z1br8gAA="
+  },
+  {
+    "id": "anm-one-piece-05",
+    "index": 5,
+    "category": "anime-manga",
+    "categoryLabel": "Anime & Manga",
+    "collection": "one-piece",
+    "collectionTitle": "One Piece",
+    "collectionType": "anime",
+    "sourceFile": "Monkey d luffy _ one piece.jpeg",
+    "originalW": 736,
+    "originalH": 1307,
+    "width": 400,
+    "height": 710,
+    "aspect": 0.563,
+    "orientation": "portrait",
+    "sizes": [
+      400
+    ],
+    "urls": {
+      "400": "https://noureddinelmobaraki-web.github.io/nl-audio-cdn/art/anime-manga/one-piece/anm-one-piece-05-400.webp"
+    },
+    "imageUrl": "https://noureddinelmobaraki-web.github.io/nl-audio-cdn/art/anime-manga/one-piece/anm-one-piece-05-400.webp",
+    "srcset": "https://noureddinelmobaraki-web.github.io/nl-audio-cdn/art/anime-manga/one-piece/anm-one-piece-05-400.webp 400w",
+    "lqip": "data:image/webp;base64,UklGRpgAAABXRUJQVlA4IIwAAACQBQCdASoYACsAPulgpk2pJaOiMAqpIB0JYwABQJAK7J9mKAlCfyONLEuHKqTuQMAtg2KGgAD+/obmoO62Yip7hhZkfkZDVfA6c7Zj3XYCAnxxvK5sq9DUBuEPys3/awNeF7PfFaQQBmm2TteKRqXkDuLTEQVuj/Vot9rKyXjMPhLqmGUb+EptouAAAA=="
+  },
+  {
+    "id": "anm-one-piece-06",
+    "index": 6,
+    "category": "anime-manga",
+    "categoryLabel": "Anime & Manga",
+    "collection": "one-piece",
+    "collectionTitle": "One Piece",
+    "collectionType": "anime",
+    "sourceFile": "Robin.jpeg",
+    "originalW": 736,
+    "originalH": 1307,
+    "width": 400,
+    "height": 710,
+    "aspect": 0.563,
+    "orientation": "portrait",
+    "sizes": [
+      400
+    ],
+    "urls": {
+      "400": "https://noureddinelmobaraki-web.github.io/nl-audio-cdn/art/anime-manga/one-piece/anm-one-piece-06-400.webp"
+    },
+    "imageUrl": "https://noureddinelmobaraki-web.github.io/nl-audio-cdn/art/anime-manga/one-piece/anm-one-piece-06-400.webp",
+    "srcset": "https://noureddinelmobaraki-web.github.io/nl-audio-cdn/art/anime-manga/one-piece/anm-one-piece-06-400.webp 400w",
+    "lqip": "data:image/webp;base64,UklGRpwAAABXRUJQVlA4IJAAAADwBQCdASoYACsAPu1sq06ppqOiMBqoATAdiWcAz6B0h3E88RIMalaliDTFvXZHQQPShR/aomifQAD++yEF46fzD58if/MKUIYQjL25BtkFGN2yEfOmT28z76ATXyPiPYUtO+enjmnhE5GEL+URDwxeF3trsw5SfsfO5EoUSXL7v2M+Y72q8nvUiXejrBgAAAA="
+  },
+  {
+    "id": "anm-one-piece-07",
+    "index": 7,
+    "category": "anime-manga",
+    "categoryLabel": "Anime & Manga",
+    "collection": "one-piece",
+    "collectionTitle": "One Piece",
+    "collectionType": "anime",
+    "sourceFile": "_ (3).jpeg",
+    "originalW": 736,
+    "originalH": 1075,
+    "width": 400,
+    "height": 584,
+    "aspect": 0.685,
+    "orientation": "portrait",
+    "sizes": [
+      400
+    ],
+    "urls": {
+      "400": "https://noureddinelmobaraki-web.github.io/nl-audio-cdn/art/anime-manga/one-piece/anm-one-piece-07-400.webp"
+    },
+    "imageUrl": "https://noureddinelmobaraki-web.github.io/nl-audio-cdn/art/anime-manga/one-piece/anm-one-piece-07-400.webp",
+    "srcset": "https://noureddinelmobaraki-web.github.io/nl-audio-cdn/art/anime-manga/one-piece/anm-one-piece-07-400.webp 400w",
+    "lqip": "data:image/webp;base64,UklGRpgAAABXRUJQVlA4IIwAAAAwBQCdASoYACMAPuFkpk2opiOiNVv4ARAcCWMAwggYL2pL/kCOtXTM7xXO7N/eESLWAAD+84H8wbBIV+Y9KdVtjHwUxlt1UdxFeqRUaXbsxSM6aqk8Yo3p9KkEygX9MDkPhFsXh+SdzZlxX7NvKgn0c/N8rOoFYj+wdHUJe8EdZIwY6b5SSQdqxvAAAA=="
+  },
+  {
+    "id": "anm-one-piece-08",
+    "index": 8,
+    "category": "anime-manga",
+    "categoryLabel": "Anime & Manga",
+    "collection": "one-piece",
+    "collectionTitle": "One Piece",
+    "collectionType": "anime",
+    "sourceFile": "_ (9).jpeg",
+    "originalW": 736,
+    "originalH": 1308,
+    "width": 400,
+    "height": 711,
+    "aspect": 0.563,
+    "orientation": "portrait",
+    "sizes": [
+      400
+    ],
+    "urls": {
+      "400": "https://noureddinelmobaraki-web.github.io/nl-audio-cdn/art/anime-manga/one-piece/anm-one-piece-08-400.webp"
+    },
+    "imageUrl": "https://noureddinelmobaraki-web.github.io/nl-audio-cdn/art/anime-manga/one-piece/anm-one-piece-08-400.webp",
+    "srcset": "https://noureddinelmobaraki-web.github.io/nl-audio-cdn/art/anime-manga/one-piece/anm-one-piece-08-400.webp 400w",
+    "lqip": "data:image/webp;base64,UklGRrgAAABXRUJQVlA4IKwAAACQBgCdASoYACsAPu1iqk2ppaQiMBVdUTAdiWQANQACeEz8i3k96I7RDkIC1epd1YqYz37Kne6nqu2W7SE4AP7qgwCpYL7L6/Al1OquGynb3anincIkXg6SvBmkrIIbyJDA+tBwmMQtRmB3AYuO6TCYY9v5BUZeRg+0DoSspoXzSPmo/IgVi4MmFY9r4j1oNj9h8XgRu8QsGj35CjtTOtVUCUoUQ12b+12aCAAA"
+  }
+]

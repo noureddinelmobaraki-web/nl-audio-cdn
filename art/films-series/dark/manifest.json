@@ -1,0 +1,327 @@
+[
+  {
+    "id": "srs-dark-01",
+    "index": 1,
+    "category": "films-series",
+    "categoryLabel": "Films & Series",
+    "collection": "dark",
+    "collectionTitle": "Dark",
+    "collectionType": "series",
+    "sourceFile": "582160689334902439.jpeg",
+    "originalW": 710,
+    "originalH": 1000,
+    "width": 400,
+    "height": 563,
+    "aspect": 0.71,
+    "orientation": "portrait",
+    "sizes": [
+      400
+    ],
+    "urls": {
+      "400": "https://noureddinelmobaraki-web.github.io/nl-audio-cdn/art/films-series/dark/srs-dark-01-400.webp"
+    },
+    "imageUrl": "https://noureddinelmobaraki-web.github.io/nl-audio-cdn/art/films-series/dark/srs-dark-01-400.webp",
+    "srcset": "https://noureddinelmobaraki-web.github.io/nl-audio-cdn/art/films-series/dark/srs-dark-01-400.webp 400w",
+    "lqip": "data:image/webp;base64,UklGRqoAAABXRUJQVlA4IJ4AAABQBgCdASoYACIAPtFaoU2oJaMiOrmYAQAaCUAYmwQtgxuMHnbR9M/z5PSNbylktopcWqR92zK7H1nqAAD+8dAZemKhDNza3tJW+1Eqk93HtQIeGk4/Xi1ahAoyM3fLhnFIwct3Xe//JsPK/Siozf2p0tmMVVz2RIovbf1VtLRsiSl0xCCnL6eA7s3+07CvMehZfrvmvrvFuterVjrQAA=="
+  },
+  {
+    "id": "srs-dark-02",
+    "index": 2,
+    "category": "films-series",
+    "categoryLabel": "Films & Series",
+    "collection": "dark",
+    "collectionTitle": "Dark",
+    "collectionType": "series",
+    "sourceFile": "671880838154135674.jpeg",
+    "originalW": 675,
+    "originalH": 1200,
+    "width": 400,
+    "height": 711,
+    "aspect": 0.563,
+    "orientation": "portrait",
+    "sizes": [
+      400
+    ],
+    "urls": {
+      "400": "https://noureddinelmobaraki-web.github.io/nl-audio-cdn/art/films-series/dark/srs-dark-02-400.webp"
+    },
+    "imageUrl": "https://noureddinelmobaraki-web.github.io/nl-audio-cdn/art/films-series/dark/srs-dark-02-400.webp",
+    "srcset": "https://noureddinelmobaraki-web.github.io/nl-audio-cdn/art/films-series/dark/srs-dark-02-400.webp 400w",
+    "lqip": "data:image/webp;base64,UklGRloAAABXRUJQVlA4IE4AAABQAwCdASoYACsAPu1cpU2pqaOiNVQMATAdiWlrlQARomf6SAD+7rfoqAhxzyjYtWbcsn9PeYx/hfBVqy8ajPlSpSTw+hvHtEigZGAAAAA="
+  },
+  {
+    "id": "srs-dark-03",
+    "index": 3,
+    "category": "films-series",
+    "categoryLabel": "Films & Series",
+    "collection": "dark",
+    "collectionTitle": "Dark",
+    "collectionType": "series",
+    "sourceFile": "679339925032304107.jpeg",
+    "originalW": 708,
+    "originalH": 1073,
+    "width": 400,
+    "height": 606,
+    "aspect": 0.66,
+    "orientation": "portrait",
+    "sizes": [
+      400
+    ],
+    "urls": {
+      "400": "https://noureddinelmobaraki-web.github.io/nl-audio-cdn/art/films-series/dark/srs-dark-03-400.webp"
+    },
+    "imageUrl": "https://noureddinelmobaraki-web.github.io/nl-audio-cdn/art/films-series/dark/srs-dark-03-400.webp",
+    "srcset": "https://noureddinelmobaraki-web.github.io/nl-audio-cdn/art/films-series/dark/srs-dark-03-400.webp 400w",
+    "lqip": "data:image/webp;base64,UklGRswAAABXRUJQVlA4IMAAAADwBgCdASoYACQAPu1ep02ppSOiNVQMATAdiWYAnTKEfDyBLA2YocNid6//5nMov++37c/U3kg0St5Y6LeJr1yAAN9bYMaGUhZ/UO/OKNnXQpiUYf9AvPU0Aa9+848HyGJ6Ao3RfZFJ8qPVOPqWh8hS/AuSaRrgpnc53qr4FHHVYR0MiYRFY1DFTqrZkmsRaA3kpzudCFcHSUlTPjT1QglRuVsutXPQgsNxHQ9V1wU1vkEA4GzJRC4k5nyGGWU7wAA="
+  },
+  {
+    "id": "srs-dark-04",
+    "index": 4,
+    "category": "films-series",
+    "categoryLabel": "Films & Series",
+    "collection": "dark",
+    "collectionTitle": "Dark",
+    "collectionType": "series",
+    "sourceFile": "701506079430420067.jpeg",
+    "originalW": 640,
+    "originalH": 1136,
+    "width": 400,
+    "height": 710,
+    "aspect": 0.563,
+    "orientation": "portrait",
+    "sizes": [
+      400
+    ],
+    "urls": {
+      "400": "https://noureddinelmobaraki-web.github.io/nl-audio-cdn/art/films-series/dark/srs-dark-04-400.webp"
+    },
+    "imageUrl": "https://noureddinelmobaraki-web.github.io/nl-audio-cdn/art/films-series/dark/srs-dark-04-400.webp",
+    "srcset": "https://noureddinelmobaraki-web.github.io/nl-audio-cdn/art/films-series/dark/srs-dark-04-400.webp 400w",
+    "lqip": "data:image/webp;base64,UklGRnQAAABXRUJQVlA4IGgAAADwBQCdASoYACsAPt1gpU2opiOiNVgMARAbiWkAyrQWbUMx+5DXbBjbLQPJefMzFlcS0mcAdm0JrAD+0BZQDx+G7xJFCNLKLx1pAKTF1RIkcwWo5sK8AFvJTTPysF8RQN9PoSUDgAAAAA=="
+  },
+  {
+    "id": "srs-dark-05",
+    "index": 5,
+    "category": "films-series",
+    "categoryLabel": "Films & Series",
+    "collection": "dark",
+    "collectionTitle": "Dark",
+    "collectionType": "series",
+    "sourceFile": "728105464785022242.jpeg",
+    "originalW": 720,
+    "originalH": 1081,
+    "width": 400,
+    "height": 601,
+    "aspect": 0.666,
+    "orientation": "portrait",
+    "sizes": [
+      400
+    ],
+    "urls": {
+      "400": "https://noureddinelmobaraki-web.github.io/nl-audio-cdn/art/films-series/dark/srs-dark-05-400.webp"
+    },
+    "imageUrl": "https://noureddinelmobaraki-web.github.io/nl-audio-cdn/art/films-series/dark/srs-dark-05-400.webp",
+    "srcset": "https://noureddinelmobaraki-web.github.io/nl-audio-cdn/art/films-series/dark/srs-dark-05-400.webp 400w",
+    "lqip": "data:image/webp;base64,UklGRqAAAABXRUJQVlA4IJQAAADwBQCdASoYACQAPu1mrE4ppaSiKqwBMB2JZwDIXBQ+2CHOg9vGyA7cBWGdBdJT5xvtvO9EMAJPYAD+7WEEtJ4JPj6OSdkncMLk+/fphCLXjtEFhftDPzU89W5BtCW/MwrOTpQlb1D0cW13J026g7V/uJRq9pvHTjj7+IONaNngZswCBCvSqlQnqY8ynSgo8AgTowAA"
+  },
+  {
+    "id": "srs-dark-06",
+    "index": 6,
+    "category": "films-series",
+    "categoryLabel": "Films & Series",
+    "collection": "dark",
+    "collectionTitle": "Dark",
+    "collectionType": "series",
+    "sourceFile": "728949889723963436.jpeg",
+    "originalW": 736,
+    "originalH": 1106,
+    "width": 400,
+    "height": 601,
+    "aspect": 0.666,
+    "orientation": "portrait",
+    "sizes": [
+      400
+    ],
+    "urls": {
+      "400": "https://noureddinelmobaraki-web.github.io/nl-audio-cdn/art/films-series/dark/srs-dark-06-400.webp"
+    },
+    "imageUrl": "https://noureddinelmobaraki-web.github.io/nl-audio-cdn/art/films-series/dark/srs-dark-06-400.webp",
+    "srcset": "https://noureddinelmobaraki-web.github.io/nl-audio-cdn/art/films-series/dark/srs-dark-06-400.webp 400w",
+    "lqip": "data:image/webp;base64,UklGRnwAAABXRUJQVlA4IHAAAAAQBQCdASoYACQAPuFgpk2opiOiNVv4ARAcCWUAzBwhXvxDfWBHr8qWCPokeJ7NfBQAAP5ohwmXS53i7c9atOPnRS9XmatvMhNIyaUlKdMZuHOeMKkTBVFeZJmd8rTzHn8r3IxzteKgCaXjFFYXoAAA"
+  },
+  {
+    "id": "srs-dark-07",
+    "index": 7,
+    "category": "films-series",
+    "categoryLabel": "Films & Series",
+    "collection": "dark",
+    "collectionTitle": "Dark",
+    "collectionType": "series",
+    "sourceFile": "905434700069032470.jpeg",
+    "originalW": 735,
+    "originalH": 1130,
+    "width": 400,
+    "height": 615,
+    "aspect": 0.65,
+    "orientation": "portrait",
+    "sizes": [
+      400
+    ],
+    "urls": {
+      "400": "https://noureddinelmobaraki-web.github.io/nl-audio-cdn/art/films-series/dark/srs-dark-07-400.webp"
+    },
+    "imageUrl": "https://noureddinelmobaraki-web.github.io/nl-audio-cdn/art/films-series/dark/srs-dark-07-400.webp",
+    "srcset": "https://noureddinelmobaraki-web.github.io/nl-audio-cdn/art/films-series/dark/srs-dark-07-400.webp 400w",
+    "lqip": "data:image/webp;base64,UklGRpAAAABXRUJQVlA4IIQAAAAwBQCdASoYACUAPu1iqU4ppSOiNVQIATAdiUyPKvMjvMpWs5mYNWpjgs8RoK316wDRAAD+7+pjSDTI3LI2XX/JN2TpGNQyP39ETfk5u3AuMuwUPz1I0qLxB58sUM41c3LZkqeDZnp8/byjFtjMeV/A7A6OZSl4mEMuvaOaPmvk5MwuAAA="
+  },
+  {
+    "id": "srs-dark-08",
+    "index": 8,
+    "category": "films-series",
+    "categoryLabel": "Films & Series",
+    "collection": "dark",
+    "collectionTitle": "Dark",
+    "collectionType": "series",
+    "sourceFile": "1133922012441736078.jpeg",
+    "originalW": 736,
+    "originalH": 1040,
+    "width": 400,
+    "height": 565,
+    "aspect": 0.708,
+    "orientation": "portrait",
+    "sizes": [
+      400
+    ],
+    "urls": {
+      "400": "https://noureddinelmobaraki-web.github.io/nl-audio-cdn/art/films-series/dark/srs-dark-08-400.webp"
+    },
+    "imageUrl": "https://noureddinelmobaraki-web.github.io/nl-audio-cdn/art/films-series/dark/srs-dark-08-400.webp",
+    "srcset": "https://noureddinelmobaraki-web.github.io/nl-audio-cdn/art/films-series/dark/srs-dark-08-400.webp 400w",
+    "lqip": "data:image/webp;base64,UklGRrQAAABXRUJQVlA4IKgAAACwBQCdASoYACIAPu1ws1KppiSipWmZMB2JZADA3F0yPN5iQ5h0IDoW4get4wo39maUz/3isxAA/viVD/Z32ic+B8ufrjwTe3CatiVds1ZA3EVx7omtXx1dJfo+ZiHe1Ib/y4wg4kBaHUCkF+JlzuzEDjFHsq+zj/o37PVN8wIKkSUOyeZMsisum5fXyCRjHRAGlJbEvAcvAta+XunPWssw17/0yfwAAAA="
+  },
+  {
+    "id": "srs-dark-09",
+    "index": 9,
+    "category": "films-series",
+    "categoryLabel": "Films & Series",
+    "collection": "dark",
+    "collectionTitle": "Dark",
+    "collectionType": "series",
+    "sourceFile": "Dark Netflix.jpeg",
+    "originalW": 675,
+    "originalH": 1200,
+    "width": 400,
+    "height": 711,
+    "aspect": 0.563,
+    "orientation": "portrait",
+    "sizes": [
+      400
+    ],
+    "urls": {
+      "400": "https://noureddinelmobaraki-web.github.io/nl-audio-cdn/art/films-series/dark/srs-dark-09-400.webp"
+    },
+    "imageUrl": "https://noureddinelmobaraki-web.github.io/nl-audio-cdn/art/films-series/dark/srs-dark-09-400.webp",
+    "srcset": "https://noureddinelmobaraki-web.github.io/nl-audio-cdn/art/films-series/dark/srs-dark-09-400.webp 400w",
+    "lqip": "data:image/webp;base64,UklGRtYAAABXRUJQVlA4IMoAAADwBgCdASoYACsAPuFgp02opaOiNVv4ARAcCWgAxQvK+gA59AnO0SEzEZSVVnBAPiXTJgaHKIh/nXWN3KgmsQZcAP6mguotFTTFeckV6Hlp7HPaMtrVt1k3DDNy+AL/pQhZX2UzntaiKnJhykvR88Uw8/EFHsVgVqNVMpvulZqpbVzn55uKBFsh+w92InNidHu2OWUll4idI8R9vbsEDkL2gs5C2pta61KpV3liLnOS+re1wVY56EPinGDvZWWom1S1W0nkj9xAEAAA"
+  },
+  {
+    "id": "srs-dark-10",
+    "index": 10,
+    "category": "films-series",
+    "categoryLabel": "Films & Series",
+    "collection": "dark",
+    "collectionTitle": "Dark",
+    "collectionType": "series",
+    "sourceFile": "Dark wallpaper.jpeg",
+    "originalW": 736,
+    "originalH": 1472,
+    "width": 400,
+    "height": 800,
+    "aspect": 0.5,
+    "orientation": "portrait",
+    "sizes": [
+      400
+    ],
+    "urls": {
+      "400": "https://noureddinelmobaraki-web.github.io/nl-audio-cdn/art/films-series/dark/srs-dark-10-400.webp"
+    },
+    "imageUrl": "https://noureddinelmobaraki-web.github.io/nl-audio-cdn/art/films-series/dark/srs-dark-10-400.webp",
+    "srcset": "https://noureddinelmobaraki-web.github.io/nl-audio-cdn/art/films-series/dark/srs-dark-10-400.webp 400w",
+    "lqip": "data:image/webp;base64,UklGRkYAAABXRUJQVlA4IDoAAAAQBACdASoYADAAPu1kqk2ppaQiMAgBMB2JaQAAt788W7kUoh1rNBqeAAD+8UZQbt68qO3N80dl82AA"
+  },
+  {
+    "id": "srs-dark-11",
+    "index": 11,
+    "category": "films-series",
+    "categoryLabel": "Films & Series",
+    "collection": "dark",
+    "collectionTitle": "Dark",
+    "collectionType": "series",
+    "sourceFile": "Dark- Jonas.jpeg",
+    "originalW": 736,
+    "originalH": 1401,
+    "width": 400,
+    "height": 761,
+    "aspect": 0.526,
+    "orientation": "portrait",
+    "sizes": [
+      400
+    ],
+    "urls": {
+      "400": "https://noureddinelmobaraki-web.github.io/nl-audio-cdn/art/films-series/dark/srs-dark-11-400.webp"
+    },
+    "imageUrl": "https://noureddinelmobaraki-web.github.io/nl-audio-cdn/art/films-series/dark/srs-dark-11-400.webp",
+    "srcset": "https://noureddinelmobaraki-web.github.io/nl-audio-cdn/art/films-series/dark/srs-dark-11-400.webp 400w",
+    "lqip": "data:image/webp;base64,UklGRqIAAABXRUJQVlA4IJYAAADwBQCdASoYAC4APulcp02pJSOiOrM4ASAdCWUAyFwLgLTGoB4q6yW59VBj90TCslm9i1DRp/vxgAD+1vQKevUPW92QnnVhoJFLKo4YO3oe1cPSbtUnOcD1gkC54Y82tW3KP8P4hCjbJ9M07IMh4GkHdqcy2L5bJBlRAp3EmLgAoLE9S1cBrFh6VLV8oWU+iLH55QREAAA="
+  },
+  {
+    "id": "srs-dark-12",
+    "index": 12,
+    "category": "films-series",
+    "categoryLabel": "Films & Series",
+    "collection": "dark",
+    "collectionTitle": "Dark",
+    "collectionType": "series",
+    "sourceFile": "Jonas Kahnwald and Martha Nielsen.jpeg",
+    "originalW": 736,
+    "originalH": 1472,
+    "width": 400,
+    "height": 800,
+    "aspect": 0.5,
+    "orientation": "portrait",
+    "sizes": [
+      400
+    ],
+    "urls": {
+      "400": "https://noureddinelmobaraki-web.github.io/nl-audio-cdn/art/films-series/dark/srs-dark-12-400.webp"
+    },
+    "imageUrl": "https://noureddinelmobaraki-web.github.io/nl-audio-cdn/art/films-series/dark/srs-dark-12-400.webp",
+    "srcset": "https://noureddinelmobaraki-web.github.io/nl-audio-cdn/art/films-series/dark/srs-dark-12-400.webp 400w",
+    "lqip": "data:image/webp;base64,UklGRqwAAABXRUJQVlA4IKAAAABwBgCdASoYADAAPu1qrVAppiQipWzJMB2JQBgFDq2tBXO9aM3Ncdfgq/ySsL36wfutVAEyCkK0f/GhZMAA/sLd4bByoBh7yGUxaV52PUPOQ07bqAMLLBeQcu/SveM1JUeIbZ4FDOzsxquxadhTiuGFuHmrLDsIwp1G4HNWm1lYeqs/61e6MK+r6VHNJZVuD9nzvfinNdTmWTAvfr5ogAAA"
+  },
+  {
+    "id": "srs-dark-13",
+    "index": 13,
+    "category": "films-series",
+    "categoryLabel": "Films & Series",
+    "collection": "dark",
+    "collectionTitle": "Dark",
+    "collectionType": "series",
+    "sourceFile": "Louis Hofmann Dark.jpeg",
+    "originalW": 736,
+    "originalH": 1159,
+    "width": 400,
+    "height": 630,
+    "aspect": 0.635,
+    "orientation": "portrait",
+    "sizes": [
+      400
+    ],
+    "urls": {
+      "400": "https://noureddinelmobaraki-web.github.io/nl-audio-cdn/art/films-series/dark/srs-dark-13-400.webp"
+    },
+    "imageUrl": "https://noureddinelmobaraki-web.github.io/nl-audio-cdn/art/films-series/dark/srs-dark-13-400.webp",
+    "srcset": "https://noureddinelmobaraki-web.github.io/nl-audio-cdn/art/films-series/dark/srs-dark-13-400.webp 400w",
+    "lqip": "data:image/webp;base64,UklGRogAAABXRUJQVlA4IHwAAAAwBQCdASoYACYAPu1orFEppaQiqrgKATAdiWMAyNQIJEu1WWknSEQpL7mavGk/ilSKAAD+rSILNtaO2HfdFydcK7P5UGw5xyXKgCU1mE/3s3ZQOqZHN9BhWPzfvIz1kU1u88z3bq22le5+u830OaASqnrjS3Tjc9BAWgAA"
+  }
+]

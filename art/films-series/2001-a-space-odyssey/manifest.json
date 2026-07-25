@@ -1,0 +1,427 @@
+[
+  {
+    "id": "flm-2001-a-space-odyssey-01",
+    "index": 1,
+    "category": "films-series",
+    "categoryLabel": "Films & Series",
+    "collection": "2001-a-space-odyssey",
+    "collectionTitle": "2001: A Space Odyssey",
+    "collectionType": "film",
+    "sourceFile": "2001.jpeg",
+    "originalW": 479,
+    "originalH": 991,
+    "width": 400,
+    "height": 828,
+    "aspect": 0.483,
+    "orientation": "portrait",
+    "sizes": [
+      400
+    ],
+    "urls": {
+      "400": "https://noureddinelmobaraki-web.github.io/nl-audio-cdn/art/films-series/2001-a-space-odyssey/flm-2001-a-space-odyssey-01-400.webp"
+    },
+    "imageUrl": "https://noureddinelmobaraki-web.github.io/nl-audio-cdn/art/films-series/2001-a-space-odyssey/flm-2001-a-space-odyssey-01-400.webp",
+    "srcset": "https://noureddinelmobaraki-web.github.io/nl-audio-cdn/art/films-series/2001-a-space-odyssey/flm-2001-a-space-odyssey-01-400.webp 400w",
+    "lqip": "data:image/webp;base64,UklGRrgAAABXRUJQVlA4IKwAAABQBgCdASoYADIAPuFcpE2opSOiN/gIARAcCUAZvygAFaPnBRhyrm00r1rYlPDTCwD0zHvMGbw74XhOQAD+9WUX3Je0qBPIFtSWIQwywWsuoJzM/QrVqko3Qzixx55sZg2V510oLPfBgWgM/BnO3GJAG2dwBuwGkp2IGZOYVLQst+JRVGyyIhhQ060OELAs7mRd9ggUC4ZZ9q+sOJ8k94Hea+jyTMLpH7c+8AAA"
+  },
+  {
+    "id": "flm-2001-a-space-odyssey-02",
+    "index": 2,
+    "category": "films-series",
+    "categoryLabel": "Films & Series",
+    "collection": "2001-a-space-odyssey",
+    "collectionTitle": "2001: A Space Odyssey",
+    "collectionType": "film",
+    "sourceFile": "2001 A Space Odyssey (1968).jpeg",
+    "originalW": 736,
+    "originalH": 1104,
+    "width": 400,
+    "height": 600,
+    "aspect": 0.667,
+    "orientation": "portrait",
+    "sizes": [
+      400
+    ],
+    "urls": {
+      "400": "https://noureddinelmobaraki-web.github.io/nl-audio-cdn/art/films-series/2001-a-space-odyssey/flm-2001-a-space-odyssey-02-400.webp"
+    },
+    "imageUrl": "https://noureddinelmobaraki-web.github.io/nl-audio-cdn/art/films-series/2001-a-space-odyssey/flm-2001-a-space-odyssey-02-400.webp",
+    "srcset": "https://noureddinelmobaraki-web.github.io/nl-audio-cdn/art/films-series/2001-a-space-odyssey/flm-2001-a-space-odyssey-02-400.webp 400w",
+    "lqip": "data:image/webp;base64,UklGRtgAAABXRUJQVlA4IMwAAACwBgCdASoYACQAPu1usFGppiSipWsxMB2JZQDFyC4n9nPdOZXWPLkyZKk4tI6KX+67J3xfojSMbfVtFDja8AD+83U8rJpMxVWx5t7tsOeIpssdFx8QwlVmmb/DqVm+WhUgWQOs4egUITZNP+JOdsHP+bFm0cCSWRdUn7o6b9tW5qtHIHBsmHP0cPRe+rrLhzweEXDvmHEldPUnQXhCxca9/S/4yJjBzyuTf0uC4mWC3EsdI0YQYSGRA0yOBs/XsNCPSVcgoOuYp4KZsAA="
+  },
+  {
+    "id": "flm-2001-a-space-odyssey-03",
+    "index": 3,
+    "category": "films-series",
+    "categoryLabel": "Films & Series",
+    "collection": "2001-a-space-odyssey",
+    "collectionTitle": "2001: A Space Odyssey",
+    "collectionType": "film",
+    "sourceFile": "2001 (1).jpeg",
+    "originalW": 672,
+    "originalH": 1008,
+    "width": 400,
+    "height": 600,
+    "aspect": 0.667,
+    "orientation": "portrait",
+    "sizes": [
+      400
+    ],
+    "urls": {
+      "400": "https://noureddinelmobaraki-web.github.io/nl-audio-cdn/art/films-series/2001-a-space-odyssey/flm-2001-a-space-odyssey-03-400.webp"
+    },
+    "imageUrl": "https://noureddinelmobaraki-web.github.io/nl-audio-cdn/art/films-series/2001-a-space-odyssey/flm-2001-a-space-odyssey-03-400.webp",
+    "srcset": "https://noureddinelmobaraki-web.github.io/nl-audio-cdn/art/films-series/2001-a-space-odyssey/flm-2001-a-space-odyssey-03-400.webp 400w",
+    "lqip": "data:image/webp;base64,UklGRoAAAABXRUJQVlA4IHQAAABwBACdASoYACQAPu1mrU+ppSQiKrgMATAdiUAY6i2g1kFttxShVGWbKXBGwAD+9Zex4i9VoPQtdBsA7+JNI0SaDqoeIoGja0cYCNL4/ELCrtRHjAkaNKcE8Y3oeSKkXnNVXADbY2cG0NaS5wyjgJwNkFgAAA=="
+  },
+  {
+    "id": "flm-2001-a-space-odyssey-04",
+    "index": 4,
+    "category": "films-series",
+    "categoryLabel": "Films & Series",
+    "collection": "2001-a-space-odyssey",
+    "collectionTitle": "2001: A Space Odyssey",
+    "collectionType": "film",
+    "sourceFile": "2001 _ A Space Odyssey (1968).jpeg",
+    "originalW": 500,
+    "originalH": 750,
+    "width": 400,
+    "height": 600,
+    "aspect": 0.667,
+    "orientation": "portrait",
+    "sizes": [
+      400
+    ],
+    "urls": {
+      "400": "https://noureddinelmobaraki-web.github.io/nl-audio-cdn/art/films-series/2001-a-space-odyssey/flm-2001-a-space-odyssey-04-400.webp"
+    },
+    "imageUrl": "https://noureddinelmobaraki-web.github.io/nl-audio-cdn/art/films-series/2001-a-space-odyssey/flm-2001-a-space-odyssey-04-400.webp",
+    "srcset": "https://noureddinelmobaraki-web.github.io/nl-audio-cdn/art/films-series/2001-a-space-odyssey/flm-2001-a-space-odyssey-04-400.webp 400w",
+    "lqip": "data:image/webp;base64,UklGRoAAAABXRUJQVlA4IHQAAACwBACdASoYACQAPu1uqVAppqOmqrgMATAdiUATpmx5HgJGtAUv8R/SdhzixW8gAP7u5CH0kKqBZjtnYN/J0ltwb+woWwYtXI3lgKJNAPZj26vu/9JVbLAsPIMFlOXq6j2SdB1Ui6OQG02wpkIlZNpGhmFwAA=="
+  },
+  {
+    "id": "flm-2001-a-space-odyssey-05",
+    "index": 5,
+    "category": "films-series",
+    "categoryLabel": "Films & Series",
+    "collection": "2001-a-space-odyssey",
+    "collectionTitle": "2001: A Space Odyssey",
+    "collectionType": "film",
+    "sourceFile": "2001_ A SPACE ODYSSEY.jpeg",
+    "originalW": 736,
+    "originalH": 1630,
+    "width": 400,
+    "height": 886,
+    "aspect": 0.451,
+    "orientation": "portrait",
+    "sizes": [
+      400
+    ],
+    "urls": {
+      "400": "https://noureddinelmobaraki-web.github.io/nl-audio-cdn/art/films-series/2001-a-space-odyssey/flm-2001-a-space-odyssey-05-400.webp"
+    },
+    "imageUrl": "https://noureddinelmobaraki-web.github.io/nl-audio-cdn/art/films-series/2001-a-space-odyssey/flm-2001-a-space-odyssey-05-400.webp",
+    "srcset": "https://noureddinelmobaraki-web.github.io/nl-audio-cdn/art/films-series/2001-a-space-odyssey/flm-2001-a-space-odyssey-05-400.webp 400w",
+    "lqip": "data:image/webp;base64,UklGRmYAAABXRUJQVlA4IFoAAAAwBQCdASoYADUAPuFmoE2opqMiM/maqRAcCWcAAL11m1Tt2frTYpzEvwTef8vDTY3vAAD+93GfoP7abBnlh0a8bTK7QN36uEyV5lAYJe09fTZ3AtoqBXFOBAA="
+  },
+  {
+    "id": "flm-2001-a-space-odyssey-06",
+    "index": 6,
+    "category": "films-series",
+    "categoryLabel": "Films & Series",
+    "collection": "2001-a-space-odyssey",
+    "collectionTitle": "2001: A Space Odyssey",
+    "collectionType": "film",
+    "sourceFile": "2001_ A Space Odyssey noir poster by Marko Manev.jpeg",
+    "originalW": 600,
+    "originalH": 872,
+    "width": 400,
+    "height": 581,
+    "aspect": 0.688,
+    "orientation": "portrait",
+    "sizes": [
+      400
+    ],
+    "urls": {
+      "400": "https://noureddinelmobaraki-web.github.io/nl-audio-cdn/art/films-series/2001-a-space-odyssey/flm-2001-a-space-odyssey-06-400.webp"
+    },
+    "imageUrl": "https://noureddinelmobaraki-web.github.io/nl-audio-cdn/art/films-series/2001-a-space-odyssey/flm-2001-a-space-odyssey-06-400.webp",
+    "srcset": "https://noureddinelmobaraki-web.github.io/nl-audio-cdn/art/films-series/2001-a-space-odyssey/flm-2001-a-space-odyssey-06-400.webp 400w",
+    "lqip": "data:image/webp;base64,UklGRlwAAABXRUJQVlA4IFAAAAAwBACdASoYACMAPuFcp02opSOiNVv4ARAcCWkAAFvrNpDsmHiLevKaJIAA/vQdkpps+d1PdNfgTdZ0SjPk8slSUTn+zG/6u18wD9Of92aAAA=="
+  },
+  {
+    "id": "flm-2001-a-space-odyssey-07",
+    "index": 7,
+    "category": "films-series",
+    "categoryLabel": "Films & Series",
+    "collection": "2001-a-space-odyssey",
+    "collectionTitle": "2001: A Space Odyssey",
+    "collectionType": "film",
+    "sourceFile": "2001_ A Space Odyssey (1968) directed by Stanley….jpeg",
+    "originalW": 549,
+    "originalH": 1098,
+    "width": 400,
+    "height": 800,
+    "aspect": 0.5,
+    "orientation": "portrait",
+    "sizes": [
+      400
+    ],
+    "urls": {
+      "400": "https://noureddinelmobaraki-web.github.io/nl-audio-cdn/art/films-series/2001-a-space-odyssey/flm-2001-a-space-odyssey-07-400.webp"
+    },
+    "imageUrl": "https://noureddinelmobaraki-web.github.io/nl-audio-cdn/art/films-series/2001-a-space-odyssey/flm-2001-a-space-odyssey-07-400.webp",
+    "srcset": "https://noureddinelmobaraki-web.github.io/nl-audio-cdn/art/films-series/2001-a-space-odyssey/flm-2001-a-space-odyssey-07-400.webp 400w",
+    "lqip": "data:image/webp;base64,UklGRoQAAABXRUJQVlA4IHgAAACwBQCdASoYADAAPulgpU2pJaOiMBqtUSAdCWMAzNAWbmNGZEIlWA+uuQfp0yOwcJzk4s+DdEAA/ucmju/QYJ35a1JjsIspRiMUGHjQ9Rv4G4ZQzydJJhtnuK9Fuke3imneU8JUz4vB6AFPvNogRrf/4dUtjueAAAA="
+  },
+  {
+    "id": "flm-2001-a-space-odyssey-08",
+    "index": 8,
+    "category": "films-series",
+    "categoryLabel": "Films & Series",
+    "collection": "2001-a-space-odyssey",
+    "collectionTitle": "2001: A Space Odyssey",
+    "collectionType": "film",
+    "sourceFile": "2001_ A space odyssey Wallpaper by Merloni Mattia.jpeg",
+    "originalW": 555,
+    "originalH": 1110,
+    "width": 400,
+    "height": 800,
+    "aspect": 0.5,
+    "orientation": "portrait",
+    "sizes": [
+      400
+    ],
+    "urls": {
+      "400": "https://noureddinelmobaraki-web.github.io/nl-audio-cdn/art/films-series/2001-a-space-odyssey/flm-2001-a-space-odyssey-08-400.webp"
+    },
+    "imageUrl": "https://noureddinelmobaraki-web.github.io/nl-audio-cdn/art/films-series/2001-a-space-odyssey/flm-2001-a-space-odyssey-08-400.webp",
+    "srcset": "https://noureddinelmobaraki-web.github.io/nl-audio-cdn/art/films-series/2001-a-space-odyssey/flm-2001-a-space-odyssey-08-400.webp 400w",
+    "lqip": "data:image/webp;base64,UklGRqwAAABXRUJQVlA4IKAAAADQBgCdASoYADAAPu1cqE2ppKOiNVgIATAdiWUAwB+KBs+bPJppGlpIfWA7Se8KXEF00J3pQ9LZdJirfpT/ZYAA/vaIZ9J0IVwbPiZ9qBeelr5nOGkCB5p+z+VDwK4B5Rhwnz4tb8O1MBKjhIpzRmb+cXHlQHL3pm58KDV4+Un1b0BcBfY8vSy8x7L7rRvpdSObKM7Wa38FBoBF2aYxcAAA"
+  },
+  {
+    "id": "flm-2001-a-space-odyssey-09",
+    "index": 9,
+    "category": "films-series",
+    "categoryLabel": "Films & Series",
+    "collection": "2001-a-space-odyssey",
+    "collectionTitle": "2001: A Space Odyssey",
+    "collectionType": "film",
+    "sourceFile": "1055599906933743.jpeg",
+    "originalW": 720,
+    "originalH": 1280,
+    "width": 400,
+    "height": 711,
+    "aspect": 0.563,
+    "orientation": "portrait",
+    "sizes": [
+      400
+    ],
+    "urls": {
+      "400": "https://noureddinelmobaraki-web.github.io/nl-audio-cdn/art/films-series/2001-a-space-odyssey/flm-2001-a-space-odyssey-09-400.webp"
+    },
+    "imageUrl": "https://noureddinelmobaraki-web.github.io/nl-audio-cdn/art/films-series/2001-a-space-odyssey/flm-2001-a-space-odyssey-09-400.webp",
+    "srcset": "https://noureddinelmobaraki-web.github.io/nl-audio-cdn/art/films-series/2001-a-space-odyssey/flm-2001-a-space-odyssey-09-400.webp 400w",
+    "lqip": "data:image/webp;base64,UklGRtoAAABXRUJQVlA4IM4AAACQBwCdASoYACsAPu1irU+ppSQiKrgMATAdiWYAnTMS/RkOdrAPWgYlT7Fg4+q9ag88DIX5JZAc9NaL9+W9sYWTW/V3EAAA/j9TIk1YTCVco1umZR7+UkatS4Phzf/Keo46rRWQO65KGHHOkk2SpuoR1ZA+J9UZE0t+gCApa4Vpb/dkk0uhkbeiUsMgbKUuuowQSk+zxrBfDVd0N27u5FC6/+RVjMhG1i/08gW5cwaKI1Lj8TKWkFZIahzybCWDpGrUOgkfAjG2VWsaZKAAAA=="
+  },
+  {
+    "id": "flm-2001-a-space-odyssey-10",
+    "index": 10,
+    "category": "films-series",
+    "categoryLabel": "Films & Series",
+    "collection": "2001-a-space-odyssey",
+    "collectionTitle": "2001: A Space Odyssey",
+    "collectionType": "film",
+    "sourceFile": "5418462046633545.jpeg",
+    "originalW": 563,
+    "originalH": 703,
+    "width": 400,
+    "height": 499,
+    "aspect": 0.802,
+    "orientation": "portrait",
+    "sizes": [
+      400
+    ],
+    "urls": {
+      "400": "https://noureddinelmobaraki-web.github.io/nl-audio-cdn/art/films-series/2001-a-space-odyssey/flm-2001-a-space-odyssey-10-400.webp"
+    },
+    "imageUrl": "https://noureddinelmobaraki-web.github.io/nl-audio-cdn/art/films-series/2001-a-space-odyssey/flm-2001-a-space-odyssey-10-400.webp",
+    "srcset": "https://noureddinelmobaraki-web.github.io/nl-audio-cdn/art/films-series/2001-a-space-odyssey/flm-2001-a-space-odyssey-10-400.webp 400w",
+    "lqip": "data:image/webp;base64,UklGRqQAAABXRUJQVlA4IJgAAACwBQCdASoYAB4APu1mq08ppaOiKA1RMB2JbAC7M4T7RaAAxYQjPHEr6F++wo++QdOLau9+CQAA/q6fGeNEey5OawG1/A3BwUUv/5Su5ip42jIqfxKvx7nX/h9gtB72/zwgFUYf//HKJ72zQhCJKrmFlpnrqnlZN24WUoUbVKoO/KpI2lBGks5T2XUDynNg/YN68nf3vqAAAA=="
+  },
+  {
+    "id": "flm-2001-a-space-odyssey-11",
+    "index": 11,
+    "category": "films-series",
+    "categoryLabel": "Films & Series",
+    "collection": "2001-a-space-odyssey",
+    "collectionTitle": "2001: A Space Odyssey",
+    "collectionType": "film",
+    "sourceFile": "7810999350114044.jpeg",
+    "originalW": 720,
+    "originalH": 1280,
+    "width": 400,
+    "height": 711,
+    "aspect": 0.563,
+    "orientation": "portrait",
+    "sizes": [
+      400
+    ],
+    "urls": {
+      "400": "https://noureddinelmobaraki-web.github.io/nl-audio-cdn/art/films-series/2001-a-space-odyssey/flm-2001-a-space-odyssey-11-400.webp"
+    },
+    "imageUrl": "https://noureddinelmobaraki-web.github.io/nl-audio-cdn/art/films-series/2001-a-space-odyssey/flm-2001-a-space-odyssey-11-400.webp",
+    "srcset": "https://noureddinelmobaraki-web.github.io/nl-audio-cdn/art/films-series/2001-a-space-odyssey/flm-2001-a-space-odyssey-11-400.webp 400w",
+    "lqip": "data:image/webp;base64,UklGRo4AAABXRUJQVlA4IIIAAADQBQCdASoYACsAPu1epk2ppSMiNVQMATAdiUAYmw0vrNvIbU+WJZessaIKLSWOfua1L4AJZSnwAP72hWb7si7OqmOGQa0K3CXaVT3Th8O+G0XgK+pcb2DdrfYJyasGMSq87Kqm8MFVYpKMpWwi6M7NwJ0EiA6GHCDDlfjDb8wTd8AA"
+  },
+  {
+    "id": "flm-2001-a-space-odyssey-12",
+    "index": 12,
+    "category": "films-series",
+    "categoryLabel": "Films & Series",
+    "collection": "2001-a-space-odyssey",
+    "collectionTitle": "2001: A Space Odyssey",
+    "collectionType": "film",
+    "sourceFile": "10555380369957213.jpeg",
+    "originalW": 736,
+    "originalH": 1308,
+    "width": 400,
+    "height": 711,
+    "aspect": 0.563,
+    "orientation": "portrait",
+    "sizes": [
+      400
+    ],
+    "urls": {
+      "400": "https://noureddinelmobaraki-web.github.io/nl-audio-cdn/art/films-series/2001-a-space-odyssey/flm-2001-a-space-odyssey-12-400.webp"
+    },
+    "imageUrl": "https://noureddinelmobaraki-web.github.io/nl-audio-cdn/art/films-series/2001-a-space-odyssey/flm-2001-a-space-odyssey-12-400.webp",
+    "srcset": "https://noureddinelmobaraki-web.github.io/nl-audio-cdn/art/films-series/2001-a-space-odyssey/flm-2001-a-space-odyssey-12-400.webp 400w",
+    "lqip": "data:image/webp;base64,UklGRrIAAABXRUJQVlA4IKYAAABQBwCdASoYACsAPuVep02pJSOiMBqtUSAciWIAxQs8eCTKj+g2LsF3/ooBNf4z8bJMZMTPWUWVzjQbVqfLGTU7SgIAAP73gUVoiqmjy+6mfeAWUeKtUv4qZjq5Zapbf2wWmFJPTaJ4y71oCVY2xEdCkXuBGB+AIXHk/rbB7GcO5cDJR4HVQ6AhfSa3BKzGxB9Qt7I0oIq/g231LRusWLHOQGgFAQAA"
+  },
+  {
+    "id": "flm-2001-a-space-odyssey-13",
+    "index": 13,
+    "category": "films-series",
+    "categoryLabel": "Films & Series",
+    "collection": "2001-a-space-odyssey",
+    "collectionTitle": "2001: A Space Odyssey",
+    "collectionType": "film",
+    "sourceFile": "11259067811919877.jpeg",
+    "originalW": 736,
+    "originalH": 1389,
+    "width": 400,
+    "height": 755,
+    "aspect": 0.53,
+    "orientation": "portrait",
+    "sizes": [
+      400
+    ],
+    "urls": {
+      "400": "https://noureddinelmobaraki-web.github.io/nl-audio-cdn/art/films-series/2001-a-space-odyssey/flm-2001-a-space-odyssey-13-400.webp"
+    },
+    "imageUrl": "https://noureddinelmobaraki-web.github.io/nl-audio-cdn/art/films-series/2001-a-space-odyssey/flm-2001-a-space-odyssey-13-400.webp",
+    "srcset": "https://noureddinelmobaraki-web.github.io/nl-audio-cdn/art/films-series/2001-a-space-odyssey/flm-2001-a-space-odyssey-13-400.webp 400w",
+    "lqip": "data:image/webp;base64,UklGRroAAABXRUJQVlA4IK4AAACwBQCdASoYAC0APuFgok2opiMiNVgMARAcCWcAzBwPG1moCRhIYXF2p/Fo7BeK3V2vJLVbQAAA4i5FZ1xUVHvzbQ+dy1XhlK3Wl3SNwPVm/1w1bfE1B4GAtMgfqOsR50xjkCTUf314J4ZA2I8yv/83069tVDTlI9Jw8dneuc2rptXpGMt4LXcqmgGJwxbhXhKfIb3+ADBCOYT82luwbuZbctNAzaM01oCQtcAAAAA="
+  },
+  {
+    "id": "flm-2001-a-space-odyssey-14",
+    "index": 14,
+    "category": "films-series",
+    "categoryLabel": "Films & Series",
+    "collection": "2001-a-space-odyssey",
+    "collectionTitle": "2001: A Space Odyssey",
+    "collectionType": "film",
+    "sourceFile": "14777505021891803.jpeg",
+    "originalW": 736,
+    "originalH": 1533,
+    "width": 400,
+    "height": 833,
+    "aspect": 0.48,
+    "orientation": "portrait",
+    "sizes": [
+      400
+    ],
+    "urls": {
+      "400": "https://noureddinelmobaraki-web.github.io/nl-audio-cdn/art/films-series/2001-a-space-odyssey/flm-2001-a-space-odyssey-14-400.webp"
+    },
+    "imageUrl": "https://noureddinelmobaraki-web.github.io/nl-audio-cdn/art/films-series/2001-a-space-odyssey/flm-2001-a-space-odyssey-14-400.webp",
+    "srcset": "https://noureddinelmobaraki-web.github.io/nl-audio-cdn/art/films-series/2001-a-space-odyssey/flm-2001-a-space-odyssey-14-400.webp 400w",
+    "lqip": "data:image/webp;base64,UklGRtQAAABXRUJQVlA4IMgAAABwBwCdASoYADIAPt1Yo02opSMiN/qoARAbiWgAvntMQ0BDFTT3P/fj8jqZeB7KtN3fZ70+G2iY/3Q5Yw9cC3xvWG6s+AD+7MIj3NW312iIET2GMZ4RxwQQ1v17sivKEjMSLiEvfYMzDu809qQjLH2uYKj6qGIxwcmRX16alE0usG3laG9YiA5gXsOXJKk0xDU8C5pVvUaCVcyQsgZztBhT5UnUtBPeNnQTWl3E/Rt88BgZc8Qv18ZngB2Bxmm8NDnGcfC944AAAA=="
+  },
+  {
+    "id": "flm-2001-a-space-odyssey-15",
+    "index": 15,
+    "category": "films-series",
+    "categoryLabel": "Films & Series",
+    "collection": "2001-a-space-odyssey",
+    "collectionTitle": "2001: A Space Odyssey",
+    "collectionType": "film",
+    "sourceFile": "38139928097532581.jpeg",
+    "originalW": 736,
+    "originalH": 1631,
+    "width": 400,
+    "height": 886,
+    "aspect": 0.451,
+    "orientation": "portrait",
+    "sizes": [
+      400
+    ],
+    "urls": {
+      "400": "https://noureddinelmobaraki-web.github.io/nl-audio-cdn/art/films-series/2001-a-space-odyssey/flm-2001-a-space-odyssey-15-400.webp"
+    },
+    "imageUrl": "https://noureddinelmobaraki-web.github.io/nl-audio-cdn/art/films-series/2001-a-space-odyssey/flm-2001-a-space-odyssey-15-400.webp",
+    "srcset": "https://noureddinelmobaraki-web.github.io/nl-audio-cdn/art/films-series/2001-a-space-odyssey/flm-2001-a-space-odyssey-15-400.webp 400w",
+    "lqip": "data:image/webp;base64,UklGRrAAAABXRUJQVlA4IKQAAAAQBwCdASoYADUAPuFipU2opiOiN/VYARAcCWMAwNxFYf/A84TBoXWQHzuPE7IAd+0idam8+WG9Prdb3LWJMWv9gAD+9ZkHG4ooMGIwZUrfHWpNCLTKHHXC7RCB+jQ9RMIoc8AsH3SPopq8Kl9IsxQSqA0pkm6JN5LNyW6pbRnTGuRgVA9T0Ql6KrDJJ93TnBsBcl8C5enFbeD4pnsX3NmTJ1cgAA=="
+  },
+  {
+    "id": "flm-2001-a-space-odyssey-16",
+    "index": 16,
+    "category": "films-series",
+    "categoryLabel": "Films & Series",
+    "collection": "2001-a-space-odyssey",
+    "collectionTitle": "2001: A Space Odyssey",
+    "collectionType": "film",
+    "sourceFile": "568579521713115945.jpeg",
+    "originalW": 736,
+    "originalH": 1551,
+    "width": 400,
+    "height": 843,
+    "aspect": 0.474,
+    "orientation": "portrait",
+    "sizes": [
+      400
+    ],
+    "urls": {
+      "400": "https://noureddinelmobaraki-web.github.io/nl-audio-cdn/art/films-series/2001-a-space-odyssey/flm-2001-a-space-odyssey-16-400.webp"
+    },
+    "imageUrl": "https://noureddinelmobaraki-web.github.io/nl-audio-cdn/art/films-series/2001-a-space-odyssey/flm-2001-a-space-odyssey-16-400.webp",
+    "srcset": "https://noureddinelmobaraki-web.github.io/nl-audio-cdn/art/films-series/2001-a-space-odyssey/flm-2001-a-space-odyssey-16-400.webp 400w",
+    "lqip": "data:image/webp;base64,UklGRu4AAABXRUJQVlA4IOIAAACwBwCdASoYADMAPtFOoU2oJCMiO/toAQAaCWoAnTLoSHklB3lkTAgsF1jwp54Cipw7t+iIMQBJ4W27QIbY4mG/6M5Zj8IAAP74TphWZeEzHq0kL6GafzB5FxkOOEKabBNY8+rm9jhvOEOX5y/xpkycDV3L4/8EeWTwR4RAwt7BFXQ23yGdSIGhvGDbgBS9eLJLPq8szFkSZpgWu2ZfYMVJ1SdwHkgkKBHBvwhCMYwXKlfSwS5Sf1vG7BoPPglfiyHoWX856Hi2PbG3xjqnoLeegAgi/7aGNKaCfrmixK6DMAAA"
+  },
+  {
+    "id": "flm-2001-a-space-odyssey-17",
+    "index": 17,
+    "category": "films-series",
+    "categoryLabel": "Films & Series",
+    "collection": "2001-a-space-odyssey",
+    "collectionTitle": "2001: A Space Odyssey",
+    "collectionType": "film",
+    "sourceFile": "Stanley Kubrick, '2001_ A Space Odissey'….jpeg",
+    "originalW": 736,
+    "originalH": 1344,
+    "width": 400,
+    "height": 730,
+    "aspect": 0.548,
+    "orientation": "portrait",
+    "sizes": [
+      400
+    ],
+    "urls": {
+      "400": "https://noureddinelmobaraki-web.github.io/nl-audio-cdn/art/films-series/2001-a-space-odyssey/flm-2001-a-space-odyssey-17-400.webp"
+    },
+    "imageUrl": "https://noureddinelmobaraki-web.github.io/nl-audio-cdn/art/films-series/2001-a-space-odyssey/flm-2001-a-space-odyssey-17-400.webp",
+    "srcset": "https://noureddinelmobaraki-web.github.io/nl-audio-cdn/art/films-series/2001-a-space-odyssey/flm-2001-a-space-odyssey-17-400.webp 400w",
+    "lqip": "data:image/webp;base64,UklGRsAAAABXRUJQVlA4ILQAAABQBgCdASoYACwAPu1oq0+ppiOiJW5hMB2JYwC9WC2HiwHt6G7RxQlySk7jXy5i4bb8YPfSnojaJmw5KAD+XoRxC+QXhyqKRsSKZ/ikraTXX/UjeY3y1Jwgm4Pbz4pqrx7BnDKOCCSL12mZa8j1J/CLp6lCwsUIwQHQQuXUD8ettqGX1h4yrIfcUlRuFhYp7zWrNr/3Esx5t06YciHMXA58MOc/PVdlel3M8FlBwpPcYpnwAAA="
+  }
+]

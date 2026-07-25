@@ -1,0 +1,552 @@
+[
+  {
+    "id": "anm-naruto-01",
+    "index": 1,
+    "category": "anime-manga",
+    "categoryLabel": "Anime & Manga",
+    "collection": "naruto",
+    "collectionTitle": "Naruto",
+    "collectionType": "anime",
+    "sourceFile": "67483694412868948.jpeg",
+    "originalW": 736,
+    "originalH": 1308,
+    "width": 400,
+    "height": 711,
+    "aspect": 0.563,
+    "orientation": "portrait",
+    "sizes": [
+      400
+    ],
+    "urls": {
+      "400": "https://noureddinelmobaraki-web.github.io/nl-audio-cdn/art/anime-manga/naruto/anm-naruto-01-400.webp"
+    },
+    "imageUrl": "https://noureddinelmobaraki-web.github.io/nl-audio-cdn/art/anime-manga/naruto/anm-naruto-01-400.webp",
+    "srcset": "https://noureddinelmobaraki-web.github.io/nl-audio-cdn/art/anime-manga/naruto/anm-naruto-01-400.webp 400w",
+    "lqip": "data:image/webp;base64,UklGRpQAAABXRUJQVlA4IIgAAAAQBgCdASoYACsAPu1krE6ppaQiMBVaqTAdiWkAAH5uVNumujujlxh1L/qMeB/r+4boZjvJrH+5cOAA/vO48z83NmiLk5dAdAZyNLR5DnASJWRfMauLccDkGg/Gq3/LPMZ+qJPhRztRtLq8rRxc8jszARzswyNuE8TqYeK0cpuYX+qXi2JCgAAA"
+  },
+  {
+    "id": "anm-naruto-02",
+    "index": 2,
+    "category": "anime-manga",
+    "categoryLabel": "Anime & Manga",
+    "collection": "naruto",
+    "collectionTitle": "Naruto",
+    "collectionType": "anime",
+    "sourceFile": "978477456562285289.jpeg",
+    "originalW": 720,
+    "originalH": 1280,
+    "width": 400,
+    "height": 711,
+    "aspect": 0.563,
+    "orientation": "portrait",
+    "sizes": [
+      400
+    ],
+    "urls": {
+      "400": "https://noureddinelmobaraki-web.github.io/nl-audio-cdn/art/anime-manga/naruto/anm-naruto-02-400.webp"
+    },
+    "imageUrl": "https://noureddinelmobaraki-web.github.io/nl-audio-cdn/art/anime-manga/naruto/anm-naruto-02-400.webp",
+    "srcset": "https://noureddinelmobaraki-web.github.io/nl-audio-cdn/art/anime-manga/naruto/anm-naruto-02-400.webp 400w",
+    "lqip": "data:image/webp;base64,UklGRswAAABXRUJQVlA4IMAAAADwBgCdASoYACsAPu1mq1AppSOiqrgMATAdiWoAnTlBU15Z0lACyFnMHW65Kb2SKwJXA7PAgb838FzmOGohFBwAAP5uosAbpK6D2Jfykpfxl+9nsIFPPN8XPwUavcSmkF5vdQovJjexx8DpnelWWn6t91GM7czTsweiOD5KWQFeNjO4DuVcNa8tBkSJhEeachzBztxaQvlBd2HqjIRzjIN9s6tlAZQsOPnfNj57EUmk8jObcNC568G9bPxK0t+AAAA="
+  },
+  {
+    "id": "anm-naruto-03",
+    "index": 3,
+    "category": "anime-manga",
+    "categoryLabel": "Anime & Manga",
+    "collection": "naruto",
+    "collectionTitle": "Naruto",
+    "collectionType": "anime",
+    "sourceFile": "1062497737096748103.jpeg",
+    "originalW": 640,
+    "originalH": 1142,
+    "width": 400,
+    "height": 714,
+    "aspect": 0.56,
+    "orientation": "portrait",
+    "sizes": [
+      400
+    ],
+    "urls": {
+      "400": "https://noureddinelmobaraki-web.github.io/nl-audio-cdn/art/anime-manga/naruto/anm-naruto-03-400.webp"
+    },
+    "imageUrl": "https://noureddinelmobaraki-web.github.io/nl-audio-cdn/art/anime-manga/naruto/anm-naruto-03-400.webp",
+    "srcset": "https://noureddinelmobaraki-web.github.io/nl-audio-cdn/art/anime-manga/naruto/anm-naruto-03-400.webp 400w",
+    "lqip": "data:image/webp;base64,UklGRqIAAABXRUJQVlA4IJYAAABwBQCdASoYACsAPu1eqU8ppKOiMBqoATAdiWQAuwB0h27bO3ero/1VA/yM115D/+9aZAIcAP75QxuT9Y/sneJV6bH8PEh1dCTvlWnS/Tdoo3SW7GjcpYMbGEb5FURcR+LzMOQwSyeJ+xDn85U451WeDWJfzTHBWXodmEPM9oN2swk+bzFTcnzbSgYF7gdwWxAjZToAAAA="
+  },
+  {
+    "id": "anm-naruto-04",
+    "index": 4,
+    "category": "anime-manga",
+    "categoryLabel": "Anime & Manga",
+    "collection": "naruto",
+    "collectionTitle": "Naruto",
+    "collectionType": "anime",
+    "sourceFile": "1062497737096748103 (1).jpeg",
+    "originalW": 640,
+    "originalH": 1142,
+    "width": 400,
+    "height": 714,
+    "aspect": 0.56,
+    "orientation": "portrait",
+    "sizes": [
+      400
+    ],
+    "urls": {
+      "400": "https://noureddinelmobaraki-web.github.io/nl-audio-cdn/art/anime-manga/naruto/anm-naruto-04-400.webp"
+    },
+    "imageUrl": "https://noureddinelmobaraki-web.github.io/nl-audio-cdn/art/anime-manga/naruto/anm-naruto-04-400.webp",
+    "srcset": "https://noureddinelmobaraki-web.github.io/nl-audio-cdn/art/anime-manga/naruto/anm-naruto-04-400.webp 400w",
+    "lqip": "data:image/webp;base64,UklGRqIAAABXRUJQVlA4IJYAAABwBQCdASoYACsAPu1eqU8ppKOiMBqoATAdiWQAuwB0h27bO3ero/1VA/yM115D/+9aZAIcAP75QxuT9Y/sneJV6bH8PEh1dCTvlWnS/Tdoo3SW7GjcpYMbGEb5FURcR+LzMOQwSyeJ+xDn85U451WeDWJfzTHBWXodmEPM9oN2swk+bzFTcnzbSgYF7gdwWxAjZToAAAA="
+  },
+  {
+    "id": "anm-naruto-05",
+    "index": 5,
+    "category": "anime-manga",
+    "categoryLabel": "Anime & Manga",
+    "collection": "naruto",
+    "collectionTitle": "Naruto",
+    "collectionType": "anime",
+    "sourceFile": "Jiraiya clean minimal animated naruto wallpaper.jpeg",
+    "originalW": 736,
+    "originalH": 1308,
+    "width": 400,
+    "height": 711,
+    "aspect": 0.563,
+    "orientation": "portrait",
+    "sizes": [
+      400
+    ],
+    "urls": {
+      "400": "https://noureddinelmobaraki-web.github.io/nl-audio-cdn/art/anime-manga/naruto/anm-naruto-05-400.webp"
+    },
+    "imageUrl": "https://noureddinelmobaraki-web.github.io/nl-audio-cdn/art/anime-manga/naruto/anm-naruto-05-400.webp",
+    "srcset": "https://noureddinelmobaraki-web.github.io/nl-audio-cdn/art/anime-manga/naruto/anm-naruto-05-400.webp 400w",
+    "lqip": "data:image/webp;base64,UklGRpwAAABXRUJQVlA4IJAAAACwBQCdASoYACsAPu1kqU2ppaOiMAgBMB2JbACdMoSEj7cAYSDzZx+quZErEwYWHrcnaZirHtAA/tjHtvk5zoUWP/eaoHz+shQjK6O0Nf/jd0edgI/8HZv+BjaxdFMWNslcIGuAUQLl/V8hnrbeLNXK9kbUzbZqUJSXFJ+fy3GnZzV6V3NTPfFN4lu8ivfoAAA="
+  },
+  {
+    "id": "anm-naruto-06",
+    "index": 6,
+    "category": "anime-manga",
+    "categoryLabel": "Anime & Manga",
+    "collection": "naruto",
+    "collectionTitle": "Naruto",
+    "collectionType": "anime",
+    "sourceFile": "Killer B.jpeg",
+    "originalW": 736,
+    "originalH": 1307,
+    "width": 400,
+    "height": 710,
+    "aspect": 0.563,
+    "orientation": "portrait",
+    "sizes": [
+      400
+    ],
+    "urls": {
+      "400": "https://noureddinelmobaraki-web.github.io/nl-audio-cdn/art/anime-manga/naruto/anm-naruto-06-400.webp"
+    },
+    "imageUrl": "https://noureddinelmobaraki-web.github.io/nl-audio-cdn/art/anime-manga/naruto/anm-naruto-06-400.webp",
+    "srcset": "https://noureddinelmobaraki-web.github.io/nl-audio-cdn/art/anime-manga/naruto/anm-naruto-06-400.webp 400w",
+    "lqip": "data:image/webp;base64,UklGRnAAAABXRUJQVlA4IGQAAACQBQCdASoYACsAPuleqk2pJSQiNVQMASAdCWcAAB+fSN5FYDnekcG1Pf/KA3u3KVcxUpXwAAD+8zN7ZmC5SEiQzzWuxBFiGO4A47rwI1BcgkKZd8zA2S4HXBA1FFz5ZOsKAAAA"
+  },
+  {
+    "id": "anm-naruto-07",
+    "index": 7,
+    "category": "anime-manga",
+    "categoryLabel": "Anime & Manga",
+    "collection": "naruto",
+    "collectionTitle": "Naruto",
+    "collectionType": "anime",
+    "sourceFile": "Life's true lesson is learned through Pain ✨💀__@anime_aiverse8 __#aiart #aiartwork #aiartgallery #aiartcommunity #aidigitalart #digitalartsensei #cozyart #trendingnow #creativeai #4k #love #hdwallpapers #manga #explorepage #instareach #naruto #p.jpeg",
+    "originalW": 736,
+    "originalH": 1318,
+    "width": 400,
+    "height": 716,
+    "aspect": 0.559,
+    "orientation": "portrait",
+    "sizes": [
+      400
+    ],
+    "urls": {
+      "400": "https://noureddinelmobaraki-web.github.io/nl-audio-cdn/art/anime-manga/naruto/anm-naruto-07-400.webp"
+    },
+    "imageUrl": "https://noureddinelmobaraki-web.github.io/nl-audio-cdn/art/anime-manga/naruto/anm-naruto-07-400.webp",
+    "srcset": "https://noureddinelmobaraki-web.github.io/nl-audio-cdn/art/anime-manga/naruto/anm-naruto-07-400.webp 400w",
+    "lqip": "data:image/webp;base64,UklGRvoAAABXRUJQVlA4IO4AAADQBgCdASoYACsAPu1kqk4ppaOiNVQIATAdiUAZzoTSxy3X7qbyrITSFBQCsxZZbm/U+Ec2x00D80OqUd4WGVgA+6TgZ1xrLrV6nhQUl7QQFvjqEf0J0kJx8oV0Zz8PgXYFxea9uzjDRN+IQFQsguYEDnCe8qfkOOHqqc8MuSWEazX30iwmkZx7L/PD4xHFT+mue27DjWH4xx+wSuGZ87WGtYelaVZJgZXp9MXMRhKFmQSE8EDSB38MRowBhIZrH2lD/mn+8MytfReGHobnglaxNbvLZt1F+kj00+ktMZvHK50i1gQXjeWbbR3mAAAA"
+  },
+  {
+    "id": "anm-naruto-08",
+    "index": 8,
+    "category": "anime-manga",
+    "categoryLabel": "Anime & Manga",
+    "collection": "naruto",
+    "collectionTitle": "Naruto",
+    "collectionType": "anime",
+    "sourceFile": "Naruto (2002).jpeg",
+    "originalW": 736,
+    "originalH": 981,
+    "width": 400,
+    "height": 533,
+    "aspect": 0.75,
+    "orientation": "portrait",
+    "sizes": [
+      400
+    ],
+    "urls": {
+      "400": "https://noureddinelmobaraki-web.github.io/nl-audio-cdn/art/anime-manga/naruto/anm-naruto-08-400.webp"
+    },
+    "imageUrl": "https://noureddinelmobaraki-web.github.io/nl-audio-cdn/art/anime-manga/naruto/anm-naruto-08-400.webp",
+    "srcset": "https://noureddinelmobaraki-web.github.io/nl-audio-cdn/art/anime-manga/naruto/anm-naruto-08-400.webp 400w",
+    "lqip": "data:image/webp;base64,UklGRpQAAABXRUJQVlA4IIgAAAAQBQCdASoYACAAPu1kqE2ppaOiMBgMATAdiUAWo2yAGGBAlYfOU3yHaoW/cLDR+koAAP6SgKRkI7Yr67XNZifE7Uv9b4P4nzgK8lJowx1N5zd7omQHbcgGqxyLSmue73ZpO/P/ilb07RMIgSdnr4Faj65X2Jg63WDUeTnHRr2JBYMIYVsJAAAA"
+  },
+  {
+    "id": "anm-naruto-09",
+    "index": 9,
+    "category": "anime-manga",
+    "categoryLabel": "Anime & Manga",
+    "collection": "naruto",
+    "collectionTitle": "Naruto",
+    "collectionType": "anime",
+    "sourceFile": "Naruto_.jpeg",
+    "originalW": 736,
+    "originalH": 1307,
+    "width": 400,
+    "height": 710,
+    "aspect": 0.563,
+    "orientation": "portrait",
+    "sizes": [
+      400
+    ],
+    "urls": {
+      "400": "https://noureddinelmobaraki-web.github.io/nl-audio-cdn/art/anime-manga/naruto/anm-naruto-09-400.webp"
+    },
+    "imageUrl": "https://noureddinelmobaraki-web.github.io/nl-audio-cdn/art/anime-manga/naruto/anm-naruto-09-400.webp",
+    "srcset": "https://noureddinelmobaraki-web.github.io/nl-audio-cdn/art/anime-manga/naruto/anm-naruto-09-400.webp 400w",
+    "lqip": "data:image/webp;base64,UklGRqIAAABXRUJQVlA4IJYAAADwBQCdASoYACsAPu1qrlCppaQiqqgBMB2JYwC960zAOzVeyZSGZW3+T7ZKD1t62KpNqTUY4djNgAD+9BtD1ujM4PwEaYc12Rrx8cG2yH4Wg34zBH29UimLoTBllkayfxFTXnXeAVAi3OI1px9nXe+uRbkdlRAUDOZ9GfbV0plvmI0GKtjG0CdopFc8ih+yNFUtFEXmgAA="
+  },
+  {
+    "id": "anm-naruto-10",
+    "index": 10,
+    "category": "anime-manga",
+    "categoryLabel": "Anime & Manga",
+    "collection": "naruto",
+    "collectionTitle": "Naruto",
+    "collectionType": "anime",
+    "sourceFile": "Sakura Haruno.jpeg",
+    "originalW": 736,
+    "originalH": 1280,
+    "width": 400,
+    "height": 696,
+    "aspect": 0.575,
+    "orientation": "portrait",
+    "sizes": [
+      400
+    ],
+    "urls": {
+      "400": "https://noureddinelmobaraki-web.github.io/nl-audio-cdn/art/anime-manga/naruto/anm-naruto-10-400.webp"
+    },
+    "imageUrl": "https://noureddinelmobaraki-web.github.io/nl-audio-cdn/art/anime-manga/naruto/anm-naruto-10-400.webp",
+    "srcset": "https://noureddinelmobaraki-web.github.io/nl-audio-cdn/art/anime-manga/naruto/anm-naruto-10-400.webp 400w",
+    "lqip": "data:image/webp;base64,UklGRrwAAABXRUJQVlA4ILAAAACQBgCdASoYACoAPu1wsVMppiSipWmZMB2JQBUk5fghSGJlyW144NSNKhN4z09jjNhtupLlv6UPnSuYOYoAAPiij2+E9sJ2VEx5Ct5APMBNctm9KWxXxC2GMT5zeomKA4XkxR+jTtgxrIPSkSvC/gaRvhKfhwmlIY1s9bdYzzcyimmdwUk+n9mO6CHUNw+HwkAbbyCpUXTp/RaJT9S3mgW49nkQzkT0hrVv7dPQ94AAAA=="
+  },
+  {
+    "id": "anm-naruto-11",
+    "index": 11,
+    "category": "anime-manga",
+    "categoryLabel": "Anime & Manga",
+    "collection": "naruto",
+    "collectionTitle": "Naruto",
+    "collectionType": "anime",
+    "sourceFile": "naruto.jpeg",
+    "originalW": 588,
+    "originalH": 1046,
+    "width": 400,
+    "height": 712,
+    "aspect": 0.562,
+    "orientation": "portrait",
+    "sizes": [
+      400
+    ],
+    "urls": {
+      "400": "https://noureddinelmobaraki-web.github.io/nl-audio-cdn/art/anime-manga/naruto/anm-naruto-11-400.webp"
+    },
+    "imageUrl": "https://noureddinelmobaraki-web.github.io/nl-audio-cdn/art/anime-manga/naruto/anm-naruto-11-400.webp",
+    "srcset": "https://noureddinelmobaraki-web.github.io/nl-audio-cdn/art/anime-manga/naruto/anm-naruto-11-400.webp 400w",
+    "lqip": "data:image/webp;base64,UklGRs4AAABXRUJQVlA4IMIAAADwBgCdASoYACsAPulgok2pJaKiMAqpIB0JYwC2FCGDSl9S4y7hfxPTeClOHhV1CiuxrTvPdiKdjEZu7SaGdVaAAP6WJl0xvYBMLF7VYxyRKo4Q1og+EZDUXDHHagxz7BE/49KGeXGn+8JytXSHVTwvtB7xZKQMsxKkLR33fY93BEQrG9cdAlHnnCsQeE/SqZ8Mn4X/kyPHCFvNa6Ah0mDfj/oQbHZYwJLUwoulAbnA7QzRurU29W4myCnvChdFWYAAAA=="
+  },
+  {
+    "id": "anm-naruto-12",
+    "index": 12,
+    "category": "anime-manga",
+    "categoryLabel": "Anime & Manga",
+    "collection": "naruto",
+    "collectionTitle": "Naruto",
+    "collectionType": "anime",
+    "sourceFile": "orochimaru e tsunade.jpeg",
+    "originalW": 736,
+    "originalH": 1308,
+    "width": 400,
+    "height": 711,
+    "aspect": 0.563,
+    "orientation": "portrait",
+    "sizes": [
+      400
+    ],
+    "urls": {
+      "400": "https://noureddinelmobaraki-web.github.io/nl-audio-cdn/art/anime-manga/naruto/anm-naruto-12-400.webp"
+    },
+    "imageUrl": "https://noureddinelmobaraki-web.github.io/nl-audio-cdn/art/anime-manga/naruto/anm-naruto-12-400.webp",
+    "srcset": "https://noureddinelmobaraki-web.github.io/nl-audio-cdn/art/anime-manga/naruto/anm-naruto-12-400.webp 400w",
+    "lqip": "data:image/webp;base64,UklGRqQAAABXRUJQVlA4IJgAAADwBgCdASoYACsAPu1mqU6ppaOiKqwBMB2JZQC7M4oBUC4iUme0jwpYERlEFUyVB2fW4aX3dsaJh/yxPoI9DesAAP7vK/nWReHRCGBUDZPx7XoOySkCTqrk7k7TbuUNTD7vtLD+jcrZghMminsgb6RuJRuWKHm8NYULHI7aJhHNyf8CVOa011HM1sLPu3M8pU3n+yKUIFiYAA=="
+  },
+  {
+    "id": "anm-naruto-13",
+    "index": 13,
+    "category": "anime-manga",
+    "categoryLabel": "Anime & Manga",
+    "collection": "naruto",
+    "collectionTitle": "Naruto",
+    "collectionType": "anime",
+    "sourceFile": "this is the wallpaper of shikamaru nara.jpeg",
+    "originalW": 736,
+    "originalH": 1308,
+    "width": 400,
+    "height": 711,
+    "aspect": 0.563,
+    "orientation": "portrait",
+    "sizes": [
+      400
+    ],
+    "urls": {
+      "400": "https://noureddinelmobaraki-web.github.io/nl-audio-cdn/art/anime-manga/naruto/anm-naruto-13-400.webp"
+    },
+    "imageUrl": "https://noureddinelmobaraki-web.github.io/nl-audio-cdn/art/anime-manga/naruto/anm-naruto-13-400.webp",
+    "srcset": "https://noureddinelmobaraki-web.github.io/nl-audio-cdn/art/anime-manga/naruto/anm-naruto-13-400.webp 400w",
+    "lqip": "data:image/webp;base64,UklGRsQAAABXRUJQVlA4ILgAAAAQBwCdASoYACsAPu1kqU+ppSOiKrgN+TAdiWcAxnwKL+Eq38AjIDPUWbJhn5phdnCWryz8T5+8TmvfxdFBV7qwAAD41iOvSG0q0mWrBtiaWjkAs1cRwvWK2rCE00rpYQkpCub3QtVPuSGQDQiW8LSRZ3ULuxt9k2FFhW0GnmJiwAsK/UM2C+pF1PQc0nDgCQ9Fdeq1vJThv6QQ/d1nD5dKn/Lk5ADMOttf5Q6Lf0J759iA/13YIAAA"
+  },
+  {
+    "id": "anm-naruto-14",
+    "index": 14,
+    "category": "anime-manga",
+    "categoryLabel": "Anime & Manga",
+    "collection": "naruto",
+    "collectionTitle": "Naruto",
+    "collectionType": "anime",
+    "sourceFile": "_.jpeg",
+    "originalW": 736,
+    "originalH": 1308,
+    "width": 400,
+    "height": 711,
+    "aspect": 0.563,
+    "orientation": "portrait",
+    "sizes": [
+      400
+    ],
+    "urls": {
+      "400": "https://noureddinelmobaraki-web.github.io/nl-audio-cdn/art/anime-manga/naruto/anm-naruto-14-400.webp"
+    },
+    "imageUrl": "https://noureddinelmobaraki-web.github.io/nl-audio-cdn/art/anime-manga/naruto/anm-naruto-14-400.webp",
+    "srcset": "https://noureddinelmobaraki-web.github.io/nl-audio-cdn/art/anime-manga/naruto/anm-naruto-14-400.webp 400w",
+    "lqip": "data:image/webp;base64,UklGRvoAAABXRUJQVlA4IO4AAAAwBwCdASoYACsAPuVcok2pJSMiNVgMASAciUAXuoE3FThDWpNtAdI9MJ6uN3HRQOClDGKygEPaOGr9pIDABG+0pkAA/obgYF2voQQvnYcleCrs+ex/XumqcyCVgnwgBtG914UmwOYP+fkCSvGyipnGnbe9ePrGzVS8vgyArbZkV/93VnxNms+0r1I2YEbG245uZNo3rkl9Bg9SwLhrH/4jjtqnsMIzy14re7QmtCKKgDIsEpBQ7yQgZxUssZS2MiM2xH887vSVOlFpgt8ClxqHJcKzMI4MzNhlHC09rJWccVGq/H2F0hWF1obt6ogA"
+  },
+  {
+    "id": "anm-naruto-15",
+    "index": 15,
+    "category": "anime-manga",
+    "categoryLabel": "Anime & Manga",
+    "collection": "naruto",
+    "collectionTitle": "Naruto",
+    "collectionType": "anime",
+    "sourceFile": "_ (1).jpeg",
+    "originalW": 675,
+    "originalH": 1200,
+    "width": 400,
+    "height": 711,
+    "aspect": 0.563,
+    "orientation": "portrait",
+    "sizes": [
+      400
+    ],
+    "urls": {
+      "400": "https://noureddinelmobaraki-web.github.io/nl-audio-cdn/art/anime-manga/naruto/anm-naruto-15-400.webp"
+    },
+    "imageUrl": "https://noureddinelmobaraki-web.github.io/nl-audio-cdn/art/anime-manga/naruto/anm-naruto-15-400.webp",
+    "srcset": "https://noureddinelmobaraki-web.github.io/nl-audio-cdn/art/anime-manga/naruto/anm-naruto-15-400.webp 400w",
+    "lqip": "data:image/webp;base64,UklGRqIAAABXRUJQVlA4IJYAAAAQBgCdASoYACsAPu1kqlIppKOiqrgKATAdiWcAAR/r2pnbNH0GyrObYtZ41E+RISaNrdFa9enGBYAA/vhTIVliajXYs2iRDDgR4q1uFbUF+XyvKqlaout0M0sPxt7xBWRZnORQNwR+FYk0D1RrzHPtkEU6LS9N+hFrnIXPNck4z6OLgsZN+GC2RmlL/cscSVGkCdeAAAA="
+  },
+  {
+    "id": "anm-naruto-16",
+    "index": 16,
+    "category": "anime-manga",
+    "categoryLabel": "Anime & Manga",
+    "collection": "naruto",
+    "collectionTitle": "Naruto",
+    "collectionType": "anime",
+    "sourceFile": "_ (2).jpeg",
+    "originalW": 675,
+    "originalH": 1200,
+    "width": 400,
+    "height": 711,
+    "aspect": 0.563,
+    "orientation": "portrait",
+    "sizes": [
+      400
+    ],
+    "urls": {
+      "400": "https://noureddinelmobaraki-web.github.io/nl-audio-cdn/art/anime-manga/naruto/anm-naruto-16-400.webp"
+    },
+    "imageUrl": "https://noureddinelmobaraki-web.github.io/nl-audio-cdn/art/anime-manga/naruto/anm-naruto-16-400.webp",
+    "srcset": "https://noureddinelmobaraki-web.github.io/nl-audio-cdn/art/anime-manga/naruto/anm-naruto-16-400.webp 400w",
+    "lqip": "data:image/webp;base64,UklGRnoAAABXRUJQVlA4IG4AAACQBACdASoYACsAPu1kpU2ppaMiMBqqqTAdiWNUwFoVGVWNgt2bTIKcg2swcsAA/sO+EHcOIvzA03HtCz7L8otEVL5BozCj9kHaYqR0pYtDOTbMWdluWR18TAHs78FkfkwFJkZjKn+7HWoVNoAAAA=="
+  },
+  {
+    "id": "anm-naruto-17",
+    "index": 17,
+    "category": "anime-manga",
+    "categoryLabel": "Anime & Manga",
+    "collection": "naruto",
+    "collectionTitle": "Naruto",
+    "collectionType": "anime",
+    "sourceFile": "_ (3).jpeg",
+    "originalW": 736,
+    "originalH": 1308,
+    "width": 400,
+    "height": 711,
+    "aspect": 0.563,
+    "orientation": "portrait",
+    "sizes": [
+      400
+    ],
+    "urls": {
+      "400": "https://noureddinelmobaraki-web.github.io/nl-audio-cdn/art/anime-manga/naruto/anm-naruto-17-400.webp"
+    },
+    "imageUrl": "https://noureddinelmobaraki-web.github.io/nl-audio-cdn/art/anime-manga/naruto/anm-naruto-17-400.webp",
+    "srcset": "https://noureddinelmobaraki-web.github.io/nl-audio-cdn/art/anime-manga/naruto/anm-naruto-17-400.webp 400w",
+    "lqip": "data:image/webp;base64,UklGRtAAAABXRUJQVlA4IMQAAACQBQCdASoYACsAPslSn02npSKiOqgA8BkJbACdOUFR/kCOUCHpymYHiZoqMo6VsuXwIttOAAD+1FH/IX+GoEwkRHX8NvPNw51WeCpyq61XBgQ+903F4uZT0Fr10M3yf7HJCotXzkTVHDKATyLpwqmvv3nBNd9oK6gktvK56EkhOOt8LBVFDXG71PBrbORUALOxKVke1fFcWOZBXCFvYt9Mb7Gv4zgn9Ia5gtNsIgwSnyJTB01OwSh+h6YU6YvcLtSIAAAA"
+  },
+  {
+    "id": "anm-naruto-18",
+    "index": 18,
+    "category": "anime-manga",
+    "categoryLabel": "Anime & Manga",
+    "collection": "naruto",
+    "collectionTitle": "Naruto",
+    "collectionType": "anime",
+    "sourceFile": "_ (4).jpeg",
+    "originalW": 736,
+    "originalH": 1309,
+    "width": 400,
+    "height": 711,
+    "aspect": 0.563,
+    "orientation": "portrait",
+    "sizes": [
+      400
+    ],
+    "urls": {
+      "400": "https://noureddinelmobaraki-web.github.io/nl-audio-cdn/art/anime-manga/naruto/anm-naruto-18-400.webp"
+    },
+    "imageUrl": "https://noureddinelmobaraki-web.github.io/nl-audio-cdn/art/anime-manga/naruto/anm-naruto-18-400.webp",
+    "srcset": "https://noureddinelmobaraki-web.github.io/nl-audio-cdn/art/anime-manga/naruto/anm-naruto-18-400.webp 400w",
+    "lqip": "data:image/webp;base64,UklGRtAAAABXRUJQVlA4IMQAAACQBgCdASoYACsAPu1kqE2ppaOiKq35MB2JagCo9FDgT1RXHgPceUj3Cm/tYNhv0IyAFQshmms9TiNf5wgAAP7y8/TFd9bDDwGMH4xsszPOBFYDzprVSwOtHo3dcZiHhcbbSU8gs0J6zZm08/JRHdar2V8YG66dGQA/84V+MBddJEd5mXO2Q3KpOLltk9le/ur88TXIUGe5jQkehzZFlCUFRKYCV82dS8S+FOPq+SSJC4Am6IZzyElRIsdspQRW3boFHIAA"
+  },
+  {
+    "id": "anm-naruto-19",
+    "index": 19,
+    "category": "anime-manga",
+    "categoryLabel": "Anime & Manga",
+    "collection": "naruto",
+    "collectionTitle": "Naruto",
+    "collectionType": "anime",
+    "sourceFile": "_ (5).jpeg",
+    "originalW": 736,
+    "originalH": 1308,
+    "width": 400,
+    "height": 711,
+    "aspect": 0.563,
+    "orientation": "portrait",
+    "sizes": [
+      400
+    ],
+    "urls": {
+      "400": "https://noureddinelmobaraki-web.github.io/nl-audio-cdn/art/anime-manga/naruto/anm-naruto-19-400.webp"
+    },
+    "imageUrl": "https://noureddinelmobaraki-web.github.io/nl-audio-cdn/art/anime-manga/naruto/anm-naruto-19-400.webp",
+    "srcset": "https://noureddinelmobaraki-web.github.io/nl-audio-cdn/art/anime-manga/naruto/anm-naruto-19-400.webp 400w",
+    "lqip": "data:image/webp;base64,UklGRrQAAABXRUJQVlA4IKgAAADwBQCdASoYACsAPu1ip02ppaMiKq35MB2JQBcGAZVKYlzXegeUE7YZKCrsHqAFjQWLbJGj1id7aAD9zNHGIbi0UIF/trXjIAjH/mDXLg4ucnk+JOD+pPQHjsFbOMmlXhsVrBnQD4+y6GCaSqXzTXJ2FIiVLDhjwnCA8auc6igO4zdB2DrHsQo0rXdkHvko1MQOAK6qskuN5IgavvcACjm4IT/FlF0AAAA="
+  },
+  {
+    "id": "anm-naruto-20",
+    "index": 20,
+    "category": "anime-manga",
+    "categoryLabel": "Anime & Manga",
+    "collection": "naruto",
+    "collectionTitle": "Naruto",
+    "collectionType": "anime",
+    "sourceFile": "_ (6).jpeg",
+    "originalW": 675,
+    "originalH": 1200,
+    "width": 400,
+    "height": 711,
+    "aspect": 0.563,
+    "orientation": "portrait",
+    "sizes": [
+      400
+    ],
+    "urls": {
+      "400": "https://noureddinelmobaraki-web.github.io/nl-audio-cdn/art/anime-manga/naruto/anm-naruto-20-400.webp"
+    },
+    "imageUrl": "https://noureddinelmobaraki-web.github.io/nl-audio-cdn/art/anime-manga/naruto/anm-naruto-20-400.webp",
+    "srcset": "https://noureddinelmobaraki-web.github.io/nl-audio-cdn/art/anime-manga/naruto/anm-naruto-20-400.webp 400w",
+    "lqip": "data:image/webp;base64,UklGRqIAAABXRUJQVlA4IJYAAAAQBgCdASoYACsAPuFepU2opSOiNVv4ARAcCWcA0YAO4+oGmst4V8hlMZ7aFah3Pc4DGm79NpMS/ggA/tqEPEne4Vd8sp3fOvw8M02gIP3ta5iy3ruW+SuSp0R+wTTy/CwHXzStTWlsOjZEHzKDd4eHB8x4zeTZSP3IhUDENkedKN5q4HoHHTqbqzFu5ck3Ij0grvcAAAA="
+  },
+  {
+    "id": "anm-naruto-21",
+    "index": 21,
+    "category": "anime-manga",
+    "categoryLabel": "Anime & Manga",
+    "collection": "naruto",
+    "collectionTitle": "Naruto",
+    "collectionType": "anime",
+    "sourceFile": "تـابـوت.jpeg",
+    "originalW": 718,
+    "originalH": 1276,
+    "width": 400,
+    "height": 711,
+    "aspect": 0.563,
+    "orientation": "portrait",
+    "sizes": [
+      400
+    ],
+    "urls": {
+      "400": "https://noureddinelmobaraki-web.github.io/nl-audio-cdn/art/anime-manga/naruto/anm-naruto-21-400.webp"
+    },
+    "imageUrl": "https://noureddinelmobaraki-web.github.io/nl-audio-cdn/art/anime-manga/naruto/anm-naruto-21-400.webp",
+    "srcset": "https://noureddinelmobaraki-web.github.io/nl-audio-cdn/art/anime-manga/naruto/anm-naruto-21-400.webp 400w",
+    "lqip": "data:image/webp;base64,UklGRhABAABXRUJQVlA4IAQBAADQBwCdASoYACsAPu1eqE2ppSOiNVgIATAdiWoAd9Ajd7t3AYzwEuJGkX8u4lpC56q5eObcr2z7HGMavgNB/xkZOgSV4JmzgADOPzT9Nr+kIkLX6q/V5GBUIT7FRm0jiRyhJVqBZH/+/oMGC3/zHW86vUgFdgHHTLmOqVPHH1uMIGP2gr5DFmNZ3WgUa9bBhlatKVIVDmQZuvNUf+iyOm4meSo3JK30b8ffhACgu4fMZRTZULbIIKI9JGhwmZzaogwq/RhWOtvEtAN1ErrkL5ZwzSL/WfRUgf9afwtCmOjXzHA4wsOLre2bGhJ80NWhg3kpBuCjtzyaMI8encHfAKv3CgAAAA=="
+  },
+  {
+    "id": "anm-naruto-22",
+    "index": 22,
+    "category": "anime-manga",
+    "categoryLabel": "Anime & Manga",
+    "collection": "naruto",
+    "collectionTitle": "Naruto",
+    "collectionType": "anime",
+    "sourceFile": "🤦_♀️🤦_♀️🤦_♀️🤦_♀️🤦_♀️🤦_♀️🤦_♀️🤦_♀️🤦_♀️🤦_♀️🤦_♀️.jpeg",
+    "originalW": 736,
+    "originalH": 1308,
+    "width": 400,
+    "height": 711,
+    "aspect": 0.563,
+    "orientation": "portrait",
+    "sizes": [
+      400
+    ],
+    "urls": {
+      "400": "https://noureddinelmobaraki-web.github.io/nl-audio-cdn/art/anime-manga/naruto/anm-naruto-22-400.webp"
+    },
+    "imageUrl": "https://noureddinelmobaraki-web.github.io/nl-audio-cdn/art/anime-manga/naruto/anm-naruto-22-400.webp",
+    "srcset": "https://noureddinelmobaraki-web.github.io/nl-audio-cdn/art/anime-manga/naruto/anm-naruto-22-400.webp 400w",
+    "lqip": "data:image/webp;base64,UklGRpwAAABXRUJQVlA4IJAAAACwBQCdASoYACsAPtVWo02oJKMmOrmYAQAaiWkAARW5P/xK3D4vpcq5vKdR+fGV/hDl4IlyWAAA/vC+1GZVkejhXebUyRtmFxMZ7VJvSVCF+TVOQW/1+7+TPhAqIVtlCwnLpb3lGm6GHePhlbSdX9TNotH1uzOJLm/9dND+Hwm3kEUpu2HtFTzkvMiM+FZIAAA="
+  }
+]

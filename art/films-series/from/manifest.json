@@ -1,0 +1,102 @@
+[
+  {
+    "id": "srs-from-01",
+    "index": 1,
+    "category": "films-series",
+    "categoryLabel": "Films & Series",
+    "collection": "from",
+    "collectionTitle": "From",
+    "collectionType": "series",
+    "sourceFile": "FROM.jpeg",
+    "originalW": 667,
+    "originalH": 1000,
+    "width": 400,
+    "height": 600,
+    "aspect": 0.667,
+    "orientation": "portrait",
+    "sizes": [
+      400
+    ],
+    "urls": {
+      "400": "https://noureddinelmobaraki-web.github.io/nl-audio-cdn/art/films-series/from/srs-from-01-400.webp"
+    },
+    "imageUrl": "https://noureddinelmobaraki-web.github.io/nl-audio-cdn/art/films-series/from/srs-from-01-400.webp",
+    "srcset": "https://noureddinelmobaraki-web.github.io/nl-audio-cdn/art/films-series/from/srs-from-01-400.webp 400w",
+    "lqip": "data:image/webp;base64,UklGRqAAAABXRUJQVlA4IJQAAABwBgCdASoYACQAPuVepU2pJSOiOrM4ASAciWUAy+ALNkbcab81hGzQErYdLHmygUz9NXsyYmzuiE7BtGAA/uCl6rJjIrzHIY2i+smwaTZLzZNT19O+Jncd8TXlYBOnZLSlTWs9YrCHuTVgJ5tVQ7J+QfmYjphsN0W2Tb2OTea+5CQMrKgFdhYbAAzsWMYdhNKAiFAA"
+  },
+  {
+    "id": "srs-from-02",
+    "index": 2,
+    "category": "films-series",
+    "categoryLabel": "Films & Series",
+    "collection": "from",
+    "collectionTitle": "From",
+    "collectionType": "series",
+    "sourceFile": "From series poster.jpeg",
+    "originalW": 736,
+    "originalH": 1308,
+    "width": 400,
+    "height": 711,
+    "aspect": 0.563,
+    "orientation": "portrait",
+    "sizes": [
+      400
+    ],
+    "urls": {
+      "400": "https://noureddinelmobaraki-web.github.io/nl-audio-cdn/art/films-series/from/srs-from-02-400.webp"
+    },
+    "imageUrl": "https://noureddinelmobaraki-web.github.io/nl-audio-cdn/art/films-series/from/srs-from-02-400.webp",
+    "srcset": "https://noureddinelmobaraki-web.github.io/nl-audio-cdn/art/films-series/from/srs-from-02-400.webp 400w",
+    "lqip": "data:image/webp;base64,UklGRoQAAABXRUJQVlA4IHgAAABwBQCdASoYACsAPu1grE2ppSSiMBqqqTAdiWcA0YAUB5wFgQpYL4tknswDW+OAUHEHZeBgAP7w33tkwHXm7uJUvB+Rnx0wjHolXu+7H+Abq7Ctc/Tb5io+SXky5nwn+qa4sWKd6gbf5j1oyy1XMG1cBqLo1LKwAAA="
+  },
+  {
+    "id": "srs-from-03",
+    "index": 3,
+    "category": "films-series",
+    "categoryLabel": "Films & Series",
+    "collection": "from",
+    "collectionTitle": "From",
+    "collectionType": "series",
+    "sourceFile": "from 🖤.jpeg",
+    "originalW": 736,
+    "originalH": 1308,
+    "width": 400,
+    "height": 711,
+    "aspect": 0.563,
+    "orientation": "portrait",
+    "sizes": [
+      400
+    ],
+    "urls": {
+      "400": "https://noureddinelmobaraki-web.github.io/nl-audio-cdn/art/films-series/from/srs-from-03-400.webp"
+    },
+    "imageUrl": "https://noureddinelmobaraki-web.github.io/nl-audio-cdn/art/films-series/from/srs-from-03-400.webp",
+    "srcset": "https://noureddinelmobaraki-web.github.io/nl-audio-cdn/art/films-series/from/srs-from-03-400.webp 400w",
+    "lqip": "data:image/webp;base64,UklGRn4AAABXRUJQVlA4IHIAAAAwBgCdASoYACsAPuFgpk2opiOiNVgMARAcCWUAvKQWbPxwstZerGqCRqxPJrxMGzfyzf8rR+xLEaIwAP70IQoMe3cM+36DAKuKIjCXmpzmsHTsokwuiYHX2tbZ0oy8/+2B8osFJPMC24o6aUNzVuleAAA="
+  },
+  {
+    "id": "srs-from-04",
+    "index": 4,
+    "category": "films-series",
+    "categoryLabel": "Films & Series",
+    "collection": "from",
+    "collectionTitle": "From",
+    "collectionType": "series",
+    "sourceFile": "›_ ̗̀➛𝐅𝐫𝐨𝐦 ➛𝐥𝐨𝐜𝐤𝐬𝐜𝐫𝐞𝐞𝐧.jpeg",
+    "originalW": 736,
+    "originalH": 1480,
+    "width": 400,
+    "height": 804,
+    "aspect": 0.498,
+    "orientation": "portrait",
+    "sizes": [
+      400
+    ],
+    "urls": {
+      "400": "https://noureddinelmobaraki-web.github.io/nl-audio-cdn/art/films-series/from/srs-from-04-400.webp"
+    },
+    "imageUrl": "https://noureddinelmobaraki-web.github.io/nl-audio-cdn/art/films-series/from/srs-from-04-400.webp",
+    "srcset": "https://noureddinelmobaraki-web.github.io/nl-audio-cdn/art/films-series/from/srs-from-04-400.webp 400w",
+    "lqip": "data:image/webp;base64,UklGRsAAAABXRUJQVlA4ILQAAACQBgCdASoYADAAPu1irk6ppSSiMBVaqTAdiUAWI/JwFQMu0TcD0d+Ucl0Whw+VafRq0ZVKW7/2lTpe6ohwAP4jDcXvrnnv7YxgJCELflffU5we0YnQeVXaYhsrXFHfPbDXT3yM3s/4fwRRo1SOxhPBtPBUoNlWbDAcdHmWW5zz8pi23IAoxcGLhWuEeHSukQpSW2kbauvuoFtXKxhcjpImOexUuFNrzGvxnpctSs4W1OrZAAA="
+  }
+]
