@@ -1,0 +1,4534 @@
+{
+ "schemaVersion": 2,
+ "generatedAt": "2026-08-06T04:11:44+0100",
+ "cdn": {
+  "repo": "noureddinelmobaraki-web/nl-audio-cdn",
+  "branch": "main",
+  "root": "watch"
+ },
+ "gate": {
+  "male": {
+   "path": "watch/gate/male.webp",
+   "source": "men.jpeg",
+   "width": 1263,
+   "height": 1600
+  },
+  "female": {
+   "path": "watch/gate/female.webp",
+   "source": "female.jpeg",
+   "width": 736,
+   "height": 788
+  }
+ },
+ "brands": {
+  "male": {
+   "Boss": {
+    "poster": "watch/male/posters/boss.webp",
+    "models": [
+     "boss-classic",
+     "boss-chronograph"
+    ]
+   },
+   "Cartier": {
+    "poster": "watch/male/posters/cartier.webp",
+    "models": [
+     "cartier-classic",
+     "cartier-santos",
+     "cartier-santos-custom"
+    ]
+   },
+   "Casio": {
+    "poster": "watch/male/posters/casio.webp",
+    "models": [
+     "casio-classic"
+    ]
+   },
+   "D1 Milano": {
+    "poster": "watch/male/posters/d1-milano.webp",
+    "models": [
+     "d1-milano"
+    ]
+   },
+   "Emporio Armani": {
+    "poster": "watch/male/posters/emporio-armani.webp",
+    "models": [
+     "emporio-armani"
+    ]
+   },
+   "G-Shock": {
+    "poster": "watch/male/posters/g-shock.webp",
+    "models": [
+     "g-shock"
+    ]
+   },
+   "Guess": {
+    "poster": "watch/male/posters/guess.webp",
+    "models": [
+     "guess-classic"
+    ]
+   },
+   "Hanboro": {
+    "poster": "watch/male/posters/hanboro.webp",
+    "models": [
+     "hanboro-classic"
+    ]
+   },
+   "Tommy Hilfiger": {
+    "poster": "watch/male/posters/tommy-hilfiger.webp",
+    "models": [
+     "tommy-hilfiger-chronograph"
+    ]
+   },
+   "Omega": {
+    "poster": "watch/male/posters/omega.webp",
+    "models": [
+     "omega-automatic",
+     "omega-chronograph"
+    ]
+   },
+   "Patek Philippe": {
+    "poster": "watch/male/posters/patek-philippe.webp",
+    "models": [
+     "patek-philippe-classic",
+     "patek-philippe-classic-iii",
+     "patek-philippe-automatic",
+     "patek-philippe-classic-ii"
+    ]
+   },
+   "Richard Mille": {
+    "poster": "watch/male/posters/richard-mille.webp",
+    "models": [
+     "richard-mille",
+     "richard-mille-scratch"
+    ]
+   },
+   "Rolex": {
+    "poster": "watch/male/posters/rolex-oyster.webp",
+    "models": [
+     "rolex-daytona",
+     "rolex-datejust",
+     "rolex-gmt-master",
+     "rolex-land-dweller",
+     "rolex-oyster-perpetual",
+     "rolex-oyster-perpetual-ii"
+    ]
+   },
+   "Tissot": {
+    "poster": "watch/male/posters/tissot.webp",
+    "models": [
+     "tissot-classic"
+    ]
+   },
+   "Hublot": {
+    "poster": null,
+    "models": [
+     "hublot-classic-fusion",
+     "hublot-classic-fusion-ii"
+    ]
+   }
+  },
+  "female": {
+   "Bvlgari": {
+    "poster": "watch/female/posters/bvlgari-serpenti.webp",
+    "models": [
+     "bvlgari-serpenti"
+    ]
+   },
+   "Chanel": {
+    "poster": "watch/female/posters/chanel-premiere.webp",
+    "models": [
+     "chanel-premiere"
+    ]
+   },
+   "Daniel Wellington": {
+    "poster": "watch/female/posters/daniel-wellington.webp",
+    "models": [
+     "daniel-wellington",
+     "daniel-wellington-petite"
+    ]
+   },
+   "Emporio Armani": {
+    "poster": "watch/female/posters/emporio-armani.webp",
+    "models": [
+     "emporio-armani-strass"
+    ]
+   },
+   "Hanboro": {
+    "poster": "watch/female/posters/hanboro.webp",
+    "models": [
+     "hanboro-cuir-gris-rose-gold",
+     "hanboro-cuir-silver",
+     "hanboro-octagone"
+    ]
+   },
+   "IEKE": {
+    "poster": "watch/female/posters/ieke.webp",
+    "models": [
+     "ieke-hexagonale-strass",
+     "ieke-mini-ronde",
+     "ieke-tank-rectangulaire"
+    ]
+   },
+   "Michael Kors": {
+    "poster": "watch/female/posters/michael-kors.webp",
+    "models": [
+     "michael-kors"
+    ]
+   },
+   "Oliya": {
+    "poster": "watch/female/posters/oliya.webp",
+    "models": [
+     "oliya"
+    ]
+   },
+   "Patek Philippe": {
+    "poster": "watch/female/posters/patek-philippe.webp",
+    "models": [
+     "patek-philippe-nautilus"
+    ]
+   },
+   "Reloj": {
+    "poster": "watch/female/posters/reloj.webp",
+    "models": [
+     "reloj-dama-lujo-con-dije"
+    ]
+   },
+   "Rolex": {
+    "poster": "watch/female/posters/rolex-oyster.webp",
+    "models": [
+     "rolex-datejust-two-tone-black-dial",
+     "rolex-datejust-cannelee"
+    ]
+   },
+   "Tissot": {
+    "poster": "watch/female/posters/tissot.webp",
+    "models": [
+     "tissot-bellissima"
+    ]
+   },
+   "Cartier": {
+    "poster": null,
+    "models": [
+     "cartier-ballon-bleu",
+     "cartier-baignoire",
+     "cartier-panthere",
+     "cartier-panthere-classic-square",
+     "cartier-panthere-classic"
+    ]
+   },
+   "Casio": {
+    "poster": null,
+    "models": [
+     "casio-couple-carre-bleu"
+    ]
+   }
+  }
+ },
+ "models": [
+  {
+   "slug": "boss-classic",
+   "side": "male",
+   "brand": "Boss",
+   "name": "Boss Classic",
+   "sourceFolder": "boss",
+   "poster": "watch/male/posters/boss.webp",
+   "posterSource": "brand",
+   "photoCount": 4,
+   "dir": "watch/male/watches/boss-classic",
+   "photos": [
+    {
+     "index": 1,
+     "file": "01.webp",
+     "path": "watch/male/watches/boss-classic/01.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 97156,
+     "source": "5909142686357196466.jpg",
+     "sha1": "ea9c43c93752ff97895fc3d79863512a7f9ce3ae"
+    },
+    {
+     "index": 2,
+     "file": "02.webp",
+     "path": "watch/male/watches/boss-classic/02.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 89352,
+     "source": "5909142686357196467.jpg",
+     "sha1": "159d4cf045e5d0c1ad1ae5bd417905257e0ce058"
+    },
+    {
+     "index": 3,
+     "file": "03.webp",
+     "path": "watch/male/watches/boss-classic/03.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 100304,
+     "source": "5909142686357196468.jpg",
+     "sha1": "e1442e8d42b2d7322030629ebcd1043a0ede9751"
+    },
+    {
+     "index": 4,
+     "file": "04.webp",
+     "path": "watch/male/watches/boss-classic/04.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 95434,
+     "source": "5909142686357196469.jpg",
+     "sha1": "cf01581383cb5844cced30db5be8a16eb62a8722"
+    }
+   ],
+   "price": null,
+   "reviewNote": "bare brand name; 'Classic' added to distinguish from the chronograph"
+  },
+  {
+   "slug": "boss-chronograph",
+   "side": "male",
+   "brand": "Boss",
+   "name": "Boss Chronograph",
+   "sourceFolder": "BOSS  chronograph",
+   "poster": "watch/male/posters/boss.webp",
+   "posterSource": "brand",
+   "photoCount": 2,
+   "dir": "watch/male/watches/boss-chronograph",
+   "photos": [
+    {
+     "index": 1,
+     "file": "01.webp",
+     "path": "watch/male/watches/boss-chronograph/01.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 90962,
+     "source": "5766971164256308903.jpg",
+     "sha1": "9a5261f0de8927999dc8fdeaaec2d954a6fc7d93"
+    },
+    {
+     "index": 2,
+     "file": "02.webp",
+     "path": "watch/male/watches/boss-chronograph/02.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 97918,
+     "source": "5766971164256308904.jpg",
+     "sha1": "8bcd961b0522f11704fa4dd0df5f5e20747cd48e"
+    }
+   ],
+   "price": null,
+   "reviewNote": "double space removed"
+  },
+  {
+   "slug": "cartier-classic",
+   "side": "male",
+   "brand": "Cartier",
+   "name": "Cartier Classic",
+   "sourceFolder": "cartier",
+   "poster": "watch/male/posters/cartier.webp",
+   "posterSource": "brand",
+   "photoCount": 6,
+   "dir": "watch/male/watches/cartier-classic",
+   "photos": [
+    {
+     "index": 1,
+     "file": "01.webp",
+     "path": "watch/male/watches/cartier-classic/01.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 105044,
+     "source": "5929277896767770269.jpg",
+     "sha1": "fa2f25744b66e592b23bb22853934d68c7106b15"
+    },
+    {
+     "index": 2,
+     "file": "02.webp",
+     "path": "watch/male/watches/cartier-classic/02.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 97282,
+     "source": "5929277896767770270.jpg",
+     "sha1": "acf61b94777733d720ef630515fa382220acdccf"
+    },
+    {
+     "index": 3,
+     "file": "03.webp",
+     "path": "watch/male/watches/cartier-classic/03.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 98362,
+     "source": "5929277896767770271.jpg",
+     "sha1": "d1e39f64ec15d61708caf29490aa8d799f2669cd"
+    },
+    {
+     "index": 4,
+     "file": "04.webp",
+     "path": "watch/male/watches/cartier-classic/04.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 97108,
+     "source": "5929277896767770272.jpg",
+     "sha1": "78f255b3a898c15821e88225cdfd2ad8fd7df80a"
+    },
+    {
+     "index": 5,
+     "file": "05.webp",
+     "path": "watch/male/watches/cartier-classic/05.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 97742,
+     "source": "5929277896767770273.jpg",
+     "sha1": "52f6c32ead27a33ce48b13e1a0ab956f2cbdc59b"
+    },
+    {
+     "index": 6,
+     "file": "06.webp",
+     "path": "watch/male/watches/cartier-classic/06.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 95832,
+     "source": "5929277896767770274.jpg",
+     "sha1": "6b8e48b46bd850b3c108b86953aa9dd0d9a2a62b"
+    }
+   ],
+   "price": null,
+   "reviewNote": "bare brand name; 'Classic' added"
+  },
+  {
+   "slug": "cartier-santos",
+   "side": "male",
+   "brand": "Cartier",
+   "name": "Cartier Santos",
+   "sourceFolder": "cartier santos",
+   "poster": "watch/male/posters/cartier.webp",
+   "posterSource": "brand",
+   "photoCount": 4,
+   "dir": "watch/male/watches/cartier-santos",
+   "photos": [
+    {
+     "index": 1,
+     "file": "01.webp",
+     "path": "watch/male/watches/cartier-santos/01.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 122220,
+     "source": "5895634309836639788.jpg",
+     "sha1": "ca8fe11099440b6f09b42a6acfad30287336a303"
+    },
+    {
+     "index": 2,
+     "file": "02.webp",
+     "path": "watch/male/watches/cartier-santos/02.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 118420,
+     "source": "5895634309836639789.jpg",
+     "sha1": "e1de32b2a79257df5fae758a57e4c73c4a5cd21a"
+    },
+    {
+     "index": 3,
+     "file": "03.webp",
+     "path": "watch/male/watches/cartier-santos/03.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 119762,
+     "source": "5895634309836639790.jpg",
+     "sha1": "e8807691eb7e9982b27bc412131b603372d467b0"
+    },
+    {
+     "index": 4,
+     "file": "04.webp",
+     "path": "watch/male/watches/cartier-santos/04.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 127028,
+     "source": "5895634309836639791.jpg",
+     "sha1": "49bbbe050a1696401a21dc2c68f4f7504cc16d15"
+    }
+   ],
+   "price": null,
+   "reviewNote": ""
+  },
+  {
+   "slug": "cartier-santos-custom",
+   "side": "male",
+   "brand": "Cartier",
+   "name": "Cartier Santos Custom",
+   "sourceFolder": "cartier santos costum",
+   "poster": "watch/male/posters/cartier.webp",
+   "posterSource": "brand",
+   "photoCount": 9,
+   "dir": "watch/male/watches/cartier-santos-custom",
+   "photos": [
+    {
+     "index": 1,
+     "file": "01.webp",
+     "path": "watch/male/watches/cartier-santos-custom/01.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 94106,
+     "source": "5929277896767770259.jpg",
+     "sha1": "be60581fb722ff87e1208ebf7d8503347753609a"
+    },
+    {
+     "index": 2,
+     "file": "02.webp",
+     "path": "watch/male/watches/cartier-santos-custom/02.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 85748,
+     "source": "5929277896767770260.jpg",
+     "sha1": "3cbfff1d794f33ddd5bd547fe7cd8b949ecf5007"
+    },
+    {
+     "index": 3,
+     "file": "03.webp",
+     "path": "watch/male/watches/cartier-santos-custom/03.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 95606,
+     "source": "5929277896767770261.jpg",
+     "sha1": "63402a2169a0e1e77c2bc62b5d9b507cd694b1f7"
+    },
+    {
+     "index": 4,
+     "file": "04.webp",
+     "path": "watch/male/watches/cartier-santos-custom/04.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 98856,
+     "source": "5929277896767770262.jpg",
+     "sha1": "76dfc80520e9e1ad18b70e482f3dbde9e8a67184"
+    },
+    {
+     "index": 5,
+     "file": "05.webp",
+     "path": "watch/male/watches/cartier-santos-custom/05.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 96270,
+     "source": "5929277896767770263.jpg",
+     "sha1": "649fa14eb86af63509b7aaa212786f7494bb39fc"
+    },
+    {
+     "index": 6,
+     "file": "06.webp",
+     "path": "watch/male/watches/cartier-santos-custom/06.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 90544,
+     "source": "5929277896767770264.jpg",
+     "sha1": "4476db76ae0416458a307abf24758d571e1dbf8c"
+    },
+    {
+     "index": 7,
+     "file": "07.webp",
+     "path": "watch/male/watches/cartier-santos-custom/07.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 87670,
+     "source": "5929277896767770265.jpg",
+     "sha1": "97390f7e62ae9662e24dc4c9203c6bb07a45cbf6"
+    },
+    {
+     "index": 8,
+     "file": "08.webp",
+     "path": "watch/male/watches/cartier-santos-custom/08.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 84036,
+     "source": "5929277896767770266.jpg",
+     "sha1": "edfab2fac279476d57323e665fa92251d1837aad"
+    },
+    {
+     "index": 9,
+     "file": "09.webp",
+     "path": "watch/male/watches/cartier-santos-custom/09.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 90714,
+     "source": "5929277896767770267.jpg",
+     "sha1": "3b3a6796393c003c465f55c343e59b9d4b86a568"
+    }
+   ],
+   "price": null,
+   "reviewNote": "costum -> Custom"
+  },
+  {
+   "slug": "casio-classic",
+   "side": "male",
+   "brand": "Casio",
+   "name": "Casio Classic",
+   "sourceFolder": "CASION",
+   "poster": "watch/male/posters/casio.webp",
+   "posterSource": "brand",
+   "photoCount": 5,
+   "dir": "watch/male/watches/casio-classic",
+   "photos": [
+    {
+     "index": 1,
+     "file": "01.webp",
+     "path": "watch/male/watches/casio-classic/01.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 154194,
+     "source": "6044096073535524793.jpg",
+     "sha1": "1d2d7fbafe1762ae2a730cc00cd00dabfc256ba6"
+    },
+    {
+     "index": 2,
+     "file": "02.webp",
+     "path": "watch/male/watches/casio-classic/02.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 166982,
+     "source": "6044096073535524794 (1).jpg",
+     "sha1": "237a504c066a323bfb6f1a6eeb67616f141a1af7"
+    },
+    {
+     "index": 3,
+     "file": "03.webp",
+     "path": "watch/male/watches/casio-classic/03.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 157408,
+     "source": "6044096073535524795.jpg",
+     "sha1": "886fd23c334130f4f85b14db06de3baa4f5d967f"
+    },
+    {
+     "index": 4,
+     "file": "04.webp",
+     "path": "watch/male/watches/casio-classic/04.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 131588,
+     "source": "6044096073535524796.jpg",
+     "sha1": "d28f27b407a59a519f647de7d6873996482caf6e"
+    },
+    {
+     "index": 5,
+     "file": "05.webp",
+     "path": "watch/male/watches/casio-classic/05.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 140122,
+     "source": "6044096073535524797 (1).jpg",
+     "sha1": "fc6cc575fd09aa08bc2894f8a8a609b7fb30b434"
+    }
+   ],
+   "price": null,
+   "reviewNote": "CASION -> Casio"
+  },
+  {
+   "slug": "d1-milano",
+   "side": "male",
+   "brand": "D1 Milano",
+   "name": "D1 Milano",
+   "sourceFolder": "D1 millano",
+   "poster": "watch/male/posters/d1-milano.webp",
+   "posterSource": "brand",
+   "photoCount": 7,
+   "dir": "watch/male/watches/d1-milano",
+   "photos": [
+    {
+     "index": 1,
+     "file": "01.webp",
+     "path": "watch/male/watches/d1-milano/01.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 117782,
+     "source": "6044096073535524785.jpg",
+     "sha1": "f9d19b69999c6fd3fc740c2a001f798677ccff72"
+    },
+    {
+     "index": 2,
+     "file": "02.webp",
+     "path": "watch/male/watches/d1-milano/02.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 103444,
+     "source": "6044096073535524786.jpg",
+     "sha1": "311c30a27e5e09d54b607112c36cb80096fedbaa"
+    },
+    {
+     "index": 3,
+     "file": "03.webp",
+     "path": "watch/male/watches/d1-milano/03.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 98870,
+     "source": "6044096073535524787.jpg",
+     "sha1": "dda735a7848ea54535938e6bf6f3651084e87e8e"
+    },
+    {
+     "index": 4,
+     "file": "04.webp",
+     "path": "watch/male/watches/d1-milano/04.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 107214,
+     "source": "6044096073535524788.jpg",
+     "sha1": "f733191430b8cd78a5a7bab159369a965f211d86"
+    },
+    {
+     "index": 5,
+     "file": "05.webp",
+     "path": "watch/male/watches/d1-milano/05.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 105134,
+     "source": "6044096073535524789.jpg",
+     "sha1": "cf75b4015e4a900c0330d4e5eca78fa73cf01c08"
+    },
+    {
+     "index": 6,
+     "file": "06.webp",
+     "path": "watch/male/watches/d1-milano/06.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 105532,
+     "source": "6044096073535524790.jpg",
+     "sha1": "c8430d60cd9c153f5f1bf47287b82ebc91797fa3"
+    },
+    {
+     "index": 7,
+     "file": "07.webp",
+     "path": "watch/male/watches/d1-milano/07.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 103004,
+     "source": "6044096073535524791.jpg",
+     "sha1": "132f53877e59d35e6c9efb100643e2551793d41c"
+    }
+   ],
+   "price": null,
+   "reviewNote": "millano -> Milano"
+  },
+  {
+   "slug": "rolex-daytona",
+   "side": "male",
+   "brand": "Rolex",
+   "name": "Rolex Daytona",
+   "sourceFolder": "DAYTONA ROLEX",
+   "poster": "watch/male/posters/rolex-oyster.webp",
+   "posterSource": "brand",
+   "photoCount": 3,
+   "dir": "watch/male/watches/rolex-daytona",
+   "photos": [
+    {
+     "index": 1,
+     "file": "01.webp",
+     "path": "watch/male/watches/rolex-daytona/01.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 129798,
+     "source": "5778441187952889277.jpg",
+     "sha1": "769362d36ed331aac472f29ecaf77197f1dec7e3"
+    },
+    {
+     "index": 2,
+     "file": "02.webp",
+     "path": "watch/male/watches/rolex-daytona/02.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 134748,
+     "source": "5778441187952889278.jpg",
+     "sha1": "24da04f3ffdda40a7a8f9acfda77cb99167796c2"
+    },
+    {
+     "index": 3,
+     "file": "03.webp",
+     "path": "watch/male/watches/rolex-daytona/03.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 135960,
+     "source": "5778441187952889279.jpg",
+     "sha1": "c45fc78ad05e3714a0c78dcd72e7371bcbd9cfc8"
+    }
+   ],
+   "price": null,
+   "reviewNote": "word order corrected"
+  },
+  {
+   "slug": "emporio-armani",
+   "side": "male",
+   "brand": "Emporio Armani",
+   "name": "Emporio Armani",
+   "sourceFolder": "EMPORIO ARMANI",
+   "poster": "watch/male/posters/emporio-armani.webp",
+   "posterSource": "brand",
+   "photoCount": 4,
+   "dir": "watch/male/watches/emporio-armani",
+   "photos": [
+    {
+     "index": 1,
+     "file": "01.webp",
+     "path": "watch/male/watches/emporio-armani/01.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 93438,
+     "source": "5778441187952889267.jpg",
+     "sha1": "fea525345a0bab5d429e19afce17f2808349b78e"
+    },
+    {
+     "index": 2,
+     "file": "02.webp",
+     "path": "watch/male/watches/emporio-armani/02.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 96054,
+     "source": "5778441187952889268.jpg",
+     "sha1": "c6e926481c55699ad08e57db18fb855eae848417"
+    },
+    {
+     "index": 3,
+     "file": "03.webp",
+     "path": "watch/male/watches/emporio-armani/03.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 87976,
+     "source": "5778441187952889269.jpg",
+     "sha1": "3932e3ce992c202888caf966c2e59fc9382494f8"
+    },
+    {
+     "index": 4,
+     "file": "04.webp",
+     "path": "watch/male/watches/emporio-armani/04.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 106806,
+     "source": "5778441187952889270.jpg",
+     "sha1": "8773224ebe80bfd36c16f5571b8b24e76c4fb00a"
+    }
+   ],
+   "price": null,
+   "reviewNote": ""
+  },
+  {
+   "slug": "g-shock",
+   "side": "male",
+   "brand": "G-Shock",
+   "name": "G-Shock",
+   "sourceFolder": "G SHOK",
+   "poster": "watch/male/posters/g-shock.webp",
+   "posterSource": "brand",
+   "photoCount": 26,
+   "dir": "watch/male/watches/g-shock",
+   "photos": [
+    {
+     "index": 1,
+     "file": "01.webp",
+     "path": "watch/male/watches/g-shock/01.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 219698,
+     "source": "6044096073535524665.jpg",
+     "sha1": "09296e603ea120c2e9051d5d43d6b9e45ab9f389"
+    },
+    {
+     "index": 2,
+     "file": "02.webp",
+     "path": "watch/male/watches/g-shock/02.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 184632,
+     "source": "6044096073535524666.jpg",
+     "sha1": "284e71e450de9d09af23d440d865d176872353fd"
+    },
+    {
+     "index": 3,
+     "file": "03.webp",
+     "path": "watch/male/watches/g-shock/03.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 224728,
+     "source": "6044096073535524667.jpg",
+     "sha1": "881ee0651dec4132d13550f55eb54df7dedddaea"
+    },
+    {
+     "index": 4,
+     "file": "04.webp",
+     "path": "watch/male/watches/g-shock/04.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 210184,
+     "source": "6044096073535524668.jpg",
+     "sha1": "3bf91cd01103a91e4b13b83ea4502eccc93d89e3"
+    },
+    {
+     "index": 5,
+     "file": "05.webp",
+     "path": "watch/male/watches/g-shock/05.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 204330,
+     "source": "6044096073535524669.jpg",
+     "sha1": "49a055c762be700dbd88537824b707d643a01e39"
+    },
+    {
+     "index": 6,
+     "file": "06.webp",
+     "path": "watch/male/watches/g-shock/06.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 255688,
+     "source": "6044096073535524670.jpg",
+     "sha1": "325f6ee5d162d410ac5fd56e416c8d0b2ec9e878"
+    },
+    {
+     "index": 7,
+     "file": "07.webp",
+     "path": "watch/male/watches/g-shock/07.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 206216,
+     "source": "6044096073535524671.jpg",
+     "sha1": "7233c8839093655b06b1ad11faf955aa21294f1f"
+    },
+    {
+     "index": 8,
+     "file": "08.webp",
+     "path": "watch/male/watches/g-shock/08.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 193794,
+     "source": "6044096073535524672.jpg",
+     "sha1": "7b61bac9f927a2f81d1cbee19a21970d89bec87e"
+    },
+    {
+     "index": 9,
+     "file": "09.webp",
+     "path": "watch/male/watches/g-shock/09.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 222228,
+     "source": "6044096073535524673.jpg",
+     "sha1": "2890cafcb6cf3254a0861e4105c7f236a48bafb4"
+    },
+    {
+     "index": 10,
+     "file": "10.webp",
+     "path": "watch/male/watches/g-shock/10.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 212452,
+     "source": "6044096073535524674.jpg",
+     "sha1": "957c9ce27ffb9ca47b5ea1a2d49c784df1085b28"
+    },
+    {
+     "index": 11,
+     "file": "11.webp",
+     "path": "watch/male/watches/g-shock/11.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 206000,
+     "source": "6044096073535524675.jpg",
+     "sha1": "ad6af655e3e220586d6c32a479aa36580f9b0ca0"
+    },
+    {
+     "index": 12,
+     "file": "12.webp",
+     "path": "watch/male/watches/g-shock/12.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 211834,
+     "source": "6044096073535524676.jpg",
+     "sha1": "d7a24dcb00d5754bda436269adb0aa1361840a1c"
+    },
+    {
+     "index": 13,
+     "file": "13.webp",
+     "path": "watch/male/watches/g-shock/13.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 224052,
+     "source": "6044096073535524677.jpg",
+     "sha1": "5a6e058e5360347a1c2bffa9444f4d345f9f0f52"
+    },
+    {
+     "index": 14,
+     "file": "14.webp",
+     "path": "watch/male/watches/g-shock/14.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 193520,
+     "source": "6044096073535524678.jpg",
+     "sha1": "161231d0983c434e211098153ed73208895b31f4"
+    },
+    {
+     "index": 15,
+     "file": "15.webp",
+     "path": "watch/male/watches/g-shock/15.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 211646,
+     "source": "6044096073535524679.jpg",
+     "sha1": "527225185467eff4dc3317732eb79cc06fdc9dc8"
+    },
+    {
+     "index": 16,
+     "file": "16.webp",
+     "path": "watch/male/watches/g-shock/16.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 193638,
+     "source": "6044096073535524680.jpg",
+     "sha1": "7da82c7826dab628d1188d1491bb004e74708e11"
+    },
+    {
+     "index": 17,
+     "file": "17.webp",
+     "path": "watch/male/watches/g-shock/17.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 177410,
+     "source": "6044096073535524681.jpg",
+     "sha1": "908bea3308186b2f7610fbe43f515818e356ad4f"
+    },
+    {
+     "index": 18,
+     "file": "18.webp",
+     "path": "watch/male/watches/g-shock/18.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 185394,
+     "source": "6044096073535524682.jpg",
+     "sha1": "fd24894fee14fece5fb0c33c1e78c3f79ab2beaa"
+    },
+    {
+     "index": 19,
+     "file": "19.webp",
+     "path": "watch/male/watches/g-shock/19.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 255836,
+     "source": "6044096073535524683.jpg",
+     "sha1": "712599399ce0c6dadaf235430e294a25b4b2f271"
+    },
+    {
+     "index": 20,
+     "file": "20.webp",
+     "path": "watch/male/watches/g-shock/20.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 221918,
+     "source": "6044096073535524684.jpg",
+     "sha1": "154ae957f0b7a03beb96d6b86c70d3e13c6afef4"
+    },
+    {
+     "index": 21,
+     "file": "21.webp",
+     "path": "watch/male/watches/g-shock/21.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 220306,
+     "source": "6044096073535524685.jpg",
+     "sha1": "ca2bf7eb9704bde5db7f49b0628b04b9f89515ed"
+    },
+    {
+     "index": 22,
+     "file": "22.webp",
+     "path": "watch/male/watches/g-shock/22.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 204338,
+     "source": "6044096073535524686.jpg",
+     "sha1": "d8a0c0a0219e54e64f8a72666b954f2b007c5e78"
+    },
+    {
+     "index": 23,
+     "file": "23.webp",
+     "path": "watch/male/watches/g-shock/23.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 206396,
+     "source": "6044096073535524687.jpg",
+     "sha1": "9bb00245e9b8b1c68422d134c577f3c045dee418"
+    },
+    {
+     "index": 24,
+     "file": "24.webp",
+     "path": "watch/male/watches/g-shock/24.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 194864,
+     "source": "6044096073535524688.jpg",
+     "sha1": "13f02df039e0871ce480f90115f16b306d307d96"
+    },
+    {
+     "index": 25,
+     "file": "25.webp",
+     "path": "watch/male/watches/g-shock/25.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 210026,
+     "source": "6044096073535524689.jpg",
+     "sha1": "55954cb2a34237352e55ff223ff8e17027d92a4f"
+    },
+    {
+     "index": 26,
+     "file": "26.webp",
+     "path": "watch/male/watches/g-shock/26.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 197552,
+     "source": "6044096073535524690.jpg",
+     "sha1": "9f6791e2f19c871e2f2d71014c7dafa9f5b72c03"
+    }
+   ],
+   "price": null,
+   "reviewNote": "G SHOK -> G-Shock"
+  },
+  {
+   "slug": "guess-classic",
+   "side": "male",
+   "brand": "Guess",
+   "name": "Guess Classic",
+   "sourceFolder": "guess",
+   "poster": "watch/male/posters/guess.webp",
+   "posterSource": "brand",
+   "photoCount": 4,
+   "dir": "watch/male/watches/guess-classic",
+   "photos": [
+    {
+     "index": 1,
+     "file": "01.webp",
+     "path": "watch/male/watches/guess-classic/01.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 91882,
+     "source": "5958791846873992795.jpg",
+     "sha1": "37e4038e17cb8b2e4bd32f3c4ee2eaa86742ac94"
+    },
+    {
+     "index": 2,
+     "file": "02.webp",
+     "path": "watch/male/watches/guess-classic/02.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 99700,
+     "source": "5958791846873992796.jpg",
+     "sha1": "68c3efcfe7e5f4d30665eef62b45a8552706c0c9"
+    },
+    {
+     "index": 3,
+     "file": "03.webp",
+     "path": "watch/male/watches/guess-classic/03.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 92060,
+     "source": "5958791846873992797.jpg",
+     "sha1": "92f56a7f1c9f25b3f8c6ed799c8ada1e6621ec3e"
+    },
+    {
+     "index": 4,
+     "file": "04.webp",
+     "path": "watch/male/watches/guess-classic/04.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 94854,
+     "source": "5958791846873992798.jpg",
+     "sha1": "1e25225d6d6348e1cf843ef3f3875daf49ee7887"
+    }
+   ],
+   "price": null,
+   "reviewNote": "bare brand name; 'Classic' added"
+  },
+  {
+   "slug": "hanboro-classic",
+   "side": "male",
+   "brand": "Hanboro",
+   "name": "Hanboro Classic",
+   "sourceFolder": "HANBORO",
+   "poster": "watch/male/posters/hanboro.webp",
+   "posterSource": "brand",
+   "photoCount": 3,
+   "dir": "watch/male/watches/hanboro-classic",
+   "photos": [
+    {
+     "index": 1,
+     "file": "01.webp",
+     "path": "watch/male/watches/hanboro-classic/01.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 127164,
+     "source": "5875001475925216938.jpg",
+     "sha1": "f769b001d27177d7e4bbb84618653a10c957194b"
+    },
+    {
+     "index": 2,
+     "file": "02.webp",
+     "path": "watch/male/watches/hanboro-classic/02.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 142466,
+     "source": "5875001475925216939.jpg",
+     "sha1": "3f897987be03393c8c40d6cc5ce32072c1705524"
+    },
+    {
+     "index": 3,
+     "file": "03.webp",
+     "path": "watch/male/watches/hanboro-classic/03.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 127164,
+     "source": "5875001475925216940.jpg",
+     "sha1": "11611b4164e196900995ee7cfb88be11098d7262"
+    }
+   ],
+   "price": null,
+   "reviewNote": "bare brand name; 'Classic' added"
+  },
+  {
+   "slug": "tommy-hilfiger-chronograph",
+   "side": "male",
+   "brand": "Tommy Hilfiger",
+   "name": "Tommy Hilfiger Chronograph",
+   "sourceFolder": "HILFIGER CHRONOGRAPH",
+   "poster": "watch/male/posters/tommy-hilfiger.webp",
+   "posterSource": "brand",
+   "photoCount": 2,
+   "dir": "watch/male/watches/tommy-hilfiger-chronograph",
+   "photos": [
+    {
+     "index": 1,
+     "file": "01.webp",
+     "path": "watch/male/watches/tommy-hilfiger-chronograph/01.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 124836,
+     "source": "5766971164256308905.jpg",
+     "sha1": "836f74c9a97e5afdda1bfff9c42728a8727262bc"
+    },
+    {
+     "index": 2,
+     "file": "02.webp",
+     "path": "watch/male/watches/tommy-hilfiger-chronograph/02.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 134968,
+     "source": "5766971164256308906.jpg",
+     "sha1": "48816c7b358de1e60e451130018c16959a67aa93"
+    }
+   ],
+   "price": null,
+   "reviewNote": "brand completed to Tommy Hilfiger"
+  },
+  {
+   "slug": "hublot-classic-fusion",
+   "side": "male",
+   "brand": "Hublot",
+   "name": "Hublot Classic Fusion",
+   "sourceFolder": "HUBLOT",
+   "poster": "watch/male/watches/hublot-classic-fusion/01.webp",
+   "posterSource": "fallback-photo",
+   "photoCount": 7,
+   "dir": "watch/male/watches/hublot-classic-fusion",
+   "photos": [
+    {
+     "index": 1,
+     "file": "01.webp",
+     "path": "watch/male/watches/hublot-classic-fusion/01.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 87620,
+     "source": "5929277896767770252.jpg",
+     "sha1": "4b85958136755e40cc3151b8ec4c939bedc01a0c"
+    },
+    {
+     "index": 2,
+     "file": "02.webp",
+     "path": "watch/male/watches/hublot-classic-fusion/02.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 89298,
+     "source": "5929277896767770253.jpg",
+     "sha1": "d6f77d16ac17cc10de7cf18a4b6d95c1bf8cacab"
+    },
+    {
+     "index": 3,
+     "file": "03.webp",
+     "path": "watch/male/watches/hublot-classic-fusion/03.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 85688,
+     "source": "5929277896767770254.jpg",
+     "sha1": "f38824fd84f47d522d4a318047a745155f03965d"
+    },
+    {
+     "index": 4,
+     "file": "04.webp",
+     "path": "watch/male/watches/hublot-classic-fusion/04.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 88866,
+     "source": "5929277896767770255.jpg",
+     "sha1": "4441d07ddf23a53b05291d8ba3f526982fa08f66"
+    },
+    {
+     "index": 5,
+     "file": "05.webp",
+     "path": "watch/male/watches/hublot-classic-fusion/05.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 80722,
+     "source": "5929277896767770256.jpg",
+     "sha1": "b4e3af05750256d2ebdb03e2761f9b4b3c7798a5"
+    },
+    {
+     "index": 6,
+     "file": "06.webp",
+     "path": "watch/male/watches/hublot-classic-fusion/06.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 86526,
+     "source": "5929277896767770257.jpg",
+     "sha1": "f2c97dabc20c0a4e4b2cb316d38e236cf845bec7"
+    },
+    {
+     "index": 7,
+     "file": "07.webp",
+     "path": "watch/male/watches/hublot-classic-fusion/07.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 96894,
+     "source": "5929277896767770258.jpg",
+     "sha1": "c8b266cea63698a5a9ad5fd215ba634cf83b6f06"
+    }
+   ],
+   "price": null,
+   "reviewNote": "model line inferred from the photos"
+  },
+  {
+   "slug": "hublot-classic-fusion-ii",
+   "side": "male",
+   "brand": "Hublot",
+   "name": "Hublot Classic Fusion II",
+   "sourceFolder": "HUBLOT 2",
+   "poster": "watch/male/watches/hublot-classic-fusion-ii/01.webp",
+   "posterSource": "fallback-photo",
+   "photoCount": 7,
+   "dir": "watch/male/watches/hublot-classic-fusion-ii",
+   "photos": [
+    {
+     "index": 1,
+     "file": "01.webp",
+     "path": "watch/male/watches/hublot-classic-fusion-ii/01.webp",
+     "width": 1024,
+     "height": 1280,
+     "bytes": 70464,
+     "source": "6019108976009612769.jpg",
+     "sha1": "c5683ae8a77badda04805373c985882c6e1b2a56"
+    },
+    {
+     "index": 2,
+     "file": "02.webp",
+     "path": "watch/male/watches/hublot-classic-fusion-ii/02.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 99626,
+     "source": "6019108976009612770.jpg",
+     "sha1": "e50ef00d8fc015f491d30c03c084ab20d682714a"
+    },
+    {
+     "index": 3,
+     "file": "03.webp",
+     "path": "watch/male/watches/hublot-classic-fusion-ii/03.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 108456,
+     "source": "6019108976009612771.jpg",
+     "sha1": "d3ff7b3de7ccd0c7cf538df7d472533f79434026"
+    },
+    {
+     "index": 4,
+     "file": "04.webp",
+     "path": "watch/male/watches/hublot-classic-fusion-ii/04.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 112396,
+     "source": "6019108976009612772.jpg",
+     "sha1": "b816c0a0ad49217057cd70df808f8847c06c1461"
+    },
+    {
+     "index": 5,
+     "file": "05.webp",
+     "path": "watch/male/watches/hublot-classic-fusion-ii/05.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 110338,
+     "source": "6019108976009612773.jpg",
+     "sha1": "0bdba69e10c79971be039dde18c22a8c1c65d36b"
+    },
+    {
+     "index": 6,
+     "file": "06.webp",
+     "path": "watch/male/watches/hublot-classic-fusion-ii/06.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 94794,
+     "source": "6019108976009612774.jpg",
+     "sha1": "50cc2879be04786a79f90a6350c5ac7ab6093742"
+    },
+    {
+     "index": 7,
+     "file": "07.webp",
+     "path": "watch/male/watches/hublot-classic-fusion-ii/07.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 87790,
+     "source": "6019108976009612775.jpg",
+     "sha1": "5aa16aac6f176ae18eb23b5f6b799beb8b79d694"
+    }
+   ],
+   "price": null,
+   "reviewNote": "2 -> II"
+  },
+  {
+   "slug": "omega-automatic",
+   "side": "male",
+   "brand": "Omega",
+   "name": "Omega Automatic",
+   "sourceFolder": "OMEGA automatique",
+   "poster": "watch/male/posters/omega.webp",
+   "posterSource": "brand",
+   "photoCount": 7,
+   "dir": "watch/male/watches/omega-automatic",
+   "photos": [
+    {
+     "index": 1,
+     "file": "01.webp",
+     "path": "watch/male/watches/omega-automatic/01.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 111704,
+     "source": "5895634309836639516.jpg",
+     "sha1": "5a41d6c7a211edf4b085a630c79a527919c10b25"
+    },
+    {
+     "index": 2,
+     "file": "02.webp",
+     "path": "watch/male/watches/omega-automatic/02.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 115722,
+     "source": "5895634309836639517.jpg",
+     "sha1": "de0c019e4155eb831cdb5ce8323d2e10e2ee8b83"
+    },
+    {
+     "index": 3,
+     "file": "03.webp",
+     "path": "watch/male/watches/omega-automatic/03.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 117348,
+     "source": "5895634309836639518.jpg",
+     "sha1": "f220d5e8ae531fb3ea39b3672e9f58a6b86f022e"
+    },
+    {
+     "index": 4,
+     "file": "04.webp",
+     "path": "watch/male/watches/omega-automatic/04.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 112498,
+     "source": "5895634309836639519.jpg",
+     "sha1": "d4290278879c80578f775f412022739e0c97d269"
+    },
+    {
+     "index": 5,
+     "file": "05.webp",
+     "path": "watch/male/watches/omega-automatic/05.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 114486,
+     "source": "5895634309836639520.jpg",
+     "sha1": "3c04e379aeb8c2c5a1c9c9259445858e33b73d7d"
+    },
+    {
+     "index": 6,
+     "file": "06.webp",
+     "path": "watch/male/watches/omega-automatic/06.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 118458,
+     "source": "5895634309836639521.jpg",
+     "sha1": "0fbba7301ef0d96198a4a609bff128f3c3e3cbff"
+    },
+    {
+     "index": 7,
+     "file": "07.webp",
+     "path": "watch/male/watches/omega-automatic/07.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 119910,
+     "source": "5895634309836639522.jpg",
+     "sha1": "b75976951810679c6c63d3faf04ecb680906ddd0"
+    }
+   ],
+   "price": null,
+   "reviewNote": "automatique -> Automatic"
+  },
+  {
+   "slug": "omega-chronograph",
+   "side": "male",
+   "brand": "Omega",
+   "name": "Omega Chronograph",
+   "sourceFolder": "OMEGA chronographe",
+   "poster": "watch/male/posters/omega.webp",
+   "posterSource": "brand",
+   "photoCount": 9,
+   "dir": "watch/male/watches/omega-chronograph",
+   "photos": [
+    {
+     "index": 1,
+     "file": "01.webp",
+     "path": "watch/male/watches/omega-chronograph/01.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 125430,
+     "source": "5895634309836639527.jpg",
+     "sha1": "4ce7106a0f84e5f0e6731dc90a5901f5000c5566"
+    },
+    {
+     "index": 2,
+     "file": "02.webp",
+     "path": "watch/male/watches/omega-chronograph/02.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 106800,
+     "source": "5895634309836639528.jpg",
+     "sha1": "3ead1409d523bb2bed5bf8dfec72db6f41d19ff9"
+    },
+    {
+     "index": 3,
+     "file": "03.webp",
+     "path": "watch/male/watches/omega-chronograph/03.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 110016,
+     "source": "5895634309836639529.jpg",
+     "sha1": "4937e7683f4b25ff1193652d3c0a5b80d3069732"
+    },
+    {
+     "index": 4,
+     "file": "04.webp",
+     "path": "watch/male/watches/omega-chronograph/04.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 106652,
+     "source": "5895634309836639530.jpg",
+     "sha1": "1edb17ea82b517eeaecdb842c4bde689738e0ac2"
+    },
+    {
+     "index": 5,
+     "file": "05.webp",
+     "path": "watch/male/watches/omega-chronograph/05.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 104858,
+     "source": "5895634309836639531.jpg",
+     "sha1": "48a5bacfffa582a86bcd597db56dba846f102437"
+    },
+    {
+     "index": 6,
+     "file": "06.webp",
+     "path": "watch/male/watches/omega-chronograph/06.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 100540,
+     "source": "5895634309836639532.jpg",
+     "sha1": "fa8f265060e7063aaa7205d2c5f4e593e2010099"
+    },
+    {
+     "index": 7,
+     "file": "07.webp",
+     "path": "watch/male/watches/omega-chronograph/07.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 108012,
+     "source": "5895634309836639533.jpg",
+     "sha1": "c83891cd736e182796ae5d079e36b98baa973491"
+    },
+    {
+     "index": 8,
+     "file": "08.webp",
+     "path": "watch/male/watches/omega-chronograph/08.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 110820,
+     "source": "5895634309836639534.jpg",
+     "sha1": "8074cc787266e69b563d800fedc3cf841564a516"
+    },
+    {
+     "index": 9,
+     "file": "09.webp",
+     "path": "watch/male/watches/omega-chronograph/09.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 117534,
+     "source": "5895634309836639535.jpg",
+     "sha1": "27fff78b12357c6100da9b3b8a1cc75329b75076"
+    }
+   ],
+   "price": null,
+   "reviewNote": "chronographe -> Chronograph"
+  },
+  {
+   "slug": "patek-philippe-classic",
+   "side": "male",
+   "brand": "Patek Philippe",
+   "name": "Patek Philippe Classic",
+   "sourceFolder": "patek philipe",
+   "poster": "watch/male/posters/patek-philippe.webp",
+   "posterSource": "brand",
+   "photoCount": 5,
+   "dir": "watch/male/watches/patek-philippe-classic",
+   "photos": [
+    {
+     "index": 1,
+     "file": "01.webp",
+     "path": "watch/male/watches/patek-philippe-classic/01.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 103308,
+     "source": "5893382510022954762.jpg",
+     "sha1": "f919a54b12ac9728b66ceeaedc3efecf38423b7f"
+    },
+    {
+     "index": 2,
+     "file": "02.webp",
+     "path": "watch/male/watches/patek-philippe-classic/02.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 101906,
+     "source": "5893382510022954763.jpg",
+     "sha1": "fdea3a8606852f6908ad02fe700881f4d7483df6"
+    },
+    {
+     "index": 3,
+     "file": "03.webp",
+     "path": "watch/male/watches/patek-philippe-classic/03.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 96656,
+     "source": "5893382510022954764.jpg",
+     "sha1": "eab3c9b57951d252ce6d53e0d7b857a8525030ee"
+    },
+    {
+     "index": 4,
+     "file": "04.webp",
+     "path": "watch/male/watches/patek-philippe-classic/04.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 100722,
+     "source": "5893382510022954765.jpg",
+     "sha1": "cfa74f7974fdd9dead2ace06ad0f85dd028ac738"
+    },
+    {
+     "index": 5,
+     "file": "05.webp",
+     "path": "watch/male/watches/patek-philippe-classic/05.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 105598,
+     "source": "5893382510022954766.jpg",
+     "sha1": "488dd2888835496883b5917fb8c666e7df1788af"
+    }
+   ],
+   "price": null,
+   "reviewNote": "philipe -> Philippe"
+  },
+  {
+   "slug": "patek-philippe-classic-iii",
+   "side": "male",
+   "brand": "Patek Philippe",
+   "name": "Patek Philippe Classic III",
+   "sourceFolder": "patek phillip 3",
+   "poster": "watch/male/posters/patek-philippe.webp",
+   "posterSource": "brand",
+   "photoCount": 5,
+   "dir": "watch/male/watches/patek-philippe-classic-iii",
+   "photos": [
+    {
+     "index": 1,
+     "file": "01.webp",
+     "path": "watch/male/watches/patek-philippe-classic-iii/01.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 91850,
+     "source": "5929277896767770278.jpg",
+     "sha1": "228e192967a80021391f8da6920bedd525f19488"
+    },
+    {
+     "index": 2,
+     "file": "02.webp",
+     "path": "watch/male/watches/patek-philippe-classic-iii/02.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 94196,
+     "source": "5929277896767770279.jpg",
+     "sha1": "66f756e7b1253d1665053d6af5504a017fa9dfd7"
+    },
+    {
+     "index": 3,
+     "file": "03.webp",
+     "path": "watch/male/watches/patek-philippe-classic-iii/03.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 93106,
+     "source": "5929277896767770280.jpg",
+     "sha1": "f8f2c250f9168f7138e474077b8c2345c885e7e3"
+    },
+    {
+     "index": 4,
+     "file": "04.webp",
+     "path": "watch/male/watches/patek-philippe-classic-iii/04.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 94468,
+     "source": "5929277896767770281.jpg",
+     "sha1": "0168c7defe51756175010b03b03f7ebce3c774f3"
+    },
+    {
+     "index": 5,
+     "file": "05.webp",
+     "path": "watch/male/watches/patek-philippe-classic-iii/05.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 93842,
+     "source": "5929277896767770282.jpg",
+     "sha1": "7c6c3759d0de8338b1d3e490f78c69342bdfafb9"
+    }
+   ],
+   "price": null,
+   "reviewNote": "phillip -> Philippe; 3 -> III"
+  },
+  {
+   "slug": "patek-philippe-automatic",
+   "side": "male",
+   "brand": "Patek Philippe",
+   "name": "Patek Philippe Automatic",
+   "sourceFolder": "PATICK PHILIPE AUTOMATIC",
+   "poster": "watch/male/posters/patek-philippe.webp",
+   "posterSource": "brand",
+   "photoCount": 4,
+   "dir": "watch/male/watches/patek-philippe-automatic",
+   "photos": [
+    {
+     "index": 1,
+     "file": "01.webp",
+     "path": "watch/male/watches/patek-philippe-automatic/01.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 121790,
+     "source": "5778441187952889263.jpg",
+     "sha1": "5a66999c5a8cfe52b4c633c5a61f5797f1c3c664"
+    },
+    {
+     "index": 2,
+     "file": "02.webp",
+     "path": "watch/male/watches/patek-philippe-automatic/02.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 128818,
+     "source": "5778441187952889264.jpg",
+     "sha1": "eadca803e38b77712693795b2c6e2d05133f893a"
+    },
+    {
+     "index": 3,
+     "file": "03.webp",
+     "path": "watch/male/watches/patek-philippe-automatic/03.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 141226,
+     "source": "5778441187952889265.jpg",
+     "sha1": "4261ea7061ad092ac555794d14dd20b2b9950398"
+    },
+    {
+     "index": 4,
+     "file": "04.webp",
+     "path": "watch/male/watches/patek-philippe-automatic/04.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 109674,
+     "source": "5778441187952889266.jpg",
+     "sha1": "f7cd2d457cd71003f5b3805f6aa3e7193531fbfe"
+    }
+   ],
+   "price": null,
+   "reviewNote": "patick philipe -> Patek Philippe"
+  },
+  {
+   "slug": "patek-philippe-classic-ii",
+   "side": "male",
+   "brand": "Patek Philippe",
+   "name": "Patek Philippe Classic II",
+   "sourceFolder": "patik philipe 2",
+   "poster": "watch/male/posters/patek-philippe.webp",
+   "posterSource": "brand",
+   "photoCount": 6,
+   "dir": "watch/male/watches/patek-philippe-classic-ii",
+   "photos": [
+    {
+     "index": 1,
+     "file": "01.webp",
+     "path": "watch/male/watches/patek-philippe-classic-ii/01.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 136734,
+     "source": "5909142686357196505.jpg",
+     "sha1": "9d5747d8c543e692b8bb933b8de4f3c08c7b8d74"
+    },
+    {
+     "index": 2,
+     "file": "02.webp",
+     "path": "watch/male/watches/patek-philippe-classic-ii/02.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 126320,
+     "source": "5909142686357196506.jpg",
+     "sha1": "32be610aa65f4e5e440a4672b0d3f2ab2082623e"
+    },
+    {
+     "index": 3,
+     "file": "03.webp",
+     "path": "watch/male/watches/patek-philippe-classic-ii/03.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 129144,
+     "source": "5909142686357196507.jpg",
+     "sha1": "0be2e6d4e6739b3be3d2b6c49e38ed00f25aaa97"
+    },
+    {
+     "index": 4,
+     "file": "04.webp",
+     "path": "watch/male/watches/patek-philippe-classic-ii/04.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 129406,
+     "source": "5909142686357196508.jpg",
+     "sha1": "7f680e979d338ab6b9060ff59650bffb2e309dc5"
+    },
+    {
+     "index": 5,
+     "file": "05.webp",
+     "path": "watch/male/watches/patek-philippe-classic-ii/05.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 124380,
+     "source": "5909142686357196509.jpg",
+     "sha1": "601e93d86571c6ddd6a9060efa337360a55c00ec"
+    },
+    {
+     "index": 6,
+     "file": "06.webp",
+     "path": "watch/male/watches/patek-philippe-classic-ii/06.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 134096,
+     "source": "5909142686357196510.jpg",
+     "sha1": "c50f479f011838778a904e2b1ff5900a826ddf03"
+    }
+   ],
+   "price": null,
+   "reviewNote": "patik philipe -> Patek Philippe; 2 -> II"
+  },
+  {
+   "slug": "richard-mille",
+   "side": "male",
+   "brand": "Richard Mille",
+   "name": "Richard Mille",
+   "sourceFolder": "RICHARD MILLE",
+   "poster": "watch/male/posters/richard-mille.webp",
+   "posterSource": "brand",
+   "photoCount": 21,
+   "dir": "watch/male/watches/richard-mille",
+   "photos": [
+    {
+     "index": 1,
+     "file": "01.webp",
+     "path": "watch/male/watches/richard-mille/01.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 120642,
+     "source": "5868686302042066318 (1).jpg",
+     "sha1": "478d59e1dc1c6c568b5fb1581b5c5f5188b832f7"
+    },
+    {
+     "index": 2,
+     "file": "02.webp",
+     "path": "watch/male/watches/richard-mille/02.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 58252,
+     "source": "5868686302042066319.jpg",
+     "sha1": "0038ca6a9add5d44925c59420bb1c5919e4e0eb1"
+    },
+    {
+     "index": 3,
+     "file": "03.webp",
+     "path": "watch/male/watches/richard-mille/03.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 106530,
+     "source": "5868686302042066320.jpg",
+     "sha1": "00f259429e1ae75d8b5d7e437aeccb81eb13174e"
+    },
+    {
+     "index": 4,
+     "file": "04.webp",
+     "path": "watch/male/watches/richard-mille/04.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 76376,
+     "source": "5868686302042066321.jpg",
+     "sha1": "7b052437bad4226f17fcd9e58bb4b1b96e518e5e"
+    },
+    {
+     "index": 5,
+     "file": "05.webp",
+     "path": "watch/male/watches/richard-mille/05.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 61866,
+     "source": "5868686302042066322.jpg",
+     "sha1": "226b5e1e36710f1454c780c5e67ca9f032df67e4"
+    },
+    {
+     "index": 6,
+     "file": "06.webp",
+     "path": "watch/male/watches/richard-mille/06.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 113800,
+     "source": "5868686302042066323.jpg",
+     "sha1": "7b3066e6db52d289e418f03cbff8cdf530b51682"
+    },
+    {
+     "index": 7,
+     "file": "07.webp",
+     "path": "watch/male/watches/richard-mille/07.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 60268,
+     "source": "5868686302042066324.jpg",
+     "sha1": "2962ccc06de4d9fe42b470f091beb6a7f5df959d"
+    },
+    {
+     "index": 8,
+     "file": "08.webp",
+     "path": "watch/male/watches/richard-mille/08.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 87092,
+     "source": "5868686302042066325.jpg",
+     "sha1": "f82e67dd0ae5c3b7021a3acc8c3f6fdc01f0c94b"
+    },
+    {
+     "index": 9,
+     "file": "09.webp",
+     "path": "watch/male/watches/richard-mille/09.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 80484,
+     "source": "5868686302042066326.jpg",
+     "sha1": "24f486737e67ae39ed31c5ca17c4e0be5435fddf"
+    },
+    {
+     "index": 10,
+     "file": "10.webp",
+     "path": "watch/male/watches/richard-mille/10.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 104782,
+     "source": "5868686302042066327.jpg",
+     "sha1": "7e56464e5cbb2d6b259ac898106431a618f82a49"
+    },
+    {
+     "index": 11,
+     "file": "11.webp",
+     "path": "watch/male/watches/richard-mille/11.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 89646,
+     "source": "5868686302042066328.jpg",
+     "sha1": "2bc643c102ea3e61a8b41e3557c1f20c80020315"
+    },
+    {
+     "index": 12,
+     "file": "12.webp",
+     "path": "watch/male/watches/richard-mille/12.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 56008,
+     "source": "5868686302042066329.jpg",
+     "sha1": "dbd2900b3d3d476978f80b3c78c252572cae2a9d"
+    },
+    {
+     "index": 13,
+     "file": "13.webp",
+     "path": "watch/male/watches/richard-mille/13.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 63422,
+     "source": "5868686302042066330.jpg",
+     "sha1": "963db261b4b0c680f91a18de23e275a36ebe168f"
+    },
+    {
+     "index": 14,
+     "file": "14.webp",
+     "path": "watch/male/watches/richard-mille/14.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 71096,
+     "source": "5868686302042066331.jpg",
+     "sha1": "b0811aeb917cd8273bf918f2cd2ab7a9bb998d9c"
+    },
+    {
+     "index": 15,
+     "file": "15.webp",
+     "path": "watch/male/watches/richard-mille/15.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 134974,
+     "source": "5868686302042066332.jpg",
+     "sha1": "839efb25ac54af586479bf7b7a6da1afc12d23e9"
+    },
+    {
+     "index": 16,
+     "file": "16.webp",
+     "path": "watch/male/watches/richard-mille/16.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 49988,
+     "source": "5868686302042066333.jpg",
+     "sha1": "6be0b04fdacc761041ebd2ca27b3f09bc22d5e25"
+    },
+    {
+     "index": 17,
+     "file": "17.webp",
+     "path": "watch/male/watches/richard-mille/17.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 85160,
+     "source": "5868686302042066334.jpg",
+     "sha1": "54f21d0ba611d437d5701f0786e96bb44743ef15"
+    },
+    {
+     "index": 18,
+     "file": "18.webp",
+     "path": "watch/male/watches/richard-mille/18.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 102988,
+     "source": "5868686302042066335.jpg",
+     "sha1": "f2cac23d6be0a7d75f12d05d58903df5f0a5f6ee"
+    },
+    {
+     "index": 19,
+     "file": "19.webp",
+     "path": "watch/male/watches/richard-mille/19.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 119694,
+     "source": "5868686302042066336.jpg",
+     "sha1": "8827dc5c5bcb4860c2befee4cd7e60aac759eaf7"
+    },
+    {
+     "index": 20,
+     "file": "20.webp",
+     "path": "watch/male/watches/richard-mille/20.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 120996,
+     "source": "5868686302042066337.jpg",
+     "sha1": "fecd5d9021407197946fb5ec59207c7d74f28b0f"
+    },
+    {
+     "index": 21,
+     "file": "21.webp",
+     "path": "watch/male/watches/richard-mille/21.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 61632,
+     "source": "5868686302042066338.jpg",
+     "sha1": "fb41239a000d09641aac70c9ba3a933a46867fdf"
+    }
+   ],
+   "price": null,
+   "reviewNote": ""
+  },
+  {
+   "slug": "richard-mille-scratch",
+   "side": "male",
+   "brand": "Richard Mille",
+   "name": "Richard Mille Scratch",
+   "sourceFolder": "richard mille sckratch",
+   "poster": "watch/male/posters/richard-mille.webp",
+   "posterSource": "brand",
+   "photoCount": 6,
+   "dir": "watch/male/watches/richard-mille-scratch",
+   "photos": [
+    {
+     "index": 1,
+     "file": "01.webp",
+     "path": "watch/male/watches/richard-mille-scratch/01.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 95028,
+     "source": "5949403207278726826.jpg",
+     "sha1": "e50f9855b6f5793896e64c21186a13140f5709c3"
+    },
+    {
+     "index": 2,
+     "file": "02.webp",
+     "path": "watch/male/watches/richard-mille-scratch/02.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 108178,
+     "source": "5949403207278726827.jpg",
+     "sha1": "e9f953f393bf57037341d8161741aeb1d3afb0b9"
+    },
+    {
+     "index": 3,
+     "file": "03.webp",
+     "path": "watch/male/watches/richard-mille-scratch/03.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 133518,
+     "source": "5949403207278726828.jpg",
+     "sha1": "af5683ecf07575b56095d91d81301ac4ee816931"
+    },
+    {
+     "index": 4,
+     "file": "04.webp",
+     "path": "watch/male/watches/richard-mille-scratch/04.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 97056,
+     "source": "5949403207278726829.jpg",
+     "sha1": "7136c741d27e3d4144e2f036d7be60d2b3bb5899"
+    },
+    {
+     "index": 5,
+     "file": "05.webp",
+     "path": "watch/male/watches/richard-mille-scratch/05.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 105330,
+     "source": "5949403207278726830.jpg",
+     "sha1": "3c4a3fd03c26149b1ea4b1bf908b805bf161d0a0"
+    },
+    {
+     "index": 6,
+     "file": "06.webp",
+     "path": "watch/male/watches/richard-mille-scratch/06.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 100774,
+     "source": "5949403207278726831.jpg",
+     "sha1": "80539f6ec4f876f833f05e5a2672cd47626c059d"
+    }
+   ],
+   "price": null,
+   "reviewNote": "sckratch -> Scratch: PLEASE CONFIRM, this may have meant Skeleton"
+  },
+  {
+   "slug": "rolex-datejust",
+   "side": "male",
+   "brand": "Rolex",
+   "name": "Rolex Datejust",
+   "sourceFolder": "ROLEX DATE JUST",
+   "poster": "watch/male/posters/rolex-oyster.webp",
+   "posterSource": "brand",
+   "photoCount": 5,
+   "dir": "watch/male/watches/rolex-datejust",
+   "photos": [
+    {
+     "index": 1,
+     "file": "01.webp",
+     "path": "watch/male/watches/rolex-datejust/01.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 116690,
+     "source": "5888982517891668138.jpg",
+     "sha1": "3466fbeb35e4a5f0599dc643839cffb72ddc38eb"
+    },
+    {
+     "index": 2,
+     "file": "02.webp",
+     "path": "watch/male/watches/rolex-datejust/02.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 105612,
+     "source": "5888982517891668139.jpg",
+     "sha1": "f323dacb5ed3a11d3e0cf6a6882dd74faf62ef77"
+    },
+    {
+     "index": 3,
+     "file": "03.webp",
+     "path": "watch/male/watches/rolex-datejust/03.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 89884,
+     "source": "5888982517891668140.jpg",
+     "sha1": "9889b484a838166141171314b0aa08827ed040c4"
+    },
+    {
+     "index": 4,
+     "file": "04.webp",
+     "path": "watch/male/watches/rolex-datejust/04.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 91934,
+     "source": "5888982517891668141.jpg",
+     "sha1": "06d625285c4214aad4aff9ec781e5a007a9d356f"
+    },
+    {
+     "index": 5,
+     "file": "05.webp",
+     "path": "watch/male/watches/rolex-datejust/05.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 90620,
+     "source": "5888982517891668142.jpg",
+     "sha1": "c4733881b614a48e258a58489b6b201f1111f882"
+    }
+   ],
+   "price": null,
+   "reviewNote": "DATE JUST -> Datejust"
+  },
+  {
+   "slug": "rolex-gmt-master",
+   "side": "male",
+   "brand": "Rolex",
+   "name": "Rolex GMT-Master",
+   "sourceFolder": "ROLEX GMT",
+   "poster": "watch/male/posters/rolex-oyster.webp",
+   "posterSource": "brand",
+   "photoCount": 7,
+   "dir": "watch/male/watches/rolex-gmt-master",
+   "photos": [
+    {
+     "index": 1,
+     "file": "01.webp",
+     "path": "watch/male/watches/rolex-gmt-master/01.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 139046,
+     "source": "5778441187952889271.jpg",
+     "sha1": "85d37a68847f710e932d27070514e758d213744a"
+    },
+    {
+     "index": 2,
+     "file": "02.webp",
+     "path": "watch/male/watches/rolex-gmt-master/02.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 143468,
+     "source": "5778441187952889272 (1).jpg",
+     "sha1": "289386853124a3a86c3a9d37fc432ac489cca0c9"
+    },
+    {
+     "index": 3,
+     "file": "03.webp",
+     "path": "watch/male/watches/rolex-gmt-master/03.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 143468,
+     "source": "5778441187952889272.jpg",
+     "sha1": "289386853124a3a86c3a9d37fc432ac489cca0c9"
+    },
+    {
+     "index": 4,
+     "file": "04.webp",
+     "path": "watch/male/watches/rolex-gmt-master/04.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 138688,
+     "source": "5778441187952889273.jpg",
+     "sha1": "b71b09f0df4c65e8d43e71ea4bbb0711452cfec4"
+    },
+    {
+     "index": 5,
+     "file": "05.webp",
+     "path": "watch/male/watches/rolex-gmt-master/05.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 127910,
+     "source": "5778441187952889274.jpg",
+     "sha1": "4200b10a8bb886aa13c31ff2c5d3b79492574006"
+    },
+    {
+     "index": 6,
+     "file": "06.webp",
+     "path": "watch/male/watches/rolex-gmt-master/06.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 135992,
+     "source": "5778441187952889275.jpg",
+     "sha1": "c59049d7a9508d35d2822632983c38bbcaa8a3c8"
+    },
+    {
+     "index": 7,
+     "file": "07.webp",
+     "path": "watch/male/watches/rolex-gmt-master/07.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 138056,
+     "source": "5778441187952889276.jpg",
+     "sha1": "886a5fbcf461170a373bd59776ee109db606ead5"
+    }
+   ],
+   "price": null,
+   "reviewNote": "GMT -> GMT-Master"
+  },
+  {
+   "slug": "rolex-land-dweller",
+   "side": "male",
+   "brand": "Rolex",
+   "name": "Rolex Land-Dweller",
+   "sourceFolder": "ROLEX LAND_DWELLER",
+   "poster": "watch/male/posters/rolex-oyster.webp",
+   "posterSource": "brand",
+   "photoCount": 5,
+   "dir": "watch/male/watches/rolex-land-dweller",
+   "photos": [
+    {
+     "index": 1,
+     "file": "01.webp",
+     "path": "watch/male/watches/rolex-land-dweller/01.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 99702,
+     "source": "5888982517891668143 (1).jpg",
+     "sha1": "3e8fcac4fa205a50297c55f0f5688dbb87d2ed22"
+    },
+    {
+     "index": 2,
+     "file": "02.webp",
+     "path": "watch/male/watches/rolex-land-dweller/02.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 92822,
+     "source": "5888982517891668144 (1).jpg",
+     "sha1": "0da7acc0105401c0fe5005082e9454e9f283569d"
+    },
+    {
+     "index": 3,
+     "file": "03.webp",
+     "path": "watch/male/watches/rolex-land-dweller/03.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 100940,
+     "source": "5888982517891668145 (1).jpg",
+     "sha1": "9c06d17a22fec24b372180ae542925c34cb54e30"
+    },
+    {
+     "index": 4,
+     "file": "04.webp",
+     "path": "watch/male/watches/rolex-land-dweller/04.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 98410,
+     "source": "5888982517891668146 (1).jpg",
+     "sha1": "0d1a770c0c0f62708bc50a4f269e72e5a1b6181a"
+    },
+    {
+     "index": 5,
+     "file": "05.webp",
+     "path": "watch/male/watches/rolex-land-dweller/05.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 100822,
+     "source": "5888982517891668147.jpg",
+     "sha1": "59d663cd730943049a113a87332ec87cf6cc576c"
+    }
+   ],
+   "price": null,
+   "reviewNote": "underscore -> hyphen"
+  },
+  {
+   "slug": "rolex-oyster-perpetual",
+   "side": "male",
+   "brand": "Rolex",
+   "name": "Rolex Oyster Perpetual",
+   "sourceFolder": "rolex oyster",
+   "poster": "watch/male/posters/rolex-oyster.webp",
+   "posterSource": "brand",
+   "photoCount": 8,
+   "dir": "watch/male/watches/rolex-oyster-perpetual",
+   "photos": [
+    {
+     "index": 1,
+     "file": "01.webp",
+     "path": "watch/male/watches/rolex-oyster-perpetual/01.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 84502,
+     "source": "5976317688558587267.jpg",
+     "sha1": "fb0aebab0431d3bfec0f2a219b0f786996bc5f9f"
+    },
+    {
+     "index": 2,
+     "file": "02.webp",
+     "path": "watch/male/watches/rolex-oyster-perpetual/02.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 76250,
+     "source": "5976317688558587268.jpg",
+     "sha1": "71c4e9bc7459a75f83afa3475ae6e56df5e2c9f9"
+    },
+    {
+     "index": 3,
+     "file": "03.webp",
+     "path": "watch/male/watches/rolex-oyster-perpetual/03.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 102690,
+     "source": "5976317688558587269.jpg",
+     "sha1": "dcd0ce74a9dcb61587f04956caeeac6831ab4240"
+    },
+    {
+     "index": 4,
+     "file": "04.webp",
+     "path": "watch/male/watches/rolex-oyster-perpetual/04.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 98816,
+     "source": "5976317688558587270.jpg",
+     "sha1": "c9177eb6146e43b6618326b1af87e664952fa679"
+    },
+    {
+     "index": 5,
+     "file": "05.webp",
+     "path": "watch/male/watches/rolex-oyster-perpetual/05.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 93652,
+     "source": "5976317688558587271.jpg",
+     "sha1": "86dbd561eca5e8b50acee4342c151828e412a662"
+    },
+    {
+     "index": 6,
+     "file": "06.webp",
+     "path": "watch/male/watches/rolex-oyster-perpetual/06.webp",
+     "width": 959,
+     "height": 1280,
+     "bytes": 99820,
+     "source": "5976317688558587272.jpg",
+     "sha1": "88605dc05d4e41ed374ccdd56e189a8b0154b49d"
+    },
+    {
+     "index": 7,
+     "file": "07.webp",
+     "path": "watch/male/watches/rolex-oyster-perpetual/07.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 87754,
+     "source": "5976317688558587273.jpg",
+     "sha1": "9a1a06ee61d1c346c8f6a4d53a9937d498c09728"
+    },
+    {
+     "index": 8,
+     "file": "08.webp",
+     "path": "watch/male/watches/rolex-oyster-perpetual/08.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 67060,
+     "source": "5976317688558587274.jpg",
+     "sha1": "27e8dc300f28b46a13b115dcf11f8830088e14e7"
+    }
+   ],
+   "price": null,
+   "reviewNote": "model line completed"
+  },
+  {
+   "slug": "rolex-oyster-perpetual-ii",
+   "side": "male",
+   "brand": "Rolex",
+   "name": "Rolex Oyster Perpetual II",
+   "sourceFolder": "rolex oyster 2",
+   "poster": "watch/male/posters/rolex-oyster.webp",
+   "posterSource": "brand",
+   "photoCount": 5,
+   "dir": "watch/male/watches/rolex-oyster-perpetual-ii",
+   "photos": [
+    {
+     "index": 1,
+     "file": "01.webp",
+     "path": "watch/male/watches/rolex-oyster-perpetual-ii/01.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 81884,
+     "source": "5976317688558587286.jpg",
+     "sha1": "6bc9505c8b690bd091d3df92fe9d2e6cfb377d09"
+    },
+    {
+     "index": 2,
+     "file": "02.webp",
+     "path": "watch/male/watches/rolex-oyster-perpetual-ii/02.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 104904,
+     "source": "5976317688558587287.jpg",
+     "sha1": "6f72829465774a57f655081793aa62739cb341eb"
+    },
+    {
+     "index": 3,
+     "file": "03.webp",
+     "path": "watch/male/watches/rolex-oyster-perpetual-ii/03.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 78014,
+     "source": "5976317688558587288.jpg",
+     "sha1": "a3788c10a7519eae8e99f9a36823c4d59015f534"
+    },
+    {
+     "index": 4,
+     "file": "04.webp",
+     "path": "watch/male/watches/rolex-oyster-perpetual-ii/04.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 78230,
+     "source": "5976317688558587289.jpg",
+     "sha1": "b711a099c3a3f204e909b0bd6740149811ddaf0d"
+    },
+    {
+     "index": 5,
+     "file": "05.webp",
+     "path": "watch/male/watches/rolex-oyster-perpetual-ii/05.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 87818,
+     "source": "5976317688558587290.jpg",
+     "sha1": "5675d07950e52ba6ba63d1f645b0a5decc81b659"
+    }
+   ],
+   "price": null,
+   "reviewNote": "2 -> II"
+  },
+  {
+   "slug": "tissot-classic",
+   "side": "male",
+   "brand": "Tissot",
+   "name": "Tissot Classic",
+   "sourceFolder": "TISSOT",
+   "poster": "watch/male/posters/tissot.webp",
+   "posterSource": "brand",
+   "photoCount": 5,
+   "dir": "watch/male/watches/tissot-classic",
+   "photos": [
+    {
+     "index": 1,
+     "file": "01.webp",
+     "path": "watch/male/watches/tissot-classic/01.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 93918,
+     "source": "5893382510022954752.jpg",
+     "sha1": "99c03f7b01ea826e4ce90bbc641647e7ba1a6829"
+    },
+    {
+     "index": 2,
+     "file": "02.webp",
+     "path": "watch/male/watches/tissot-classic/02.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 106264,
+     "source": "5893382510022954753.jpg",
+     "sha1": "817e8c2f4acc2d3784dcdaddb86aac57f97d8704"
+    },
+    {
+     "index": 3,
+     "file": "03.webp",
+     "path": "watch/male/watches/tissot-classic/03.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 83878,
+     "source": "5893382510022954754.jpg",
+     "sha1": "881dc763188df87dfbaef24f94d80be3164f4aea"
+    },
+    {
+     "index": 4,
+     "file": "04.webp",
+     "path": "watch/male/watches/tissot-classic/04.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 100472,
+     "source": "5893382510022954755.jpg",
+     "sha1": "7505f19b164f4916e6805761d511a095694c487a"
+    },
+    {
+     "index": 5,
+     "file": "05.webp",
+     "path": "watch/male/watches/tissot-classic/05.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 83620,
+     "source": "5893382510022954756.jpg",
+     "sha1": "2e742e5071e973cf8d3c9e1b75c8ede1c6301790"
+    }
+   ],
+   "price": null,
+   "reviewNote": "bare brand name; 'Classic' added"
+  },
+  {
+   "slug": "rolex-datejust-two-tone-black-dial",
+   "side": "female",
+   "brand": "Rolex",
+   "name": "Rolex Datejust Two-Tone Black Dial",
+   "sourceFolder": " Rolex Datejust Two-Tone Black Dial",
+   "poster": "watch/female/posters/rolex-oyster.webp",
+   "posterSource": "override",
+   "photoCount": 10,
+   "dir": "watch/female/watches/rolex-datejust-two-tone-black-dial",
+   "photos": [
+    {
+     "index": 1,
+     "file": "01.webp",
+     "path": "watch/female/watches/rolex-datejust-two-tone-black-dial/01.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 129060,
+     "source": "photo_1_2026-08-06_00-16-51.jpg",
+     "sha1": "99cf7c6b4d7f12498b7c8f8ddce66c0be1797dd9"
+    },
+    {
+     "index": 2,
+     "file": "02.webp",
+     "path": "watch/female/watches/rolex-datejust-two-tone-black-dial/02.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 88392,
+     "source": "photo_2_2026-08-06_00-16-51.jpg",
+     "sha1": "969eb034e2fea46c11f0dff3d36f763d0dfa26ae"
+    },
+    {
+     "index": 3,
+     "file": "03.webp",
+     "path": "watch/female/watches/rolex-datejust-two-tone-black-dial/03.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 141198,
+     "source": "photo_3_2026-08-06_00-16-51.jpg",
+     "sha1": "193c1cda901e6dd470296b58e0451086008ef6df"
+    },
+    {
+     "index": 4,
+     "file": "04.webp",
+     "path": "watch/female/watches/rolex-datejust-two-tone-black-dial/04.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 106180,
+     "source": "photo_4_2026-08-06_00-16-51.jpg",
+     "sha1": "f2f5163343d283f6c299b02ffe140f2b4f2c5855"
+    },
+    {
+     "index": 5,
+     "file": "05.webp",
+     "path": "watch/female/watches/rolex-datejust-two-tone-black-dial/05.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 101626,
+     "source": "photo_5_2026-08-06_00-16-51.jpg",
+     "sha1": "ce68a62fa2a97141cf48af6180190125be1476da"
+    },
+    {
+     "index": 6,
+     "file": "06.webp",
+     "path": "watch/female/watches/rolex-datejust-two-tone-black-dial/06.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 134734,
+     "source": "photo_6_2026-08-06_00-16-51.jpg",
+     "sha1": "f821a4e43003e15a256da6591e9793c168bd1f64"
+    },
+    {
+     "index": 7,
+     "file": "07.webp",
+     "path": "watch/female/watches/rolex-datejust-two-tone-black-dial/07.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 131006,
+     "source": "photo_7_2026-08-06_00-16-51.jpg",
+     "sha1": "b665699d9066e136a78791703eef04f9e642fef6"
+    },
+    {
+     "index": 8,
+     "file": "08.webp",
+     "path": "watch/female/watches/rolex-datejust-two-tone-black-dial/08.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 141592,
+     "source": "photo_8_2026-08-06_00-16-51.jpg",
+     "sha1": "f17483653b45881c4fdbb43cdcae4db7c3ae514a"
+    },
+    {
+     "index": 9,
+     "file": "09.webp",
+     "path": "watch/female/watches/rolex-datejust-two-tone-black-dial/09.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 126954,
+     "source": "photo_9_2026-08-06_00-16-51.jpg",
+     "sha1": "d5cb0e77e914abe860029e78f12f1b17820eb822"
+    },
+    {
+     "index": 10,
+     "file": "10.webp",
+     "path": "watch/female/watches/rolex-datejust-two-tone-black-dial/10.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 138760,
+     "source": "photo_10_2026-08-06_00-16-51.jpg",
+     "sha1": "e9991eb6419ed18d874778f312339f109d8880e6"
+    }
+   ],
+   "price": null,
+   "reviewNote": "leading space removed"
+  },
+  {
+   "slug": "bvlgari-serpenti",
+   "side": "female",
+   "brand": "Bvlgari",
+   "name": "Bvlgari Serpenti",
+   "sourceFolder": "Bvlgari Serpenti",
+   "poster": "watch/female/posters/bvlgari-serpenti.webp",
+   "posterSource": "brand",
+   "photoCount": 5,
+   "dir": "watch/female/watches/bvlgari-serpenti",
+   "photos": [
+    {
+     "index": 1,
+     "file": "01.webp",
+     "path": "watch/female/watches/bvlgari-serpenti/01.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 85462,
+     "source": "photo_1_2026-08-06_01-06-39.jpg",
+     "sha1": "fbf77ad413b0db0f1d5d52d50c1d043576e9311b"
+    },
+    {
+     "index": 2,
+     "file": "02.webp",
+     "path": "watch/female/watches/bvlgari-serpenti/02.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 86040,
+     "source": "photo_2_2026-08-06_01-06-39.jpg",
+     "sha1": "957a5baad8127521fc3556eb01c27d7514ae0c66"
+    },
+    {
+     "index": 3,
+     "file": "03.webp",
+     "path": "watch/female/watches/bvlgari-serpenti/03.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 94258,
+     "source": "photo_3_2026-08-06_01-06-39.jpg",
+     "sha1": "41a9779182eea1bc66d6231aace62db0d528bbbd"
+    },
+    {
+     "index": 4,
+     "file": "04.webp",
+     "path": "watch/female/watches/bvlgari-serpenti/04.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 94290,
+     "source": "photo_4_2026-08-06_01-06-39.jpg",
+     "sha1": "542191665588dc2eca04131ee34785e60fc3f2ed"
+    },
+    {
+     "index": 5,
+     "file": "05.webp",
+     "path": "watch/female/watches/bvlgari-serpenti/05.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 87580,
+     "source": "photo_5_2026-08-06_01-06-39.jpg",
+     "sha1": "02702ed7dfcd6bae048bb74c751912203a719022"
+    }
+   ],
+   "price": null,
+   "reviewNote": ""
+  },
+  {
+   "slug": "cartier-ballon-bleu",
+   "side": "female",
+   "brand": "Cartier",
+   "name": "Cartier Ballon Bleu",
+   "sourceFolder": "CARTIER B.B",
+   "poster": "watch/female/watches/cartier-ballon-bleu/01.webp",
+   "posterSource": "fallback-photo",
+   "photoCount": 2,
+   "dir": "watch/female/watches/cartier-ballon-bleu",
+   "photos": [
+    {
+     "index": 1,
+     "file": "01.webp",
+     "path": "watch/female/watches/cartier-ballon-bleu/01.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 95638,
+     "source": "photo_1_2026-08-06_01-08-03.jpg",
+     "sha1": "f0133b8e2c975487c72dbfc2be49287f939fb19e"
+    },
+    {
+     "index": 2,
+     "file": "02.webp",
+     "path": "watch/female/watches/cartier-ballon-bleu/02.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 115820,
+     "source": "photo_2_2026-08-06_01-08-03.jpg",
+     "sha1": "61e5a6c7451cf82de0b3a0e4e61c879871f87ef5"
+    }
+   ],
+   "price": null,
+   "reviewNote": "B.B -> Ballon Bleu"
+  },
+  {
+   "slug": "cartier-baignoire",
+   "side": "female",
+   "brand": "Cartier",
+   "name": "Cartier Baignoire",
+   "sourceFolder": "Cartier baignoire",
+   "poster": "watch/female/watches/cartier-baignoire/01.webp",
+   "posterSource": "fallback-photo",
+   "photoCount": 10,
+   "dir": "watch/female/watches/cartier-baignoire",
+   "photos": [
+    {
+     "index": 1,
+     "file": "01.webp",
+     "path": "watch/female/watches/cartier-baignoire/01.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 108658,
+     "source": "photo_1_2026-08-06_00-26-16.jpg",
+     "sha1": "e2780da4ce25a3ea46d1f80d3797c657767ada64"
+    },
+    {
+     "index": 2,
+     "file": "02.webp",
+     "path": "watch/female/watches/cartier-baignoire/02.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 117024,
+     "source": "photo_2_2026-08-06_00-26-16.jpg",
+     "sha1": "cc361d72d06e9df8a679db0cb2ee11b3530215ce"
+    },
+    {
+     "index": 3,
+     "file": "03.webp",
+     "path": "watch/female/watches/cartier-baignoire/03.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 112726,
+     "source": "photo_3_2026-08-06_00-26-16.jpg",
+     "sha1": "872ee0132122980b50da5264df5c7fb530288e7c"
+    },
+    {
+     "index": 4,
+     "file": "04.webp",
+     "path": "watch/female/watches/cartier-baignoire/04.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 111388,
+     "source": "photo_4_2026-08-06_00-26-16.jpg",
+     "sha1": "d3a246945ce837e23a93b8a675534704c754f16d"
+    },
+    {
+     "index": 5,
+     "file": "05.webp",
+     "path": "watch/female/watches/cartier-baignoire/05.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 107558,
+     "source": "photo_5_2026-08-06_00-26-16.jpg",
+     "sha1": "951bea5108978679674a9fb4414bbf2fa3e0f1e3"
+    },
+    {
+     "index": 6,
+     "file": "06.webp",
+     "path": "watch/female/watches/cartier-baignoire/06.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 117760,
+     "source": "photo_6_2026-08-06_00-26-16.jpg",
+     "sha1": "9c3cf92d5f191ba352e2c6f125a02bcd52fc26ae"
+    },
+    {
+     "index": 7,
+     "file": "07.webp",
+     "path": "watch/female/watches/cartier-baignoire/07.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 122124,
+     "source": "photo_7_2026-08-06_00-26-16.jpg",
+     "sha1": "74a4327ae02ca0cd7520c5a1338631d2eb96ad40"
+    },
+    {
+     "index": 8,
+     "file": "08.webp",
+     "path": "watch/female/watches/cartier-baignoire/08.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 112758,
+     "source": "photo_8_2026-08-06_00-26-16.jpg",
+     "sha1": "ee70c58803494870a3ab42f41e31cc2bddc94130"
+    },
+    {
+     "index": 9,
+     "file": "09.webp",
+     "path": "watch/female/watches/cartier-baignoire/09.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 106502,
+     "source": "photo_9_2026-08-06_00-26-16.jpg",
+     "sha1": "71cf47fe01e99238634aa261883a007e6f456467"
+    },
+    {
+     "index": 10,
+     "file": "10.webp",
+     "path": "watch/female/watches/cartier-baignoire/10.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 110970,
+     "source": "photo_10_2026-08-06_00-26-16.jpg",
+     "sha1": "b1f5375e16e484bd541346498f9cca15a446c7c5"
+    }
+   ],
+   "price": null,
+   "reviewNote": ""
+  },
+  {
+   "slug": "cartier-panthere",
+   "side": "female",
+   "brand": "Cartier",
+   "name": "Cartier Panthere",
+   "sourceFolder": "Cartier Panthère",
+   "poster": "watch/female/watches/cartier-panthere/01.webp",
+   "posterSource": "fallback-photo",
+   "photoCount": 6,
+   "dir": "watch/female/watches/cartier-panthere",
+   "photos": [
+    {
+     "index": 1,
+     "file": "01.webp",
+     "path": "watch/female/watches/cartier-panthere/01.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 100008,
+     "source": "photo_1_2026-08-06_01-08-45.jpg",
+     "sha1": "a2f6390b1b985981c7f5a3c4f78e9401bf994ecd"
+    },
+    {
+     "index": 2,
+     "file": "02.webp",
+     "path": "watch/female/watches/cartier-panthere/02.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 103660,
+     "source": "photo_2_2026-08-06_01-08-45.jpg",
+     "sha1": "0453dbabda8acabb23c0075d16cf03798b00f188"
+    },
+    {
+     "index": 3,
+     "file": "03.webp",
+     "path": "watch/female/watches/cartier-panthere/03.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 94778,
+     "source": "photo_3_2026-08-06_01-08-45.jpg",
+     "sha1": "dcf883f728d01760becf3d2cf0531c7df5dac03f"
+    },
+    {
+     "index": 4,
+     "file": "04.webp",
+     "path": "watch/female/watches/cartier-panthere/04.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 87132,
+     "source": "photo_4_2026-08-06_01-08-45.jpg",
+     "sha1": "900a28a85f7f739e94c8613ad2a2597ea9ee1147"
+    },
+    {
+     "index": 5,
+     "file": "05.webp",
+     "path": "watch/female/watches/cartier-panthere/05.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 94594,
+     "source": "photo_5_2026-08-06_01-08-45.jpg",
+     "sha1": "5192eb1755805ef92dcedd1a9f9b135f947e2b16"
+    },
+    {
+     "index": 6,
+     "file": "06.webp",
+     "path": "watch/female/watches/cartier-panthere/06.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 84806,
+     "source": "photo_6_2026-08-06_01-08-45.jpg",
+     "sha1": "d849c618d598f26845fa76fecd31a2a5ed858bd3"
+    }
+   ],
+   "price": null,
+   "reviewNote": ""
+  },
+  {
+   "slug": "cartier-panthere-classic-square",
+   "side": "female",
+   "brand": "Cartier",
+   "name": "Cartier Panthere Classic Square",
+   "sourceFolder": "Cartier Panthère Classic Square",
+   "poster": "watch/female/watches/cartier-panthere-classic-square/01.webp",
+   "posterSource": "fallback-photo",
+   "photoCount": 4,
+   "dir": "watch/female/watches/cartier-panthere-classic-square",
+   "photos": [
+    {
+     "index": 1,
+     "file": "01.webp",
+     "path": "watch/female/watches/cartier-panthere-classic-square/01.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 218148,
+     "source": "photo_1_2026-08-06_01-18-04.jpg",
+     "sha1": "544940d9fd5fe78b1c72104e3209ac05e25c1659"
+    },
+    {
+     "index": 2,
+     "file": "02.webp",
+     "path": "watch/female/watches/cartier-panthere-classic-square/02.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 215406,
+     "source": "photo_2_2026-08-06_01-18-04.jpg",
+     "sha1": "99330c4a4af916b6974dbaebfd4902bec7362141"
+    },
+    {
+     "index": 3,
+     "file": "03.webp",
+     "path": "watch/female/watches/cartier-panthere-classic-square/03.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 108736,
+     "source": "photo_3_2026-08-06_01-18-04.jpg",
+     "sha1": "b65e9c1eff696ca67c6a4b5548400d79a406af7e"
+    },
+    {
+     "index": 4,
+     "file": "04.webp",
+     "path": "watch/female/watches/cartier-panthere-classic-square/04.webp",
+     "width": 1080,
+     "height": 1080,
+     "bytes": 251228,
+     "source": "photo_4_2026-08-06_01-18-04.jpg",
+     "sha1": "7894275bdbb5dec0aa8ccf2427c268e53dfd0f19"
+    }
+   ],
+   "price": null,
+   "reviewNote": ""
+  },
+  {
+   "slug": "cartier-panthere-classic",
+   "side": "female",
+   "brand": "Cartier",
+   "name": "Cartier Panthere Classic",
+   "sourceFolder": "CARTIER PONTER ",
+   "poster": "watch/female/watches/cartier-panthere-classic/01.webp",
+   "posterSource": "fallback-photo",
+   "photoCount": 17,
+   "dir": "watch/female/watches/cartier-panthere-classic",
+   "photos": [
+    {
+     "index": 1,
+     "file": "01.webp",
+     "path": "watch/female/watches/cartier-panthere-classic/01.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 169630,
+     "source": "photo_1_2026-08-06_01-20-33.jpg",
+     "sha1": "61a26122304ce492dde10b62c2388afcb8fe81a0"
+    },
+    {
+     "index": 2,
+     "file": "02.webp",
+     "path": "watch/female/watches/cartier-panthere-classic/02.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 204264,
+     "source": "photo_1_2026-08-06_01-22-06.jpg",
+     "sha1": "15dd91b7e01e293b7a32c657f596363091b537f9"
+    },
+    {
+     "index": 3,
+     "file": "03.webp",
+     "path": "watch/female/watches/cartier-panthere-classic/03.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 162086,
+     "source": "photo_2_2026-08-06_01-20-33.jpg",
+     "sha1": "656c400a7a88cf1c14aa495b00d3285ae08717c0"
+    },
+    {
+     "index": 4,
+     "file": "04.webp",
+     "path": "watch/female/watches/cartier-panthere-classic/04.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 196138,
+     "source": "photo_2_2026-08-06_01-22-06.jpg",
+     "sha1": "beb5f9adeb855608d4c858cfcee741b0bdd5b0ba"
+    },
+    {
+     "index": 5,
+     "file": "05.webp",
+     "path": "watch/female/watches/cartier-panthere-classic/05.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 116404,
+     "source": "photo_3_2026-08-06_01-20-33.jpg",
+     "sha1": "899a893523534b677af4f34c119105e48d474f8a"
+    },
+    {
+     "index": 6,
+     "file": "06.webp",
+     "path": "watch/female/watches/cartier-panthere-classic/06.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 189470,
+     "source": "photo_3_2026-08-06_01-22-06.jpg",
+     "sha1": "d099e785b6df16ff5389a6f6f0edcfe04998a497"
+    },
+    {
+     "index": 7,
+     "file": "07.webp",
+     "path": "watch/female/watches/cartier-panthere-classic/07.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 141622,
+     "source": "photo_4_2026-08-06_01-20-33.jpg",
+     "sha1": "ff7d9fba368890669fae7f249558ef836aaf07b3"
+    },
+    {
+     "index": 8,
+     "file": "08.webp",
+     "path": "watch/female/watches/cartier-panthere-classic/08.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 188430,
+     "source": "photo_4_2026-08-06_01-22-06.jpg",
+     "sha1": "9b3ed7b3d9d67e193ce44a1f32c466473540bfc7"
+    },
+    {
+     "index": 9,
+     "file": "09.webp",
+     "path": "watch/female/watches/cartier-panthere-classic/09.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 164802,
+     "source": "photo_5_2026-08-06_01-20-33.jpg",
+     "sha1": "cbb09d0100d49d3192302d6b4407f0f21dc1c082"
+    },
+    {
+     "index": 10,
+     "file": "10.webp",
+     "path": "watch/female/watches/cartier-panthere-classic/10.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 203912,
+     "source": "photo_5_2026-08-06_01-22-06.jpg",
+     "sha1": "1e8fa899e803675e6a962ce6c9a9ba0d308a10d0"
+    },
+    {
+     "index": 11,
+     "file": "11.webp",
+     "path": "watch/female/watches/cartier-panthere-classic/11.webp",
+     "width": 800,
+     "height": 800,
+     "bytes": 46556,
+     "source": "photo_6_2026-08-06_01-20-33.jpg",
+     "sha1": "0b29835d3d4aa62b28f18ab36140ca511023280d"
+    },
+    {
+     "index": 12,
+     "file": "12.webp",
+     "path": "watch/female/watches/cartier-panthere-classic/12.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 186516,
+     "source": "photo_6_2026-08-06_01-22-06.jpg",
+     "sha1": "38ecbd8b02063d6a5aa73788a6ecc7f1c6668599"
+    },
+    {
+     "index": 13,
+     "file": "13.webp",
+     "path": "watch/female/watches/cartier-panthere-classic/13.webp",
+     "width": 700,
+     "height": 700,
+     "bytes": 24198,
+     "source": "photo_7_2026-08-06_01-20-33.jpg",
+     "sha1": "2c2f5664b7632ec10222b14c3923180cb36f98b4"
+    },
+    {
+     "index": 14,
+     "file": "14.webp",
+     "path": "watch/female/watches/cartier-panthere-classic/14.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 181160,
+     "source": "photo_7_2026-08-06_01-22-06.jpg",
+     "sha1": "9b6e3bdbf482992b6be8b5393a103e55eb6e9665"
+    },
+    {
+     "index": 15,
+     "file": "15.webp",
+     "path": "watch/female/watches/cartier-panthere-classic/15.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 187854,
+     "source": "photo_8_2026-08-06_01-22-06.jpg",
+     "sha1": "380ab799e56ac82d7b8e32a5aad67372143ae154"
+    },
+    {
+     "index": 16,
+     "file": "16.webp",
+     "path": "watch/female/watches/cartier-panthere-classic/16.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 200782,
+     "source": "photo_9_2026-08-06_01-22-06.jpg",
+     "sha1": "cc90b3d571566b3b99f79a7aca38630a80a60296"
+    },
+    {
+     "index": 17,
+     "file": "17.webp",
+     "path": "watch/female/watches/cartier-panthere-classic/17.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 209458,
+     "source": "photo_10_2026-08-06_01-22-06.jpg",
+     "sha1": "9becad4837c89b864c92c68c0603656b785af8a6"
+    }
+   ],
+   "price": null,
+   "reviewNote": "PONTER -> Panthere; trailing space removed; named 'Classic' to avoid colliding with the two other Panthere folders"
+  },
+  {
+   "slug": "casio-couple-carre-bleu",
+   "side": "female",
+   "brand": "Casio",
+   "name": "Casio Couple Carre Bleu",
+   "sourceFolder": "Casio Couple Carré Bleu",
+   "poster": "watch/female/watches/casio-couple-carre-bleu/01.webp",
+   "posterSource": "fallback-photo",
+   "photoCount": 5,
+   "dir": "watch/female/watches/casio-couple-carre-bleu",
+   "photos": [
+    {
+     "index": 1,
+     "file": "01.webp",
+     "path": "watch/female/watches/casio-couple-carre-bleu/01.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 154194,
+     "source": "photo_1_2026-08-06_00-25-33.jpg",
+     "sha1": "1d2d7fbafe1762ae2a730cc00cd00dabfc256ba6"
+    },
+    {
+     "index": 2,
+     "file": "02.webp",
+     "path": "watch/female/watches/casio-couple-carre-bleu/02.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 166982,
+     "source": "photo_2_2026-08-06_00-25-33.jpg",
+     "sha1": "237a504c066a323bfb6f1a6eeb67616f141a1af7"
+    },
+    {
+     "index": 3,
+     "file": "03.webp",
+     "path": "watch/female/watches/casio-couple-carre-bleu/03.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 157408,
+     "source": "photo_3_2026-08-06_00-25-33.jpg",
+     "sha1": "886fd23c334130f4f85b14db06de3baa4f5d967f"
+    },
+    {
+     "index": 4,
+     "file": "04.webp",
+     "path": "watch/female/watches/casio-couple-carre-bleu/04.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 131588,
+     "source": "photo_4_2026-08-06_00-25-33.jpg",
+     "sha1": "d28f27b407a59a519f647de7d6873996482caf6e"
+    },
+    {
+     "index": 5,
+     "file": "05.webp",
+     "path": "watch/female/watches/casio-couple-carre-bleu/05.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 140122,
+     "source": "photo_5_2026-08-06_00-25-33.jpg",
+     "sha1": "fc6cc575fd09aa08bc2894f8a8a609b7fb30b434"
+    }
+   ],
+   "price": null,
+   "reviewNote": ""
+  },
+  {
+   "slug": "chanel-premiere",
+   "side": "female",
+   "brand": "Chanel",
+   "name": "Chanel Premiere",
+   "sourceFolder": "Chanel Première",
+   "poster": "watch/female/posters/chanel-premiere.webp",
+   "posterSource": "brand",
+   "photoCount": 3,
+   "dir": "watch/female/watches/chanel-premiere",
+   "photos": [
+    {
+     "index": 1,
+     "file": "01.webp",
+     "path": "watch/female/watches/chanel-premiere/01.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 70140,
+     "source": "photo_1_2026-08-06_01-05-42.jpg",
+     "sha1": "b8ba0bbf0b92fad8ad6107f584916d07a1633fa7"
+    },
+    {
+     "index": 2,
+     "file": "02.webp",
+     "path": "watch/female/watches/chanel-premiere/02.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 83822,
+     "source": "photo_2_2026-08-06_01-05-42.jpg",
+     "sha1": "79eff60a8ac02a0f55d80dcc6a222cdf6d54bdfc"
+    },
+    {
+     "index": 3,
+     "file": "03.webp",
+     "path": "watch/female/watches/chanel-premiere/03.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 85748,
+     "source": "photo_3_2026-08-06_01-05-42.jpg",
+     "sha1": "378838210bb523587b15bb392eb86501d6d44337"
+    }
+   ],
+   "price": null,
+   "reviewNote": ""
+  },
+  {
+   "slug": "daniel-wellington",
+   "side": "female",
+   "brand": "Daniel Wellington",
+   "name": "Daniel Wellington",
+   "sourceFolder": "DANIEL WELLINGTON",
+   "poster": "watch/female/posters/daniel-wellington.webp",
+   "posterSource": "override",
+   "photoCount": 5,
+   "dir": "watch/female/watches/daniel-wellington",
+   "photos": [
+    {
+     "index": 1,
+     "file": "01.webp",
+     "path": "watch/female/watches/daniel-wellington/01.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 175068,
+     "source": "photo_1_2026-08-06_01-09-58.jpg",
+     "sha1": "21d1025aaef34f6ac46dff3c3594d76a866c751b"
+    },
+    {
+     "index": 2,
+     "file": "02.webp",
+     "path": "watch/female/watches/daniel-wellington/02.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 178688,
+     "source": "photo_2_2026-08-06_01-09-58.jpg",
+     "sha1": "701baa4ee06cd31eff395bedb1519215cbbd5203"
+    },
+    {
+     "index": 3,
+     "file": "03.webp",
+     "path": "watch/female/watches/daniel-wellington/03.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 175862,
+     "source": "photo_3_2026-08-06_01-09-58.jpg",
+     "sha1": "3672f5dde946fd66c0fb46d63f13f3fcbb77061e"
+    },
+    {
+     "index": 4,
+     "file": "04.webp",
+     "path": "watch/female/watches/daniel-wellington/04.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 178776,
+     "source": "photo_4_2026-08-06_01-09-58.jpg",
+     "sha1": "ad985269c4cbbcc059fbe9eb137527b9cbc1fcbc"
+    },
+    {
+     "index": 5,
+     "file": "05.webp",
+     "path": "watch/female/watches/daniel-wellington/05.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 178272,
+     "source": "photo_5_2026-08-06_01-09-58.jpg",
+     "sha1": "32321e89d0b7e8114c43f48a97fd24a55e57a8bd"
+    }
+   ],
+   "price": null,
+   "reviewNote": ""
+  },
+  {
+   "slug": "daniel-wellington-petite",
+   "side": "female",
+   "brand": "Daniel Wellington",
+   "name": "Daniel Wellington Petite",
+   "sourceFolder": "dw",
+   "poster": "watch/female/posters/dw.webp",
+   "posterSource": "override",
+   "photoCount": 2,
+   "dir": "watch/female/watches/daniel-wellington-petite",
+   "photos": [
+    {
+     "index": 1,
+     "file": "01.webp",
+     "path": "watch/female/watches/daniel-wellington-petite/01.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 186360,
+     "source": "photo_1_2026-08-06_01-14-46.jpg",
+     "sha1": "8f80bbd966a503d1b88010e380a098804c5055c0"
+    },
+    {
+     "index": 2,
+     "file": "02.webp",
+     "path": "watch/female/watches/daniel-wellington-petite/02.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 197648,
+     "source": "photo_2_2026-08-06_01-14-46.jpg",
+     "sha1": "dd8d96e15a10ab926fc29e0d52934173aece6540"
+    }
+   ],
+   "price": null,
+   "reviewNote": "dw expanded; 'Petite' added to separate it from the other DW folder"
+  },
+  {
+   "slug": "emporio-armani-strass",
+   "side": "female",
+   "brand": "Emporio Armani",
+   "name": "Emporio Armani Strass",
+   "sourceFolder": "Emporio Armani Strass",
+   "poster": "watch/female/posters/emporio-armani.webp",
+   "posterSource": "brand",
+   "photoCount": 3,
+   "dir": "watch/female/watches/emporio-armani-strass",
+   "photos": [
+    {
+     "index": 1,
+     "file": "01.webp",
+     "path": "watch/female/watches/emporio-armani-strass/01.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 94344,
+     "source": "photo_1_2026-08-06_01-04-04.jpg",
+     "sha1": "cb610a25ea9370d48ad4cd1944ff34d5432d4463"
+    },
+    {
+     "index": 2,
+     "file": "02.webp",
+     "path": "watch/female/watches/emporio-armani-strass/02.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 93474,
+     "source": "photo_2_2026-08-06_01-04-04.jpg",
+     "sha1": "7d9b744c3e3650d9d01099aa9b5c5d8485e1774e"
+    },
+    {
+     "index": 3,
+     "file": "03.webp",
+     "path": "watch/female/watches/emporio-armani-strass/03.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 82378,
+     "source": "photo_3_2026-08-06_01-04-04.jpg",
+     "sha1": "49376aef4b7f2e28bfed0683fe549d7c3aa3826e"
+    }
+   ],
+   "price": null,
+   "reviewNote": ""
+  },
+  {
+   "slug": "hanboro-cuir-gris-rose-gold",
+   "side": "female",
+   "brand": "Hanboro",
+   "name": "Hanboro Cuir Gris Rose Gold",
+   "sourceFolder": "Hanboro Cuir Gris Rose Gold",
+   "poster": "watch/female/posters/hanboro.webp",
+   "posterSource": "brand",
+   "photoCount": 6,
+   "dir": "watch/female/watches/hanboro-cuir-gris-rose-gold",
+   "photos": [
+    {
+     "index": 1,
+     "file": "01.webp",
+     "path": "watch/female/watches/hanboro-cuir-gris-rose-gold/01.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 124646,
+     "source": "photo_1_2026-08-06_00-52-46.jpg",
+     "sha1": "bd1726ddb42f2a2a50740d14ab462764c34b875a"
+    },
+    {
+     "index": 2,
+     "file": "02.webp",
+     "path": "watch/female/watches/hanboro-cuir-gris-rose-gold/02.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 129896,
+     "source": "photo_2_2026-08-06_00-52-46.jpg",
+     "sha1": "75bcb6803962bd24996507f5cba57d0cb85fc851"
+    },
+    {
+     "index": 3,
+     "file": "03.webp",
+     "path": "watch/female/watches/hanboro-cuir-gris-rose-gold/03.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 121624,
+     "source": "photo_3_2026-08-06_00-52-46.jpg",
+     "sha1": "4bfb15ad7eeef3466f82b5e98fcaa8d002d029d7"
+    },
+    {
+     "index": 4,
+     "file": "04.webp",
+     "path": "watch/female/watches/hanboro-cuir-gris-rose-gold/04.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 123770,
+     "source": "photo_4_2026-08-06_00-52-46.jpg",
+     "sha1": "2bd0cf68edbd5b7125e47eb874ecec4e529c0db3"
+    },
+    {
+     "index": 5,
+     "file": "05.webp",
+     "path": "watch/female/watches/hanboro-cuir-gris-rose-gold/05.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 126804,
+     "source": "photo_5_2026-08-06_00-52-46.jpg",
+     "sha1": "64c1b68a87b8127fd3961ef3395a6ca82ce2ad6d"
+    },
+    {
+     "index": 6,
+     "file": "06.webp",
+     "path": "watch/female/watches/hanboro-cuir-gris-rose-gold/06.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 139210,
+     "source": "photo_6_2026-08-06_00-52-46.jpg",
+     "sha1": "c3f5f05365797e6c71667137d0ef9125231fb78b"
+    }
+   ],
+   "price": null,
+   "reviewNote": ""
+  },
+  {
+   "slug": "hanboro-cuir-silver",
+   "side": "female",
+   "brand": "Hanboro",
+   "name": "Hanboro Cuir Silver",
+   "sourceFolder": "Hanboro Cuir Silver",
+   "poster": "watch/female/posters/hanboro.webp",
+   "posterSource": "brand",
+   "photoCount": 12,
+   "dir": "watch/female/watches/hanboro-cuir-silver",
+   "photos": [
+    {
+     "index": 1,
+     "file": "01.webp",
+     "path": "watch/female/watches/hanboro-cuir-silver/01.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 128632,
+     "source": "photo_1_2026-08-06_00-37-05.jpg",
+     "sha1": "635abf6a5e96d24ae6be030a51b607121ca8c559"
+    },
+    {
+     "index": 2,
+     "file": "02.webp",
+     "path": "watch/female/watches/hanboro-cuir-silver/02.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 125640,
+     "source": "photo_1_2026-08-06_00-40-56.jpg",
+     "sha1": "e22d4cd129d7640cac7244108a516005288fdafa"
+    },
+    {
+     "index": 3,
+     "file": "03.webp",
+     "path": "watch/female/watches/hanboro-cuir-silver/03.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 109060,
+     "source": "photo_2_2026-08-06_00-37-05.jpg",
+     "sha1": "aa756b313d20f859e3c9058954bb0aea9f39e505"
+    },
+    {
+     "index": 4,
+     "file": "04.webp",
+     "path": "watch/female/watches/hanboro-cuir-silver/04.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 122434,
+     "source": "photo_2_2026-08-06_00-40-56.jpg",
+     "sha1": "ef11fce883cb9d9ef782367eb66ff4afd369cee8"
+    },
+    {
+     "index": 5,
+     "file": "05.webp",
+     "path": "watch/female/watches/hanboro-cuir-silver/05.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 121054,
+     "source": "photo_3_2026-08-06_00-40-56.jpg",
+     "sha1": "aa43a1b7a9820919b784e51c0a31e0fdea55993c"
+    },
+    {
+     "index": 6,
+     "file": "06.webp",
+     "path": "watch/female/watches/hanboro-cuir-silver/06.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 121772,
+     "source": "photo_4_2026-08-06_00-37-05.jpg",
+     "sha1": "7c158bccbdea893457df0fc3b9cbc1745ea99dd6"
+    },
+    {
+     "index": 7,
+     "file": "07.webp",
+     "path": "watch/female/watches/hanboro-cuir-silver/07.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 110334,
+     "source": "photo_5_2026-08-06_00-37-05.jpg",
+     "sha1": "50d50a3fbc5903d7db688289f13e49af5579d6de"
+    },
+    {
+     "index": 8,
+     "file": "08.webp",
+     "path": "watch/female/watches/hanboro-cuir-silver/08.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 128566,
+     "source": "photo_6_2026-08-06_00-37-05.jpg",
+     "sha1": "0f9e79c2627b724184c28eac30f8ecd97e7cd429"
+    },
+    {
+     "index": 9,
+     "file": "09.webp",
+     "path": "watch/female/watches/hanboro-cuir-silver/09.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 126208,
+     "source": "photo_7_2026-08-06_00-37-05.jpg",
+     "sha1": "eace1ca295c888deba4e24bb2d4e764c57cbf81e"
+    },
+    {
+     "index": 10,
+     "file": "10.webp",
+     "path": "watch/female/watches/hanboro-cuir-silver/10.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 114474,
+     "source": "photo_8_2026-08-06_00-37-05.jpg",
+     "sha1": "3370d0aedfbb6384a7980205e507e2c0e76d3460"
+    },
+    {
+     "index": 11,
+     "file": "11.webp",
+     "path": "watch/female/watches/hanboro-cuir-silver/11.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 123102,
+     "source": "photo_9_2026-08-06_00-37-05.jpg",
+     "sha1": "523d6798ef52f190c15d64bee6807f87332f202a"
+    },
+    {
+     "index": 12,
+     "file": "12.webp",
+     "path": "watch/female/watches/hanboro-cuir-silver/12.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 125872,
+     "source": "photo_10_2026-08-06_00-37-05.jpg",
+     "sha1": "fabbbe411559bacd1b0f2b494a4d4bb18120b67b"
+    }
+   ],
+   "price": null,
+   "reviewNote": ""
+  },
+  {
+   "slug": "hanboro-octagone",
+   "side": "female",
+   "brand": "Hanboro",
+   "name": "Hanboro Octagone",
+   "sourceFolder": "Hanboro Octagone",
+   "poster": "watch/female/posters/hanboro.webp",
+   "posterSource": "brand",
+   "photoCount": 10,
+   "dir": "watch/female/watches/hanboro-octagone",
+   "photos": [
+    {
+     "index": 1,
+     "file": "01.webp",
+     "path": "watch/female/watches/hanboro-octagone/01.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 121110,
+     "source": "photo_1_2026-08-06_00-55-21.jpg",
+     "sha1": "9dce4e633ff89994a48e21d924c227938980d19e"
+    },
+    {
+     "index": 2,
+     "file": "02.webp",
+     "path": "watch/female/watches/hanboro-octagone/02.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 122844,
+     "source": "photo_2_2026-08-06_00-55-21.jpg",
+     "sha1": "f5ac65755213a6397d7c2e777d34a2b2c5c8a165"
+    },
+    {
+     "index": 3,
+     "file": "03.webp",
+     "path": "watch/female/watches/hanboro-octagone/03.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 111708,
+     "source": "photo_3_2026-08-06_00-55-21.jpg",
+     "sha1": "2080108b3ec863c7ecf020f50838f105abda81af"
+    },
+    {
+     "index": 4,
+     "file": "04.webp",
+     "path": "watch/female/watches/hanboro-octagone/04.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 121362,
+     "source": "photo_4_2026-08-06_00-55-21.jpg",
+     "sha1": "24baa906289034c4d7336228a07609c57c10ef38"
+    },
+    {
+     "index": 5,
+     "file": "05.webp",
+     "path": "watch/female/watches/hanboro-octagone/05.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 119656,
+     "source": "photo_5_2026-08-06_00-55-21.jpg",
+     "sha1": "c90915cbe4c6f447e7e6b86d799fe1ffd9c44e8b"
+    },
+    {
+     "index": 6,
+     "file": "06.webp",
+     "path": "watch/female/watches/hanboro-octagone/06.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 113520,
+     "source": "photo_6_2026-08-06_00-55-21.jpg",
+     "sha1": "8e1873c176941dda3c382568a2a3f9fe5d9bbb23"
+    },
+    {
+     "index": 7,
+     "file": "07.webp",
+     "path": "watch/female/watches/hanboro-octagone/07.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 122916,
+     "source": "photo_7_2026-08-06_00-55-21.jpg",
+     "sha1": "be1a795e1dd4f8661964a2482925de1e0ca03664"
+    },
+    {
+     "index": 8,
+     "file": "08.webp",
+     "path": "watch/female/watches/hanboro-octagone/08.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 123260,
+     "source": "photo_8_2026-08-06_00-55-21.jpg",
+     "sha1": "003c374f29bf3747607b49a10f83cdb8f1e2d5a9"
+    },
+    {
+     "index": 9,
+     "file": "09.webp",
+     "path": "watch/female/watches/hanboro-octagone/09.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 117784,
+     "source": "photo_9_2026-08-06_00-55-21.jpg",
+     "sha1": "ac2f83e8babc0896a42bad1d586efe3f68b497cc"
+    },
+    {
+     "index": 10,
+     "file": "10.webp",
+     "path": "watch/female/watches/hanboro-octagone/10.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 119860,
+     "source": "photo_10_2026-08-06_00-55-21.jpg",
+     "sha1": "01f1c1397c18e50529dec6ccd15b918ff9fad9f3"
+    }
+   ],
+   "price": null,
+   "reviewNote": ""
+  },
+  {
+   "slug": "ieke-hexagonale-strass",
+   "side": "female",
+   "brand": "IEKE",
+   "name": "IEKE Hexagonale Strass",
+   "sourceFolder": "IEKE Hexagonale Strass",
+   "poster": "watch/female/posters/ieke.webp",
+   "posterSource": "brand",
+   "photoCount": 7,
+   "dir": "watch/female/watches/ieke-hexagonale-strass",
+   "photos": [
+    {
+     "index": 1,
+     "file": "01.webp",
+     "path": "watch/female/watches/ieke-hexagonale-strass/01.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 85472,
+     "source": "photo_1_2026-08-06_01-01-45.jpg",
+     "sha1": "6750d717458a999b448ec3ee9202efcb0accc936"
+    },
+    {
+     "index": 2,
+     "file": "02.webp",
+     "path": "watch/female/watches/ieke-hexagonale-strass/02.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 96602,
+     "source": "photo_2_2026-08-06_01-01-45.jpg",
+     "sha1": "cf6c2eb12a098d315067ea07859bc3cb5112f5d2"
+    },
+    {
+     "index": 3,
+     "file": "03.webp",
+     "path": "watch/female/watches/ieke-hexagonale-strass/03.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 82988,
+     "source": "photo_3_2026-08-06_01-01-45.jpg",
+     "sha1": "064c81c7fc4077d3a971ff1c7638a0d8c15a41b1"
+    },
+    {
+     "index": 4,
+     "file": "04.webp",
+     "path": "watch/female/watches/ieke-hexagonale-strass/04.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 77662,
+     "source": "photo_4_2026-08-06_01-01-45.jpg",
+     "sha1": "60a0ddc6683738a380722a235655f7ff694d9952"
+    },
+    {
+     "index": 5,
+     "file": "05.webp",
+     "path": "watch/female/watches/ieke-hexagonale-strass/05.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 87680,
+     "source": "photo_5_2026-08-06_01-01-45.jpg",
+     "sha1": "30058a7153fde786c2a59db03ada553a4ca642d3"
+    },
+    {
+     "index": 6,
+     "file": "06.webp",
+     "path": "watch/female/watches/ieke-hexagonale-strass/06.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 87820,
+     "source": "photo_6_2026-08-06_01-01-45.jpg",
+     "sha1": "48f2d5c9a5b4e17efdad664e9b97ba3d516b4b06"
+    },
+    {
+     "index": 7,
+     "file": "07.webp",
+     "path": "watch/female/watches/ieke-hexagonale-strass/07.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 81380,
+     "source": "photo_7_2026-08-06_01-01-45.jpg",
+     "sha1": "9a574284f998e5a3bf31e2becc944928e63bf37d"
+    }
+   ],
+   "price": null,
+   "reviewNote": ""
+  },
+  {
+   "slug": "ieke-mini-ronde",
+   "side": "female",
+   "brand": "IEKE",
+   "name": "IEKE Mini Ronde",
+   "sourceFolder": "IEKE Mini Ronde",
+   "poster": "watch/female/posters/ieke.webp",
+   "posterSource": "brand",
+   "photoCount": 7,
+   "dir": "watch/female/watches/ieke-mini-ronde",
+   "photos": [
+    {
+     "index": 1,
+     "file": "01.webp",
+     "path": "watch/female/watches/ieke-mini-ronde/01.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 89610,
+     "source": "photo_1_2026-08-06_01-00-22.jpg",
+     "sha1": "e98b50555ecc9f20204b7d299acbd939b5e40dd4"
+    },
+    {
+     "index": 2,
+     "file": "02.webp",
+     "path": "watch/female/watches/ieke-mini-ronde/02.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 77876,
+     "source": "photo_2_2026-08-06_01-00-22.jpg",
+     "sha1": "075bff6e04dc7e68d19780f4223a92860c79855b"
+    },
+    {
+     "index": 3,
+     "file": "03.webp",
+     "path": "watch/female/watches/ieke-mini-ronde/03.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 86424,
+     "source": "photo_3_2026-08-06_01-00-22.jpg",
+     "sha1": "54e75ddf1d8c1b346eb12c18dd8b75f460b81875"
+    },
+    {
+     "index": 4,
+     "file": "04.webp",
+     "path": "watch/female/watches/ieke-mini-ronde/04.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 82924,
+     "source": "photo_4_2026-08-06_01-00-22.jpg",
+     "sha1": "ced74266a4e0fa024310cdbdf4fd0551f1b84647"
+    },
+    {
+     "index": 5,
+     "file": "05.webp",
+     "path": "watch/female/watches/ieke-mini-ronde/05.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 72714,
+     "source": "photo_5_2026-08-06_01-00-22.jpg",
+     "sha1": "9b43fd4335be522d900ed1ca24a288a4db84377e"
+    },
+    {
+     "index": 6,
+     "file": "06.webp",
+     "path": "watch/female/watches/ieke-mini-ronde/06.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 88008,
+     "source": "photo_6_2026-08-06_01-00-22.jpg",
+     "sha1": "77617cf088795bd18de67c5ecb4b84bc25f78750"
+    },
+    {
+     "index": 7,
+     "file": "07.webp",
+     "path": "watch/female/watches/ieke-mini-ronde/07.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 79018,
+     "source": "photo_7_2026-08-06_01-00-22.jpg",
+     "sha1": "4d3762e9243fa18b4f292aecdb181b25dd5beb44"
+    }
+   ],
+   "price": null,
+   "reviewNote": ""
+  },
+  {
+   "slug": "ieke-tank-rectangulaire",
+   "side": "female",
+   "brand": "IEKE",
+   "name": "IEKE Tank Rectangulaire",
+   "sourceFolder": "IEKE Tank Rectangulaire",
+   "poster": "watch/female/posters/ieke.webp",
+   "posterSource": "brand",
+   "photoCount": 4,
+   "dir": "watch/female/watches/ieke-tank-rectangulaire",
+   "photos": [
+    {
+     "index": 1,
+     "file": "01.webp",
+     "path": "watch/female/watches/ieke-tank-rectangulaire/01.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 100432,
+     "source": "photo_1_2026-08-06_00-58-02.jpg",
+     "sha1": "0db738e1089a26b1ec9d66cada70224d3fd10867"
+    },
+    {
+     "index": 2,
+     "file": "02.webp",
+     "path": "watch/female/watches/ieke-tank-rectangulaire/02.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 96476,
+     "source": "photo_2_2026-08-06_00-58-02.jpg",
+     "sha1": "d70688fdc0c4821b95a8d7777e5fd5787ea73525"
+    },
+    {
+     "index": 3,
+     "file": "03.webp",
+     "path": "watch/female/watches/ieke-tank-rectangulaire/03.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 91520,
+     "source": "photo_3_2026-08-06_00-58-02.jpg",
+     "sha1": "f4bdd077cb2f0c8b8f25dfaec87f0210e30a9013"
+    },
+    {
+     "index": 4,
+     "file": "04.webp",
+     "path": "watch/female/watches/ieke-tank-rectangulaire/04.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 84850,
+     "source": "photo_6_2026-08-06_00-58-38.jpg",
+     "sha1": "eae61f479ba11a74954452c0b639ce74ef77afb3"
+    }
+   ],
+   "price": null,
+   "reviewNote": ""
+  },
+  {
+   "slug": "michael-kors",
+   "side": "female",
+   "brand": "Michael Kors",
+   "name": "Michael Kors",
+   "sourceFolder": "MICHAEL KORS",
+   "poster": "watch/female/posters/michael-kors.webp",
+   "posterSource": "brand",
+   "photoCount": 3,
+   "dir": "watch/female/watches/michael-kors",
+   "photos": [
+    {
+     "index": 1,
+     "file": "01.webp",
+     "path": "watch/female/watches/michael-kors/01.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 92182,
+     "source": "photo_1_2026-08-06_01-07-13.jpg",
+     "sha1": "4152f8ff207cd12712d62b76a8b64dde67fc5b25"
+    },
+    {
+     "index": 2,
+     "file": "02.webp",
+     "path": "watch/female/watches/michael-kors/02.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 92828,
+     "source": "photo_2_2026-08-06_01-07-13.jpg",
+     "sha1": "ee6cbf0d3606870448c23bbff7572a23166a14bc"
+    },
+    {
+     "index": 3,
+     "file": "03.webp",
+     "path": "watch/female/watches/michael-kors/03.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 94874,
+     "source": "photo_3_2026-08-06_01-07-13.jpg",
+     "sha1": "dcfb71dba63339535ebc83e8413831e5424db1db"
+    }
+   ],
+   "price": null,
+   "reviewNote": ""
+  },
+  {
+   "slug": "oliya",
+   "side": "female",
+   "brand": "Oliya",
+   "name": "Oliya",
+   "sourceFolder": "OLIYA",
+   "poster": "watch/female/posters/oliya.webp",
+   "posterSource": "brand",
+   "photoCount": 8,
+   "dir": "watch/female/watches/oliya",
+   "photos": [
+    {
+     "index": 1,
+     "file": "01.webp",
+     "path": "watch/female/watches/oliya/01.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 85566,
+     "source": "photo_1_2026-08-06_01-15-47.jpg",
+     "sha1": "70577ebd8010992c3204b85573d07c79c76d2d0c"
+    },
+    {
+     "index": 2,
+     "file": "02.webp",
+     "path": "watch/female/watches/oliya/02.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 86522,
+     "source": "photo_2_2026-08-06_01-15-47.jpg",
+     "sha1": "fc933661c4b8eec213ed19404cb1c28e2e87dae9"
+    },
+    {
+     "index": 3,
+     "file": "03.webp",
+     "path": "watch/female/watches/oliya/03.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 100120,
+     "source": "photo_3_2026-08-06_01-15-47.jpg",
+     "sha1": "fdb45aec20ab7eb6200b75b3f142bfa7dc5b63c2"
+    },
+    {
+     "index": 4,
+     "file": "04.webp",
+     "path": "watch/female/watches/oliya/04.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 105620,
+     "source": "photo_4_2026-08-06_01-15-47.jpg",
+     "sha1": "dd934a92ce45d96f6a03c44894bed0827ddfd3ec"
+    },
+    {
+     "index": 5,
+     "file": "05.webp",
+     "path": "watch/female/watches/oliya/05.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 103538,
+     "source": "photo_5_2026-08-06_01-15-47.jpg",
+     "sha1": "93d41a24b5bae026a5169d46aeeefe283e33b3d2"
+    },
+    {
+     "index": 6,
+     "file": "06.webp",
+     "path": "watch/female/watches/oliya/06.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 89682,
+     "source": "photo_6_2026-08-06_01-15-47.jpg",
+     "sha1": "cfdebd55e7eedbf974f1821c627df5e0c17f2b08"
+    },
+    {
+     "index": 7,
+     "file": "07.webp",
+     "path": "watch/female/watches/oliya/07.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 100736,
+     "source": "photo_7_2026-08-06_01-15-47.jpg",
+     "sha1": "6feb8fe726e6307be9ec00fb79b1ffb30f8ab372"
+    },
+    {
+     "index": 8,
+     "file": "08.webp",
+     "path": "watch/female/watches/oliya/08.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 85266,
+     "source": "photo_8_2026-08-06_01-15-47.jpg",
+     "sha1": "e1a040cd63e93d24c358cac576979b2f3bdfe2b4"
+    }
+   ],
+   "price": null,
+   "reviewNote": ""
+  },
+  {
+   "slug": "patek-philippe-nautilus",
+   "side": "female",
+   "brand": "Patek Philippe",
+   "name": "Patek Philippe Nautilus",
+   "sourceFolder": "Patek Philippe Nautilus",
+   "poster": "watch/female/posters/patek-philippe.webp",
+   "posterSource": "brand",
+   "photoCount": 5,
+   "dir": "watch/female/watches/patek-philippe-nautilus",
+   "photos": [
+    {
+     "index": 1,
+     "file": "01.webp",
+     "path": "watch/female/watches/patek-philippe-nautilus/01.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 198492,
+     "source": "photo_1_2026-08-06_01-12-43.jpg",
+     "sha1": "edc2a663878df6083004f69fe2564885009e2377"
+    },
+    {
+     "index": 2,
+     "file": "02.webp",
+     "path": "watch/female/watches/patek-philippe-nautilus/02.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 183476,
+     "source": "photo_2_2026-08-06_01-12-43.jpg",
+     "sha1": "dcaa4dda54bd09836c2a14e227660f8f311e0a9d"
+    },
+    {
+     "index": 3,
+     "file": "03.webp",
+     "path": "watch/female/watches/patek-philippe-nautilus/03.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 192256,
+     "source": "photo_3_2026-08-06_01-12-43.jpg",
+     "sha1": "867d5af621b1f2d9656a88536f077e341915a1ec"
+    },
+    {
+     "index": 4,
+     "file": "04.webp",
+     "path": "watch/female/watches/patek-philippe-nautilus/04.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 181966,
+     "source": "photo_4_2026-08-06_01-12-43.jpg",
+     "sha1": "c09734234acf56491aaa89e437f012606590b34c"
+    },
+    {
+     "index": 5,
+     "file": "05.webp",
+     "path": "watch/female/watches/patek-philippe-nautilus/05.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 173868,
+     "source": "photo_5_2026-08-06_01-12-43.jpg",
+     "sha1": "5df7d35122ada9bbc3057b3a3950c693d9de9a02"
+    }
+   ],
+   "price": null,
+   "reviewNote": ""
+  },
+  {
+   "slug": "reloj-dama-lujo-con-dije",
+   "side": "female",
+   "brand": "Reloj",
+   "name": "Reloj Dama Lujo Con Dije",
+   "sourceFolder": "Reloj Dama Lujo Con Dije",
+   "poster": "watch/female/posters/reloj.webp",
+   "posterSource": "brand",
+   "photoCount": 3,
+   "dir": "watch/female/watches/reloj-dama-lujo-con-dije",
+   "photos": [
+    {
+     "index": 1,
+     "file": "01.webp",
+     "path": "watch/female/watches/reloj-dama-lujo-con-dije/01.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 125640,
+     "source": "photo_4_2026-08-06_00-31-01.jpg",
+     "sha1": "e22d4cd129d7640cac7244108a516005288fdafa"
+    },
+    {
+     "index": 2,
+     "file": "02.webp",
+     "path": "watch/female/watches/reloj-dama-lujo-con-dije/02.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 122434,
+     "source": "photo_5_2026-08-06_00-31-01.jpg",
+     "sha1": "ef11fce883cb9d9ef782367eb66ff4afd369cee8"
+    },
+    {
+     "index": 3,
+     "file": "03.webp",
+     "path": "watch/female/watches/reloj-dama-lujo-con-dije/03.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 121054,
+     "source": "photo_6_2026-08-06_00-31-01.jpg",
+     "sha1": "aa43a1b7a9820919b784e51c0a31e0fdea55993c"
+    }
+   ],
+   "price": null,
+   "reviewNote": "Spanish supplier name kept as-is"
+  },
+  {
+   "slug": "rolex-datejust-cannelee",
+   "side": "female",
+   "brand": "Rolex",
+   "name": "Rolex Datejust Cannelee",
+   "sourceFolder": "Rolex Datejust Cannelée",
+   "poster": "watch/female/posters/rolex.webp",
+   "posterSource": "override",
+   "photoCount": 20,
+   "dir": "watch/female/watches/rolex-datejust-cannelee",
+   "photos": [
+    {
+     "index": 1,
+     "file": "01.webp",
+     "path": "watch/female/watches/rolex-datejust-cannelee/01.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 185832,
+     "source": "photo_1_2026-08-06_01-23-16.jpg",
+     "sha1": "aba62211d6bde4582069796a43905e136689a779"
+    },
+    {
+     "index": 2,
+     "file": "02.webp",
+     "path": "watch/female/watches/rolex-datejust-cannelee/02.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 246600,
+     "source": "photo_2_2026-08-06_01-23-16.jpg",
+     "sha1": "39fe25a020e51bf9318b6c6905be0e408696f65d"
+    },
+    {
+     "index": 3,
+     "file": "03.webp",
+     "path": "watch/female/watches/rolex-datejust-cannelee/03.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 173698,
+     "source": "photo_3_2026-08-06_01-23-16.jpg",
+     "sha1": "28b78f86e2ed34ffb4f1cb4f8ad7d5491cfeb06d"
+    },
+    {
+     "index": 4,
+     "file": "04.webp",
+     "path": "watch/female/watches/rolex-datejust-cannelee/04.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 165220,
+     "source": "photo_4_2026-08-06_01-23-16.jpg",
+     "sha1": "5dc36bfbf7d753d6385b4756b766b68c1d890c6a"
+    },
+    {
+     "index": 5,
+     "file": "05.webp",
+     "path": "watch/female/watches/rolex-datejust-cannelee/05.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 178548,
+     "source": "photo_5_2026-08-06_01-23-16.jpg",
+     "sha1": "00358641d4f194750b8e88f52da0b71dd72610d5"
+    },
+    {
+     "index": 6,
+     "file": "06.webp",
+     "path": "watch/female/watches/rolex-datejust-cannelee/06.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 201492,
+     "source": "photo_6_2026-08-06_01-23-16.jpg",
+     "sha1": "1bbdf35fcd2c68ab2fa88922692af0930216f62b"
+    },
+    {
+     "index": 7,
+     "file": "07.webp",
+     "path": "watch/female/watches/rolex-datejust-cannelee/07.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 194504,
+     "source": "photo_7_2026-08-06_01-23-16.jpg",
+     "sha1": "45aaab2d5c1258215ace5195491bd585ee6cddbc"
+    },
+    {
+     "index": 8,
+     "file": "08.webp",
+     "path": "watch/female/watches/rolex-datejust-cannelee/08.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 211914,
+     "source": "photo_8_2026-08-06_01-23-16.jpg",
+     "sha1": "6493203be76056dd0dcca637814af48a7538e8d9"
+    },
+    {
+     "index": 9,
+     "file": "09.webp",
+     "path": "watch/female/watches/rolex-datejust-cannelee/09.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 213054,
+     "source": "photo_9_2026-08-06_01-23-16.jpg",
+     "sha1": "37f18a710ce0436ff9bf684fd22a4f4c1bdd966b"
+    },
+    {
+     "index": 10,
+     "file": "10.webp",
+     "path": "watch/female/watches/rolex-datejust-cannelee/10.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 199178,
+     "source": "photo_10_2026-08-06_01-23-16.jpg",
+     "sha1": "bf2408b1b99dd5b26328aae06226d229cb0b4455"
+    },
+    {
+     "index": 11,
+     "file": "11.webp",
+     "path": "watch/female/watches/rolex-datejust-cannelee/11.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 252978,
+     "source": "photo_11_2026-08-06_01-23-16.jpg",
+     "sha1": "3adf401517878463798373c92d962603569d8008"
+    },
+    {
+     "index": 12,
+     "file": "12.webp",
+     "path": "watch/female/watches/rolex-datejust-cannelee/12.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 193758,
+     "source": "photo_12_2026-08-06_01-23-16.jpg",
+     "sha1": "37f1794c62cf61cca8385f1c68609f3a47688d93"
+    },
+    {
+     "index": 13,
+     "file": "13.webp",
+     "path": "watch/female/watches/rolex-datejust-cannelee/13.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 249868,
+     "source": "photo_13_2026-08-06_01-23-16.jpg",
+     "sha1": "bb8800288ffa035bedd805a218aa4d8ec91d7335"
+    },
+    {
+     "index": 14,
+     "file": "14.webp",
+     "path": "watch/female/watches/rolex-datejust-cannelee/14.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 221480,
+     "source": "photo_14_2026-08-06_01-23-16.jpg",
+     "sha1": "568708451847626a659265b01ac4fd0b4b2c3631"
+    },
+    {
+     "index": 15,
+     "file": "15.webp",
+     "path": "watch/female/watches/rolex-datejust-cannelee/15.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 205706,
+     "source": "photo_15_2026-08-06_01-23-16.jpg",
+     "sha1": "06f0e8e4c667064761458a3ff8d0195de672da95"
+    },
+    {
+     "index": 16,
+     "file": "16.webp",
+     "path": "watch/female/watches/rolex-datejust-cannelee/16.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 208252,
+     "source": "photo_16_2026-08-06_01-23-16.jpg",
+     "sha1": "479c26c4d03bc3b7c9f25d5bc4076e64b65a4ace"
+    },
+    {
+     "index": 17,
+     "file": "17.webp",
+     "path": "watch/female/watches/rolex-datejust-cannelee/17.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 212026,
+     "source": "photo_17_2026-08-06_01-23-16.jpg",
+     "sha1": "96a7d3841dbd2214100679aa1bfa3031243a5a12"
+    },
+    {
+     "index": 18,
+     "file": "18.webp",
+     "path": "watch/female/watches/rolex-datejust-cannelee/18.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 229884,
+     "source": "photo_18_2026-08-06_01-23-16.jpg",
+     "sha1": "8b4da3d8d3945f74be83f844ea5a321b508226a9"
+    },
+    {
+     "index": 19,
+     "file": "19.webp",
+     "path": "watch/female/watches/rolex-datejust-cannelee/19.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 201536,
+     "source": "photo_19_2026-08-06_01-23-16.jpg",
+     "sha1": "a4e4d8b9485ec7f4d9e25ed4375756eb487ff6d3"
+    },
+    {
+     "index": 20,
+     "file": "20.webp",
+     "path": "watch/female/watches/rolex-datejust-cannelee/20.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 187530,
+     "source": "photo_20_2026-08-06_01-23-16.jpg",
+     "sha1": "bff8358dbf967e9c70b8ecfe05ad6ce6669c5152"
+    }
+   ],
+   "price": null,
+   "reviewNote": ""
+  },
+  {
+   "slug": "tissot-bellissima",
+   "side": "female",
+   "brand": "Tissot",
+   "name": "Tissot Bellissima",
+   "sourceFolder": "Tissot Bellissima",
+   "poster": "watch/female/posters/tissot.webp",
+   "posterSource": "brand",
+   "photoCount": 3,
+   "dir": "watch/female/watches/tissot-bellissima",
+   "photos": [
+    {
+     "index": 1,
+     "file": "01.webp",
+     "path": "watch/female/watches/tissot-bellissima/01.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 86608,
+     "source": "photo_1_2026-08-06_01-16-36.jpg",
+     "sha1": "6da7ba38cfd4f0548df7b67887bc188a39435ae9"
+    },
+    {
+     "index": 2,
+     "file": "02.webp",
+     "path": "watch/female/watches/tissot-bellissima/02.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 78592,
+     "source": "photo_2_2026-08-06_01-16-36.jpg",
+     "sha1": "f0d60e39d19983eac076763b3f45224246f129ef"
+    },
+    {
+     "index": 3,
+     "file": "03.webp",
+     "path": "watch/female/watches/tissot-bellissima/03.webp",
+     "width": 960,
+     "height": 1280,
+     "bytes": 76020,
+     "source": "photo_3_2026-08-06_01-16-36.jpg",
+     "sha1": "b6d86e15b7eb22f20c332744886422d16939b684"
+    }
+   ],
+   "price": null,
+   "reviewNote": ""
+  }
+ ]
+}

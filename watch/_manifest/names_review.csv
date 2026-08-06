@@ -1,0 +1,58 @@
+side,kind,original,corrected,brand,note
+male,poster,casion.png,casio.webp,Casio,
+male,poster,D1 Milano.png,d1-milano.webp,D1 Milano,
+male,poster,emporio.png,emporio-armani.webp,Emporio Armani,
+male,poster,G-shock.png,g-shock.webp,G-Shock,
+male,poster,hilfiger.png,tommy-hilfiger.webp,Tommy Hilfiger,
+male,poster,patek philippe.png,patek-philippe.webp,Patek Philippe,
+male,poster,richard mile.png,richard-mille.webp,Richard Mille,
+male,poster,rolex oyster.png,rolex-oyster.webp,Rolex,
+female,poster,balgari serpenti.png,bvlgari-serpenti.webp,Bvlgari,
+female,poster,chanel permiere.png,chanel-premiere.webp,Chanel,
+female,poster,daniel wellington.png,daniel-wellington.webp,Daniel Wellington,
+female,poster,DW.png,dw.webp,Daniel Wellington,
+female,poster,emporio armani.png,emporio-armani.webp,Emporio Armani,
+female,poster,michael kors.png,michael-kors.webp,Michael Kors,
+female,poster,patek philippe.png,patek-philippe.webp,Patek Philippe,
+female,poster,rolex oyster.png,rolex-oyster.webp,Rolex,
+male,model,boss,Boss Classic,Boss,bare brand name; 'Classic' added to distinguish from the chronograph
+male,model,BOSS  chronograph,Boss Chronograph,Boss,double space removed
+male,model,cartier,Cartier Classic,Cartier,bare brand name; 'Classic' added
+male,model,cartier santos,Cartier Santos,Cartier,
+male,model,cartier santos costum,Cartier Santos Custom,Cartier,costum -> Custom
+male,model,CASION,Casio Classic,Casio,CASION -> Casio
+male,model,D1 millano,D1 Milano,D1 Milano,millano -> Milano
+male,model,DAYTONA ROLEX,Rolex Daytona,Rolex,word order corrected
+male,model,EMPORIO ARMANI,Emporio Armani,Emporio Armani,
+male,model,G SHOK,G-Shock,G-Shock,G SHOK -> G-Shock
+male,model,guess,Guess Classic,Guess,bare brand name; 'Classic' added
+male,model,HANBORO,Hanboro Classic,Hanboro,bare brand name; 'Classic' added
+male,model,HILFIGER CHRONOGRAPH,Tommy Hilfiger Chronograph,Tommy Hilfiger,brand completed to Tommy Hilfiger
+male,model,HUBLOT,Hublot Classic Fusion,Hublot,model line inferred from the photos
+male,model,HUBLOT 2,Hublot Classic Fusion II,Hublot,2 -> II
+male,model,OMEGA automatique,Omega Automatic,Omega,automatique -> Automatic
+male,model,OMEGA chronographe,Omega Chronograph,Omega,chronographe -> Chronograph
+male,model,patek philipe,Patek Philippe Classic,Patek Philippe,philipe -> Philippe
+male,model,patek phillip 3,Patek Philippe Classic III,Patek Philippe,phillip -> Philippe; 3 -> III
+male,model,PATICK PHILIPE AUTOMATIC,Patek Philippe Automatic,Patek Philippe,patick philipe -> Patek Philippe
+male,model,patik philipe 2,Patek Philippe Classic II,Patek Philippe,patik philipe -> Patek Philippe; 2 -> II
+male,model,RICHARD MILLE,Richard Mille,Richard Mille,
+male,model,richard mille sckratch,Richard Mille Scratch,Richard Mille,"sckratch -> Scratch: PLEASE CONFIRM, this may have meant Skeleton"
+male,model,ROLEX DATE JUST,Rolex Datejust,Rolex,DATE JUST -> Datejust
+male,model,ROLEX GMT,Rolex GMT-Master,Rolex,GMT -> GMT-Master
+male,model,ROLEX LAND_DWELLER,Rolex Land-Dweller,Rolex,underscore -> hyphen
+male,model,rolex oyster,Rolex Oyster Perpetual,Rolex,model line completed
+male,model,rolex oyster 2,Rolex Oyster Perpetual II,Rolex,2 -> II
+male,model,TISSOT,Tissot Classic,Tissot,bare brand name; 'Classic' added
+female,model,CARTIER B.B,Cartier Ballon Bleu,Cartier,B.B -> Ballon Bleu
+female,model,Cartier baignoire,Cartier Baignoire,Cartier,
+female,model,Cartier Panthère,Cartier Panthere,Cartier,
+female,model,Cartier Panthère Classic Square,Cartier Panthere Classic Square,Cartier,
+female,model,CARTIER PONTER ,Cartier Panthere Classic,Cartier,PONTER -> Panthere; trailing space removed; named 'Classic' to avoid colliding with the two other Panthere folders
+female,model,Casio Couple Carré Bleu,Casio Couple Carre Bleu,Casio,
+female,model,Chanel Première,Chanel Premiere,Chanel,
+female,model,DANIEL WELLINGTON,Daniel Wellington,Daniel Wellington,
+female,model,dw,Daniel Wellington Petite,Daniel Wellington,dw expanded; 'Petite' added to separate it from the other DW folder
+female,model,MICHAEL KORS,Michael Kors,Michael Kors,
+female,model,OLIYA,Oliya,Oliya,
+female,model,Rolex Datejust Cannelée,Rolex Datejust Cannelee,Rolex,

@@ -1,0 +1,54 @@
+side,brand,slug,name,photos,poster,posterSource
+male,Boss,boss-classic,Boss Classic,4,watch/male/posters/boss.webp,brand
+male,Boss,boss-chronograph,Boss Chronograph,2,watch/male/posters/boss.webp,brand
+male,Cartier,cartier-classic,Cartier Classic,6,watch/male/posters/cartier.webp,brand
+male,Cartier,cartier-santos,Cartier Santos,4,watch/male/posters/cartier.webp,brand
+male,Cartier,cartier-santos-custom,Cartier Santos Custom,9,watch/male/posters/cartier.webp,brand
+male,Casio,casio-classic,Casio Classic,5,watch/male/posters/casio.webp,brand
+male,D1 Milano,d1-milano,D1 Milano,7,watch/male/posters/d1-milano.webp,brand
+male,Rolex,rolex-daytona,Rolex Daytona,3,watch/male/posters/rolex-oyster.webp,brand
+male,Emporio Armani,emporio-armani,Emporio Armani,4,watch/male/posters/emporio-armani.webp,brand
+male,G-Shock,g-shock,G-Shock,26,watch/male/posters/g-shock.webp,brand
+male,Guess,guess-classic,Guess Classic,4,watch/male/posters/guess.webp,brand
+male,Hanboro,hanboro-classic,Hanboro Classic,3,watch/male/posters/hanboro.webp,brand
+male,Tommy Hilfiger,tommy-hilfiger-chronograph,Tommy Hilfiger Chronograph,2,watch/male/posters/tommy-hilfiger.webp,brand
+male,Hublot,hublot-classic-fusion,Hublot Classic Fusion,7,watch/male/watches/hublot-classic-fusion/01.webp,fallback-photo
+male,Hublot,hublot-classic-fusion-ii,Hublot Classic Fusion II,7,watch/male/watches/hublot-classic-fusion-ii/01.webp,fallback-photo
+male,Omega,omega-automatic,Omega Automatic,7,watch/male/posters/omega.webp,brand
+male,Omega,omega-chronograph,Omega Chronograph,9,watch/male/posters/omega.webp,brand
+male,Patek Philippe,patek-philippe-classic,Patek Philippe Classic,5,watch/male/posters/patek-philippe.webp,brand
+male,Patek Philippe,patek-philippe-classic-iii,Patek Philippe Classic III,5,watch/male/posters/patek-philippe.webp,brand
+male,Patek Philippe,patek-philippe-automatic,Patek Philippe Automatic,4,watch/male/posters/patek-philippe.webp,brand
+male,Patek Philippe,patek-philippe-classic-ii,Patek Philippe Classic II,6,watch/male/posters/patek-philippe.webp,brand
+male,Richard Mille,richard-mille,Richard Mille,21,watch/male/posters/richard-mille.webp,brand
+male,Richard Mille,richard-mille-scratch,Richard Mille Scratch,6,watch/male/posters/richard-mille.webp,brand
+male,Rolex,rolex-datejust,Rolex Datejust,5,watch/male/posters/rolex-oyster.webp,brand
+male,Rolex,rolex-gmt-master,Rolex GMT-Master,7,watch/male/posters/rolex-oyster.webp,brand
+male,Rolex,rolex-land-dweller,Rolex Land-Dweller,5,watch/male/posters/rolex-oyster.webp,brand
+male,Rolex,rolex-oyster-perpetual,Rolex Oyster Perpetual,8,watch/male/posters/rolex-oyster.webp,brand
+male,Rolex,rolex-oyster-perpetual-ii,Rolex Oyster Perpetual II,5,watch/male/posters/rolex-oyster.webp,brand
+male,Tissot,tissot-classic,Tissot Classic,5,watch/male/posters/tissot.webp,brand
+female,Rolex,rolex-datejust-two-tone-black-dial,Rolex Datejust Two-Tone Black Dial,10,watch/female/posters/rolex-oyster.webp,override
+female,Bvlgari,bvlgari-serpenti,Bvlgari Serpenti,5,watch/female/posters/bvlgari-serpenti.webp,brand
+female,Cartier,cartier-ballon-bleu,Cartier Ballon Bleu,2,watch/female/watches/cartier-ballon-bleu/01.webp,fallback-photo
+female,Cartier,cartier-baignoire,Cartier Baignoire,10,watch/female/watches/cartier-baignoire/01.webp,fallback-photo
+female,Cartier,cartier-panthere,Cartier Panthere,6,watch/female/watches/cartier-panthere/01.webp,fallback-photo
+female,Cartier,cartier-panthere-classic-square,Cartier Panthere Classic Square,4,watch/female/watches/cartier-panthere-classic-square/01.webp,fallback-photo
+female,Cartier,cartier-panthere-classic,Cartier Panthere Classic,17,watch/female/watches/cartier-panthere-classic/01.webp,fallback-photo
+female,Casio,casio-couple-carre-bleu,Casio Couple Carre Bleu,5,watch/female/watches/casio-couple-carre-bleu/01.webp,fallback-photo
+female,Chanel,chanel-premiere,Chanel Premiere,3,watch/female/posters/chanel-premiere.webp,brand
+female,Daniel Wellington,daniel-wellington,Daniel Wellington,5,watch/female/posters/daniel-wellington.webp,override
+female,Daniel Wellington,daniel-wellington-petite,Daniel Wellington Petite,2,watch/female/posters/dw.webp,override
+female,Emporio Armani,emporio-armani-strass,Emporio Armani Strass,3,watch/female/posters/emporio-armani.webp,brand
+female,Hanboro,hanboro-cuir-gris-rose-gold,Hanboro Cuir Gris Rose Gold,6,watch/female/posters/hanboro.webp,brand
+female,Hanboro,hanboro-cuir-silver,Hanboro Cuir Silver,12,watch/female/posters/hanboro.webp,brand
+female,Hanboro,hanboro-octagone,Hanboro Octagone,10,watch/female/posters/hanboro.webp,brand
+female,IEKE,ieke-hexagonale-strass,IEKE Hexagonale Strass,7,watch/female/posters/ieke.webp,brand
+female,IEKE,ieke-mini-ronde,IEKE Mini Ronde,7,watch/female/posters/ieke.webp,brand
+female,IEKE,ieke-tank-rectangulaire,IEKE Tank Rectangulaire,4,watch/female/posters/ieke.webp,brand
+female,Michael Kors,michael-kors,Michael Kors,3,watch/female/posters/michael-kors.webp,brand
+female,Oliya,oliya,Oliya,8,watch/female/posters/oliya.webp,brand
+female,Patek Philippe,patek-philippe-nautilus,Patek Philippe Nautilus,5,watch/female/posters/patek-philippe.webp,brand
+female,Reloj,reloj-dama-lujo-con-dije,Reloj Dama Lujo Con Dije,3,watch/female/posters/reloj.webp,brand
+female,Rolex,rolex-datejust-cannelee,Rolex Datejust Cannelee,20,watch/female/posters/rolex.webp,override
+female,Tissot,tissot-bellissima,Tissot Bellissima,3,watch/female/posters/tissot.webp,brand
